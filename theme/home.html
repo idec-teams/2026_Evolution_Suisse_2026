@@ -1,0 +1,141 @@
+{#-
+  Homepage. Selected via `template: home.html` in docs/index.md front matter.
+
+  The scroll story is markup-declarative: theme/js/scrolly.js reads
+  [data-scrolly] for the stage and [data-act] for the panels, computes one
+  normalised progress p in [0,1] across the whole track, and calls each
+  registered figure's render(t). Adding an act = one <section data-act> here
+  plus one module in theme/js/figures/.
+-#}
+{% extends "base.html" %}
+
+{% block bodyclass %}page--home{% endblock %}
+
+{% block body %}
+<main class="home" id="content" tabindex="-1">
+
+  {# ── Hero ────────────────────────────────────────────────────────────── #}
+  <section class="hero">
+    <div class="hero__text">
+      <p class="eyebrow">iDEC {{ config.theme.year }} &middot; Evolution Suisse</p>
+      <h1 class="hero__headline">{{ page.meta.headline if page.meta.headline else 'Encapsulins' }}</h1>
+      <p class="hero__standfirst">{{ page.meta.standfirst }}</p>
+      <dl class="hero__facts">
+        <div class="fact"><dt>Target</dt><dd>QtEncapsulin <a href="https://www.rcsb.org/structure/6NJ8" rel="external"><code>6NJ8</code></a></dd></div>
+        <div class="fact"><dt>Platform</dt><dd>MutaT7 continuous evolution</dd></div>
+        <div class="fact"><dt>Selection</dt><dd>dCas9 sequestration &rarr; survival</dd></div>
+      </dl>
+      <p class="hero__actions">
+        <a class="btn btn--primary" href="{{ 'project/mechanism/'|url }}">Read the mechanism</a>
+        <a class="btn" href="{{ 'project/'|url }}">Project overview</a>
+      </p>
+    </div>
+    <div class="hero__figure" data-figure="hero-shell" role="img"
+         aria-label="A stylised encapsulin shell, slowly rotating."></div>
+    <p class="hero__scrollcue" aria-hidden="true"><span>Scroll</span></p>
+  </section>
+
+  {# ── The scroll story ────────────────────────────────────────────────── #}
+  <section class="scrolly" data-scrolly aria-labelledby="scrolly-heading">
+    <h2 class="u-visually-hidden" id="scrolly-heading">How the selection works</h2>
+
+    {#- Sticky stage. Figures mount into the layers; scroll drives render(t). -#}
+    <div class="scrolly__stage" data-scrolly-stage>
+      <div class="scrolly__viewport">
+        <canvas class="scrolly__canvas" data-scrolly-canvas aria-hidden="true"></canvas>
+        <div class="scrolly__svg" data-scrolly-svg aria-hidden="true"></div>
+        <p class="scrolly__actlabel" data-scrolly-label aria-hidden="true"></p>
+      </div>
+    </div>
+
+    {#- Panels. One per act; order here is the order of the story. -#}
+    <div class="scrolly__panels">
+
+      <section class="act" data-act="act1-hypermutation">
+        <p class="act__num">01</p>
+        <h3 class="act__title">Diversify</h3>
+        <p class="act__lede">An orthogonal T7 polymerase mutates one locus and nothing else.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. MutaT7 fuses a
+        deaminase to T7 RNA polymerase, so mutagenesis tracks processively along
+        any cassette placed behind a T7 promoter — and stops at the terminator.</p>
+        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. The
+        host genome, replicated by its own high-fidelity machinery, is untouched.
+        Diversity accumulates continuously, without rounds of transformation.</p>
+        <figcaption class="act__caption">Fig 1. Targeted hypermutation of the encapsulin cassette.</figcaption>
+      </section>
+
+      <section class="act" data-act="act2-silencing">
+        <p class="act__num">02</p>
+        <h3 class="act__title">Silence</h3>
+        <p class="act__lede">dCas9 parks on the resistance gene and throttles transcription.</p>
+        <p>Ut enim ad minim veniam, quis nostrud exercitation. A catalytically dead
+        Cas9, guided by an sgRNA to the antimicrobial-resistance gene, does not
+        cut — it obstructs. Elongating RNA polymerase stalls at the R-loop.</p>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse. The
+        effect is kinetic rather than absolute: resistance protein output falls
+        below the threshold the selective agent demands, and the cell dies.</p>
+        <figcaption class="act__caption">Fig 2. Kinetic repression of the resistance locus by dCas9.</figcaption>
+      </section>
+
+      <section class="act" data-act="act3-rescue">
+        <p class="act__num">03</p>
+        <h3 class="act__title">Encapsulate</h3>
+        <p class="act__lede">A shell that captures dCas9 restores resistance — and survives.</p>
+        <p>Excepteur sint occaecat cupidatat non proident. Sixty encapsulin
+        subunits assemble into a T=1 icosahedral compartment. Cargo bearing a
+        targeting peptide is drawn inside during assembly.</p>
+        <p>Sunt in culpa qui officia deserunt mollit anim id est laborum. Sequester
+        dCas9 or its sgRNA and the operator clears, transcription resumes, and
+        resistance returns. <strong>Survival becomes a direct readout of
+        encapsulation.</strong></p>
+        <figcaption class="act__caption">Fig 3. Shell assembly sequesters the repressor complex.</figcaption>
+      </section>
+
+      <section class="act" data-act="act4-enrichment">
+        <p class="act__num">04</p>
+        <h3 class="act__title">Enrich</h3>
+        <p class="act__lede">Better shells outgrow worse ones, round after round.</p>
+        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur. Because the
+        coupling is continuous, every generation is a selection step. Variants
+        that load cargo faster or hold more of it leave more descendants.</p>
+        <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet. The
+        population distribution walks steadily toward higher encapsulation
+        efficiency, and the survivors are the library.</p>
+        <figcaption class="act__caption">Fig 4. Round-over-round enrichment of the variant population.</figcaption>
+      </section>
+
+    </div>
+  </section>
+
+  {# ── Clickable system map ────────────────────────────────────────────── #}
+  <section class="systemmap" aria-labelledby="systemmap-heading">
+    <div class="systemmap__head">
+      <p class="eyebrow">The system</p>
+      <h2 id="systemmap-heading">Every part, and where it is documented</h2>
+      <p class="standfirst">Select a subsystem to jump to its page.</p>
+    </div>
+
+    <div class="systemmap__figure" data-figure="system-map" data-ratio="160/76"
+         data-hotspots='[
+           {"id":"plasmids",  "label":"Plasmid architecture", "href":"engineering/plasmids/"},
+           {"id":"mutat7",    "label":"MutaT7 platform",      "href":"engineering/cycles/"},
+           {"id":"shell",     "label":"Encapsulin shell",     "href":"project/design/"},
+           {"id":"selection", "label":"Selection circuit",    "href":"project/mechanism/"}
+         ]'></div>
+
+    {#- Always present, never hidden: the graphic is an enhancement, not the only route. -#}
+    <ul class="systemmap__links">
+      <li><a href="{{ 'engineering/plasmids/'|url }}">Plasmid architecture</a></li>
+      <li><a href="{{ 'engineering/cycles/'|url }}">MutaT7 platform</a></li>
+      <li><a href="{{ 'project/design/'|url }}">Encapsulin shell</a></li>
+      <li><a href="{{ 'project/mechanism/'|url }}">Selection circuit</a></li>
+    </ul>
+  </section>
+
+  {# ── Free prose from index.md ────────────────────────────────────────── #}
+  <div class="home__prose">
+    <article class="prose">{{ page.content }}</article>
+  </div>
+
+</main>
+{% endblock %}

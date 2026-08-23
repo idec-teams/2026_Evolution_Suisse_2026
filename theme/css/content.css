@@ -1,0 +1,359 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   content.css — everything the Markdown extensions emit.
+
+   MkDocs ships no CSS for any of it, so each block below is paired with the
+   extension that produces it.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.prose > h1 { margin-bottom: var(--s-2); }
+.prose > h1 + p { font-size: var(--step-1); line-height: 1.5; color: var(--ink-muted); }
+
+/* ── toc permalinks ─────────────────────────────────────── ext: toc ────── */
+.headerlink {
+  margin-left: 0.4em;
+  color: var(--rule-strong);
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+h1:hover .headerlink, h2:hover .headerlink, h3:hover .headerlink,
+h4:hover .headerlink, h5:hover .headerlink, h6:hover .headerlink,
+.headerlink:focus-visible { opacity: 1; }
+.headerlink:hover { color: var(--accent); }
+
+:target { scroll-margin-top: calc(var(--masthead-h) + var(--s-5)); }
+
+/* ── Lists ──────────────────────────────────────────────────────────────── */
+.prose ul, .prose ol { padding-left: 1.4em; }
+.prose li + li { margin-top: var(--s-2); }
+.prose li > ul, .prose li > ol { margin-top: var(--s-2); }
+.prose ::marker { color: var(--accent); }
+
+/* ── Definition lists ───────────────────────────────────── ext: def_list ── */
+.prose dl { display: grid; grid-template-columns: minmax(6rem, 12rem) 1fr; gap: var(--s-3) var(--s-5); }
+.prose dt { font-weight: 600; color: var(--ink); }
+.prose dd { margin: 0; color: var(--ink-muted); }
+
+/* ── Blockquote / pull quote ────────────────────────────────────────────── */
+.prose blockquote {
+  padding-left: var(--s-5);
+  border-left: 2px solid var(--accent);
+  color: var(--ink-muted);
+  font-style: italic;
+}
+.prose blockquote p + p { margin-top: var(--s-4); }
+
+.pullquote {
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  line-height: 1.28;
+  color: var(--ink);
+  font-style: normal;
+  border: 0;
+  padding: var(--s-6) 0;
+  border-block: 1px solid var(--rule);
+  text-wrap: balance;
+}
+
+/* ── Inline code, kbd, abbr ─────────────── ext: inlinehilite, abbr ─────── */
+.prose :not(pre) > code {
+  padding: 0.14em 0.36em;
+  border-radius: 3px;
+  background: var(--paper-sunk);
+  border: 1px solid var(--rule);
+  color: var(--accent-deep);
+  white-space: nowrap;
+}
+.prose kbd {
+  padding: 0.12em 0.42em;
+  border: 1px solid var(--rule-strong);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  background: var(--paper-raised);
+  font-size: 0.85em;
+}
+.prose abbr[title] {
+  text-decoration: underline dotted var(--rule-strong);
+  text-underline-offset: 0.2em;
+  cursor: help;
+}
+
+/* Plasmid / construct chip — a project-specific inline token. */
+.chip {
+  display: inline-block;
+  padding: 0.1em 0.5em;
+  border: 1px solid var(--accent);
+  border-radius: 100px;
+  background: var(--accent-wash);
+  color: var(--accent-deep);
+  font-family: var(--font-mono);
+  font-size: 0.86em;
+  white-space: nowrap;
+}
+
+/* ── Code blocks ──────────────────────── ext: highlight, superfences ───── */
+.prose .highlight, .prose pre {
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-l);
+  background: var(--paper-sunk);
+  overflow: hidden;
+}
+.prose .highlight pre { border: 0; border-radius: 0; margin: 0; }
+.prose pre { padding: var(--s-4) var(--s-5); overflow-x: auto; line-height: 1.55; }
+.prose pre > code { background: none; border: 0; padding: 0; white-space: pre; }
+.prose .highlight .linenos,
+.prose .highlight .lineno {
+  color: var(--ink-faint);
+  user-select: none;
+  padding-right: var(--s-4);
+}
+.prose .highlighttable { width: 100%; border: 0; }
+.prose .highlighttable td { border: 0; padding: 0; }
+
+/* ── Admonitions ─────────────── ext: admonition, pymdownx.details ──────── */
+.admonition, details.admonition, .prose details {
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--sig-note);
+  border-radius: var(--radius-l);
+  background: var(--paper-raised);
+  padding: var(--s-4) var(--s-5);
+  font-size: var(--step--1);
+}
+.admonition > :first-child, .prose details > :first-child { margin-top: 0; }
+.admonition p + p, .prose details p + p { margin-top: var(--s-3); }
+
+.admonition-title, .prose summary {
+  font-family: var(--font-body);
+  font-weight: 650;
+  font-size: var(--step--1);
+  letter-spacing: 0.01em;
+  color: var(--sig-note);
+  margin: 0 0 var(--s-2);
+}
+.prose summary { cursor: pointer; list-style-position: outside; }
+.prose details[open] > summary { margin-bottom: var(--s-3); }
+
+.admonition.tip,      .prose details.tip,      .admonition.protocol, .prose details.protocol { border-left-color: var(--sig-protocol); }
+.admonition.tip .admonition-title,      .prose details.tip > summary,
+.admonition.protocol .admonition-title, .prose details.protocol > summary { color: var(--sig-protocol); }
+
+.admonition.warning, .prose details.warning, .admonition.caution, .prose details.caution,
+.admonition.danger,  .prose details.danger { border-left-color: var(--sig-caution); }
+.admonition.warning .admonition-title, .prose details.warning > summary,
+.admonition.caution .admonition-title, .prose details.caution > summary,
+.admonition.danger .admonition-title,  .prose details.danger > summary { color: var(--sig-caution); }
+
+.admonition.result, .prose details.result, .admonition.example, .prose details.example { border-left-color: var(--sig-result); }
+.admonition.result .admonition-title,  .prose details.result > summary,
+.admonition.example .admonition-title, .prose details.example > summary { color: var(--sig-result); }
+
+/* ── Tables ──────────────────────────────────────────────── ext: tables ── */
+.table-scroll {
+  overflow-x: auto;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-l);
+  scrollbar-width: thin;
+}
+.table-scroll:focus-visible { outline-offset: 0; }
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--step--1);
+  font-variant-numeric: tabular-nums;
+}
+.prose th, .prose td {
+  padding: var(--s-3) var(--s-4);
+  text-align: left;
+  border-bottom: 1px solid var(--rule);
+}
+.prose thead th {
+  background: var(--paper-sunk);
+  font-size: var(--step--2);
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+}
+.prose tbody tr:last-child td { border-bottom: 0; }
+.prose tbody tr:nth-child(even) { background: color-mix(in srgb, var(--paper-sunk) 55%, transparent); }
+
+/* Sortable columns — theme/js/tables.js */
+.prose th[data-sort] { cursor: pointer; user-select: none; }
+.prose th[data-sort]::after {
+  content: "↕";
+  margin-left: 0.4em;
+  color: var(--rule-strong);
+  font-size: 0.9em;
+}
+.prose th[data-sort][aria-sort="ascending"]::after  { content: "↑"; color: var(--accent); }
+.prose th[data-sort][aria-sort="descending"]::after { content: "↓"; color: var(--accent); }
+
+/* ── Figures ────────────────────────────── ext: md_in_html, attr_list ──── */
+.prose figure {
+  display: grid;
+  gap: var(--s-3);
+}
+.prose figure > svg,
+.prose figure > img {
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-l);
+  background: var(--paper-sunk);
+  overflow: hidden;
+  width: 100%;
+}
+
+/* The drawing surface theme/js/figure.js inserts ahead of the caption.
+   It needs an intrinsic size of its own: a canvas or SVG with no sized parent
+   collapses, and the figure renders as a sliver. Override per figure with
+   data-ratio="16/9". */
+.figure__frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-l);
+  background: var(--paper-sunk);
+  overflow: hidden;
+}
+.figure__frame > canvas,
+.figure__frame > svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.prose figcaption {
+  font-size: var(--step--1);
+  line-height: 1.5;
+  color: var(--ink-muted);
+  text-wrap: pretty;
+}
+.prose figcaption strong:first-child { color: var(--ink); }
+
+/* A [data-figure] block whose module never mounted has no frame at all — the
+   caption still renders, and nothing else on the page is affected. */
+
+/* ── Footnotes ─────────────────────────────────────────── ext: footnotes ── */
+.prose .footnote {
+  grid-column: text;
+  margin-top: var(--s-9);
+  padding-top: var(--s-5);
+  border-top: 1px solid var(--rule);
+  font-size: var(--step--1);
+  color: var(--ink-muted);
+}
+.prose .footnote hr { display: none; }
+.prose .footnote ol { padding-left: 1.2em; }
+.prose .footnote li { scroll-margin-top: calc(var(--masthead-h) + var(--s-5)); }
+.prose .footnote li:target { background: var(--accent-wash); border-radius: var(--radius); }
+.footnote-ref { text-decoration: none; font-weight: 600; padding-inline: 0.1em; }
+.footnote-backref { text-decoration: none; margin-left: 0.3em; }
+
+/* ── Math ────────────────────────────────────── ext: arithmatex generic ── */
+div.arithmatex { overflow-x: auto; overflow-y: hidden; padding-block: var(--s-2); }
+
+/* MathJax renders each expression as an <svg> inside <mjx-container>. The
+   global `svg { display: block; max-width: 100% }` reset in base.css would put
+   every inline expression on its own line and clamp wide display equations, so
+   undo it here specifically. */
+mjx-container svg { display: inline-block; max-width: none; }
+mjx-container[display="true"] {
+  display: block;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-block: var(--s-3);
+  margin: 0;
+}
+mjx-container:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* ── Tabs ────────────────────────────────── ext: tabbed, alternate_style ── */
+.tabbed-set {
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-l);
+  overflow: hidden;
+}
+.tabbed-set > input { position: absolute; opacity: 0; width: 0; height: 0; }
+.tabbed-labels {
+  display: flex;
+  width: 100%;
+  overflow-x: auto;
+  background: var(--paper-sunk);
+  border-bottom: 1px solid var(--rule);
+  scrollbar-width: none;
+}
+.tabbed-labels > label {
+  padding: var(--s-3) var(--s-5);
+  border-bottom: 2px solid transparent;
+  color: var(--ink-muted);
+  font-size: var(--step--1);
+  font-weight: 550;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.tabbed-labels > label:hover { color: var(--ink); }
+.tabbed-content { width: 100%; }
+.tabbed-block { display: none; padding: var(--s-5); }
+.tabbed-block > :first-child { margin-top: 0; }
+
+.tabbed-set > input:nth-child(1):checked ~ .tabbed-labels > label:nth-child(1),
+.tabbed-set > input:nth-child(2):checked ~ .tabbed-labels > label:nth-child(2),
+.tabbed-set > input:nth-child(3):checked ~ .tabbed-labels > label:nth-child(3),
+.tabbed-set > input:nth-child(4):checked ~ .tabbed-labels > label:nth-child(4),
+.tabbed-set > input:nth-child(5):checked ~ .tabbed-labels > label:nth-child(5),
+.tabbed-set > input:nth-child(6):checked ~ .tabbed-labels > label:nth-child(6) {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+.tabbed-set > input:nth-child(1):checked ~ .tabbed-content > .tabbed-block:nth-child(1),
+.tabbed-set > input:nth-child(2):checked ~ .tabbed-content > .tabbed-block:nth-child(2),
+.tabbed-set > input:nth-child(3):checked ~ .tabbed-content > .tabbed-block:nth-child(3),
+.tabbed-set > input:nth-child(4):checked ~ .tabbed-content > .tabbed-block:nth-child(4),
+.tabbed-set > input:nth-child(5):checked ~ .tabbed-content > .tabbed-block:nth-child(5),
+.tabbed-set > input:nth-child(6):checked ~ .tabbed-content > .tabbed-block:nth-child(6) {
+  display: block;
+}
+.tabbed-labels > label:focus-within { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+/* ── Metric tiles ───────────────────────────────────────────────────────── */
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: var(--s-4);
+  list-style: none;
+  padding: 0;
+}
+.metrics li {
+  margin: 0;
+  padding: var(--s-4) var(--s-5);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-l);
+  background: var(--paper-raised);
+}
+.metrics b {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+.metrics span {
+  display: block;
+  margin-top: var(--s-2);
+  font-size: var(--step--2);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+@media (max-width: 560px) {
+  .prose dl { grid-template-columns: minmax(0, 1fr); gap: var(--s-1); }
+  .prose dd { margin-bottom: var(--s-3); }
+}

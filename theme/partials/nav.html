@@ -1,0 +1,29 @@
+{#-
+  Recursive navigation tree.
+
+  Two MkDocs shapes to code around:
+    * Section has NO .url  -> must branch on is_section before touching .url
+    * Page/Link have .children is None (not []) -> `{% if item.children %}` guard
+  Page.url is relative to site_dir and needs the |url filter; Link.url is raw.
+-#}
+{% macro navtree(items, level=1) %}
+<ul class="nav__list nav__list--l{{ level }}">
+  {%- for item in items %}
+    {%- if item.is_section %}
+      <li class="nav__section{% if item.active %} is-active{% endif %}">
+        <span class="nav__label">{{ item.title }}</span>
+        {%- if item.children %}{{ navtree(item.children, level + 1) }}{% endif %}
+      </li>
+    {%- elif item.is_link %}
+      <li class="nav__item">
+        <a class="nav__link" href="{{ item.url }}" rel="external">{{ item.title }}</a>
+      </li>
+    {%- else %}
+      <li class="nav__item">
+        <a class="nav__link{% if item.active %} is-current{% endif %}"
+           href="{{ item.url|url }}"{% if item.active %} aria-current="page"{% endif %}>{{ item.title }}</a>
+      </li>
+    {%- endif %}
+  {%- endfor %}
+</ul>
+{% endmacro %}

@@ -1,15 +1,52 @@
 name: ci
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: write
+
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
-          python-version: 3.x
-      - run: pip install mkdocs-material
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - run: pip install -r requirements.txt
+
+      # --strict turns MkDocs' warnings into errors, so a broken internal link
+      # or a page missing from the nav fails the build instead of shipping.
+      - name: Build (strict)
+        run: mkdocs build --strict
+
+      # The site must stay free of third-party runtime requests: it has to
+      # render offline and survive someone else's CDN outage mid-judging.
+      - name: Check for external runtime dependencies
+        run: |
+          if grep -rIoE '(src|href)="https?://[^"]+' site --include='*.html' \
+             | grep -vE 'idec-teams\.github\.io|rcsb\.org|github\.com|mkdocs\.org|w3\.org'; then
+            echo "::error::External runtime dependency found in built site (see above)."
+            exit 1
+          fi
+          echo "No external runtime dependencies."
+
+  deploy:
+    needs: build
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: requirements.txt
+      - run: pip install -r requirements.txt
       - run: mkdocs gh-deploy --force --config-file ./mkdocs.yml

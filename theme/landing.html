@@ -1,0 +1,50 @@
+{#-
+  Section landing page. Selected per-page with `template: landing.html` in the
+  Markdown front matter — this is core MkDocs behaviour (_build_page reads
+  page.meta.template), not a plugin.
+
+  Optional front matter: eyebrow, headline, standfirst.
+-#}
+{% extends "base.html" %}
+
+{% block bodyclass %}page--landing{% endblock %}
+
+{% block body %}
+<main class="landing" id="content" tabindex="-1">
+
+  <header class="landing__hero">
+    <div class="landing__heroinner">
+      {%- if page and page.meta.eyebrow %}
+      <p class="eyebrow">{{ page.meta.eyebrow }}</p>
+      {%- endif %}
+      <h1 class="landing__headline">{{ page.meta.headline if page and page.meta.headline else (page.title if page) }}</h1>
+      {%- if page and page.meta.standfirst %}
+      <p class="standfirst">{{ page.meta.standfirst }}</p>
+      {%- endif %}
+    </div>
+  </header>
+
+  {#- Cards for every sibling page in this section. -#}
+  {%- if page and page.parent and page.parent.children %}
+  <nav class="cardgrid" aria-label="{{ page.parent.title }} pages">
+    {%- for child in page.parent.children %}
+      {%- if child.is_page and not child.is_index %}
+    <a class="card" href="{{ child.url|url }}">
+      <span class="card__index">{{ '%02d'|format(loop.index - 1) }}</span>
+      <span class="card__title">{{ child.title }}</span>
+      {%- if child.meta and child.meta.summary %}
+      <span class="card__summary">{{ child.meta.summary }}</span>
+      {%- endif %}
+      <span class="card__go" aria-hidden="true">&rarr;</span>
+    </a>
+      {%- endif %}
+    {%- endfor %}
+  </nav>
+  {%- endif %}
+
+  <article class="prose prose--landing">
+    {{ page.content if page }}
+  </article>
+
+</main>
+{% endblock %}

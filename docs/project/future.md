@@ -1,13 +1,13 @@
 ---
-title: Background
-summary: Encapsulins, what they already do, and the gap this project addresses.
+title: Future work
+summary: What we would do next with more time and more selective agents.
 ---
 
-# Background
+# Future work
 
-Encapsulins, what they already do, and the gap this project addresses.
+What we would do next with more time and more selective agents.
 
-## Protein nanocompartments
+## Broadening the cargo range
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -20,13 +20,13 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
 dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
 sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-## Prior engineering efforts
+## Orthogonal selections
 
 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
 doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
 veritatis et quasi architecto beatae vitae dicta sunt explicabo.
 
-## Where the field falls short
+## Toward delivery
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,

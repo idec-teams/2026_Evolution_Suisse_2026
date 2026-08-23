@@ -1,0 +1,4 @@
+# Evolution Suisse 2026 wiki — build dependencies.
+# Pure Python: no npm, no bundler. `pip install -r requirements.txt && mkdocs serve`
+mkdocs~=1.6
+pymdown-extensions~=10.9

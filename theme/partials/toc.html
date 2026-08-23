@@ -1,0 +1,30 @@
+{#-
+  AnchorLink: .title (HTML, not plain text), .id, .url ('#'+id), .level
+  (ZERO-based relative to the page's toc, not the <hN> number), .children.
+
+  A leading `# H1` becomes a single root item whose children are the H2s, so we
+  flatten one level when that is the shape.
+-#}
+{%- if page and page.toc|length %}
+{%- set roots = page.toc|list %}
+{%- set entries = roots[0].children if roots|length == 1 and roots[0].children else roots %}
+{%- if entries|length %}
+<nav class="toc" aria-labelledby="toc-heading">
+  <h2 class="toc__heading" id="toc-heading">On this page</h2>
+  <ul class="toc__list">
+    {%- for item in entries %}
+    <li class="toc__item">
+      <a class="toc__link" href="{{ item.url }}">{{ item.title|safe }}</a>
+      {%- if item.children %}
+      <ul class="toc__list toc__list--sub">
+        {%- for child in item.children %}
+        <li class="toc__item"><a class="toc__link" href="{{ child.url }}">{{ child.title|safe }}</a></li>
+        {%- endfor %}
+      </ul>
+      {%- endif %}
+    </li>
+    {%- endfor %}
+  </ul>
+</nav>
+{%- endif %}
+{%- endif %}

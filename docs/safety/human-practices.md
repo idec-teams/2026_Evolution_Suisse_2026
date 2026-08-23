@@ -1,13 +1,13 @@
 ---
-title: Background
-summary: Encapsulins, what they already do, and the gap this project addresses.
+title: Human practices
+summary: Who we spoke to, and how it changed the project.
 ---
 
-# Background
+# Human practices
 
-Encapsulins, what they already do, and the gap this project addresses.
+Who we spoke to, and how it changed the project.
 
-## Protein nanocompartments
+## Conversations
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -20,13 +20,13 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
 dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
 sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-## Prior engineering efforts
+## What changed
 
 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
 doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
 veritatis et quasi architecto beatae vitae dicta sunt explicabo.
 
-## Where the field falls short
+## Open questions
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,

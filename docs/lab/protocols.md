@@ -1,13 +1,13 @@
 ---
-title: Background
-summary: Encapsulins, what they already do, and the gap this project addresses.
+title: Protocols
+summary: Protocols as actually run, not as originally planned.
 ---
 
-# Background
+# Protocols
 
-Encapsulins, what they already do, and the gap this project addresses.
+Protocols as actually run, not as originally planned.
 
-## Protein nanocompartments
+## Transformation and recovery
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -20,13 +20,13 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
 dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
 sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-## Prior engineering efforts
+## Continuous culture
 
 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
 doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
 veritatis et quasi architecto beatae vitae dicta sunt explicabo.
 
-## Where the field falls short
+## Sequencing prep
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,

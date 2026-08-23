@@ -1,0 +1,84 @@
+{#-
+  base.html — the shared skeleton for every page.
+
+  Never rendered directly. MkDocs only renders main.html, templates named in a
+  page's `template:` front matter, and anything in theme.static_templates.
+
+  CRITICAL: `page` is None for static templates (404.html, sitemap.xml). Every
+  fragment below that touches `page` is guarded. An unguarded access makes the
+  template render empty, and MkDocs then silently writes no file at all.
+-#}
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{% block title %}
+    {%- if page and page.title and not page.is_homepage -%}
+      {{ page.title }} · {{ config.site_name }}
+    {%- else -%}
+      {{ config.site_name }}{% if config.theme.tagline %} · {{ config.theme.tagline }}{% endif %}
+    {%- endif -%}
+  {% endblock %}</title>
+
+  <meta name="description" content="{% if page and page.meta.description %}{{ page.meta.description }}{% else %}{{ config.site_description }}{% endif %}">
+  {% if config.site_author %}<meta name="author" content="{{ config.site_author }}">{% endif %}
+  {% if page and page.canonical_url %}<link rel="canonical" href="{{ page.canonical_url }}">{% endif %}
+
+  {#- Flip the no-js class before first paint so CSS can branch on it. -#}
+  <script>document.documentElement.classList.replace('no-js','js');</script>
+
+  <link rel="icon" href="{{ 'img/favicon.svg'|url }}" type="image/svg+xml">
+  {#- Linked individually rather than @import-chained: @import forces serial
+      round trips, these download in parallel. Order is cascade order. -#}
+  {%- for sheet in ['fonts', 'tokens', 'base', 'layout', 'nav', 'content', 'syntax', 'home', 'search'] %}
+  <link rel="stylesheet" href="{{ ('css/' ~ sheet ~ '.css')|url }}">
+  {%- endfor %}
+
+  {#- Preload the two faces used above the fold. -#}
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="{{ 'fonts/fraunces-var.woff2'|url }}">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="{{ 'fonts/inter-var.woff2'|url }}">
+
+  {#- base_url must be a global and must be defined BEFORE search/main.js runs:
+      it constructs its Worker from joinUrl(base_url, "search/worker.js"). -#}
+  <script>var base_url = {{ base_url|tojson }};</script>
+
+  {% for path in extra_css %}<link rel="stylesheet" href="{{ path }}">{% endfor %}
+  {% block extrahead %}{% endblock %}
+</head>
+
+<body class="{% block bodyclass %}page--doc{% endblock %}"
+      {% if page %}data-page="{{ page.url }}"{% endif %}>
+
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  {% include "partials/header.html" %}
+
+  {% block body %}{% endblock %}
+
+  {% include "partials/footer.html" %}
+  {% include "partials/search.html" %}
+
+  <script type="module" src="{{ 'js/app.js'|url }}"></script>
+
+  {#- This loop is not optional: the search plugin appends search/main.js to
+      extra_javascript at config time, so removing it removes search. -#}
+  {% for script in extra_javascript %}{{ script|script_tag }}{% endfor %}
+
+  {#- MathJax, self-hosted and loaded only on pages that actually contain math.
+      arithmatex(generic) wraps every expression in .arithmatex, so the page
+      content is a reliable test — this saves ~1.5 MB on every other page.
+
+      The SVG output bundle, not CHTML: CHTML fetches 23 separate webfont files
+      at render time, which would reintroduce a pile of extra requests (and, if
+      vendored, ~700 KB of fonts). SVG embeds its glyph outlines, so this single
+      file is genuinely self-contained. -#}
+  {%- if page and page.content and 'arithmatex' in page.content %}
+  <script src="{{ 'js/mathjax-config.js'|url }}"></script>
+  <script id="MathJax-script" async src="{{ 'js/vendor/tex-mml-svg.js'|url }}"></script>
+  {%- endif %}
+
+  {% block extrascripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,14 @@
+{%- if page and page.ancestors %}
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <ol class="breadcrumb__list">
+    <li class="breadcrumb__item"><a href="{{ nav.homepage.url|url if nav.homepage else base_url }}">Home</a></li>
+    {%- for parent in page.ancestors|reverse %}
+    <li class="breadcrumb__item">
+      {%- if parent.is_page %}<a href="{{ parent.url|url }}">{{ parent.title }}</a>
+      {%- else %}<span>{{ parent.title }}</span>{% endif %}
+    </li>
+    {%- endfor %}
+    <li class="breadcrumb__item breadcrumb__item--current" aria-current="page">{{ page.title }}</li>
+  </ol>
+</nav>
+{%- endif %}

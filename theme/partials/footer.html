@@ -1,0 +1,38 @@
+<footer class="colophon">
+  <div class="colophon__inner">
+
+    <div class="colophon__brand">
+      <span class="colophon__name">{{ config.site_name }}</span>
+      {%- if config.theme.tagline %}<span class="colophon__tagline">{{ config.theme.tagline }}</span>{% endif %}
+    </div>
+
+    <nav class="colophon__nav" aria-label="Footer">
+      {%- for item in nav %}
+        {%- if item.is_section and item.children %}
+      <div class="colophon__group">
+        <h2 class="colophon__grouphead">{{ item.title }}</h2>
+        <ul>
+          {%- for child in item.children %}
+            {%- if child.is_page and not child.is_index %}
+          <li><a href="{{ child.url|url }}">{{ child.title }}</a></li>
+            {%- endif %}
+          {%- endfor %}
+        </ul>
+      </div>
+        {%- endif %}
+      {%- endfor %}
+    </nav>
+
+    <div class="colophon__meta">
+      {%- if page and page.edit_url %}
+      <a class="colophon__edit" href="{{ page.edit_url }}" rel="external">Edit this page</a>
+      {%- endif %}
+      <p class="colophon__legal">{{ config.copyright }}</p>
+      <p class="colophon__built">
+        Built {{ build_date_utc.strftime('%Y-%m-%d') }} with
+        <a href="https://www.mkdocs.org/" rel="external">MkDocs</a>.
+      </p>
+    </div>
+
+  </div>
+</footer>

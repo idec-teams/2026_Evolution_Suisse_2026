@@ -1,0 +1,102 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   tokens.css — the single source of truth for colour, type and space.
+
+   No literal hex value belongs in any other stylesheet or figure module.
+   Figures read these via getComputedStyle so SVG and canvas stay in step with
+   the palette automatically.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Surfaces ───────────────────────────────────────────────────────── */
+  --paper:        #FAF8F4;   /* page ground, warm off-white */
+  --paper-sunk:   #F2EFE8;   /* figure wells, code blocks, table zebra */
+  --paper-raised: #FFFFFF;   /* cards, sticky header */
+  --rule:         #DFD9CE;   /* decorative hairlines */
+  --rule-strong:  #BFB6A6;   /* heavier decorative rules — NOT for UI edges */
+  --edge:         #8C8579;   /* outlined controls — 3.1:1, meets WCAG 1.4.11 */
+
+  /* ── Ink ────────────────────────────────────────────────────────────── */
+  --ink:          #14171C;   /* body text       — 16.9:1 on paper */
+  --ink-muted:    #5B6068;   /* captions, meta  —  6.0:1 on paper, 5.5:1 on sunk */
+  --ink-faint:    #8C9099;   /* non-text only   —  3.0:1, never for prose */
+
+  /* ── Accent: oxidised copper ──────────────────────────────────────────────
+     --accent is set as text on three different grounds (paper, paper-sunk and
+     accent-wash), so it is tuned to clear 4.5:1 against the *worst* of them
+     rather than against paper alone — an accent that only passes on paper
+     fails silently the moment it lands on a card or an active nav item.
+     ─────────────────────────────────────────────────────────────────────── */
+  --accent:       #A84D1C;   /* links, rules, primary figure hue — 4.7:1 worst */
+  --accent-deep:  #8A3D14;   /* hover, active — 6.6:1 worst */
+  --accent-wash:  #F8EDE6;   /* selected nav, callout grounds */
+
+  /* ── Figure encoding ────────────────────────────────────────────────────
+     These seven hues are the project's visual vocabulary. They mean the same
+     thing in every figure on every page. Hue carries identity; saturation and
+     opacity carry state. Do not invent a new hue without adding it here.
+     ─────────────────────────────────────────────────────────────────────── */
+  --enc-shell:    #A84D1C;   /* encapsulin capsid */
+  --enc-cargo:    #2F6F5E;   /* cargo protein / mRNA */
+  --enc-cas:      #4B4E9C;   /* dCas9 */
+  --enc-sgrna:    #A8823C;   /* sgRNA */
+  --enc-resist:   #2F6F5E;   /* resistance expressed = alive */
+  --enc-dead:     #9A9A97;   /* silenced / dead cell */
+  --enc-mutate:   #C2334D;   /* MutaT7 hypermutation events */
+
+  /* ── Semantic callouts ──────────────────────────────────────────────── */
+  --sig-note:    #4B4E9C;
+  --sig-protocol:#2F6F5E;
+  --sig-caution: #A84D1C;
+  --sig-result:  #6A4C93;
+
+  /* ── Type families ──────────────────────────────────────────────────── */
+  --font-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino,
+                  Georgia, "Times New Roman", serif;
+  --font-body:    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+                  Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono",
+                  Menlo, Consolas, "Liberation Mono", monospace;
+
+  /* ── Fluid type scale (major third, 16→18px body) ───────────────────── */
+  --step--2: clamp(0.694rem, 0.67rem + 0.12vw, 0.750rem);
+  --step--1: clamp(0.833rem, 0.80rem + 0.16vw, 0.889rem);
+  --step-0:  clamp(1.000rem, 0.96rem + 0.20vw, 1.125rem);
+  --step-1:  clamp(1.250rem, 1.17rem + 0.40vw, 1.500rem);
+  --step-2:  clamp(1.563rem, 1.42rem + 0.71vw, 2.000rem);
+  --step-3:  clamp(1.953rem, 1.71rem + 1.21vw, 2.667rem);
+  --step-4:  clamp(2.441rem, 2.03rem + 2.06vw, 3.556rem);
+  --step-5:  clamp(3.052rem, 2.38rem + 3.36vw, 4.741rem);
+
+  /* ── Space scale (4px base) ─────────────────────────────────────────── */
+  --s-1:  0.25rem;  --s-2:  0.5rem;   --s-3:  0.75rem;  --s-4:  1rem;
+  --s-5:  1.5rem;   --s-6:  2rem;     --s-7:  2.5rem;   --s-8:  3rem;
+  --s-9:  4rem;     --s-10: 6rem;     --s-11: 8rem;     --s-12: 12rem;
+
+  /* ── Measure & layout ───────────────────────────────────────────────── */
+  --measure:      68ch;
+  --sidebar-w:    16rem;
+  --rail-w:       14rem;
+  --masthead-h:   3.75rem;
+  --gutter:       clamp(1.25rem, 4vw, 2.5rem);
+
+  /* ── Depth & motion ─────────────────────────────────────────────────── */
+  --shadow-1: 0 1px 2px rgb(20 23 28 / 0.05);
+  --shadow-2: 0 2px 4px rgb(20 23 28 / 0.05), 0 8px 24px rgb(20 23 28 / 0.06);
+  --shadow-3: 0 4px 8px rgb(20 23 28 / 0.06), 0 24px 56px rgb(20 23 28 / 0.10);
+  --radius:   4px;
+  --radius-l: 8px;
+  --ease:     cubic-bezier(0.32, 0.72, 0, 1);
+  --dur:      240ms;
+}
+
+/* Honour the OS setting globally. Individual figures also check this in JS and
+   render a meaningful static end-state rather than nothing. */
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur: 1ms; }
+  *, *::before, *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+  }
+}

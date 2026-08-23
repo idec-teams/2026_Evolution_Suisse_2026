@@ -1,0 +1,24 @@
+{#-
+  Static template (declared in mkdocs.yml theme.static_templates).
+
+  `page` is None here. Every included partial must be {% if page %}-guarded,
+  and if this renders to whitespace MkDocs writes NO FILE, silently.
+
+  base_url on error templates is urlsplit(site_url).path — which is why
+  site_url must be set, or every asset link here breaks on the project subpath.
+-#}
+{% extends "base.html" %}
+
+{% block title %}Page not found · {{ config.site_name }}{% endblock %}
+{% block bodyclass %}page--error{% endblock %}
+
+{% block body %}
+<main class="errorpage" id="content" tabindex="-1">
+  <p class="eyebrow">Error 404</p>
+  <h1 class="errorpage__code">404</h1>
+  <p class="errorpage__msg">That page doesn&rsquo;t exist — it may have been renamed or not written yet.</p>
+  <p class="errorpage__actions">
+    <a class="btn" href="{{ base_url }}">Back to the homepage</a>
+  </p>
+</main>
+{% endblock %}

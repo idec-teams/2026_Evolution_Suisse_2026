@@ -1,13 +1,13 @@
 ---
-title: Background
-summary: Encapsulins, what they already do, and the gap this project addresses.
+title: Design
+summary: The shell we chose, the cargo we target, and why QtEncapsulin.
 ---
 
-# Background
+# Design
 
-Encapsulins, what they already do, and the gap this project addresses.
+The shell we chose, the cargo we target, and why QtEncapsulin.
 
-## Protein nanocompartments
+## Choosing QtEncapsulin
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -20,13 +20,13 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
 dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
 sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-## Prior engineering efforts
+## Cargo-loading peptides
 
 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
 doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
 veritatis et quasi architecto beatae vitae dicta sunt explicabo.
 
-## Where the field falls short
+## Design constraints
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,

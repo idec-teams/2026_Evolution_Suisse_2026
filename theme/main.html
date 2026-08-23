@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{#- `with context` is REQUIRED: MkDocs' |url filter is @pass_context and reads
+   context['page'] / context['base_url']. A plain {% import %} gives the macro a
+   bare context and every |url call raises KeyError: 'page'. -#}
+{% import "partials/nav.html" as navmacro with context %}
+
+{% block bodyclass %}page--doc{% endblock %}
+
+{% block body %}
+<div class="shell">
+
+  <aside class="sidebar" id="sidebar" data-drawer>
+    <div class="sidebar__inner">
+      <nav class="nav" aria-label="Site navigation">
+        {{ navmacro.navtree(nav) }}
+      </nav>
+    </div>
+  </aside>
+  <div class="drawer-scrim" data-drawer-close hidden></div>
+
+  <main class="doc" id="content" tabindex="-1">
+    {% include "partials/breadcrumb.html" %}
+
+    <article class="prose">
+      {% block content %}{{ page.content if page }}{% endblock %}
+    </article>
+
+    {% include "partials/pager.html" %}
+  </main>
+
+  <div class="rail">
+    <div class="rail__inner">
+      {% include "partials/toc.html" %}
+    </div>
+  </div>
+
+</div>
+{% endblock %}

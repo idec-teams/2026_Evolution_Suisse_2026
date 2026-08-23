@@ -1,50 +1,112 @@
-site_name: iDEC 2026 | Evolution Suisse 2026
+# ─────────────────────────────────────────────────────────────────────────────
+# Evolution Suisse 2026 — iDEC team wiki
+#
+# Bespoke theme (theme/), pure-Python build, zero external runtime dependencies.
+#   pip install -r requirements.txt && mkdocs serve
+# ─────────────────────────────────────────────────────────────────────────────
 
-theme:
-  name: material
-  logo: img/idec-wiki-logo-white-bg.png
-  favicon: img/idec-wiki-logo.png
+site_name: Evolution Suisse 2026
+site_description: >-
+  Continuous directed evolution of QtEncapsulin nanocompartments for programmable
+  mRNA and protein cargo loading. iDEC 2026, Evolution Suisse.
+site_author: Evolution Suisse 2026
 
-  palette:
-    primary: light blue
-    accent: blue
-
-  features:
-    - navigation.sections
-
-markdown_extensions:
-  - footnotes
-
-  # For MathJax
-  - pymdownx.arithmatex:
-      generic: true
-
-  # For buttons and image control
-  - attr_list
-
-extra_javascript:
-  # For MathJax: https://squidfunk.github.io/mkdocs-material/reference/mathjax/
-  - javascripts/config.js
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
-  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-
-  # For sortable data tables: https://squidfunk.github.io/mkdocs-material/reference/data-tables/
-  - https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js
-  - javascripts/tables.js
-
-edit_uri: blob/main/docs/
+# Required, not optional. Without it, 404.html is built with base_url='/' and
+# renders unstyled on the GitHub Pages project subpath. Trailing slash matters.
+site_url: https://idec-teams.github.io/2026_Evolution_Suisse_2026/
 
 repo_url: https://github.com/idec-teams/2026_Evolution_Suisse_2026
+repo_name: idec-teams/2026_Evolution_Suisse_2026
+edit_uri: blob/main/docs/
 
-copyright: Copyright &copy; 2026 iDEC. CC-BY-4.0 | The International Directed Evolution Competition (iDEC) is a Scottish Charitable Incorporate Organisation (SCIO), registered in Scotland, with charity number：SC050826
+copyright: >-
+  Copyright &copy; 2026 iDEC. CC-BY-4.0 &middot; The International Directed Evolution
+  Competition (iDEC) is a Scottish Charitable Incorporated Organisation (SCIO),
+  registered in Scotland, charity number SC050826.
+
+theme:
+  # `name` is a MANDATORY key even when null. Omitting it inside a `theme:`
+  # mapping is a fatal ValidationError, not a fallback to the default theme.
+  name: null
+  custom_dir: theme/
+
+  # MANDATORY. Without this, theme/404.html is never built. It cannot be
+  # declared in theme/mkdocs_theme.yml — that file is never read from custom_dir.
+  static_templates:
+    - 404.html
+
+  # Free-form keys below are readable in templates as config.theme.<key>
+  short_name: Evolution Suisse
+  year: "2026"
+  tagline: Directed evolution of a protein nanocompartment
+
+plugins:
+  # Re-listed explicitly: declaring any `plugins:` key replaces the implicit
+  # default of ['search'], which would silently remove search from the site.
+  - search
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: "#"
+      permalink_title: Link to this section
+      toc_depth: 2-4
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem
+  - pymdownx.caret
+  - pymdownx.tilde
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+# Theme CSS/JS live in theme/ and are linked directly from base.html with the
+# |url filter. These lists stay empty for our own assets — but the loops MUST
+# remain in base.html, because the search plugin appends search/main.js here.
+extra_css: []
+extra_javascript: []
+
+# Authoring reference — deliberately not in the nav.
+not_in_nav: |
+  _authoring.md
 
 nav:
   - Home: index.md
-  - Team: team.md
   - Project:
+      - project/index.md
       - Background: project/background.md
+      - Design: project/design.md
+      - Mechanism: project/mechanism.md
       - Results: project/results.md
-  - Documentation:
-      - Protocols: documentation/protocols.md
-      - Lab notebook: documentation/notebook.md
-  - Some useful features: useful_features.md
+      - Future work: project/future.md
+  - Engineering:
+      - engineering/index.md
+      - Plasmids: engineering/plasmids.md
+      - Constructs: engineering/constructs.md
+      - Evolution cycles: engineering/cycles.md
+  - Lab:
+      - lab/index.md
+      - Protocols: lab/protocols.md
+      - Notebook: lab/notebook.md
+      - Data: lab/data.md
+  - Team:
+      - team/index.md
+      - Members: team/members.md
+      - Attributions: team/attributions.md
+      - Sponsors: team/sponsors.md
+  - Safety:
+      - safety/index.md
+      - Biosafety: safety/biosafety.md
+      - Human practices: safety/human-practices.md
