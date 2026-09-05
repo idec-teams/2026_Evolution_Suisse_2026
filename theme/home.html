@@ -55,12 +55,13 @@
         <p class="act__num">01</p>
         <h3 class="act__title">Diversify</h3>
         <p class="act__lede">An orthogonal T7 polymerase mutates one locus and nothing else.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. MutaT7 fuses a
-        deaminase to T7 RNA polymerase, so mutagenesis tracks processively along
-        any cassette placed behind a T7 promoter — and stops at the terminator.</p>
-        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. The
-        host genome, replicated by its own high-fidelity machinery, is untouched.
-        Diversity accumulates continuously, without rounds of transformation.</p>
+        <p>MutaT7 fuses a nucleotide deaminase to T7 RNA polymerase, so mutagenesis
+        tracks processively along any cassette placed behind a T7 promoter — and
+        stops at the terminator. We put the encapsulin gene, and only the
+        encapsulin gene, inside that window.</p>
+        <p>The host genome, replicated by its own high-fidelity machinery, is
+        untouched. Diversity accumulates continuously, in growing culture, without
+        rounds of transformation or any step performed in a tube.</p>
         <figcaption class="act__caption">Fig 1. Targeted hypermutation of the encapsulin cassette.</figcaption>
       </section>
 
@@ -68,25 +69,26 @@
         <p class="act__num">02</p>
         <h3 class="act__title">Silence</h3>
         <p class="act__lede">dCas9 parks on the resistance gene and throttles transcription.</p>
-        <p>Ut enim ad minim veniam, quis nostrud exercitation. A catalytically dead
-        Cas9, guided by an sgRNA to the antimicrobial-resistance gene, does not
-        cut — it obstructs. Elongating RNA polymerase stalls at the R-loop.</p>
-        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse. The
-        effect is kinetic rather than absolute: resistance protein output falls
-        below the threshold the selective agent demands, and the cell dies.</p>
+        <p>A catalytically dead Cas9, guided by an sgRNA into the kanamycin-resistance
+        gene, does not cut — it obstructs. Elongating RNA polymerase collides with
+        the R-loop and is delayed.</p>
+        <p>The effect is kinetic rather than absolute. Polymerase eventually kicks
+        dCas9 off and completes the transcript, so the locus is throttled rather
+        than switched off, and resistance falls below what the kanamycin in the
+        medium demands.</p>
         <figcaption class="act__caption">Fig 2. Kinetic repression of the resistance locus by dCas9.</figcaption>
       </section>
 
       <section class="act" data-act="act3-rescue">
         <p class="act__num">03</p>
         <h3 class="act__title">Encapsulate</h3>
-        <p class="act__lede">A shell that captures dCas9 restores resistance — and survives.</p>
-        <p>Excepteur sint occaecat cupidatat non proident. Sixty encapsulin
-        subunits assemble into a T=1 icosahedral compartment. Cargo bearing a
-        targeting peptide is drawn inside during assembly.</p>
-        <p>Sunt in culpa qui officia deserunt mollit anim id est laborum. Sequester
-        dCas9 or its sgRNA and the operator clears, transcription resumes, and
-        resistance returns. <strong>Survival becomes a direct readout of
+        <p class="act__lede">A shell that captures the repressor restores resistance — and survives.</p>
+        <p>240 encapsulin subunits assemble into a T=4 icosahedral compartment
+        42 nm across. Cargo carrying a five-residue cargo-loading peptide docks into
+        a groove on the inner face of every subunit; a grafted &lambda;N peptide
+        catches RNA carrying a boxB hairpin.</p>
+        <p>Sequester dCas9, or its sgRNA, and the gene clears, transcription
+        resumes, and resistance returns. <strong>Survival becomes a direct readout of
         encapsulation.</strong></p>
         <figcaption class="act__caption">Fig 3. Shell assembly sequesters the repressor complex.</figcaption>
       </section>
@@ -94,12 +96,12 @@
       <section class="act" data-act="act4-enrichment">
         <p class="act__num">04</p>
         <h3 class="act__title">Enrich</h3>
-        <p class="act__lede">Better shells outgrow worse ones, round after round.</p>
-        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur. Because the
-        coupling is continuous, every generation is a selection step. Variants
-        that load cargo faster or hold more of it leave more descendants.</p>
-        <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet. The
-        population distribution walks steadily toward higher encapsulation
+        <p class="act__lede">Better shells outgrow worse ones, generation after generation.</p>
+        <p>Because the coupling is continuous, every generation is a selection step.
+        Variants that capture more of the repressor grow faster, and continuous
+        culture integrates that margin over many doublings.</p>
+        <p>Raising the kanamycin concentration between passages raises the bar for
+        how much must be captured. The population walks toward higher encapsulation
         efficiency, and the survivors are the library.</p>
         <figcaption class="act__caption">Fig 4. Round-over-round enrichment of the variant population.</figcaption>
       </section>

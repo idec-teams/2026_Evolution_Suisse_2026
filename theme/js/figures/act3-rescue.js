@@ -1,8 +1,8 @@
 /* ═══════════════════════════════════════════════════════════════════════════
    Act 3 — Encapsulate.
 
-   Sixty encapsulin subunits assemble into a T=1 icosahedral compartment and
-   sweep the dCas9·sgRNA complexes inside. The operator clears, transcription
+   240 encapsulin subunits assemble into a T=4 icosahedral compartment and
+   sweep the dCas9·sgRNA complexes inside. The gene clears, transcription
    resumes, resistance returns, the cell survives.
 
    The shell is a real projection of the icosahedral vertex set generated at
@@ -16,7 +16,7 @@ import { placeComplex, drawComplex, SHELL } from './complexes.js';
 
 const PHI = (1 + Math.sqrt(5)) / 2;
 
-/** The 12 icosahedron vertices, normalised. A T=1 capsid has 60 subunits
+/** The 12 icosahedron vertices, normalised. A T=4 capsid has 240 subunits
     arranged with icosahedral symmetry about exactly these axes. */
 function icosaVertices() {
   const v = [];
@@ -27,10 +27,18 @@ function icosaVertices() {
   return v.map(([x, y, z]) => [x / n, y / n, z / n]);
 }
 
-/** 60 subunit positions: 5 around each of the 12 vertices. */
+/** 240 subunit positions: four 5-fold rings around each of the 12 vertices.
+    QtEncapsulin is T=4 (240 subunits); keeping 5-fold symmetry about each
+    vertex axis is what makes the projection read as icosahedral rather than as
+    scattered points. Rings alternate phase so the lattice does not stripe. */
 function subunitPositions() {
   const verts = icosaVertices();
   const out = [];
+  // Tilts chosen so the outermost ring of one vertex cluster clears the
+  // outermost ring of its neighbours: adjacent icosahedral vertices are 63.4°
+  // apart, so each cluster must stay inside a ~31.7° cap. Min centre-to-centre
+  // separation is 1.65 units at RADIUS 13, against a max disc diameter of 1.36.
+  const RINGS = [0.20, 0.34, 0.46, 0.56];
   for (const [vx, vy, vz] of verts) {
     // Build a local frame around the vertex axis.
     const up = Math.abs(vz) < 0.9 ? [0, 0, 1] : [1, 0, 0];
@@ -38,23 +46,25 @@ function subunitPositions() {
     const al = Math.hypot(...ax);
     const a = ax.map(c => c / al);
     const b = [vy * a[2] - vz * a[1], vz * a[0] - vx * a[2], vx * a[1] - vy * a[0]];
-    for (let k = 0; k < 5; k++) {
-      const th = (k / 5) * TAU;
-      const tilt = 0.36;
-      out.push([
-        vx + (a[0] * Math.cos(th) + b[0] * Math.sin(th)) * tilt,
-        vy + (a[1] * Math.cos(th) + b[1] * Math.sin(th)) * tilt,
-        vz + (a[2] * Math.cos(th) + b[2] * Math.sin(th)) * tilt,
-      ]);
-    }
+    RINGS.forEach((tilt, ring) => {
+      for (let k = 0; k < 5; k++) {
+        const th = ((k + (ring % 2) * 0.5) / 5) * TAU;
+        out.push([
+          vx + (a[0] * Math.cos(th) + b[0] * Math.sin(th)) * tilt,
+          vy + (a[1] * Math.cos(th) + b[1] * Math.sin(th)) * tilt,
+          vz + (a[2] * Math.cos(th) + b[2] * Math.sin(th)) * tilt,
+        ]);
+      }
+    });
   }
   return out.map(p => { const n = Math.hypot(...p); return p.map(c => c / n); });
 }
 
 const SUBUNITS = subunitPositions();
-/* 60 subunits tile a sphere of this radius without piling up: circumference
-   2*pi*13 ~ 82 units against 60 discs of ~1.9 units across. Larger radii look
-   sparse; larger discs merge into a blob. */
+/* 240 subunits tile a sphere of this radius without piling up. Four times the
+   subunit count of a T=1 shell means roughly half the disc radius at the same
+   sphere radius, which is where the 0.31/0.68 pair below comes from. Larger
+   radii look sparse; larger discs merge into a blob. */
 const RADIUS = 13;
 
 export default {
@@ -65,7 +75,7 @@ export default {
     // Deterministic per-subunit arrival order and approach vector.
     this.units = SUBUNITS.map(([x, y, z], i) => ({
       x, y, z,
-      arrive: (i % 12) / 12 * 0.55 + ((i * 7919) % 97) / 97 * 0.2,
+      arrive: (i % 20) / 20 * 0.55 + ((i * 7919) % 97) / 97 * 0.2,
       from: 2.4 + ((i * 104729) % 53) / 53 * 1.6,
     }));
   },
@@ -109,7 +119,7 @@ export default {
     for (const s of drawn) {
       if (s.a <= 0.001) continue;
       const depth = (s.z + 1) / 2;                 // 0 back, 1 front
-      const rad = lerp(0.62, 1.35, depth * depth) * lerp(0.55, 1, s.a);
+      const rad = lerp(0.31, 0.68, depth * depth) * lerp(0.55, 1, s.a);
       g.globalAlpha = s.a * lerp(0.16, 1, depth * depth);
       g.fillStyle = pal.shell;
       g.beginPath();

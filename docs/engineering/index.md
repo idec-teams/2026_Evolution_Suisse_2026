@@ -7,6 +7,7 @@ standfirst: >-
   Plasmid architecture, the constructs we built, and how each evolution cycle was run.
 ---
 
-Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin
-porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam
-nisl sit amet erat.
+The circuit is split across two plasmids for one reason: to make sure that the
+only thing which can evolve is the thing we want to evolve. These pages document
+that split, the constructs built on either side of it, and the cycle the system
+is designed to run.

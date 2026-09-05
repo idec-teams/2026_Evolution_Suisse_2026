@@ -5,30 +5,31 @@ summary: Who we spoke to, and how it changed the project.
 
 # Human practices
 
-Who we spoke to, and how it changed the project.
+!!! note "Awaiting team input"
+
+    This page has to record events that either happened or did not: conversations
+    held, with whom, and what changed as a result. None of that is recoverable
+    from the lab record, and inventing it would defeat the purpose of the
+    section.
+
+    What belongs here:
+
+    - **Conversations** — who was consulted (clinicians, delivery researchers,
+      biosafety officers, patient groups, the public), when, and in what setting.
+    - **What changed** — the specific design or scope decisions that came out of
+      those conversations. A human-practices section with no changed decisions is
+      a description of outreach, not of practice.
+    - **Open questions** — what was raised that the project has not resolved.
+
+    Two topics from the science are worth putting to people outside the team, and
+    would make good starting points: the fact that this is a **delivery** platform,
+    whose eventual users would be patients rather than laboratories; and the
+    decision to use **antibiotic resistance as a selection readout**, which is
+    defensible (see [Biosafety](biosafety.md)) but is exactly the kind of choice
+    that benefits from being explained to someone who did not design it.
 
 ## Conversations
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat.
-
-### A sub-point worth its own anchor
-
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-sunt in culpa qui officia deserunt mollit anim id est laborum.
-
 ## What changed
 
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
-veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-
 ## Open questions
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat.

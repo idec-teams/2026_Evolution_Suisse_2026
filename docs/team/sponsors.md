@@ -5,30 +5,17 @@ summary: The institutions and companies that made this possible.
 
 # Sponsors
 
-The institutions and companies that made this possible.
+!!! note "Awaiting team input"
+
+    Sponsor names, logos and the terms under which each is acknowledged are not
+    recorded anywhere in the project files, and are not something to approximate.
+
+    This page should cover institutional support (host laboratory, bench space,
+    equipment access), in-kind contributions (reagents, sequencing, consumables)
+    and monetary funding.
 
 ## Institutional support
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat.
-
-### A sub-point worth its own anchor
-
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-sunt in culpa qui officia deserunt mollit anim id est laborum.
-
 ## In-kind contributions
 
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
-veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-
 ## Funding
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat.

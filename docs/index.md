@@ -11,10 +11,8 @@ description: >-
 
 ## Why couple survival to encapsulation
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-incididunt ut labore et dolore magna aliqua. Directed evolution is only as good
-as its selection: a screen that measures the wrong thing will optimise the wrong
-thing, however many rounds it runs.
+Directed evolution is only as good as its selection: a screen that measures the
+wrong thing will optimise the wrong thing, however many rounds it runs.
 
 Most encapsulation assays are *reporters* — they observe loading after the fact,
 in a separate step, on a subset of variants. Our selection makes loading
@@ -22,20 +20,35 @@ in a separate step, on a subset of variants. Our selection makes loading
 score poorly; it does not survive to the next generation.
 
 <ul class="metrics wide">
-  <li><b>60</b><span>subunits per T=1 shell</span></li>
+  <li><b>240</b><span>subunits per T=4 shell</span></li>
+  <li><b>42 nm</b><span>shell diameter</span></li>
   <li><b>6NJ8</b><span>QtEncapsulin structure</span></li>
-  <li><b>4</b><span>acts in the selection cycle</span></li>
   <li><b>1</b><span>locus under mutation</span></li>
 </ul>
 
+## Two handles on one complex
+
+The thing being captured is a ribonucleoprotein: dCas9 bound to its guide RNA.
+We gave the system a grip on each half. dCas9 carries the encapsulin's native
+five-residue cargo-loading peptide; the sgRNA carries a boxB hairpin, caught by a
+λN peptide grafted onto the inner surface of the shell.
+
+Either grip is enough to break the complex and rescue the cell. That is
+deliberate — it rewards a shell that gets better at protein capture, or at RNA
+capture, rather than demanding both at once from a starting point that does
+neither well.
+
 ## Where to go next
 
-Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. The
-[mechanism page](project/mechanism.md) walks through the selection circuit in
-full; [engineering](engineering/index.md) documents the plasmids and constructs;
-the [lab section](lab/index.md) holds protocols and the running notebook.
+The [mechanism page](project/mechanism.md) walks through the selection circuit in
+full, including why the guide targets the middle of the resistance gene rather
+than its promoter. [Engineering](engineering/index.md) documents the plasmids and
+constructs; the [lab section](lab/index.md) holds protocols and the running
+notebook.
 
-!!! note "Placeholder content"
+!!! note "Status"
 
-    This wiki's structure, design system and homepage animation are complete.
-    The prose is Ipsum and will be replaced as the season's results come in.
+    The selection circuit and the mutagenesis plasmids are built and sequence-verified.
+    The continuous evolution campaign has **not yet been run**, and shell assembly is
+    still being troubleshot — see [Results](project/results.md) for exactly where
+    things stand, including what has not worked.

@@ -7,5 +7,6 @@ standfirst: >-
   Biosafety practice, risk assessment, and the conversations that shaped the project.
 ---
 
-Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
-cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum.
+A project that deliberately raises a mutation rate and deliberately manipulates
+antibiotic resistance should be able to say clearly why neither of those is
+dangerous here. These pages set out the reasoning.
