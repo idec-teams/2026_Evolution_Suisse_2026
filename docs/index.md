@@ -3,7 +3,7 @@ template: home.html
 headline: Encapsulins
 standfirst: >-
   A continuous directed-evolution campaign that makes a bacterium's survival
-  depend on how well it packages its own cargo.
+  depend on how well it coencapsulates dCas9 and its sgRNA.
 description: >-
   Evolution Suisse 2026 — continuous directed evolution of QtEncapsulin
   nanocompartments for programmable mRNA and protein encapsulation.
