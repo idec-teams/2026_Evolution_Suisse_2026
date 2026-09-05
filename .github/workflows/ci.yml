@@ -12,8 +12,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
           cache: pip
@@ -28,10 +28,29 @@ jobs:
 
       # The site must stay free of third-party runtime requests: it has to
       # render offline and survive someone else's CDN outage mid-judging.
+      # Only elements that actually fetch a resource count -- plain <a href>
+      # citations (DOIs, papers) are outbound links, not runtime dependencies.
       - name: Check for external runtime dependencies
         run: |
-          if grep -rIoE '(src|href)="https?://[^"]+' site --include='*.html' \
-             | grep -vE 'idec-teams\.github\.io|rcsb\.org|github\.com|mkdocs\.org|w3\.org'; then
+          allow='idec-teams\.github\.io|rcsb\.org|github\.com|mkdocs\.org|w3\.org'
+          found=0
+
+          if grep -rIoE '<(script|img|iframe|source|video|audio|embed|object|track)[^>]+(src|data)="https?://[^"]+' \
+               site --include='*.html' | grep -vE "$allow"; then
+            found=1
+          fi
+
+          if grep -rIoE '<link[^>]+href="https?://[^"]+' \
+               site --include='*.html' | grep -vE "$allow"; then
+            found=1
+          fi
+
+          if grep -rIoE '(@import[^;]*|url\()["'"'"']?https?://[^)"'"'"']+' \
+               site --include='*.css' | grep -vE "$allow"; then
+            found=1
+          fi
+
+          if [ "$found" -ne 0 ]; then
             echo "::error::External runtime dependency found in built site (see above)."
             exit 1
           fi
@@ -42,8 +61,8 @@ jobs:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
           cache: pip
