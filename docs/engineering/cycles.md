@@ -25,13 +25,6 @@ induction to suppress leaky expression.
 
 One set-point, one ramp.
 
-<figure class="scrollyfig wide" data-figure="act4-enrichment" markdown>
-
-**Fig 1.** Round-over-round enrichment: the population distribution walking
-toward higher encapsulation efficiency as the threshold rises.
-
-</figure>
-
 **Set-point — guide length.** The [truncation series](plasmids.md) spans a range
 of passage probabilities. The working guide is chosen in a plate screen as the
 one whose unrescued residual resistance sits just below the survival threshold,

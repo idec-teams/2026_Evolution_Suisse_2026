@@ -5,31 +5,28 @@ summary: How survival is coupled to encapsulation, step by step.
 
 # Mechanism
 
-The selection makes one thing true: **a cell survives in proportion to how well
-it packages a repressor into its own encapsulin shells.** Everything else is
-plumbing in service of that statement.
+**A cell survives in proportion to how well it packages a repressor into its own
+encapsulin shells.** The rest of the circuit exists to make that true.
 
 ## The circuit
 
 A catalytically dead Cas9 (<abbr title="nuclease-deficient Cas9">dCas9</abbr>) is
 directed by an sgRNA into the **kanamycin-resistance gene** on the selection
-plasmid. It does not cleave; it obstructs. The cell is left unable to make enough
-resistance protein for the kanamycin in the medium.
+plasmid. It obstructs rather than cleaves, and the cell is left unable to make
+enough resistance protein for the kanamycin in the medium.
 
-<figure class="scrollyfig wide" data-figure="act2-silencing" markdown>
+<figure class="scrollyfig wide" data-figure="cell-scene" data-act-index="0" markdown>
 
-**Fig 1.** dCas9·sgRNA complexes diffusing, then clamping onto the resistance
-gene. Output falls below the survival threshold (tick mark).
+**Fig 1.** dCas9·sgRNA binding the resistance gene on the selection plasmid.
+Drawn from 6NJ8 and 5F9R; the cell and plasmids are schematic, the molecules are
+to scale relative to each other.
 
 </figure>
 
 ## Why the guide targets the gene body, not the promoter
 
-This is the single most consequential decision in the circuit, and it is not the
-obvious one — CRISPRi knockdowns conventionally target promoters, because that
-represses harder.
-
-Repressing harder is exactly what we do not want. The two placements fail
+CRISPRi knockdowns conventionally target promoters, which represses harder.
+Harder repression is the wrong objective here. The two placements fail
 differently:[^vig]
 
 | | Target in the promoter | Target inside the ORF |
@@ -65,38 +62,37 @@ $0.056 \pm 0.001$ with six mismatches.
     kick-out model, the mismatch titration and the noise measurements below are
     all theirs.
 
-### Why a graded readout matters
+### A graded readout
 
-If repression were absolute, every cell would either live or die and there would
-be no gradient for selection to climb. With kinetic repression, marginal
-improvements in sequestration produce marginal improvements in growth rate, and
-continuous culture integrates those margins over many generations.
+Absolute repression gives a binary live/die outcome and no gradient for selection
+to climb. Under kinetic repression, marginal improvements in sequestration
+produce marginal improvements in growth rate, and continuous culture integrates
+those margins over many generations.
 
-### A second, quieter benefit
+### Noise
 
-Because repression at saturation does not depend on dCas9 concentration,
-cell-to-cell fluctuations in dCas9 level stop propagating to the output. The
+Because repression at saturation is independent of dCas9 concentration,
+cell-to-cell variation in dCas9 level does not propagate to the output. The
 measured noise plateau — about 0.3, matching ordinary constitutive genes in
-wild-type *E. coli* — stays flat across the whole knockdown range. An
-inducer-titrated circuit would instead be noisiest precisely in the intermediate
-regime where our selection operates.
+wild-type *E. coli* — is flat across the whole knockdown range. An
+inducer-titrated circuit would be noisiest in exactly the intermediate regime
+this selection operates in.
 
 The selection therefore reads encapsulation efficiency rather than expression
-noise. That is worth more than it sounds: without it, the fittest thing to evolve
-might simply be a quieter promoter.
+noise. Without that, a quieter promoter would be the cheapest way to win.
 
 ## Sequestration restores expression
 
-<figure class="scrollyfig wide" data-figure="act3-rescue" markdown>
+<figure class="scrollyfig wide" data-figure="cell-scene" data-act-index="2" markdown>
 
-**Fig 2.** Shell assembly sweeping the repressor complexes out of the cytoplasm.
-The gene clears, output recovers past the threshold, and the cell survives.
+**Fig 2.** 240 subunits closing around the repressor and carrying it off the
+gene. Transcription resumes and the cell survives.
 
 </figure>
 
-240 encapsulin subunits assemble into a T=4 icosahedral compartment. The complex
-can be caught by either half — a cargo-loading peptide on dCas9, or a boxB
-hairpin on the sgRNA — and capturing either one is enough. See
+240 encapsulin subunits assemble into a T=4 icosahedral compartment 42 nm across
+— roughly twice the span of the complex it has to hold. Either half can be
+caught: a cargo-loading peptide on dCas9, or a boxB hairpin on the sgRNA. See
 [Design](design.md) for why the OR gate was chosen over demanding both.
 
 ## The two stringency knobs
@@ -106,13 +102,13 @@ The circuit has one set-point and one ramp.
 **Guide length sets the set-point.** A truncation series — non-targeting, 10, 11,
 14, 17 and 20 nt of complementarity — spans a range of passage probabilities. The
 working guide is the one whose *unrescued* residual resistance sits just below the
-survival threshold, so that a modest improvement in capture is the difference
-between growing and not.
+survival threshold, so a modest improvement in capture decides whether a cell
+grows.
 
 **Kanamycin concentration is the ramp.** Raising it between passages raises the
-resistance output a cell must reach, and therefore the fraction of repressor it
-must sequester. Where a finer adjustment is wanted, the guide is swapped for a
-longer one instead of, or alongside, raising the dose.
+resistance output a cell must reach, and so the fraction of repressor it must
+sequester. For finer adjustment, the guide is swapped for a longer one instead
+of, or alongside, raising the dose.
 
 ## Constructs involved
 
@@ -139,8 +135,8 @@ resistance gene. See [Plasmids](../engineering/plasmids.md) for maps.
     Both are therefore held on the non-mutable plasmid, outside the T7
     transcription unit.[^escape]
 
-    Loss of the shell's own expression is the mirror-image failure and is caught
-    by the same monitoring: a population whose resistance has recovered while its
+    Loss of the shell's own expression is the mirror-image failure, caught by the
+    same monitoring: a population whose resistance has recovered while its
     encapsulin cassette has acquired a frameshift has escaped, not evolved.
 
 [^escape]: Placing them outside the MutaT7 target region does not make them

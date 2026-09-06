@@ -19,7 +19,7 @@ and stops at the terminator, that cassette is the only hypermutated sequence in
 the cell. The host genome, replicated by its own high-fidelity machinery, is
 unaffected.
 
-<figure class="scrollyfig wide" data-figure="act1-hypermutation" markdown>
+<figure class="scrollyfig wide" data-figure="cell-scene" data-act-index="1" markdown>
 
 **Fig 1.** The deaminase fusion tracking along the T7-flanked encapsulin
 cassette, and stopping at the terminator.

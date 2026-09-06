@@ -54,7 +54,7 @@ template: landing.html       # only for section index pages
 Drop a figure into any page like this:
 
 ```markdown
-<figure class="scrollyfig wide" data-figure="act3-rescue" markdown>
+<figure class="scrollyfig wide" data-figure="cell-scene" markdown>
 
 **Fig 1.** Caption text, with **markdown**, [links](../index.md) and footnotes.
 
@@ -73,8 +73,12 @@ Add `wide` for a figure that overflows the text column, or `full` for
 edge-to-edge. Omit both to keep it inside the measure. The drawing area is 4:3
 by default — override it with `data-ratio="16/9"`.
 
-Registered figures: `hero-shell`, `system-map`, `act1-hypermutation`,
-`act2-silencing`, `act3-rescue`, `act4-enrichment`.
+Registered figures: `hero-capsid`, `cell-scene`, `system-map`.
+
+`cell-scene` is the homepage's cell, and it takes an extra attribute:
+`data-act-index="0"`, `"1"` or `"2"` pins it to one act — silencing,
+hypermutation or assembly — so a page can reuse the same drawing focused on the
+part it is discussing. Without the attribute it plays the whole story.
 
 ### Writing a new figure
 
