@@ -10,3 +10,9 @@ __pycache__/
 .DS_Store
 .idea/
 .vscode/
+
+# Structure-pipeline build env (dev only; the outputs it produces are
+# committed under theme/data/, so a clone builds the site without it).
+tools/.venv-build/
+tools/structures/cache/
+tools/sandbox/
