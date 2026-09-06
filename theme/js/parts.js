@@ -23,6 +23,13 @@ import { rng } from './util.js';
    to roughly half the ink and the guide is the darkest line in the drawing —
    a reader has to be able to follow it through the protein.
    `order` puts the thing that must stay readable last, so nothing overdraws it.
+
+   A `hue` on a part overrides the graphite for that part alone. Only the two
+   engineered grips get one, and they are the only colour in the drawing — which
+   is the point: on a page drawn entirely in pencil, two small marks of colour
+   read as annotation rather than decoration. Neither grip is in 5F9R, so what
+   is coloured is the ATTACHMENT SITE — Cas9's C-terminus and the guide's 3' end
+   — and the figures label them that way.
    ─────────────────────────────────────────────────────────────────────────── */
 
 export const REPRESSOR = {
@@ -32,8 +39,11 @@ export const REPRESSOR = {
     sgrna:         { w: 1.70, a: 1.00, outline: 0,    seed: 37 },
     dna_target:    { w: 1.30, a: 0.82, outline: 0,    seed: 53 },
     dna_nontarget: { w: 1.30, a: 0.82, outline: 0,    seed: 67 },
+    clp_site:      { w: 2.10, a: 1.00, outline: 0,    seed: 41, hue: 'clp' },
+    boxb_site:     { w: 2.10, a: 1.00, outline: 0,    seed: 47, hue: 'boxb' },
   },
-  order: ['dna_target', 'dna_nontarget', 'nuc', 'rec', 'sgrna'],
+  order: ['dna_target', 'dna_nontarget', 'nuc', 'rec', 'sgrna',
+          'clp_site', 'boxb_site'],
   duplex: ['dna_target', 'dna_nontarget'],
 };
 
@@ -91,7 +101,9 @@ export function createParts(data, preset) {
   /**
    * @param M     3x3 row-major view rotation (from the caller, so the complex
    *              can share the capsid's orientation when it sits inside one)
-   * @param opt   { scale, cx, cy, offset:[x,y,z] in Angstrom, parts:{name:0..1} }
+   * @param opt   { scale, cx, cy, offset:[x,y,z] in Angstrom, parts:{name:0..1},
+   *                hues:{clp,boxb} — colours for the grip sites; without them
+   *                those parts fall back to graphite rather than vanishing }
    */
   function draw(g, M, st, opt = {}) {
     const S = opt.scale ?? 1, CX = opt.cx ?? 0, CY = opt.cy ?? 0;
@@ -114,6 +126,7 @@ export function createParts(data, preset) {
       const cfg = weights[name];
       if (!cfg) continue;
       const alpha = st.alpha * cfg.a * gain * v;
+      const colour = (cfg.hue && opt.hues?.[cfg.hue]) || st.colour;
 
       if (part.shape && st.outline > 0 && cfg.outline > 0) {
         const pts = [];
@@ -124,7 +137,7 @@ export function createParts(data, preset) {
             passes: 2, width: st.width * cfg.outline * 0.8,
             alpha: alpha * st.outline * 4.2,   // the lobes need more silhouette
             wobble: st.wobble, close: true, taper: 0.4,
-            seed: cfg.seed, colour: st.colour,
+            seed: cfg.seed, colour,
           });
         }
       }
@@ -136,7 +149,7 @@ export function createParts(data, preset) {
           passes: st.passes >= 3 ? 2 : 1,
           width: st.width * cfg.w * 0.55,
           alpha: alpha * 0.9, wobble: st.wobble * 0.35, taper: 0.5,
-          seed: cfg.seed + k * 7, colour: st.colour,
+          seed: cfg.seed + k * 7, colour,
         });
       }
     }
@@ -157,5 +170,14 @@ export function createParts(data, preset) {
   /** Where a grip is, in Angstrom, for figures that draw the two handles. */
   const anchor = name => anchors[name];
 
-  return { draw, anchor, span: data.spanAngstrom };
+  /** A part's mid-point in Angstrom — where a callout's arrow should land. */
+  function centroid(name) {
+    const part = parts[name];
+    if (!part?.segments.length) return null;
+    const seg = part.segments[Math.floor(part.segments.length / 2)];
+    const i = Math.floor(seg.n / 2) * 3;
+    return [seg.p[i], seg.p[i + 1], seg.p[i + 2]];
+  }
+
+  return { draw, anchor, centroid, span: data.spanAngstrom };
 }

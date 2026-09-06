@@ -31,6 +31,7 @@ import { STYLE, createCapsid, viewMatrix } from '../capsid.js';
 import { createParts, REPRESSOR, POLYMERASE } from '../parts.js';
 import { capsidData, complexData, mutaT7Data } from '../structures.js';
 import { stroke, grain } from '../pencil.js';
+import { callout, label, key } from '../annotate.js';
 import { clamp, lerp, norm, smoothstep, easeInOut, TAU, rng, palette,
          reducedMotion } from '../util.js';
 
@@ -55,6 +56,11 @@ const ANGSTROM = 0.85;       // px per Angstrom in virtual space
 const SHELL_R = 190;         // radius the capsid data is expressed against
 const FREE_N = 14;
 
+/* Type sizes in virtual units. Part names are tracked caps, the way a plate is
+   lettered; gene and protein names are set normally so they stay legible as
+   the symbols they are (kanR, dCas9) rather than being shouted. */
+const T_PART = 15, T_GENE = 16, TRACK = 1.5;
+
 const at = (c, a, k = 1) => [c.x + Math.cos(a) * c.r * k, c.y + Math.sin(a) * c.r * k];
 
 export default {
@@ -70,7 +76,11 @@ export default {
     // without the two ever falling out of step.
     const pin = ctx.root?.dataset?.actIndex;
     this.pinned = pin === undefined ? null : Number(pin);
-    this.style = Object.assign({}, STYLE, { colour: palette().ink });
+    const pal = palette();
+    this.style = Object.assign({}, STYLE, { colour: pal.ink });
+    // The only colour in the drawing. Both come from the project's own figure
+    // tokens, so they mean here what they mean everywhere else on the site.
+    this.hues = { clp: pal.mutate, boxb: pal.cargo };
 
     // Loose protomers: fixed seats, so they do not jump when the act changes.
     const rand = rng(90210);
@@ -84,6 +94,13 @@ export default {
         spin: 0.4 + rand() * 0.8,
       };
     });
+    // One protomer is named on behalf of all of them. Picked here, from the
+    // fixed seats, so the leader always lands on the same piece.
+    const NEAR = [408, 470];
+    this.named = this.free.reduce((best, f, i) =>
+      Math.hypot(f.x - NEAR[0], f.y - NEAR[1]) <
+      Math.hypot(this.free[best].x - NEAR[0], this.free[best].y - NEAR[1]) ? i : best, 0);
+
     // Mutation marks along the cassette, revealed as the polymerase passes.
     this.marks = Array.from({ length: 11 }, () => 0.06 + rand() * 0.88)
                       .sort((a, b) => a - b);
@@ -137,10 +154,11 @@ export default {
     this.envelope(g, st, 0.30);
 
     // ── Mutation plasmid + MutaT7 ───────────────────────────────────────────
-    this.plasmid(g, st, MUT, lit[1], 'cassette', t2);
+    const walk = easeInOut(clamp(norm(t2, 0.02, 0.68)));
+    this.plasmid(g, st, MUT, lit[1], 'cassette', walk);
     if (this.polymerase) {
       // The polymerase tracks the cassette, 5' to 3', across act 02.
-      const a = lerp(MUT.gene[0], MUT.gene[1], easeInOut(t2));
+      const a = lerp(MUT.gene[0], MUT.gene[1], walk);
       const [px, py] = at(MUT, a, 1.0);
       this.polymerase.draw(g, viewMatrix(a + 1.9, 0.30), st, {
         scale: ANGSTROM, cx: px, cy: py, alpha: lit[1],
@@ -155,7 +173,7 @@ export default {
     // 01, sits there through 02, and is carried off it in 03. Sequestration IS
     // removal from the locus — assembling the shell on top of the gene would
     // draw the opposite of what the act says.
-    const arrive = easeInOut(clamp(norm(t1, 0.04, 0.66)));
+    const arrive = easeInOut(clamp(norm(t1, 0.02, 0.40)));
     const close  = easeInOut(clamp(norm(t3, 0.03, 0.42)));
     const enter  = [site[0] - 128, site[1] + 104];
     const rx = lerp(lerp(enter[0], site[0], arrive), HUB[0], close);
@@ -190,7 +208,7 @@ export default {
     // The repressor: on the gene through 01 and 02, wrapped by the shell in 03.
     if (this.repressor) {
       this.repressor.draw(g, viewMatrix(0.7 + p * 1.2, 0.34), st, {
-        scale: ANGSTROM, cx: rx, cy: ry,
+        scale: ANGSTROM, cx: rx, cy: ry, hues: this.hues,
         alpha: Math.max(lit[0], lit[2]),
         // The gene is the selection plasmid's, not the complex's: once the
         // shell has swept the repressor up, its own bound duplex would read as
@@ -199,8 +217,77 @@ export default {
       });
     }
 
+    this.annotate(g, st, { lit, site, rx, ry, close, walk });
+
     g.restore();
     grain(g, W, H, { alpha: 0.045 });
+  },
+
+  /**
+   * Names for the parts. Drawn last so nothing overdraws them, and every label
+   * fades with the thing it names — an annotation that stays lit while its
+   * subject is dimmed is just clutter with an arrow on it.
+   */
+  annotate(g, st, { lit, site, rx, ry, close, walk }) {
+    const ink = st.colour;
+    const part = a => ({ size: T_PART, track: TRACK, caps: true,
+                         alpha: a * 0.85, colour: ink });
+    const gene = a => ({ size: T_GENE, alpha: a * 0.95, colour: ink });
+
+    /* Positions are hand-placed against the layout constants at the top of this
+       file rather than derived, because the only thing that matters about a
+       label is that it does not sit on top of something else. Automatic
+       placement would need collision handling for six labels, two of which
+       track moving subjects; six literals are cheaper and more predictable. */
+
+    // The two plasmids are the fixed landmarks. They never go fully dark, or
+    // the reader loses the map between acts.
+    const base = 0.42;
+    label(g, 'Mutation plasmid', MUT.x, 166,
+          { ...part(Math.max(base, lit[1])), align: 'centre' });
+    label(g, 'Selection plasmid', SEL.x, 248,
+          { ...part(Math.max(base, lit[0])), align: 'centre' });
+
+    // Features, pointing at the heavy arc that is the gene.
+    callout(g, 'encapsulin cassette', [432, 196],
+            at(MUT, lerp(MUT.gene[0], MUT.gene[1], 0.85), 1.06),
+            { ...gene(lit[1]), seed: 121, bend: 5 });
+    callout(g, 'kanR', [612, 466],
+            at(SEL, lerp(SEL.gene[0], SEL.gene[1], 0.80), 1.06),
+            { ...gene(lit[0]), seed: 133, bend: -5 });
+
+    // MutaT7 travels the cassette, so its leader tracks it rather than pointing
+    // at a spot it has already left.
+    callout(g, 'MutaT7', [432, 252],
+            at(MUT, lerp(MUT.gene[0], MUT.gene[1], walk), 1.0),
+            { ...gene(lit[1]), seed: 145, bend: 6 });
+
+    // The repressor travels too. Its label retires as the shell closes: by then
+    // the shell's own label names the same object, and two arrows into one
+    // knot of lines is worse than none.
+    callout(g, 'dCas9·sgRNA', [rx - 150, ry - 92], [rx - 30, ry - 30],
+            { ...gene(lit[0] * (1 - close * 0.92)), seed: 157, bend: 4 });
+
+    const f = this.free[this.named];
+    callout(g, 'encapsulin subunits', [238, 470],
+            [lerp(f.x, HUB[0], close) - 24, lerp(f.y, HUB[1], close) - 10],
+            { ...gene(Math.max(lit[1], lit[2]) * (1 - close * 0.92)), seed: 169, bend: -5 });
+
+    // The shell, named only once there is a shell.
+    const built = clamp(norm(this.local(this.p, 2), 0.42, 0.70));
+    if (built > 0.02) {
+      callout(g, '240 subunits, T=4', [300, 528],
+              [HUB[0] - SHELL_R * ANGSTROM * 0.74, HUB[1] + SHELL_R * ANGSTROM * 0.68],
+              { ...gene(lit[2] * built), seed: 181, bend: 4 });
+    }
+
+    // The two engineered grips are the only colour in the drawing; the key is
+    // what stops them reading as decoration.
+    key(g, [['CLP fusion site (dCas9 C-term)', this.hues.clp],
+            ['boxB site (sgRNA 3′)', this.hues.boxb]],
+        58, 588,
+        { size: T_GENE * 0.84, alpha: Math.max(lit[0], lit[2]) * 0.8,
+          colour: ink, gap: 23, dash: 17 });
   },
 
   /** The rod. Two lines, because one reads as a pill and two read as an envelope. */

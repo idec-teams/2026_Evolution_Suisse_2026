@@ -88,7 +88,7 @@
   /* Where the story "reads from", as a fraction of the viewport height.
      scrolly.js reads this value, so the reading position moves with the
      layout: beside the stage on desktop, below it on mobile. */
-  --scrolly-focus: 0.42;
+  --scrolly-focus: 0.58;
 
   position: relative;
   border-top: 1px solid var(--rule);

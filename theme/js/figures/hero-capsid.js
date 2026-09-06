@@ -24,6 +24,7 @@ import { STYLE, createCapsid, viewMatrix } from '../capsid.js';
 import { createParts, REPRESSOR } from '../parts.js';
 import { capsidData, complexData } from '../structures.js';
 import { grain } from '../pencil.js';
+import { key } from '../annotate.js';
 import { clamp, lerp, TAU, easeInOut, smoothstep, reducedMotion, palette } from '../util.js';
 
 const SECONDS_PER_TURN = 44;
@@ -42,7 +43,9 @@ export default {
     this.complex = null;
     this.phase = 0;
     this.t0 = null;              // set on first paint, reset when re-armed
-    this.style = Object.assign({}, STYLE, { colour: palette().ink });
+    const pal = palette();
+    this.style = Object.assign({}, STYLE, { colour: pal.ink });
+    this.hues = { clp: pal.mutate, boxb: pal.cargo };
 
     // Re-arm on re-entry so the sequence can be watched more than once, and so
     // it does not play to an empty room while the reader is further down.
@@ -108,8 +111,17 @@ export default {
     if (this.complex) {
       const reveal = smoothstep(clamp((open - 0.14) / 0.6));
       this.complex.draw(g, viewMatrix(yaw, st.tilt), st, {
-        scale: S / SHELL_R, cx: W / 2, cy: H / 2, alpha: reveal,
+        scale: S / SHELL_R, cx: W / 2, cy: H / 2, alpha: reveal, hues: this.hues,
       });
+
+      // The two grips are the only colour in the hero. A key rather than
+      // leader lines: the complex is turning, so anything anchored to it would
+      // swing around the frame, and neither grip is in the structure anyway —
+      // what is marked is where each one attaches.
+      key(g, [['CLP fusion site', this.hues.clp], ['boxB site', this.hues.boxb]],
+          Math.max(14, W * 0.045), H - Math.max(38, H * 0.09),
+          { size: Math.max(11, Math.min(13, W * 0.026)), alpha: reveal * 0.8,
+            colour: st.colour, gap: 19, dash: 15 });
     }
 
     grain(g, W, H, { alpha: 0.04 });

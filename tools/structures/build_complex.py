@@ -16,6 +16,14 @@ Disordered loops are absent from the model. Joining across them would draw a
 straight bar through empty space, so traces are emitted as SEGMENTS and broken
 wherever the chain skips a residue or jumps further than a peptide bond allows.
 
+── The two grips ────────────────────────────────────────────────────────────
+Neither grip is in the deposited structure: the cargo-loading peptide is a
+fusion to Cas9's C-terminus and the boxB hairpin is appended to the guide's 3'
+end, so 5F9R contains neither. What we CAN show truthfully is where each one
+attaches. `clp_site` is the last 15 Ca of Cas9 and `boxb_site` the last 12
+phosphates of the guide; the figures colour those and label them as attachment
+sites, not as the peptide and the hairpin themselves.
+
 Coordinates stay in Angstrom, centred on the complex, and are NOT normalised:
 the capsid ships its own Angstrom radius, so both drawings share one scale and
 the complex is the right size when it goes inside the shell.
@@ -64,6 +72,10 @@ def main():
     add('sgrna', rna, rna_seq, 1, P_BREAK, 0)
     add('dna_target', dnt, dnt_seq, 1, P_BREAK, 0)
     add('dna_nontarget', dnn, dnn_seq, 1, P_BREAK, 0)
+
+    # Attachment sites, as their own parts so a figure can colour them.
+    add('clp_site',  ca[-15:],  ca_seq[-15:],  1, CA_BREAK, 0)
+    add('boxb_site', rna[-12:], rna_seq[-12:], 1, P_BREAK, 0)
 
     # Attachment points the project actually uses: the cargo-loading peptide is
     # fused to the Cas9 C-terminus, and the boxB hairpin is appended to the
