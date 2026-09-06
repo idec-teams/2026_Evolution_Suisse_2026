@@ -54,7 +54,21 @@ const HUB  = [498, 300];     // open cytoplasm, where the shell closes
    twice the repressor across. Only the cell and the plasmids are schematic. */
 const ANGSTROM = 0.85;       // px per Angstrom in virtual space
 const SHELL_R = 190;         // radius the capsid data is expressed against
-const FREE_N = 14;
+/* Free capsomers, not free protomers. Encapsulins assemble from pentamers and
+   hexamers, so those are what should be floating in the cytoplasm — and the
+   larger, fewer pieces crowd the drawing far less than fourteen loose subunits
+   did. Two pentamers and five hexamers, picked from the real capsomer set:
+   indices 0-11 are the 5-folds, 12-41 the 6-folds. */
+const FREE_CAPS = [3, 9, 15, 20, 25, 31, 37];
+/* Hand-placed seats, for the same reason the labels are: they have to stay off
+   the annotations and out of the disc the shell will occupy. Random seats
+   parked one capsomer on top of the cassette label. */
+const SEATS = [[420, 468], [700, 180], [556, 108], [128, 330],
+               [872, 200], [726, 522], [372, 128]];
+/* Ceiling on the fraction of subunits carrying a visible patch. Uncapped, every
+   capsomer ends up more red than graphite, which reads as a stained drawing
+   rather than as a handful of deamination events. */
+const MUT_MAX = 0.26;
 
 /* Type sizes in virtual units. Part names are tracked caps, the way a plate is
    lettered; gene and protein names are set normally so they stay legible as
@@ -78,22 +92,19 @@ export default {
     this.pinned = pin === undefined ? null : Number(pin);
     const pal = palette();
     this.style = Object.assign({}, STYLE, { colour: pal.ink });
-    // The only colour in the drawing. Both come from the project's own figure
-    // tokens, so they mean here what they mean everywhere else on the site.
-    this.hues = { clp: pal.mutate, boxb: pal.cargo };
+    /* The only colour in the drawing, and each mark takes the token of the
+       thing it sits on: the CLP fusion site is on dCas9, the boxB site is on
+       the guide, and a mutation is a mutation. Red had to go to mutations —
+       --enc-mutate is literally that — so the two grips moved to their own
+       molecules' hues rather than leaving one red mark meaning two things. */
+    this.hues = { clp: pal.cas, boxb: pal.sgrna, mut: pal.mutate };
 
-    // Loose protomers: fixed seats, so they do not jump when the act changes.
     const rand = rng(90210);
-    this.free = Array.from({ length: FREE_N }, (_, i) => {
-      const a = rand() * TAU, rr = 0.42 + rand() * 0.5;
-      return {
-        i: Math.floor(rand() * 240),
-        x: CELL.x + Math.cos(a) * CELL.rx * rr * 0.86,
-        y: CELL.y + Math.sin(a) * CELL.ry * rr * 0.86,
-        yaw: rand() * TAU, tilt: (rand() - 0.5) * 1.2,
-        spin: 0.4 + rand() * 0.8,
-      };
-    });
+    this.free = FREE_CAPS.map((cap, i) => ({
+      cap, x: SEATS[i][0], y: SEATS[i][1],
+      yaw: rand() * TAU, tilt: (rand() - 0.5) * 1.1,
+    }));
+    this.freeSet = new Set(FREE_CAPS);
     // One protomer is named on behalf of all of them. Picked here, from the
     // fixed seats, so the leader always lands on the same piece.
     const NEAR = [408, 470];
@@ -179,29 +190,47 @@ export default {
     const rx = lerp(lerp(enter[0], site[0], arrive), HUB[0], close);
     const ry = lerp(lerp(enter[1], site[1], arrive), HUB[1], close);
 
-    // ── Loose protomers ─────────────────────────────────────────────────────
-    // Free in the cytoplasm through 01 and 02; in 03 they converge on the hub
-    // and hand over to the assembling shell.
+    // ── Free capsomers ──────────────────────────────────────────────────────
+    // These are the same seven capsomers throughout. In 02 they pick up
+    // mutations from the cassette that encodes them; in 03 they fly to their
+    // own places in the shell — the exact places, because a capsomer landed at
+    // capsomerScreen() with the shell's yaw and tilt IS what the shell would
+    // have drawn there.
+    const shellYaw = t3 * 1.6;
+    const S = SHELL_R * ANGSTROM;
+    const arrival = easeInOut(clamp(norm(t3, 0.06, 0.55)));
+    // Mutations accumulate across 02 and stay: an evolved shell carries them.
+    const mut = MUT_MAX * clamp(norm(p, 1 / ACTS + 0.04, 2 / ACTS));
+
     for (const f of this.free) {
-      const x = lerp(f.x, HUB[0], close), y = lerp(f.y, HUB[1], close);
-      this.shell.drawFree(g, f.i, viewMatrix(f.yaw + close * f.spin * 2.4, f.tilt), st, {
-        cx: x, cy: y, scale: SHELL_R * ANGSTROM,
-        alpha: Math.max(lit[1], lit[2]) * (1 - smoothstep(clamp(norm(t3, 0.28, 0.52)))),
-      });
+      const [tx, ty] = this.shell.capsomerScreen(f.cap, shellYaw, st.tilt, S, HUB[0], HUB[1]);
+      this.shell.drawCapsomer(g,
+        f.cap,
+        lerp(f.yaw, shellYaw, arrival),
+        lerp(f.tilt, st.tilt, arrival),
+        st, {
+          cx: lerp(f.x, tx, arrival), cy: lerp(f.y, ty, arrival),
+          scale: S, alpha: Math.max(lit[1], lit[2]),
+          mut, mutHue: this.hues.mut,
+        });
     }
 
-    // ── The shell, assembling ───────────────────────────────────────────────
-    // Runs the hero's explode in reverse: 240 subunits arrive from outside and
-    // settle onto their operator positions.
+    // ── The rest of the shell ───────────────────────────────────────────────
+    // Runs the hero's explode in reverse: the remaining 35 capsomers arrive
+    // from outside and settle onto their operator positions.
     //
     // Assembly finishes by t3 ~ 0.6, not at 1. The sticky stage releases before
     // the last panel's span ends, so an animation timed to t3 = 1 plays its
     // climax after the drawing has already scrolled off the top of the screen.
     if (t3 > 0.02) {
       const build = smoothstep(clamp(norm(t3, 0.12, 0.58)));
-      this.shell.draw(g, VW, VH, t3 * 1.6, st, {
-        scale: SHELL_R * ANGSTROM, cx: HUB[0], cy: HUB[1],
+      // Everything except the seven the reader has been watching: those are
+      // flying in under their own steam, and drawing them twice would double
+      // their ink at the moment they land.
+      this.shell.draw(g, VW, VH, shellYaw, st, {
+        scale: S, cx: HUB[0], cy: HUB[1], skipCaps: this.freeSet,
         explode: (1 - build) * 0.9, alpha: lit[2] * build,
+        mut, mutHue: this.hues.mut,
       });
     }
 
@@ -269,25 +298,34 @@ export default {
             { ...gene(lit[0] * (1 - close * 0.92)), seed: 157, bend: 4 });
 
     const f = this.free[this.named];
-    callout(g, 'encapsulin subunits', [238, 470],
-            [lerp(f.x, HUB[0], close) - 24, lerp(f.y, HUB[1], close) - 10],
-            { ...gene(Math.max(lit[1], lit[2]) * (1 - close * 0.92)), seed: 169, bend: -5 });
+    const fs = this.shell.capsomerScreen(f.cap, this.local(this.p, 2) * 1.6, st.tilt,
+                                         SHELL_R * ANGSTROM, HUB[0], HUB[1]);
+    const fa = easeInOut(clamp(norm(this.local(this.p, 2), 0.06, 0.55)));
+    callout(g, this.shell.isPenton(f.cap) ? 'encapsulin pentamer' : 'encapsulin hexamer',
+            [238, 470],
+            [lerp(f.x, fs[0], fa) - 26, lerp(f.y, fs[1], fa) - 12],
+            { ...gene(Math.max(lit[1], lit[2]) * (1 - fa * 0.9)), seed: 169, bend: -5 });
 
     // The shell, named only once there is a shell.
     const built = clamp(norm(this.local(this.p, 2), 0.42, 0.70));
     if (built > 0.02) {
-      callout(g, '240 subunits, T=4', [300, 528],
+      callout(g, '240 subunits, T=4', [296, 502],
               [HUB[0] - SHELL_R * ANGSTROM * 0.74, HUB[1] + SHELL_R * ANGSTROM * 0.68],
               { ...gene(lit[2] * built), seed: 181, bend: 4 });
     }
 
     // The two engineered grips are the only colour in the drawing; the key is
     // what stops them reading as decoration.
-    key(g, [['CLP fusion site (dCas9 C-term)', this.hues.clp],
-            ['boxB site (sgRNA 3′)', this.hues.boxb]],
-        58, 588,
-        { size: T_GENE * 0.84, alpha: Math.max(lit[0], lit[2]) * 0.8,
-          colour: ink, gap: 23, dash: 17 });
+    // One key, three marks. Each entry fades with the act it belongs to, so the
+    // key says only what the current drawing is actually showing.
+    const keyOpt = a => ({ size: T_GENE * 0.84, alpha: a * 0.8, colour: ink,
+                           gap: 23, dash: 17 });
+    key(g, [['CLP fusion site (dCas9 C-term)', this.hues.clp]], 58, 548,
+        keyOpt(Math.max(lit[0], lit[2])));
+    key(g, [['boxB site (sgRNA 3′)', this.hues.boxb]], 58, 571,
+        keyOpt(Math.max(lit[0], lit[2])));
+    key(g, [['deamination events', this.hues.mut]], 58, 594,
+        keyOpt(Math.max(lit[1], lit[2])));
   },
 
   /** The rod. Two lines, because one reads as a pill and two read as an envelope. */

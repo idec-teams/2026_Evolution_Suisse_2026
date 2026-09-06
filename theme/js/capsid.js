@@ -88,6 +88,37 @@ export function createCapsid(data) {
     ({ op, ch, cap, penton: k === 0, seed: i * 131 + 7 }));
   const caps = data.caps.map(c => c.map(v => v / Q));
 
+  /* Capsomers: the 12 pentamers and 30 hexamers the shell is actually built
+     from. Encapsulins do not assemble one protomer at a time, and a drawing
+     that shows single subunits docking is telling the wrong story — so the
+     scroll story floats capsomers and lets them fly home.
+
+     Each capsomer's centre in shell coordinates is a constant, so it is
+     computed once here rather than every frame. */
+  const byCap = new Map();
+  subs.forEach((s, i) => {
+    if (!byCap.has(s.cap)) byCap.set(s.cap, []);
+    byCap.get(s.cap).push(i);
+  });
+  const capCentre = new Map();
+  for (const [cap, list] of byCap) {
+    let x = 0, y = 0, z = 0;
+    for (const i of list) {
+      const s = subs[i], o = ops[s.op], ch = chains[s.ch];
+      for (let k = 0; k < ch.shapeN; k++) {
+        const p = apply3(o.m, ch.shape[k * 3], ch.shape[k * 3 + 1], ch.shape[k * 3 + 2]);
+        x += p[0] / R + o.w[0]; y += p[1] / R + o.w[1]; z += p[2] / R + o.w[2];
+      }
+    }
+    const n = list.length * chains[subs[list[0]].ch].shapeN;
+    capCentre.set(cap, [x / n, y / n, z / n]);
+  }
+
+  /** Deterministic per-subunit roll, for "is this one mutated yet". */
+  const mutRoll = subs.map((_, i) => rng(i * 7717 + 31)());
+  /** Where a mutation patch sits along a subunit's trace. */
+  const mutAt = subs.map((_, i) => rng(i * 4441 + 17)());
+
   const L = (() => { const v = [-0.45, -0.62, 0.65], n = Math.hypot(...v);
                      return v.map(x => x / n); })();
 
@@ -96,9 +127,13 @@ export function createCapsid(data) {
    * @param W,H  CSS size of the drawing surface
    * @param yaw  rotation about the vertical axis, radians
    * @param st   style — see STYLE above
-   * @param opt  { scale, cx, cy, explode, alpha } — explode moves subunits out
-   *             along their own radial vector, which is how the hero opens the
-   *             shell; alpha fades the whole drawing as it opens.
+   * @param opt  { scale, cx, cy, explode, alpha, skipCaps, mut, mutHue }
+   *             explode moves subunits out along their own radial vector, which
+   *             is how the hero opens the shell; alpha fades the whole drawing.
+   *             skipCaps omits capsomers the caller is drawing itself — the
+   *             scroll story flies seven of them in by hand and lets this fill
+   *             in the rest. mut (0..1) is the fraction of subunits carrying a
+   *             mutation patch, drawn in mutHue.
    */
   function draw(g, W, H, yaw, st, opt = {}) {
     const S  = opt.scale ?? Math.min(W, H) * 0.40;
@@ -106,6 +141,8 @@ export function createCapsid(data) {
     const explode = opt.explode ?? 0;
     const gain = opt.alpha ?? 1;
     if (gain <= 0.004) return;
+    const skip = opt.skipCaps;
+    const mut = opt.mut ?? 0;
     const V = viewMatrix(yaw, st.tilt);
 
     // One combined matrix per operator, reused by every subunit that shares it.
@@ -129,6 +166,7 @@ export function createCapsid(data) {
 
     for (const it of items) {
       const { s, o, ch, c } = it;
+      if (skip?.has(s.cap)) continue;
       const near = c[2] > -0.04;
       if (!near && st.far <= 0) continue;
 
@@ -183,12 +221,14 @@ export function createCapsid(data) {
       if (st.trace > 0 && near) {
         const path = [];
         for (let i = 0; i < ch.traceN; i++) path.push(to(ch.trace, i));
-        stroke(g, shrink(path, 0.9), {
+        const drawn = shrink(path, 0.9);
+        stroke(g, drawn, {
           passes: 1,
           width: st.width * 0.34,
           alpha: st.alpha * 0.42 * ink * st.trace * gain,
           wobble: st.wobble * 0.3, taper: 0.55, seed: s.seed + 5, colour: st.colour,
         });
+        if (mut > 0 && opt.mutHue) mutPatch(g, drawn, subs.indexOf(s), st, mut, gain, opt.mutHue);
       }
     }
 
@@ -216,6 +256,91 @@ export function createCapsid(data) {
     }
   }
 
+  /**
+   * A short stretch of one subunit's backbone, in the mutation hue.
+   *
+   * Mutations land on a sequence, so they are drawn ON the chain rather than as
+   * a marker beside it — a few residues of a protomer coloured, in the same
+   * line the rest of the drawing uses. Which subunits carry one is a fixed
+   * per-subunit roll against `mut`, so patches accumulate as the fraction rises
+   * instead of flickering between frames.
+   */
+  function mutPatch(g, path, idx, st, mut, gain, hue) {
+    if (idx < 0 || mutRoll[idx] > mut) return;
+    const span = Math.max(4, Math.round(path.length * 0.13));
+    const a = Math.floor(mutAt[idx] * (path.length - span));
+    stroke(g, path.slice(a, a + span), {
+      passes: 3, width: st.width * 0.62,
+      alpha: Math.min(1, st.alpha * 0.95) * gain,
+      wobble: st.wobble * 0.25, taper: 0.35, seed: idx * 53 + 9, colour: hue,
+    });
+  }
+
+  /** Where a capsomer sits on screen, so a caller can fly one to its place. */
+  function capsomerScreen(cap, yaw, tilt, S, CX, CY) {
+    const V = viewMatrix(yaw, tilt);
+    const c = capCentre.get(cap);
+    const p = apply3(V, c[0], c[1], c[2]);
+    return [CX + p[0] * S, CY + p[1] * S, p[2]];
+  }
+
+  /**
+   * One capsomer — a real pentamer or hexamer — drawn as a free-floating unit
+   * centred at (cx, cy).
+   *
+   * The subunits keep their true arrangement within the capsomer; only the
+   * capsomer's own centre is moved. That is what makes the assembly honest: fly
+   * one of these to capsomerScreen(cap, yaw, tilt, ...) with the shell's own
+   * yaw and tilt and it lands exactly where draw() would have put it, because
+   * both are the same points under the same rotation.
+   */
+  function drawCapsomer(g, cap, yaw, tilt, st, opt = {}) {
+    const list = byCap.get(cap);
+    if (!list) return;
+    const S = opt.scale ?? 40, CX = opt.cx ?? 0, CY = opt.cy ?? 0;
+    const gain = opt.alpha ?? 1;
+    if (gain <= 0.004) return;
+    const mut = opt.mut ?? 0;
+    const V = viewMatrix(yaw, tilt);
+    const centre = capCentre.get(cap);
+
+    const placed = list.map(i => {
+      const s = subs[i], o = ops[s.op], ch = chains[s.ch];
+      const M = mul3(V, o.m);
+      const w = apply3(V, o.w[0] - centre[0], o.w[1] - centre[1], o.w[2] - centre[2]);
+      const to = (arr, k) => {
+        const p = apply3(M, arr[k * 3], arr[k * 3 + 1], arr[k * 3 + 2]);
+        return [CX + (p[0] / R + w[0]) * S, CY + (p[1] / R + w[1]) * S];
+      };
+      let z = 0;
+      for (let k = 0; k < ch.shapeN; k++) {
+        z += apply3(M, ch.shape[k * 3], ch.shape[k * 3 + 1], ch.shape[k * 3 + 2])[2] / R;
+      }
+      return { i, s, ch, to, z: z / ch.shapeN + w[2] };
+    }).sort((a, b) => a.z - b.z);
+
+    for (const { i, s, ch, to } of placed) {
+      const shape = [];
+      for (let k = 0; k < ch.shapeN; k++) shape.push(to(ch.shape, k));
+      const poly = smoothClosed(shrink(hull2d(shape), st.k), 2);
+      if (poly.length >= 3 && st.outline > 0) {
+        stroke(g, poly, { passes: 2, width: st.width * st.outline * 3.5,
+                          alpha: st.alpha * st.outline * 3.2 * gain, wobble: st.wobble,
+                          close: true, taper: 0.4, seed: s.seed, colour: st.colour });
+      }
+      if (st.trace > 0) {
+        const path = [];
+        for (let k = 0; k < ch.traceN; k++) path.push(to(ch.trace, k));
+        const drawn = shrink(path, 0.9);
+        stroke(g, drawn, { passes: 1, width: st.width * 0.5,
+                           alpha: st.alpha * 0.62 * st.trace * gain,
+                           wobble: st.wobble * 0.3, taper: 0.55,
+                           seed: s.seed + 5, colour: st.colour });
+        if (mut > 0 && opt.mutHue) mutPatch(g, drawn, i, st, mut, gain, opt.mutHue);
+      }
+    }
+  }
+
   /** The icosahedron through the 12 pentamer centres, as construction lines. */
   function drawIcosa(g, V, S, CX, CY, st, gain) {
     const v = caps.slice(0, 12).map(p => apply3(V, p[0], p[1], p[2]));
@@ -230,54 +355,10 @@ export function createCapsid(data) {
     }
   }
 
-  /**
-   * One subunit on its own, centred wherever the caller wants it.
-   *
-   * The scroll story needs free protomers floating in the cytoplasm before they
-   * assemble. They are the SAME geometry as the shell's subunits — same chain,
-   * same silhouette — just detached from their operator's position, so a reader
-   * recognises the loose pieces as the thing the shell is made of.
-   *
-   * @param i     subunit index; picks which of the four chain conformations
-   * @param M     3x3 row-major orientation for this loose copy
-   * @param opt   { cx, cy, scale (px per unit-radius), alpha }
-   */
-  function drawFree(g, i, M, st, opt = {}) {
-    const s = subs[i % subs.length], ch = chains[s.ch];
-    const S = opt.scale ?? 40, CX = opt.cx ?? 0, CY = opt.cy ?? 0;
-    const gain = opt.alpha ?? 1;
-    if (gain <= 0.004) return;
-
-    // Recentre on the chain's own centroid so the subunit spins about itself
-    // rather than about the (absent) shell centre.
-    let mx = 0, my = 0, mz = 0;
-    for (let k = 0; k < ch.shapeN; k++) {
-      mx += ch.shape[k * 3]; my += ch.shape[k * 3 + 1]; mz += ch.shape[k * 3 + 2];
-    }
-    mx /= ch.shapeN; my /= ch.shapeN; mz /= ch.shapeN;
-
-    const to = (arr, k) => {
-      const p = apply3(M, arr[k * 3] - mx, arr[k * 3 + 1] - my, arr[k * 3 + 2] - mz);
-      return [CX + p[0] / R * S, CY + p[1] / R * S];
-    };
-
-    const shape = [];
-    for (let k = 0; k < ch.shapeN; k++) shape.push(to(ch.shape, k));
-    const poly = smoothClosed(shrink(hull2d(shape), st.k), 2);
-    if (poly.length >= 3 && st.outline > 0) {
-      stroke(g, poly, { passes: 2, width: st.width * st.outline * 3.5,
-                        alpha: st.alpha * st.outline * 3.2 * gain, wobble: st.wobble,
-                        close: true, taper: 0.4, seed: s.seed, colour: st.colour });
-    }
-    if (st.trace > 0) {
-      const path = [];
-      for (let k = 0; k < ch.traceN; k++) path.push(to(ch.trace, k));
-      stroke(g, shrink(path, 0.9), { passes: 1, width: st.width * 0.5,
-                                     alpha: st.alpha * 0.62 * st.trace * gain,
-                                     wobble: st.wobble * 0.3, taper: 0.55,
-                                     seed: s.seed + 5, colour: st.colour });
-    }
-  }
-
-  return { draw, drawFree, subunitCount: subs.length };
+  return {
+    draw, drawCapsomer, capsomerScreen,
+    capsomers: [...byCap.keys()],
+    isPenton: cap => data.capKind[cap] === 0,
+    subunitCount: subs.length,
+  };
 }

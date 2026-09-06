@@ -45,7 +45,8 @@ export default {
     this.t0 = null;              // set on first paint, reset when re-armed
     const pal = palette();
     this.style = Object.assign({}, STYLE, { colour: pal.ink });
-    this.hues = { clp: pal.mutate, boxb: pal.cargo };
+    // Matches the scroll story: each grip carries its own molecule's token.
+    this.hues = { clp: pal.cas, boxb: pal.sgrna };
 
     // Re-arm on re-entry so the sequence can be watched more than once, and so
     // it does not play to an empty room while the reader is further down.
