@@ -323,17 +323,21 @@ export function createCapsid(data) {
       const shape = [];
       for (let k = 0; k < ch.shapeN; k++) shape.push(to(ch.shape, k));
       const poly = smoothClosed(shrink(hull2d(shape), st.k), 2);
+      // Same weight as a near subunit in the assembled shell: a free capsomer
+      // must read as the same kind of mark as the one it is about to become,
+      // not a bolder cutout of it.
+      const ink = s.penton ? st.pentonInk : 1;
       if (poly.length >= 3 && st.outline > 0) {
-        stroke(g, poly, { passes: 2, width: st.width * st.outline * 3.5,
-                          alpha: st.alpha * st.outline * 3.2 * gain, wobble: st.wobble,
+        stroke(g, poly, { passes: 2, width: st.width * st.outline * (s.penton ? Math.min(ink, 1.5) : 1),
+                          alpha: st.alpha * st.outline * ink * gain, wobble: st.wobble,
                           close: true, taper: 0.4, seed: s.seed, colour: st.colour });
       }
       if (st.trace > 0) {
         const path = [];
         for (let k = 0; k < ch.traceN; k++) path.push(to(ch.trace, k));
         const drawn = shrink(path, 0.9);
-        stroke(g, drawn, { passes: 1, width: st.width * 0.5,
-                           alpha: st.alpha * 0.62 * st.trace * gain,
+        stroke(g, drawn, { passes: 1, width: st.width * 0.34,
+                           alpha: st.alpha * 0.42 * ink * st.trace * gain,
                            wobble: st.wobble * 0.3, taper: 0.55,
                            seed: s.seed + 5, colour: st.colour });
         if (mut > 0 && opt.mutHue) mutPatch(g, drawn, i, st, mut, gain, opt.mutHue);

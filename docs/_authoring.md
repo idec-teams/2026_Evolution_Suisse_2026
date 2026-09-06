@@ -73,7 +73,7 @@ Add `wide` for a figure that overflows the text column, or `full` for
 edge-to-edge. Omit both to keep it inside the measure. The drawing area is 4:3
 by default — override it with `data-ratio="16/9"`.
 
-Registered figures: `hero-capsid`, `cell-scene`, `system-map`.
+Registered figures: `hero-capsid`, `cell-scene`.
 
 `cell-scene` is the homepage's cell, and it takes an extra attribute:
 `data-act-index="0"`, `"1"` or `"2"` pins it to one act — silencing,

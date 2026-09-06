@@ -24,7 +24,7 @@ import { STYLE, createCapsid, viewMatrix } from '../capsid.js';
 import { createParts, REPRESSOR } from '../parts.js';
 import { capsidData, complexData } from '../structures.js';
 import { grain } from '../pencil.js';
-import { key } from '../annotate.js';
+import { key, label } from '../annotate.js';
 import { clamp, lerp, TAU, easeInOut, smoothstep, reducedMotion, palette } from '../util.js';
 
 const SECONDS_PER_TURN = 44;
@@ -107,6 +107,23 @@ export default {
       scale: S, explode: e * 0.5, alpha: lerp(1, 0.28, smoothstep(clamp(open * 1.15))),
     });
 
+    const pad = Math.max(14, W * 0.045);
+    const labelSize = Math.max(11, Math.min(13, W * 0.026));
+
+    // Named before it opens: a link preview or a skimming reader only ever
+    // sees the closed shell, so it has to carry its own identity rather than
+    // relying on the reveal to introduce it. Retires once the opening is well
+    // under way, both because the frame is busy by then and because the
+    // complex's own label takes over naming the drawing.
+    const introAlpha = lerp(1, 0, smoothstep(clamp((open - 0.05) / 0.3)));
+    if (introAlpha > 0.01) {
+      label(g, 'QtEncapsulin', pad, pad,
+            { size: labelSize + 1, alpha: introAlpha * 0.85, colour: st.colour,
+              caps: true, track: 1.1 });
+      label(g, 'PDB 6NJ8', pad, pad + labelSize + 5,
+            { size: labelSize, alpha: introAlpha * 0.62, colour: st.colour });
+    }
+
     // The complex is drawn on as the shell clears, not cross-faded with it:
     // it should look like something that was always in there.
     if (this.complex) {
@@ -114,6 +131,14 @@ export default {
       this.complex.draw(g, viewMatrix(yaw, st.tilt), st, {
         scale: S / SHELL_R, cx: W / 2, cy: H / 2, alpha: reveal, hues: this.hues,
       });
+
+      // Named the moment it is worth naming — the cargo the zoom is revealing,
+      // not just a colour key for its grips. Opposite corner from the shell's
+      // own label so the two never compete for the same reading order.
+      label(g, 'dCas9·sgRNA', W - pad, pad,
+            { size: labelSize + 1, alpha: reveal * 0.85, colour: st.colour, align: 'right' });
+      label(g, 'PDB 5F9R', W - pad, pad + labelSize + 5,
+            { size: labelSize, alpha: reveal * 0.62, colour: st.colour, align: 'right' });
 
       // The two grips are the only colour in the hero. A key rather than
       // leader lines: the complex is turning, so anything anchored to it would

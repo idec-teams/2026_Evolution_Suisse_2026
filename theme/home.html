@@ -25,14 +25,26 @@
         <div class="fact"><dt>Platform</dt><dd>MutaT7 continuous evolution</dd></div>
         <div class="fact"><dt>Selection</dt><dd>dCas9 sequestration &rarr; survival</dd></div>
       </dl>
-      <p class="hero__actions">
-        <a class="btn btn--primary" href="{{ 'project/mechanism/'|url }}">Read the mechanism</a>
-        <a class="btn" href="{{ 'project/'|url }}">Project overview</a>
-      </p>
     </div>
     <div class="hero__figure" data-figure="hero-capsid" role="img"
          aria-label="The QtEncapsulin shell, drawn from its structure and slowly turning; scrolling opens it on the dCas9 and guide RNA inside."></div>
     <p class="hero__scrollcue" aria-hidden="true"><span>Scroll</span></p>
+  </section>
+
+  {# ── Intro ────────────────────────────────────────────────────────────
+     The context the scroll story needs to make sense on first read: which
+     strain, which platform, what survival is coupled to. Kept to one
+     paragraph — the acts below carry the detail.
+  #}
+  <section class="intro" aria-labelledby="intro-heading">
+    <h2 class="u-visually-hidden" id="intro-heading">Background</h2>
+    <p class="intro__lede">The evolution runs inside a single continuously
+    dividing <em>E. coli</em> strain carrying two plasmids under MutaT7. What
+    is being evolved is QtEncapsulin, the nanocompartment drawn below; what
+    decides whether a cell keeps growing is whether its shell can catch and
+    hold a dCas9&middot;sgRNA complex before that complex silences an
+    antibiotic-resistance gene. The three acts that follow walk through one
+    cell, one cycle at a time.</p>
   </section>
 
   {# ── The scroll story ────────────────────────────────────────────────
@@ -101,35 +113,47 @@
     </div>
   </section>
 
-  {# ── Clickable system map ────────────────────────────────────────────── #}
-  <section class="systemmap" aria-labelledby="systemmap-heading">
-    <div class="systemmap__head">
-      <p class="eyebrow">The system</p>
-      <h2 id="systemmap-heading">Every part, and where it is documented</h2>
-      <p class="standfirst">Select a subsystem to jump to its page.</p>
-    </div>
-
-    <div class="systemmap__figure" data-figure="system-map" data-ratio="160/76"
-         data-hotspots='[
-           {"id":"plasmids",  "label":"Plasmid architecture", "href":"engineering/plasmids/"},
-           {"id":"mutat7",    "label":"MutaT7 platform",      "href":"engineering/cycles/"},
-           {"id":"shell",     "label":"Encapsulin shell",     "href":"project/design/"},
-           {"id":"selection", "label":"Selection circuit",    "href":"project/mechanism/"}
-         ]'></div>
-
-    {#- Always present, never hidden: the graphic is an enhancement, not the only route. -#}
-    <ul class="systemmap__links">
-      <li><a href="{{ 'engineering/plasmids/'|url }}">Plasmid architecture</a></li>
-      <li><a href="{{ 'engineering/cycles/'|url }}">MutaT7 platform</a></li>
-      <li><a href="{{ 'project/design/'|url }}">Encapsulin shell</a></li>
-      <li><a href="{{ 'project/mechanism/'|url }}">Selection circuit</a></li>
-    </ul>
+  {# ── Explore the rest of the site ────────────────────────────────────────
+     Same five sections the header nav links to, previewed with the standfirst
+     already written for each section's own landing page — kept in sync by
+     hand, the same way the hero facts and the acts' captions are.
+  #}
+  <section class="home__explore" aria-labelledby="explore-heading">
+    <p class="eyebrow">Read on</p>
+    <h2 id="explore-heading">Every section, at a glance</h2>
+    <nav class="cardgrid" aria-label="Site sections">
+      <a class="card" href="{{ 'project/'|url }}">
+        <span class="card__index">01</span>
+        <span class="card__title">Project</span>
+        <span class="card__summary">What we are evolving, why the selection is built this way, and what came out of it.</span>
+        <span class="card__go" aria-hidden="true">&rarr;</span>
+      </a>
+      <a class="card" href="{{ 'engineering/'|url }}">
+        <span class="card__index">02</span>
+        <span class="card__title">Engineering</span>
+        <span class="card__summary">Plasmid architecture, the constructs we built, and how each evolution cycle was run.</span>
+        <span class="card__go" aria-hidden="true">&rarr;</span>
+      </a>
+      <a class="card" href="{{ 'lab/'|url }}">
+        <span class="card__index">03</span>
+        <span class="card__title">Lab</span>
+        <span class="card__summary">Protocols as run, the daily notebook, and the raw data behind every figure.</span>
+        <span class="card__go" aria-hidden="true">&rarr;</span>
+      </a>
+      <a class="card" href="{{ 'team/'|url }}">
+        <span class="card__index">04</span>
+        <span class="card__title">Team</span>
+        <span class="card__summary">Who built this, who helped, and who paid for the reagents.</span>
+        <span class="card__go" aria-hidden="true">&rarr;</span>
+      </a>
+      <a class="card" href="{{ 'safety/'|url }}">
+        <span class="card__index">05</span>
+        <span class="card__title">Safety</span>
+        <span class="card__summary">Biosafety practice, risk assessment, and the conversations that shaped the project.</span>
+        <span class="card__go" aria-hidden="true">&rarr;</span>
+      </a>
+    </nav>
   </section>
-
-  {# ── Free prose from index.md ────────────────────────────────────────── #}
-  <div class="home__prose">
-    <article class="prose">{{ page.content }}</article>
-  </div>
 
 </main>
 {% endblock %}

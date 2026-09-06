@@ -56,8 +56,6 @@
 }
 .fact code { font-size: 0.95em; color: var(--accent-deep); }
 
-.hero__actions { margin-top: var(--s-7); display: flex; flex-wrap: wrap; gap: var(--s-3); }
-
 .hero__figure {
   aspect-ratio: 1;
   width: 100%;
@@ -182,32 +180,43 @@
   color: var(--ink-faint);
 }
 
-/* ── System map ─────────────────────────────────────────────────────────── */
-.systemmap {
+/* ── Intro ──────────────────────────────────────────────────────────────
+   The bridge between the hero and the scroll story: enough context that the
+   three acts land as "this cell, this cycle" rather than an unexplained
+   diagram. Deliberately short — this is scaffolding for the story, not a
+   second standfirst. */
+.intro {
   max-width: 90rem;
   margin-inline: auto;
-  padding: var(--s-10) var(--gutter);
+  padding: var(--s-8) var(--gutter) var(--s-9);
   border-top: 1px solid var(--rule);
 }
-.systemmap__head { max-width: 46rem; margin-bottom: var(--s-8); }
-.systemmap__head h2 { font-size: var(--step-3); margin-bottom: var(--s-4); }
-
-.systemmap__figure {
-  width: 100%;
-  max-width: 62rem;
-  margin-inline: auto;
-  /* The inner .figure__frame carries the ratio, set via data-ratio in
-     home.html. It must match VB in theme/js/figures/system-map.js, or the
-     diagram letterboxes and opens a dead band of whitespace inside its box. */
+.intro__lede {
+  max-width: 62ch;
+  font-size: var(--step-1);
+  line-height: 1.55;
+  color: var(--ink-muted);
+  text-wrap: pretty;
 }
-.systemmap__figure .figure__frame { border: 0; background: none; }
-.systemmap__figure svg { width: 100%; height: 100%; }
 
+/* ── Scene hotspots ─────────────────────────────────────────────────────────
+   The scroll story's own drawing is the site's navigation into its
+   subsystems — click a plasmid, the enzyme or the shell. Each region is a
+   real <a>, built in cell-scene.js, exactly like system-map's old pattern:
+   focusable, announced, right- and middle-clickable with no click handlers.
+
+   Unlike system-map there is no opaque circle underneath — that would paint
+   over the pencil drawing — so the hit circle needs `pointer-events: all` to
+   stay clickable while visually transparent; a shape with no fill or stroke
+   is not a hit target otherwise. `.scrolly__stage` is pointer-events: none so
+   the sticky scenery never intercepts scrolling, but pointer-events set
+   directly on a descendant overrides that inherited value for itself. */
 .hotspot { cursor: pointer; }
 .hotspot .hotspot__hit {
   fill: transparent;
   stroke: transparent;
-  stroke-width: 2;
+  stroke-width: 1.5;
+  pointer-events: all;
   transition: stroke var(--dur) var(--ease), fill var(--dur) var(--ease);
 }
 .hotspot:hover .hotspot__hit,
@@ -216,27 +225,17 @@
   stroke: var(--accent);
 }
 .hotspot:focus-visible { outline: none; }
-.hotspot__label { transition: opacity var(--dur) var(--ease); }
 
-/* Text route to the same destinations — always present, never a fallback. */
-.systemmap__links {
-  margin: var(--s-7) auto 0;
-  max-width: 62rem;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--s-2) var(--s-5);
-  border-top: 1px solid var(--rule);
-  padding-top: var(--s-4);
-  font-size: var(--step--1);
-}
-
-.home__prose {
+/* ── Explore the rest of the site ─────────────────────────────────────────
+   Reuses the .cardgrid/.card component from the section landing pages
+   (theme/landing.html) rather than inventing a second card style. */
+.home__explore {
   max-width: 90rem;
   margin-inline: auto;
-  padding: 0 var(--gutter) var(--s-10);
+  padding: var(--s-9) var(--gutter) var(--s-10);
+  border-top: 1px solid var(--rule);
 }
+.home__explore .cardgrid { padding: var(--s-7) 0 0; }
 
 /* ── Landing pages ──────────────────────────────────────────────────────── */
 .landing { display: block; }

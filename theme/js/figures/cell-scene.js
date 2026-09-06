@@ -33,7 +33,7 @@ import { capsidData, complexData, mutaT7Data } from '../structures.js';
 import { stroke, grain } from '../pencil.js';
 import { callout, label, key } from '../annotate.js';
 import { clamp, lerp, norm, smoothstep, easeInOut, TAU, rng, palette,
-         reducedMotion } from '../util.js';
+         reducedMotion, el } from '../util.js';
 
 /* Virtual drawing space; mapped onto whatever the stage gives us. */
 const VW = 1000, VH = 620;
@@ -77,9 +77,33 @@ const T_PART = 15, T_GENE = 16, TRACK = 1.5;
 
 const at = (c, a, k = 1) => [c.x + Math.cos(a) * c.r * k, c.y + Math.sin(a) * c.r * k];
 
+/* The drawing doubles as the site's navigation into its own subsystems: click
+   a plasmid, the enzyme or the shell and land on the page that documents it.
+   Same four destinations system-map.js used to offer as a separate abstract
+   diagram — now on the real figure instead of a second drawing of it. */
+function hrefPrefix() {
+  return (typeof base_url !== 'undefined' ? base_url : '.').replace(/\/?$/, '/');
+}
+
+/** One clickable region: a real, focusable <a> so it behaves like any other
+    link (right-click, middle-click, screen readers) with no click handlers of
+    our own. The hit circle needs `pointer-events: all` — see home.css — since
+    it stays visually transparent until hovered and an invisible SVG shape is
+    otherwise not a hit target. Returns the circle, so a caller can move a
+    tracked hotspot's centre in paint(). */
+function hotspot(svg, { cx, cy, r, href, label }) {
+  const a = el('a', { class: 'hotspot', href: hrefPrefix() + href.replace(/^\//, ''),
+                      'aria-label': label });
+  const hit = el('circle', { class: 'hotspot__hit', cx, cy, r });
+  a.appendChild(hit);
+  svg.appendChild(a);
+  return hit;
+}
+
 export default {
   id: 'cell-scene',
-  needs: 'canvas',
+  needs: 'canvas svg',
+  viewBox: `0 0 ${VW} ${VH}`,
 
   mount(ctx) {
     this.ctx = ctx;
@@ -115,6 +139,25 @@ export default {
     // Mutation marks along the cassette, revealed as the polymerase passes.
     this.marks = Array.from({ length: 11 }, () => 0.06 + rand() * 0.88)
                       .sort((a, b) => a - b);
+
+    // ── Hotspots ─────────────────────────────────────────────────────────
+    // Two are static: the plasmid loops and the hub the shell assembles
+    // around never move. Two track a moving subject — drawn last, so they
+    // sit on top of the static regions and win any overlap, the same way the
+    // enzyme itself overdraws the plasmid it is sitting on. this.hsMutaT7 and
+    // this.hsSelection are re-centred every paint().
+    if (ctx.svg) {
+      hotspot(ctx.svg, { cx: MUT.x, cy: MUT.y, r: MUT.r + 24,
+                         href: 'engineering/plasmids/', label: 'Plasmid architecture' });
+      hotspot(ctx.svg, { cx: SEL.x, cy: SEL.y, r: SEL.r + 24,
+                         href: 'engineering/plasmids/', label: 'Plasmid architecture' });
+      hotspot(ctx.svg, { cx: HUB[0], cy: HUB[1], r: SHELL_R * ANGSTROM + 24,
+                         href: 'project/design/', label: 'Encapsulin shell design' });
+      this.hsMutaT7 = hotspot(ctx.svg, { cx: MUT.x, cy: MUT.y, r: 42,
+                         href: 'engineering/cycles/', label: 'MutaT7 evolution platform' });
+      this.hsSelection = hotspot(ctx.svg, { cx: SEL.x, cy: SEL.y, r: 46,
+                         href: 'project/mechanism/', label: 'Selection circuit' });
+    }
 
     Promise.all([capsidData(), complexData(), mutaT7Data()]).then(([cd, xd, md]) => {
       if (cd) this.shell = createCapsid(cd);
@@ -167,14 +210,18 @@ export default {
     // ── Mutation plasmid + MutaT7 ───────────────────────────────────────────
     const walk = easeInOut(clamp(norm(t2, 0.02, 0.68)));
     this.plasmid(g, st, MUT, lit[1], 'cassette', walk);
+    // Computed unconditionally — this.hsMutaT7 tracks it even before the
+    // structure has loaded and the enzyme itself has anything to draw.
+    const walkAngle = lerp(MUT.gene[0], MUT.gene[1], walk);
+    const [px, py] = at(MUT, walkAngle, 1.0);
     if (this.polymerase) {
       // The polymerase tracks the cassette, 5' to 3', across act 02.
-      const a = lerp(MUT.gene[0], MUT.gene[1], walk);
-      const [px, py] = at(MUT, a, 1.0);
-      this.polymerase.draw(g, viewMatrix(a + 1.9, 0.30), st, {
+      this.polymerase.draw(g, viewMatrix(walkAngle + 1.9, 0.30), st, {
         scale: ANGSTROM, cx: px, cy: py, alpha: lit[1],
       });
     }
+    this.hsMutaT7?.setAttribute('cx', px);
+    this.hsMutaT7?.setAttribute('cy', py);
 
     // ── Selection plasmid + repressor ───────────────────────────────────────
     this.plasmid(g, st, SEL, lit[0], 'kanR', 1);
@@ -189,6 +236,8 @@ export default {
     const enter  = [site[0] - 128, site[1] + 104];
     const rx = lerp(lerp(enter[0], site[0], arrive), HUB[0], close);
     const ry = lerp(lerp(enter[1], site[1], arrive), HUB[1], close);
+    this.hsSelection?.setAttribute('cx', rx);
+    this.hsSelection?.setAttribute('cy', ry);
 
     // ── Free capsomers ──────────────────────────────────────────────────────
     // These are the same seven capsomers throughout. In 02 they pick up
@@ -198,7 +247,11 @@ export default {
     // have drawn there.
     const shellYaw = t3 * 1.6;
     const S = SHELL_R * ANGSTROM;
-    const arrival = easeInOut(clamp(norm(t3, 0.06, 0.55)));
+    // Arrival and build finish well before t3 = 1: the sticky stage releases
+    // before the panel's scroll span ends, so the reader needs the completed
+    // shell sitting still, in front of them, while they read the act's last
+    // line — not still assembling as the drawing scrolls away.
+    const arrival = easeInOut(clamp(norm(t3, 0.06, 0.42)));
     // Mutations accumulate across 02 and stay: an evolved shell carries them.
     const mut = MUT_MAX * clamp(norm(p, 1 / ACTS + 0.04, 2 / ACTS));
 
@@ -210,7 +263,11 @@ export default {
         lerp(f.tilt, st.tilt, arrival),
         st, {
           cx: lerp(f.x, tx, arrival), cy: lerp(f.y, ty, arrival),
-          scale: S, alpha: Math.max(lit[1], lit[2]),
+          scale: S,
+          // Graded transparent throughout, not solid-then-fading: the same
+          // 0.9 ceiling applies here and to the rest of the shell below, so a
+          // capsomer never pops in weight the moment it lands in place.
+          alpha: Math.max(lit[1], lit[2]) * 0.9,
           mut, mutHue: this.hues.mut,
         });
     }
@@ -223,13 +280,13 @@ export default {
     // the last panel's span ends, so an animation timed to t3 = 1 plays its
     // climax after the drawing has already scrolled off the top of the screen.
     if (t3 > 0.02) {
-      const build = smoothstep(clamp(norm(t3, 0.12, 0.58)));
+      const build = smoothstep(clamp(norm(t3, 0.12, 0.46)));
       // Everything except the seven the reader has been watching: those are
       // flying in under their own steam, and drawing them twice would double
       // their ink at the moment they land.
       this.shell.draw(g, VW, VH, shellYaw, st, {
         scale: S, cx: HUB[0], cy: HUB[1], skipCaps: this.freeSet,
-        explode: (1 - build) * 0.9, alpha: lit[2] * build,
+        explode: (1 - build) * 0.9, alpha: lit[2] * build * 0.9,
         mut, mutHue: this.hues.mut,
       });
     }
@@ -291,11 +348,16 @@ export default {
             at(MUT, lerp(MUT.gene[0], MUT.gene[1], walk), 1.0),
             { ...gene(lit[1]), seed: 145, bend: 6 });
 
-    // The repressor travels too. Its label retires as the shell closes: by then
-    // the shell's own label names the same object, and two arrows into one
-    // knot of lines is worse than none.
-    callout(g, 'dCas9·sgRNA', [rx - 150, ry - 92], [rx - 30, ry - 30],
-            { ...gene(lit[0] * (1 - close * 0.92)), seed: 157, bend: 4 });
+    // The repressor travels too, but its label sits fixed outside the cell,
+    // below the envelope, with the leader crossing in to the moving subject —
+    // a label parked over the membrane it names read as sitting on top of the
+    // cell rather than pointing into it. Bottom-right, not top-left: from up
+    // there the leader had to cross almost the entire drawing to reach the
+    // site. Its label retires as the shell closes: by then the shell's own
+    // label names the same object, and two arrows into one knot of lines is
+    // worse than none.
+    callout(g, 'dCas9·sgRNA', [880, 540], [rx - 30, ry - 30],
+            { ...gene(lit[0] * (1 - close * 0.92)), seed: 157, bend: 14 });
 
     const f = this.free[this.named];
     const fs = this.shell.capsomerScreen(f.cap, this.local(this.p, 2) * 1.6, st.tilt,
@@ -307,7 +369,7 @@ export default {
             { ...gene(Math.max(lit[1], lit[2]) * (1 - fa * 0.9)), seed: 169, bend: -5 });
 
     // The shell, named only once there is a shell.
-    const built = clamp(norm(this.local(this.p, 2), 0.42, 0.70));
+    const built = clamp(norm(this.local(this.p, 2), 0.30, 0.55));
     if (built > 0.02) {
       callout(g, '240 subunits, T=4', [296, 502],
               [HUB[0] - SHELL_R * ANGSTROM * 0.74, HUB[1] + SHELL_R * ANGSTROM * 0.68],

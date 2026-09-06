@@ -121,7 +121,7 @@ Current calls, with their anchor points:
 | ~281 | `encapsulin cassette` | text at `[432, 196]` |
 | ~284 | `kanR` | text at `[612, 466]` |
 | ~290 | `MutaT7` | text at `[432, 252]`, arrow tracks the moving enzyme |
-| ~297 | `dCas9·sgRNA` | text at `[rx - 150, ry - 92]`, both move |
+| ~297 | `dCas9·sgRNA` | text fixed at `[880, 540]` (outside the cell, bottom-right), arrow tracks `(rx, ry)` |
 | ~304 | `encapsulin pentamer/hexamer` | text at `[238, 470]` |
 | ~312 | `240 subunits, T=4` | text at `[296, 502]` |
 | ~323-327 | colour key, three rows | `(58, 548)`, `(58, 571)`, `(58, 594)` |
@@ -142,6 +142,39 @@ literals and not computed:
 
 **After moving any label, screenshot all three acts.** Two of them track moving
 subjects, so a position that is clear in act 01 can collide in act 03.
+
+### Scene hotspots (the homepage's site navigation)
+
+The scroll story's drawing is also the homepage's route into the rest of the
+site — this replaced the old `system-map.js` abstract diagram, which is gone.
+Built in `mount()` in `theme/js/figures/cell-scene.js`, just after `this.marks`:
+five `<a>` elements in an SVG layered over the canvas (`needs: 'canvas svg'`,
+`viewBox` matches `VW`×`VH`), each wrapping one `hotspot()` call:
+
+| Region | Destination | Tracks |
+|---|---|---|
+| `MUT` ring | `engineering/plasmids/` | static |
+| `SEL` ring | `engineering/plasmids/` | static |
+| `HUB`, radius `SHELL_R * ANGSTROM + 24` | `project/design/` | static |
+| `this.hsMutaT7` | `engineering/cycles/` | the enzyme, `(px, py)`, every `paint()` |
+| `this.hsSelection` | `project/mechanism/` | the repressor, `(rx, ry)`, every `paint()` |
+
+The tracked two are built **last**, so they sit on top of the static regions in
+the DOM and win any overlap — the same reason the enzyme itself overdraws the
+plasmid it is sitting on. If you add a sixth hotspot, keep that ordering: static
+first, tracked last.
+
+The hit circle has no fill or stroke of its own — painting one would sit an
+opaque disc over the pencil drawing — so it only exists to be clicked, and
+`.hotspot__hit` in `home.css` sets `pointer-events: all` to make an invisible
+shape hit-testable at all. `.scrolly__stage` is `pointer-events: none` so the
+sticky scenery never intercepts page scrolling; a hotspot overrides that for
+itself, it does not need the ancestor changed.
+
+Reduced motion and standalone reuse (`data-act-index`) both go through the same
+`paint()`, so the tracked hotspots land in the right place there too with no
+extra code — this is the same "pure function of `t`" discipline as everything
+else in the figure.
 
 ### Act timing
 
@@ -268,36 +301,7 @@ Every one of these cost me time.
 
 Roughly in the order I would do it.
 
-### 5.1 `system-map.js` — the clickable subsystem diagram (highest priority)
-
-`theme/js/figures/system-map.js`, shown below the scroll story on the homepage.
-It is **the last thing on the page still drawn in the old colour vocabulary** —
-copper, indigo, green and red fills against an otherwise entirely graphite page.
-It looks like it belongs to a different site, because it does.
-
-It is SVG, not canvas, and it must stay that way: each hotspot is a real `<a>`
-wrapping its region, so it is focusable, announced, right-clickable and
-middle-clickable with no JS. **Do not convert it to canvas** — you would lose all
-of that and gain nothing. Destinations come from `data-hotspots` in
-`theme/home.html`; the same links are also listed as plain text beside it, and
-that list must stay.
-
-What to do: keep the geometry (`REGIONS` at ~line 34, `VB` at ~line 28) and the
-link structure exactly as they are, and restyle the four node glyphs to graphite.
-`pencil.js` is canvas-only, so you cannot call `stroke()` here. Two options:
-
-1. **Set SVG paths to match the pencil idiom** — 2-3 near-coincident paths per
-   edge with slight offsets, `--ink` at ~0.6 alpha, no fills. Cheapest, and
-   consistent enough at this size.
-2. **Draw the four glyphs from the real structures** — a small capsid for
-   `shell`, the repressor for `selection`, the polymerase for `mutat7` — by
-   sampling the same JSON into SVG polylines at mount. More work, but it makes
-   the map show the same objects as the rest of the page.
-
-I would do (1) first and see whether it is enough. Either way `.systemmap__figure`'s
-`aspect-ratio` in `home.css` must keep matching `VB`.
-
-### 5.2 An enrichment figure
+### 5.1 An enrichment figure
 
 `docs/engineering/cycles.md` used to carry a population-distribution plot
 (round-over-round enrichment). Its module was deleted with the old act set and
@@ -306,7 +310,7 @@ illustration**. Rebuild it in graphite if the team wants it — it is a chart, n
 a structure, so it wants `pencil.js` strokes over a plain axis rather than
 anything from `theme/data/`. Read `dataviz` guidance before drawing axes.
 
-### 5.3 Figures for pages that have none
+### 5.2 Figures for pages that have none
 
 Only three pages carry figures. These have no illustration at all and are the
 obvious candidates, in order of how much a drawing would help:
@@ -325,7 +329,7 @@ with both grips called out — `parts.js` and `annotate.js` already do all of it
 
 Figure syntax and the three rules that make it work are in `docs/_authoring.md`.
 
-### 5.4 Tone pass on the rest of the site
+### 5.3 Tone pass on the rest of the site
 
 Done: `docs/index.md`, the three homepage panels in `theme/home.html`,
 `docs/project/mechanism.md` (~1,150 words).
