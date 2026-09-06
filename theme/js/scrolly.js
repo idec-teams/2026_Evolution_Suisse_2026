@@ -19,10 +19,15 @@
    so the two drift apart and the stage ends up illustrating the wrong
    paragraph.)
 
+   A section may mount one figure per act, or — with `data-scrolly-scene` — a
+   single figure for the whole story that receives progress across all of it.
+   The homepage uses the latter: one cell, drawn continuously, with each act
+   taking ink away from everything that is not its subject.
+
    Because every figure renders as a pure function of t, scrubbing backwards,
    resizing mid-scroll and deep-linking all work with no extra machinery, and
-   the reduced-motion path is simply "render each act at t = 1 and never
-   attach the listener".
+   the reduced-motion path is simply "render at the end state and never attach
+   the listener".
 
    No scroll-jacking: the page scrolls at its natural rate throughout.
    ═══════════════════════════════════════════════════════════════════════════ */
@@ -42,18 +47,30 @@ export function initScrolly(section) {
 
   const viewport = section.querySelector('.scrolly__viewport') || stage;
 
-  /* Acts 2 and 3 deliberately share one canvas layer: the dCas9 complexes
-     captured during silencing must be the same particles the shell sweeps up
-     during rescue. That continuity is the whole reason for a single pinned
-     stage rather than one figure per section. */
+  /* ── Shared-scene mode ──────────────────────────────────────────────────
+     With `data-scrolly-scene`, ONE figure is mounted for the whole section and
+     the panels become focus states rather than separate drawings. It is given
+     a single progress value across the entire story, so it can hold one
+     continuous picture and move attention through it — which a figure-per-act
+     arrangement cannot do, because each act's figure only exists while its own
+     panel is on stage.
+
+     The act geometry below is unchanged either way: the same spans, the same
+     focus line, the same active-panel bookkeeping. Only what gets rendered
+     differs. */
+  const sceneId = section.dataset.scrollyScene;
+  const scene = sceneId
+    ? instantiate(sceneId, viewport, { canvas, svgHost, warn: true })
+    : null;
+
   const acts = panels.map((panel, i) => {
     const id = panel.dataset.act;
-    const inst = instantiate(id, viewport, { canvas, svgHost, warn: true });
+    const inst = scene ? null : instantiate(id, viewport, { canvas, svgHost, warn: true });
     if (inst?.ctx.svg) inst.ctx.svg.style.opacity = i === 0 ? '1' : '0';
     return { id, panel, inst, index: i };
-  }).filter(a => a.inst);
+  }).filter(a => scene || a.inst);
 
-  if (!acts.length) return null;
+  if (!acts.length || (sceneId && !scene)) return null;
 
   const N = acts.length;
   let current = -1;
@@ -63,7 +80,7 @@ export function initScrolly(section) {
     current = i;
     acts.forEach((a, j) => {
       a.panel.classList.toggle('is-active', j === i);
-      if (a.inst.ctx.svg) a.inst.ctx.svg.style.opacity = j === i ? '1' : '0';
+      if (a.inst?.ctx.svg) a.inst.ctx.svg.style.opacity = j === i ? '1' : '0';
     });
     if (label) label.textContent = `${String(i + 1).padStart(2, '0')} / ${String(N).padStart(2, '0')}`;
   };
@@ -76,9 +93,12 @@ export function initScrolly(section) {
   function renderStatic() {
     acts.forEach(a => {
       a.panel.classList.add('is-active');
-      if (a.inst.ctx.svg) a.inst.ctx.svg.style.opacity = '1';
-      a.inst.render(1);
+      if (a.inst?.ctx.svg) a.inst.ctx.svg.style.opacity = '1';
+      a.inst?.render(1);
     });
+    // A shared scene has no single end state — every act is a view of the same
+    // drawing — so it settles on the last one, which is where the story lands.
+    scene?.render(1);
     if (label) label.textContent = '';
   }
 
@@ -112,11 +132,17 @@ export function initScrolly(section) {
     const span  = end - start;
 
     showAct(i);
-    acts[i].inst.render(span > 0 ? clamp((focus - start) / span) : 0);
+    const t = span > 0 ? clamp((focus - start) / span) : 0;
+    if (scene) scene.render((i + t) / N);
+    else acts[i].inst.render(t);
   }
 
   const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
-  const onResize = () => { acts.forEach(a => a.inst.resize()); update(); };
+  const onResize = () => {
+    acts.forEach(a => a.inst?.resize());
+    scene?.resize();
+    update();
+  };
 
   function attach() {
     addEventListener('scroll', onScroll, { passive: true });
@@ -138,5 +164,8 @@ export function initScrolly(section) {
   applyMode();
   reduce.addEventListener?.('change', applyMode);
 
-  return { acts, update, destroy: () => { detach(); acts.forEach(a => a.inst.destroy()); } };
+  return {
+    acts, scene, update,
+    destroy: () => { detach(); acts.forEach(a => a.inst?.destroy()); scene?.destroy(); },
+  };
 }

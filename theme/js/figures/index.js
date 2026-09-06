@@ -7,13 +7,10 @@
 
 import { register } from '../figure.js';
 
-import heroShell   from './hero-shell.js';
-import systemMap   from './system-map.js';
-import act1        from './act1-hypermutation.js';
-import act2        from './act2-silencing.js';
-import act3        from './act3-rescue.js';
-import act4        from './act4-enrichment.js';
+import heroCapsid from './hero-capsid.js';
+import cellScene  from './cell-scene.js';
+import systemMap  from './system-map.js';
 
-for (const fig of [heroShell, systemMap, act1, act2, act3, act4]) register(fig);
+for (const fig of [heroCapsid, cellScene, systemMap]) register(fig);
 
-export { act1, act2, act3, act4, heroShell, systemMap };
+export { heroCapsid, cellScene, systemMap };

@@ -6,7 +6,7 @@
    results page, is an object with these four methods:
 
      {
-       id: 'act2-silencing',
+       id: 'cell-scene',
        mount(ctx)        build DOM once. Called before the first render.
        render(t, ctx)    t in [0,1] -> set attributes / redraw.
                          MUST be pure and idempotent: calling render(0.4) twice
@@ -33,7 +33,9 @@
           <figure class="scrollyfig" data-figure="my-figure" markdown>
           Fig N. Caption.
           </figure>
-        ...or as a homepage act: <section class="act" data-act="my-figure">
+        ...or as a scroll story: one <section class="act" data-act="..."> per
+        act, or a single figure for the whole story via
+        <section data-scrolly data-scrolly-scene="my-figure">.
 
    A typo in the name fails soft: nothing mounts, the caption still shows, and
    the rest of the page is unaffected.
