@@ -1,0 +1,51 @@
+<div class="wrap">
+
+<header class="mast">
+  <p class="eyebrow">Evolution Suisse 2026 &middot; style frame &middot; round 2</p>
+  <h1>Reading the icosahedral frame</h1>
+  <p class="standfirst">Your mix, four ways. Each plate adds one device for making the T=4 lattice
+  legible &mdash; inking the pentamers, drawing the capsomer boundaries, or dropping the silhouette
+  in favour of the backbone itself. Everything below is the same 240 subunits under the same rotation.</p>
+  <ul class="provenance">
+    <li>Structure <b><a href="https://www.rcsb.org/structure/6NJ8" rel="external noopener">6NJ8</a></b></li>
+    <li>Lattice <b>12&times;5 + 30&times;6 = 240</b></li>
+    <li>Mean C&alpha; radius <b>190 &Aring;</b></li>
+    <li>Payload <b>7.1 KB</b> gzipped</li>
+  </ul>
+</header>
+
+<section class="section">
+  <h2>Where the lattice comes from</h2>
+  <p class="note">A subunit's penton/hexon identity is not asserted &mdash; it is recovered from the
+  deposited symmetry group. The 60 operators contain six 5-fold axes and fifteen 2-fold axes; those
+  give 12 + 30 capsomer centres, and every subunit is assigned to the nearest. The counts come out
+  at exactly five per pentamer and six per hexamer, which is the check that the classification is right.</p>
+</section>
+
+<section class="section">
+  <h2>Four treatments</h2>
+  <div class="plates" id="plates"></div>
+</section>
+
+<section class="section">
+  <h2>Workbench</h2>
+  <p class="note">Opens on your mix exactly as you sent it, with the new controls at zero. Dial one
+  in and send me the block underneath.</p>
+  <div class="bench">
+    <canvas id="bench" aria-label="Adjustable graphite rendering of the encapsulin shell"></canvas>
+    <div>
+      <div class="controls" id="controls"></div>
+      <button id="reset" type="button">Reset to your mix</button>
+      <p class="hint">Copy this back to me:</p>
+      <pre id="readout"></pre>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Four chain templates and 60 icosahedral operators, reassembled in the browser &mdash; no pre-rendered
+  frames, no animation library. The view rotation is folded into each operator once per frame, so every
+  structural point costs one matrix-vector product and 240 subunits of real backbone stays affordable.
+</footer>
+
+</div>
