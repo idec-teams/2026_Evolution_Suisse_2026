@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Biosafety · Evolution Suisse 2026</title>
+
+  <meta name="description" content="Continuous directed evolution of QtEncapsulin nanocompartments for programmable mRNA and protein cargo loading. iDEC 2026, Evolution Suisse.">
+  <meta name="author" content="Evolution Suisse 2026">
+  <link rel="canonical" href="https://idec-teams.github.io/2026_Evolution_Suisse_2026/safety/biosafety/"><script>document.documentElement.classList.replace('no-js','js');</script>
+
+  <link rel="icon" href="../../img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../css/fonts.css">
+  <link rel="stylesheet" href="../../css/tokens.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/layout.css">
+  <link rel="stylesheet" href="../../css/nav.css">
+  <link rel="stylesheet" href="../../css/content.css">
+  <link rel="stylesheet" href="../../css/syntax.css">
+  <link rel="stylesheet" href="../../css/home.css">
+  <link rel="stylesheet" href="../../css/search.css"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../fonts/literata-var.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../fonts/newsreader-var.woff2"><script>var base_url = "../..";</script>
+
+  
+  
+</head>
+
+<body class="page--doc"
+      data-page="safety/biosafety/">
+
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="masthead" data-masthead>
+  <div class="masthead__inner">
+
+    <a class="brand" href="../..">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="26" height="26" focusable="false">
+  <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round">
+    <path d="M16 2.6 27.6 9.3v13.4L16 29.4 4.4 22.7V9.3z"/>
+    <path d="M16 10.2 22.2 13.8v7.2L16 24.6 9.8 21V13.8z" opacity=".55"/>
+    <path d="M16 2.6v7.6M27.6 9.3 22.2 13.8M27.6 22.7 22.2 21M16 29.4v-4.8M4.4 22.7 9.8 21M4.4 9.3l5.4 4.5" opacity=".35"/>
+  </g>
+</svg>
+      </span>
+      <span class="brand__text">
+        <span class="brand__name">Evolution Suisse</span>
+        <span class="brand__year">2026</span>
+      </span>
+    </a>
+
+    <nav class="topnav" aria-label="Sections">
+      <ul class="topnav__list">
+        <li class="topnav__item"><a class="topnav__link" href="../../project/">Project</a></li>
+        <li class="topnav__item"><a class="topnav__link" href="../../engineering/">Engineering</a></li>
+        <li class="topnav__item"><a class="topnav__link" href="../../lab/">Lab</a></li>
+        <li class="topnav__item"><a class="topnav__link" href="../../team/">Team</a></li>
+        <li class="topnav__item"><a class="topnav__link is-active" href="../">Safety</a></li>
+      </ul>
+    </nav>
+
+    <div class="masthead__actions">
+      <button class="iconbtn" type="button" data-search-open aria-label="Search" title="Search">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="6"/><path d="M13.5 13.5 18 18"/></svg>
+      </button>
+      <a class="iconbtn" href="https://github.com/idec-teams/2026_Evolution_Suisse_2026" rel="external" aria-label="Source repository" title="Source repository">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M7.5 16.5c-3.5 1-3.5-2-5-2.5m10 4.5v-2.9c0-.8.1-1.2-.4-1.6 2.3-.3 4.4-1.1 4.4-5a3.9 3.9 0 0 0-1-2.7 3.6 3.6 0 0 0-.1-2.7s-.9-.3-2.9 1.1a9.9 9.9 0 0 0-5 0C5.4 3.3 4.5 3.6 4.5 3.6a3.6 3.6 0 0 0-.1 2.7 3.9 3.9 0 0 0-1 2.7c0 3.9 2.1 4.7 4.4 5-.3.3-.4.7-.4 1.2v3.1"/></svg>
+      </a>
+      <button class="iconbtn iconbtn--menu" type="button" data-drawer-toggle aria-expanded="false" aria-controls="sidebar" aria-label="Open navigation">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M3 6h14M3 10h14M3 14h14"/></svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+  
+<div class="shell">
+
+  <aside class="sidebar" id="sidebar" data-drawer>
+    <div class="sidebar__inner">
+      <nav class="nav" aria-label="Site navigation">
+        
+<ul class="nav__list nav__list--l1">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../..">Home</a>
+      </li>
+      <li class="nav__section">
+        <span class="nav__label">Project</span>
+<ul class="nav__list nav__list--l2">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../project/">Project</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../project/background/">Background</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../project/design/">Design</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../project/mechanism/">Mechanism</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../project/results/">Results</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../project/future/">Future work</a>
+      </li>
+</ul>
+
+      </li>
+      <li class="nav__section">
+        <span class="nav__label">Engineering</span>
+<ul class="nav__list nav__list--l2">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../engineering/">Engineering</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../engineering/plasmids/">Plasmids</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../engineering/constructs/">Constructs</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../engineering/cycles/">Evolution cycles</a>
+      </li>
+</ul>
+
+      </li>
+      <li class="nav__section">
+        <span class="nav__label">Lab</span>
+<ul class="nav__list nav__list--l2">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../lab/">Lab</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../lab/protocols/">Protocols</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../lab/notebook/">Notebook</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../lab/data/">Data</a>
+      </li>
+</ul>
+
+      </li>
+      <li class="nav__section">
+        <span class="nav__label">Team</span>
+<ul class="nav__list nav__list--l2">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../team/">Team</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../team/members/">Members</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../team/attributions/">Attributions</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../team/sponsors/">Sponsors</a>
+      </li>
+</ul>
+
+      </li>
+      <li class="nav__section is-active">
+        <span class="nav__label">Safety</span>
+<ul class="nav__list nav__list--l2">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../">Safety</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link is-current"
+           href="./" aria-current="page">Biosafety</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../human-practices/">Human practices</a>
+      </li>
+</ul>
+
+      </li>
+</ul>
+
+      </nav>
+    </div>
+  </aside>
+  <div class="drawer-scrim" data-drawer-close hidden></div>
+
+  <main class="doc" id="content" tabindex="-1">
+    
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <ol class="breadcrumb__list">
+    <li class="breadcrumb__item"><a href="../..">Home</a></li>
+    <li class="breadcrumb__item"><span>Safety</span>
+    </li>
+    <li class="breadcrumb__item breadcrumb__item--current" aria-current="page">Biosafety</li>
+  </ol>
+</nav>
+
+    <article class="prose">
+      <h1 id="biosafety">Biosafety<a class="headerlink" href="#biosafety" title="Link to this section">#</a></h1>
+<h2 id="organisms-and-risk-group">Organisms and risk group<a class="headerlink" href="#organisms-and-risk-group" title="Link to this section">#</a></h2>
+<p>All work was carried out in laboratory strains of <em>Escherichia coli</em>:</p>
+<table>
+<thead>
+<tr>
+<th>Strain</th>
+<th>Type</th>
+<th>Used for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DH10β</td>
+<td>K-12 derivative</td>
+<td>Cloning and plasmid propagation</td>
+</tr>
+<tr>
+<td>BL21 (DE3)</td>
+<td>B strain</td>
+<td>Recombinant protein expression</td>
+</tr>
+<tr>
+<td>MutaT7 host strain</td>
+<td>K-12 derivative</td>
+<td>Hypermutation and the planned evolution campaign</td>
+</tr>
+</tbody>
+</table>
+<p>These are standard, non-pathogenic, well-characterised laboratory strains,
+attenuated by long domestication and unable to colonise the human gut. They are
+handled as Risk Group 1 organisms.</p>
+<p>No pathogen, no virulence factor and no toxin gene is present anywhere in the
+project. Nothing constructed here is designed to survive outside a laboratory
+incubator.</p>
+<h2 id="the-three-things-worth-arguing-about">The three things worth arguing about<a class="headerlink" href="#the-three-things-worth-arguing-about" title="Link to this section">#</a></h2>
+<p>A generic risk statement would miss what is actually distinctive about this
+project. Three features deserve specific justification.</p>
+<h3 id="1-dcas9-is-catalytically-dead">1. dCas9 is catalytically dead<a class="headerlink" href="#1-dcas9-is-catalytically-dead" title="Link to this section">#</a></h3>
+<p>The Cas9 used throughout is nuclease-deficient. It binds DNA and obstructs
+transcription; it does not cut. The genome-editing hazard normally associated
+with Cas9 is absent by construction, not by containment.</p>
+<p>This is a design property, not a precaution that could lapse — a mutation
+restoring nuclease activity would require reverting specific active-site
+substitutions, and would confer no advantage under our selection.</p>
+<h3 id="2-hypermutation-is-targeted-not-global">2. Hypermutation is targeted, not global<a class="headerlink" href="#2-hypermutation-is-targeted-not-global" title="Link to this section">#</a></h3>
+<p>MutaT7 raises the mutation rate of a defined cassette by fusing a deaminase to T7
+RNA polymerase. Mutagenesis tracks along sequence behind a T7 promoter and stops
+at the terminator. The host genome is replicated by its own high-fidelity
+machinery and is not affected.</p>
+<p>This matters for safety as well as for the experiment. We are not producing a
+general mutator strain, which would accumulate uncontrolled changes including
+potentially in stress-response and resistance pathways. The hypermutated sequence
+is one structural protein gene from a soil bacterium, and it is the only sequence
+under mutation in the cell.</p>
+<h3 id="3-antibiotic-resistance-is-the-readout-and-this-needs-stating-carefully">3. Antibiotic resistance is the readout — and this needs stating carefully<a class="headerlink" href="#3-antibiotic-resistance-is-the-readout-and-this-needs-stating-carefully" title="Link to this section">#</a></h3>
+<p>The selection works by repressing a kanamycin-resistance gene and rescuing it.
+This deserves an explicit argument rather than a reassurance.</p>
+<ul>
+<li><strong>No new resistance is created.</strong> The kanamycin-resistance gene is a standard
+  laboratory marker, already ubiquitous in cloning vectors worldwide. The
+  selection modulates its <em>expression</em>; it does not evolve the resistance protein
+  or broaden its spectrum. This is the opposite of the T7-ORACLE work we cite for
+  context, which evolved a β-lactamase toward clinically relevant substrates —
+  our mutagenised locus is a structural shell protein with no resistance function.</li>
+<li><strong>The evolutionary pressure is on the shell, not the marker.</strong> The marker sits
+  on the non-mutagenised plasmid, deliberately, for reasons that are
+  simultaneously experimental and precautionary: mutations in the resistance gene
+  would corrupt the selection <em>and</em> would be the only route by which this project
+  could generate a novel resistance phenotype.</li>
+<li><strong>Antibiotics used are standard laboratory selection agents</strong> — ampicillin,
+  kanamycin, chloramphenicol — at ordinary working concentrations, disposed of as
+  contaminated waste.</li>
+</ul>
+<div class="admonition caution">
+<p class="admonition-title">The honest residual risk</p>
+<p>Continuous culture under a rising antibiotic dose is, by construction, an
+enrichment for kanamycin survival. The intended solution is better
+encapsulation, but the population is free to find any solution — including
+generic tolerance mechanisms such as efflux upregulation, arising in the host
+genome outside the hypermutated cassette.</p>
+<p>This is a real limitation of the experimental design as much as a safety
+consideration. It is monitored by re-sequencing at each passage and by the
+non-targeting control, which reveals cells surviving at doses no amount of
+rescue should permit. Cultures showing unexplained resistance are discarded
+rather than carried forward.</p>
+</div>
+<h2 id="containment-practice">Containment practice<a class="headerlink" href="#containment-practice" title="Link to this section">#</a></h2>
+<p>Standard microbiological practice for Risk Group 1 work: work confined to the
+laboratory, cultures autoclaved before disposal, contaminated plasticware and
+plates treated as biological waste, benches disinfected, no organisms removed
+from the facility. Strains are archived as glycerol stocks at −80 °C.</p>
+<p>Chemical hazards were handled alongside the biological ones. PMSF, used as a
+protease inhibitor during lysis, is acutely toxic and is handled with gloves,
+with attention to its persistence in the solutions it is added to.</p>
+<h2 id="risk-assessment">Risk assessment<a class="headerlink" href="#risk-assessment" title="Link to this section">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">To be completed by the team</p>
+<p>The institution-specific content cannot be reconstructed from the project
+files and should not be approximated. This section needs:</p>
+<ul>
+<li>the host institution and laboratory, and its biosafety level;</li>
+<li>the national and institutional regulatory framework the work was notified
+  under, with reference numbers;</li>
+<li>the name of the responsible biosafety officer and supervising researcher;</li>
+<li>dates of safety training completed by team members;</li>
+<li>the local waste-handling and spill procedures as actually specified.</li>
+</ul>
+<p>The organism, construct and hazard analysis above is complete and does not
+depend on these.</p>
+</div>
+    </article>
+
+    
+<nav class="pager" aria-label="Page navigation">
+  <a class="pager__link pager__link--prev" href="../">
+    <span class="pager__dir">Previous</span>
+    <span class="pager__title">Safety</span>
+  </a>
+  <a class="pager__link pager__link--next" href="../human-practices/">
+    <span class="pager__dir">Next</span>
+    <span class="pager__title">Human practices</span>
+  </a>
+</nav>
+  </main>
+
+  <div class="rail">
+    <div class="rail__inner">
+      
+<nav class="toc" aria-labelledby="toc-heading">
+  <h2 class="toc__heading" id="toc-heading">On this page</h2>
+  <ul class="toc__list">
+    <li class="toc__item">
+      <a class="toc__link" href="#organisms-and-risk-group">Organisms and risk group</a>
+    </li>
+    <li class="toc__item">
+      <a class="toc__link" href="#the-three-things-worth-arguing-about">The three things worth arguing about</a>
+      <ul class="toc__list toc__list--sub">
+        <li class="toc__item"><a class="toc__link" href="#1-dcas9-is-catalytically-dead">1. dCas9 is catalytically dead</a></li>
+        <li class="toc__item"><a class="toc__link" href="#2-hypermutation-is-targeted-not-global">2. Hypermutation is targeted, not global</a></li>
+        <li class="toc__item"><a class="toc__link" href="#3-antibiotic-resistance-is-the-readout-and-this-needs-stating-carefully">3. Antibiotic resistance is the readout — and this needs stating carefully</a></li>
+      </ul>
+    </li>
+    <li class="toc__item">
+      <a class="toc__link" href="#containment-practice">Containment practice</a>
+    </li>
+    <li class="toc__item">
+      <a class="toc__link" href="#risk-assessment">Risk assessment</a>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </div>
+
+</div>
+
+
+  <footer class="colophon">
+  <div class="colophon__inner">
+
+    <div class="colophon__brand">
+      <span class="colophon__name">Evolution Suisse 2026</span><span class="colophon__tagline">Directed evolution of a protein nanocompartment</span>
+    </div>
+
+    <nav class="colophon__nav" aria-label="Footer">
+      <div class="colophon__group">
+        <h2 class="colophon__grouphead">Project</h2>
+        <ul>
+          <li><a href="../../project/background/">Background</a></li>
+          <li><a href="../../project/design/">Design</a></li>
+          <li><a href="../../project/mechanism/">Mechanism</a></li>
+          <li><a href="../../project/results/">Results</a></li>
+          <li><a href="../../project/future/">Future work</a></li>
+        </ul>
+      </div>
+      <div class="colophon__group">
+        <h2 class="colophon__grouphead">Engineering</h2>
+        <ul>
+          <li><a href="../../engineering/plasmids/">Plasmids</a></li>
+          <li><a href="../../engineering/constructs/">Constructs</a></li>
+          <li><a href="../../engineering/cycles/">Evolution cycles</a></li>
+        </ul>
+      </div>
+      <div class="colophon__group">
+        <h2 class="colophon__grouphead">Lab</h2>
+        <ul>
+          <li><a href="../../lab/protocols/">Protocols</a></li>
+          <li><a href="../../lab/notebook/">Notebook</a></li>
+          <li><a href="../../lab/data/">Data</a></li>
+        </ul>
+      </div>
+      <div class="colophon__group">
+        <h2 class="colophon__grouphead">Team</h2>
+        <ul>
+          <li><a href="../../team/members/">Members</a></li>
+          <li><a href="../../team/attributions/">Attributions</a></li>
+          <li><a href="../../team/sponsors/">Sponsors</a></li>
+        </ul>
+      </div>
+      <div class="colophon__group">
+        <h2 class="colophon__grouphead">Safety</h2>
+        <ul>
+          <li><a href="./">Biosafety</a></li>
+          <li><a href="../human-practices/">Human practices</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="colophon__meta">
+      <a class="colophon__edit" href="https://github.com/idec-teams/2026_Evolution_Suisse_2026/blob/main/docs/safety/biosafety.md" rel="external">Edit this page</a>
+      <p class="colophon__legal">Copyright &copy; 2026 iDEC. CC-BY-4.0 &middot; The International Directed Evolution Competition (iDEC) is a Scottish Charitable Incorporated Organisation (SCIO), registered in Scotland, charity number SC050826.</p>
+      <p class="colophon__built">
+        Built 2026-09-16 with
+        <a href="https://www.mkdocs.org/" rel="external">MkDocs</a>.
+      </p>
+    </div>
+
+  </div>
+</footer>
+  <div class="searchmodal" id="searchmodal" hidden data-search-modal>
+  <div class="searchmodal__scrim" data-search-close></div>
+  <div class="searchmodal__panel" role="dialog" aria-modal="true" aria-labelledby="searchmodal-label">
+    <h2 class="u-visually-hidden" id="searchmodal-label">Search this wiki</h2>
+
+    <div class="searchmodal__field">
+      <svg class="searchmodal__icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="6"/><path d="M13.5 13.5 18 18"/></svg>
+      <input type="search" id="mkdocs-search-query" placeholder="Search pages…" autocomplete="off" spellcheck="false">
+      <button class="searchmodal__close" type="button" data-search-close aria-label="Close search">Esc</button>
+    </div>
+
+    <div class="searchmodal__results" id="mkdocs-search-results" data-no-results-text="No pages matched that query."></div>
+  </div>
+</div>
+
+  <script type="module" src="../../js/app.js"></script><script src="../../../../search/main.js"></script>
+
+  
+</body>
+</html>

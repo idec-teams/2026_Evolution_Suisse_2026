@@ -1,0 +1,256 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   layout.css — masthead, three-column doc shell, footer.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Masthead ───────────────────────────────────────────────────────────── */
+.masthead {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--masthead-h);
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--dur) var(--ease), background var(--dur) var(--ease);
+}
+.masthead.is-stuck {
+  border-bottom-color: var(--rule);
+  background: color-mix(in srgb, var(--paper) 94%, transparent);
+}
+.masthead__inner {
+  height: 100%;
+  max-width: 90rem;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  display: flex;
+  align-items: center;
+  gap: var(--s-6);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  color: var(--ink);
+  text-decoration: none;
+  flex: none;
+}
+.brand__mark { color: var(--accent); display: grid; place-items: center; }
+.brand__text { display: flex; align-items: baseline; gap: var(--s-2); line-height: 1; }
+.brand__name {
+  font-family: var(--font-display);
+  font-size: var(--step-0);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.brand__year {
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  color: var(--ink-faint);
+  letter-spacing: 0.04em;
+}
+
+.topnav { flex: 1 1 auto; min-width: 0; }
+.topnav__list {
+  display: flex;
+  gap: var(--s-1);
+  list-style: none;
+  margin: 0; padding: 0;
+}
+.topnav__link {
+  display: block;
+  padding: var(--s-2) var(--s-3);
+  border-radius: var(--radius);
+  color: var(--ink-muted);
+  font-size: var(--step--1);
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color var(--dur) var(--ease), background var(--dur) var(--ease);
+}
+.topnav__link:hover { color: var(--ink); background: var(--paper-sunk); }
+.topnav__link.is-active { color: var(--accent); font-weight: 600; }
+
+.masthead__actions { display: flex; align-items: center; gap: var(--s-1); flex: none; }
+.iconbtn--menu { display: none; }
+
+/* ── Three-column doc shell ─────────────────────────────────────────────── */
+.shell {
+  max-width: 90rem;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  display: grid;
+  grid-template-columns: var(--sidebar-w) minmax(0, 1fr) var(--rail-w);
+  gap: var(--s-8);
+  align-items: start;
+}
+
+.sidebar, .rail { position: sticky; top: var(--masthead-h); }
+.sidebar__inner, .rail__inner {
+  max-height: calc(100vh - var(--masthead-h));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-block: var(--s-7) var(--s-9);
+  scrollbar-width: thin;
+  scrollbar-color: var(--rule-strong) transparent;
+}
+
+.doc {
+  min-width: 0;
+  padding-block: var(--s-7) var(--s-10);
+}
+.doc:focus { outline: none; }
+
+/* ── Content grid ───────────────────────────────────────────────────────────
+   One grid on the article gives three width classes with no wrapper divs.
+   Authors only ever need `.wide` and `.full`.
+   ─────────────────────────────────────────────────────────────────────────── */
+.prose {
+  display: grid;
+  grid-template-columns:
+    [full-start] minmax(0, 1fr)
+    [wide-start] minmax(0, 6rem)
+    [text-start] min(var(--measure), 100%) [text-end]
+    minmax(0, 6rem) [wide-end]
+    minmax(0, 1fr) [full-end];
+}
+.prose > *      { grid-column: text; }
+.prose > .wide  { grid-column: wide; }
+.prose > .full  { grid-column: full; }
+
+/* Vertical rhythm as a flow rule, not per-element margins. */
+.prose > * + *  { margin-top: var(--s-5); }
+.prose > * + h2 { margin-top: var(--s-9); }
+.prose > * + h3 { margin-top: var(--s-7); }
+.prose > * + h4 { margin-top: var(--s-6); }
+.prose > h2 + *, .prose > h3 + *, .prose > h4 + * { margin-top: var(--s-4); }
+.prose > * + figure, .prose > figure + * { margin-top: var(--s-8); }
+
+/* ── Footer ─────────────────────────────────────────────────────────────── */
+.colophon {
+  margin-top: var(--s-10);
+  border-top: 1px solid var(--rule);
+  background: var(--paper-sunk);
+}
+.colophon__inner {
+  max-width: 90rem;
+  margin-inline: auto;
+  padding: var(--s-9) var(--gutter) var(--s-8);
+  display: grid;
+  grid-template-columns: minmax(14rem, 1fr) 2.2fr;
+  gap: var(--s-8);
+}
+.colophon__name {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-weight: 600;
+}
+.colophon__tagline {
+  display: block;
+  margin-top: var(--s-2);
+  color: var(--ink-muted);
+  font-size: var(--step--1);
+  max-width: 26ch;
+}
+.colophon__nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: var(--s-6);
+}
+.colophon__grouphead {
+  font-family: var(--font-body);
+  font-size: var(--step--2);
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: var(--s-3);
+}
+.colophon__nav ul { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s-2); }
+.colophon__nav a {
+  color: var(--ink-muted);
+  font-size: var(--step--1);
+  text-decoration: none;
+}
+.colophon__nav a:hover { color: var(--accent); text-decoration: underline; }
+
+.colophon__meta {
+  grid-column: 1 / -1;
+  padding-top: var(--s-6);
+  border-top: 1px solid var(--rule);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--s-3) var(--s-6);
+}
+.colophon__legal, .colophon__built {
+  margin: 0;
+  font-size: var(--step--2);
+  color: var(--ink-faint);
+  line-height: 1.5;
+  max-width: 62ch;
+}
+.colophon__edit { font-size: var(--step--1); font-weight: 550; }
+
+/* ── Error page ─────────────────────────────────────────────────────────── */
+.errorpage {
+  max-width: 40rem;
+  margin-inline: auto;
+  padding: var(--s-11) var(--gutter) var(--s-10);
+  text-align: center;
+}
+.errorpage__code {
+  font-size: var(--step-5);
+  font-variation-settings: "opsz" 144, "SOFT" 0;
+  color: var(--accent);
+  line-height: 1;
+}
+.errorpage__msg { margin-top: var(--s-5); color: var(--ink-muted); font-size: var(--step-1); }
+.errorpage__actions { margin-top: var(--s-7); }
+
+/* ── Responsive ─────────────────────────────────────────────────────────── */
+
+/* Rail (TOC) folds away first. */
+@media (max-width: 1200px) {
+  .shell { grid-template-columns: var(--sidebar-w) minmax(0, 1fr); }
+  .rail { display: none; }
+}
+
+/* Sidebar becomes an off-canvas drawer. */
+@media (max-width: 900px) {
+  .shell { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .topnav { display: none; }
+  .iconbtn--menu { display: grid; }
+
+  .sidebar {
+    position: fixed;
+    inset: var(--masthead-h) auto 0 0;
+    z-index: 90;
+    width: min(20rem, 84vw);
+    background: var(--paper-raised);
+    border-right: 1px solid var(--rule);
+    box-shadow: var(--shadow-3);
+    transform: translateX(-102%);
+    transition: transform var(--dur) var(--ease);
+    visibility: hidden;
+  }
+  .sidebar.is-open { transform: none; visibility: visible; }
+  .sidebar__inner { max-height: none; height: 100%; padding-inline: var(--s-5); }
+
+  .drawer-scrim {
+    position: fixed;
+    inset: var(--masthead-h) 0 0 0;
+    z-index: 89;
+    background: rgb(20 23 28 / 0.32);
+    backdrop-filter: blur(2px);
+  }
+  .drawer-scrim[hidden] { display: none; }
+
+  .colophon__inner { grid-template-columns: minmax(0, 1fr); gap: var(--s-7); }
+}
+
+@media (max-width: 560px) {
+  .brand__year { display: none; }
+  .colophon__nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

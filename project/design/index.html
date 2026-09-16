@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Design · Evolution Suisse 2026</title>
+
+  <meta name="description" content="Continuous directed evolution of QtEncapsulin nanocompartments for programmable mRNA and protein cargo loading. iDEC 2026, Evolution Suisse.">
+  <meta name="author" content="Evolution Suisse 2026">
+  <link rel="canonical" href="https://idec-teams.github.io/2026_Evolution_Suisse_2026/project/design/"><script>document.documentElement.classList.replace('no-js','js');</script>
+
+  <link rel="icon" href="../../img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../css/fonts.css">
+  <link rel="stylesheet" href="../../css/tokens.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/layout.css">
+  <link rel="stylesheet" href="../../css/nav.css">
+  <link rel="stylesheet" href="../../css/content.css">
+  <link rel="stylesheet" href="../../css/syntax.css">
+  <link rel="stylesheet" href="../../css/home.css">
+  <link rel="stylesheet" href="../../css/search.css"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../fonts/literata-var.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../fonts/newsreader-var.woff2"><script>var base_url = "../..";</script>
+
+  
+  
+</head>
+
+<body class="page--doc"
+      data-page="project/design/">
+
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="masthead" data-masthead>
+  <div class="masthead__inner">
+
+    <a class="brand" href="../..">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="26" height="26" focusable="false">
+  <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round">
+    <path d="M16 2.6 27.6 9.3v13.4L16 29.4 4.4 22.7V9.3z"/>
+    <path d="M16 10.2 22.2 13.8v7.2L16 24.6 9.8 21V13.8z" opacity=".55"/>
+    <path d="M16 2.6v7.6M27.6 9.3 22.2 13.8M27.6 22.7 22.2 21M16 29.4v-4.8M4.4 22.7 9.8 21M4.4 9.3l5.4 4.5" opacity=".35"/>
+  </g>
+</svg>
+      </span>
+      <span class="brand__text">
+        <span class="brand__name">Evolution Suisse</span>
+        <span class="brand__year">2026</span>
+      </span>
+    </a>
+
+    <nav class="topnav" aria-label="Sections">
+      <ul class="topnav__list">
+        <li class="topnav__item"><a class="topnav__link is-active" href="../">Project</a></li>
+        <li class="topnav__item"><a class="topnav__link" href="../../engineering/">Engineering</a></li>
+        <li class="topnav__item"><a class="topnav__link" href="../../lab/">Lab</a></li>
+        <li class="topnav__item"><a class="topnav__link" href="../../team/">Team</a></li>
+        <li class="topnav__item"><a class="topnav__link" href="../../safety/">Safety</a></li>
+      </ul>
+    </nav>
+
+    <div class="masthead__actions">
+      <button class="iconbtn" type="button" data-search-open aria-label="Search" title="Search">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="6"/><path d="M13.5 13.5 18 18"/></svg>
+      </button>
+      <a class="iconbtn" href="https://github.com/idec-teams/2026_Evolution_Suisse_2026" rel="external" aria-label="Source repository" title="Source repository">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M7.5 16.5c-3.5 1-3.5-2-5-2.5m10 4.5v-2.9c0-.8.1-1.2-.4-1.6 2.3-.3 4.4-1.1 4.4-5a3.9 3.9 0 0 0-1-2.7 3.6 3.6 0 0 0-.1-2.7s-.9-.3-2.9 1.1a9.9 9.9 0 0 0-5 0C5.4 3.3 4.5 3.6 4.5 3.6a3.6 3.6 0 0 0-.1 2.7 3.9 3.9 0 0 0-1 2.7c0 3.9 2.1 4.7 4.4 5-.3.3-.4.7-.4 1.2v3.1"/></svg>
+      </a>
+      <button class="iconbtn iconbtn--menu" type="button" data-drawer-toggle aria-expanded="false" aria-controls="sidebar" aria-label="Open navigation">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M3 6h14M3 10h14M3 14h14"/></svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+  
+<div class="shell">
+
+  <aside class="sidebar" id="sidebar" data-drawer>
+    <div class="sidebar__inner">
+      <nav class="nav" aria-label="Site navigation">
+        
+<ul class="nav__list nav__list--l1">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../..">Home</a>
+      </li>
+      <li class="nav__section is-active">
+        <span class="nav__label">Project</span>
+<ul class="nav__list nav__list--l2">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../">Project</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../background/">Background</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link is-current"
+           href="./" aria-current="page">Design</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../mechanism/">Mechanism</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../results/">Results</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../future/">Future work</a>
+      </li>
+</ul>
+
+      </li>
+      <li class="nav__section">
+        <span class="nav__label">Engineering</span>
+<ul class="nav__list nav__list--l2">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../engineering/">Engineering</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../engineering/plasmids/">Plasmids</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../engineering/constructs/">Constructs</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../engineering/cycles/">Evolution cycles</a>
+      </li>
+</ul>
+
+      </li>
+      <li class="nav__section">
+        <span class="nav__label">Lab</span>
+<ul class="nav__list nav__list--l2">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../lab/">Lab</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../lab/protocols/">Protocols</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../lab/notebook/">Notebook</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../lab/data/">Data</a>
+      </li>
+</ul>
+
+      </li>
+      <li class="nav__section">
+        <span class="nav__label">Team</span>
+<ul class="nav__list nav__list--l2">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../team/">Team</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../team/members/">Members</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../team/attributions/">Attributions</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../team/sponsors/">Sponsors</a>
+      </li>
+</ul>
+
+      </li>
+      <li class="nav__section">
+        <span class="nav__label">Safety</span>
+<ul class="nav__list nav__list--l2">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../safety/">Safety</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../safety/biosafety/">Biosafety</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../safety/human-practices/">Human practices</a>
+      </li>
+</ul>
+
+      </li>
+</ul>
+
+      </nav>
+    </div>
+  </aside>
+  <div class="drawer-scrim" data-drawer-close hidden></div>
+
+  <main class="doc" id="content" tabindex="-1">
+    
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <ol class="breadcrumb__list">
+    <li class="breadcrumb__item"><a href="../..">Home</a></li>
+    <li class="breadcrumb__item"><span>Project</span>
+    </li>
+    <li class="breadcrumb__item breadcrumb__item--current" aria-current="page">Design</li>
+  </ol>
+</nav>
+
+    <article class="prose">
+      <h1 id="design">Design<a class="headerlink" href="#design" title="Link to this section">#</a></h1>
+<h2 id="choosing-qtencapsulin">Choosing QtEncapsulin<a class="headerlink" href="#choosing-qtencapsulin" title="Link to this section">#</a></h2>
+<p>The shell is QtEncapsulin (QtEnc), the encapsulin of <em>Quasibacillus
+thermotolerans</em>: a 240-subunit, T=4 icosahedral compartment about 42 nm in
+diameter and 7.7 MDa in mass, with one internal cargo-loading site per
+subunit.<sup id="fnref:qt"><a class="footnote-ref" href="#fn:qt">1</a></sup> Its structure is deposited as
+<a href="https://www.rcsb.org/structure/6NJ8">6NJ8</a>.</p>
+<p>Four properties decided it.</p>
+<p><strong>It is one of the largest encapsulins available.</strong> A T=4 shell has room for a
+dCas9 ribonucleoprotein; a T=1 cage of 60 subunits does not.</p>
+<p><strong>It is permeable.</strong> Cargo of 14–482 kDa enters pre-assembled shells in a single
+mixing step, without disassembly, co-expression tuning or a triggering component.
+For a selection that runs inside a living cell this matters: capture does not have
+to coincide with assembly, so a shell has more than one moment in which to succeed.</p>
+<p><strong>Its loading chemistry is minimal.</strong> The CLP core motif is five residues,
+<code>TVGSL</code>, and works fused to either terminus. It is unlikely to interfere with the
+folding or function of the cargo protein — which for a nuclease as
+conformationally busy as Cas9 is not a small consideration.</p>
+<p><strong>It has an evolutionary track record.</strong> QtEnc has already been carried through a
+life–death directed-evolution campaign and survived 13-residue deletions in a
+vertex-lining loop. The scaffold tolerates being broken.</p>
+<h3 id="what-qtencapsulin-cannot-do">What QtEncapsulin cannot do<a class="headerlink" href="#what-qtencapsulin-cannot-do" title="Link to this section">#</a></h3>
+<p>It has no affinity for nucleic acids. Nothing in the native system binds RNA, and
+no amount of pore engineering will change that — a wider hole does not create a
+binding site. This is the gap the project has to engineer across before evolution
+has anything to improve.</p>
+<h2 id="cargo-loading-peptides">Cargo-loading peptides<a class="headerlink" href="#cargo-loading-peptides" title="Link to this section">#</a></h2>
+<p>The thing we need captured is not a protein or an RNA but a complex of both:
+dCas9 bound to its guide. We therefore gave the system a separate grip on each
+half, chosen so that the two do not interfere.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Protein handle — CLP</label><label for="__tabbed_1_2">RNA handle — λN·boxB</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>dCas9 is fused to the native cargo-loading peptide, which docks into the
+binding groove present once on the lumenal face of each of the 240 protomers.
+This reuses QtEnc's own chemistry rather than importing a second foreign
+module, and it inherits whatever affinity and geometry evolution has already
+tuned in the native system.</p>
+</div>
+<div class="tabbed-block">
+<p>The sgRNA scaffold carries a <strong>boxB</strong> stem-loop, caught by the arginine-rich
+<strong>λN⁺</strong> peptide grafted onto the interior surface of the shell. The precedent
+is direct: Hilvert and co-workers built an artificial nucleocapsid by
+circularly permuting a bacterial enzyme and appending λN⁺, and found the
+peptides lining the lumenal edge of the shell openings. A lysine-to-arginine
+substitution in λN⁺ is known to raise boxB affinity roughly threefold, which
+gives a ready-made tuning knob if capture proves too weak.</p>
+</div>
+</div>
+</div>
+<p>The two handles are deliberately orthogonal, and the selection treats them as an
+<strong>OR gate</strong>: capturing the guide, or capturing the nuclease, is individually
+sufficient to break the complex and rescue the cell.</p>
+<div class="admonition note">
+<p class="admonition-title">Why an OR gate rather than an AND gate</p>
+<p>Demanding simultaneous capture of both halves would be a more faithful test of
+co-encapsulation — and a much worse selection to start from. A shell that does
+neither well has no gradient to climb toward doing both. The OR gate rewards
+partial progress along either axis, which is what makes the landscape
+traversable from a wild-type starting point.</p>
+<p>The cost is that single-handle solutions can be enriched in place of genuine
+co-encapsulation. Distinguishing them is the job of the
+<a href="../../lab/protocols/">co-encapsulation assays</a>, not of the selection.</p>
+</div>
+<h2 id="design-constraints">Design constraints<a class="headerlink" href="#design-constraints" title="Link to this section">#</a></h2>
+<p><strong>The shell must remain the only thing evolving.</strong> Anything else in the circuit
+that can mutate to restore resistance will, and faster. This constraint is what
+produces the two-plasmid split described in
+<a href="../../engineering/plasmids/">Plasmids</a>.</p>
+<p><strong>Repression must be graded, not absolute.</strong> A binary live/die circuit gives
+selection no gradient. See <a href="../mechanism/">Mechanism</a> for how guide truncation
+buys a continuous knob instead.</p>
+<p><strong>dCas9 must be present but not overexpressed.</strong> Repression strength becomes
+independent of dCas9 concentration only once the target is saturated, which
+argues for high expression — but dCas9 overexpression is separately reported to
+be toxic in <em>E. coli</em>. The working range sits above saturation and below toxicity.</p>
+<p><strong>The shell has to actually assemble.</strong> This is the constraint currently
+binding: see <a href="../results/">Results</a>.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:qt">
+<p>Giessen <em>et al.</em>, <em>eLife</em> <strong>8</strong>, e46070 (2019),
+<a href="https://doi.org/10.7554/eLife.46070">doi:10.7554/eLife.46070</a>.&#160;<a class="footnote-backref" href="#fnref:qt" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+    </article>
+
+    
+<nav class="pager" aria-label="Page navigation">
+  <a class="pager__link pager__link--prev" href="../background/">
+    <span class="pager__dir">Previous</span>
+    <span class="pager__title">Background</span>
+  </a>
+  <a class="pager__link pager__link--next" href="../mechanism/">
+    <span class="pager__dir">Next</span>
+    <span class="pager__title">Mechanism</span>
+  </a>
+</nav>
+  </main>
+
+  <div class="rail">
+    <div class="rail__inner">
+      
+<nav class="toc" aria-labelledby="toc-heading">
+  <h2 class="toc__heading" id="toc-heading">On this page</h2>
+  <ul class="toc__list">
+    <li class="toc__item">
+      <a class="toc__link" href="#choosing-qtencapsulin">Choosing QtEncapsulin</a>
+      <ul class="toc__list toc__list--sub">
+        <li class="toc__item"><a class="toc__link" href="#what-qtencapsulin-cannot-do">What QtEncapsulin cannot do</a></li>
+      </ul>
+    </li>
+    <li class="toc__item">
+      <a class="toc__link" href="#cargo-loading-peptides">Cargo-loading peptides</a>
+    </li>
+    <li class="toc__item">
+      <a class="toc__link" href="#design-constraints">Design constraints</a>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </div>
+
+</div>
+
+
+  <footer class="colophon">
+  <div class="colophon__inner">
+
+    <div class="colophon__brand">
+      <span class="colophon__name">Evolution Suisse 2026</span><span class="colophon__tagline">Directed evolution of a protein nanocompartment</span>
+    </div>
+
+    <nav class="colophon__nav" aria-label="Footer">
+      <div class="colophon__group">
+        <h2 class="colophon__grouphead">Project</h2>
+        <ul>
+          <li><a href="../background/">Background</a></li>
+          <li><a href="./">Design</a></li>
+          <li><a href="../mechanism/">Mechanism</a></li>
+          <li><a href="../results/">Results</a></li>
+          <li><a href="../future/">Future work</a></li>
+        </ul>
+      </div>
+      <div class="colophon__group">
+        <h2 class="colophon__grouphead">Engineering</h2>
+        <ul>
+          <li><a href="../../engineering/plasmids/">Plasmids</a></li>
+          <li><a href="../../engineering/constructs/">Constructs</a></li>
+          <li><a href="../../engineering/cycles/">Evolution cycles</a></li>
+        </ul>
+      </div>
+      <div class="colophon__group">
+        <h2 class="colophon__grouphead">Lab</h2>
+        <ul>
+          <li><a href="../../lab/protocols/">Protocols</a></li>
+          <li><a href="../../lab/notebook/">Notebook</a></li>
+          <li><a href="../../lab/data/">Data</a></li>
+        </ul>
+      </div>
+      <div class="colophon__group">
+        <h2 class="colophon__grouphead">Team</h2>
+        <ul>
+          <li><a href="../../team/members/">Members</a></li>
+          <li><a href="../../team/attributions/">Attributions</a></li>
+          <li><a href="../../team/sponsors/">Sponsors</a></li>
+        </ul>
+      </div>
+      <div class="colophon__group">
+        <h2 class="colophon__grouphead">Safety</h2>
+        <ul>
+          <li><a href="../../safety/biosafety/">Biosafety</a></li>
+          <li><a href="../../safety/human-practices/">Human practices</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="colophon__meta">
+      <a class="colophon__edit" href="https://github.com/idec-teams/2026_Evolution_Suisse_2026/blob/main/docs/project/design.md" rel="external">Edit this page</a>
+      <p class="colophon__legal">Copyright &copy; 2026 iDEC. CC-BY-4.0 &middot; The International Directed Evolution Competition (iDEC) is a Scottish Charitable Incorporated Organisation (SCIO), registered in Scotland, charity number SC050826.</p>
+      <p class="colophon__built">
+        Built 2026-09-16 with
+        <a href="https://www.mkdocs.org/" rel="external">MkDocs</a>.
+      </p>
+    </div>
+
+  </div>
+</footer>
+  <div class="searchmodal" id="searchmodal" hidden data-search-modal>
+  <div class="searchmodal__scrim" data-search-close></div>
+  <div class="searchmodal__panel" role="dialog" aria-modal="true" aria-labelledby="searchmodal-label">
+    <h2 class="u-visually-hidden" id="searchmodal-label">Search this wiki</h2>
+
+    <div class="searchmodal__field">
+      <svg class="searchmodal__icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="6"/><path d="M13.5 13.5 18 18"/></svg>
+      <input type="search" id="mkdocs-search-query" placeholder="Search pages…" autocomplete="off" spellcheck="false">
+      <button class="searchmodal__close" type="button" data-search-close aria-label="Close search">Esc</button>
+    </div>
+
+    <div class="searchmodal__results" id="mkdocs-search-results" data-no-results-text="No pages matched that query."></div>
+  </div>
+</div>
+
+  <script type="module" src="../../js/app.js"></script><script src="../../../../search/main.js"></script>
+
+  
+</body>
+</html>

@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Protocols · Evolution Suisse 2026</title>
+
+  <meta name="description" content="Continuous directed evolution of QtEncapsulin nanocompartments for programmable mRNA and protein cargo loading. iDEC 2026, Evolution Suisse.">
+  <meta name="author" content="Evolution Suisse 2026">
+  <link rel="canonical" href="https://idec-teams.github.io/2026_Evolution_Suisse_2026/lab/protocols/"><script>document.documentElement.classList.replace('no-js','js');</script>
+
+  <link rel="icon" href="../../img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../css/fonts.css">
+  <link rel="stylesheet" href="../../css/tokens.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/layout.css">
+  <link rel="stylesheet" href="../../css/nav.css">
+  <link rel="stylesheet" href="../../css/content.css">
+  <link rel="stylesheet" href="../../css/syntax.css">
+  <link rel="stylesheet" href="../../css/home.css">
+  <link rel="stylesheet" href="../../css/search.css"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../fonts/literata-var.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../fonts/newsreader-var.woff2"><script>var base_url = "../..";</script>
+
+  
+  
+</head>
+
+<body class="page--doc"
+      data-page="lab/protocols/">
+
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="masthead" data-masthead>
+  <div class="masthead__inner">
+
+    <a class="brand" href="../..">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="26" height="26" focusable="false">
+  <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round">
+    <path d="M16 2.6 27.6 9.3v13.4L16 29.4 4.4 22.7V9.3z"/>
+    <path d="M16 10.2 22.2 13.8v7.2L16 24.6 9.8 21V13.8z" opacity=".55"/>
+    <path d="M16 2.6v7.6M27.6 9.3 22.2 13.8M27.6 22.7 22.2 21M16 29.4v-4.8M4.4 22.7 9.8 21M4.4 9.3l5.4 4.5" opacity=".35"/>
+  </g>
+</svg>
+      </span>
+      <span class="brand__text">
+        <span class="brand__name">Evolution Suisse</span>
+        <span class="brand__year">2026</span>
+      </span>
+    </a>
+
+    <nav class="topnav" aria-label="Sections">
+      <ul class="topnav__list">
+        <li class="topnav__item"><a class="topnav__link" href="../../project/">Project</a></li>
+        <li class="topnav__item"><a class="topnav__link" href="../../engineering/">Engineering</a></li>
+        <li class="topnav__item"><a class="topnav__link is-active" href="../">Lab</a></li>
+        <li class="topnav__item"><a class="topnav__link" href="../../team/">Team</a></li>
+        <li class="topnav__item"><a class="topnav__link" href="../../safety/">Safety</a></li>
+      </ul>
+    </nav>
+
+    <div class="masthead__actions">
+      <button class="iconbtn" type="button" data-search-open aria-label="Search" title="Search">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="6"/><path d="M13.5 13.5 18 18"/></svg>
+      </button>
+      <a class="iconbtn" href="https://github.com/idec-teams/2026_Evolution_Suisse_2026" rel="external" aria-label="Source repository" title="Source repository">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M7.5 16.5c-3.5 1-3.5-2-5-2.5m10 4.5v-2.9c0-.8.1-1.2-.4-1.6 2.3-.3 4.4-1.1 4.4-5a3.9 3.9 0 0 0-1-2.7 3.6 3.6 0 0 0-.1-2.7s-.9-.3-2.9 1.1a9.9 9.9 0 0 0-5 0C5.4 3.3 4.5 3.6 4.5 3.6a3.6 3.6 0 0 0-.1 2.7 3.9 3.9 0 0 0-1 2.7c0 3.9 2.1 4.7 4.4 5-.3.3-.4.7-.4 1.2v3.1"/></svg>
+      </a>
+      <button class="iconbtn iconbtn--menu" type="button" data-drawer-toggle aria-expanded="false" aria-controls="sidebar" aria-label="Open navigation">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M3 6h14M3 10h14M3 14h14"/></svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+  
+<div class="shell">
+
+  <aside class="sidebar" id="sidebar" data-drawer>
+    <div class="sidebar__inner">
+      <nav class="nav" aria-label="Site navigation">
+        
+<ul class="nav__list nav__list--l1">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../..">Home</a>
+      </li>
+      <li class="nav__section">
+        <span class="nav__label">Project</span>
+<ul class="nav__list nav__list--l2">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../project/">Project</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../project/background/">Background</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../project/design/">Design</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../project/mechanism/">Mechanism</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../project/results/">Results</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../project/future/">Future work</a>
+      </li>
+</ul>
+
+      </li>
+      <li class="nav__section">
+        <span class="nav__label">Engineering</span>
+<ul class="nav__list nav__list--l2">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../engineering/">Engineering</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../engineering/plasmids/">Plasmids</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../engineering/constructs/">Constructs</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../engineering/cycles/">Evolution cycles</a>
+      </li>
+</ul>
+
+      </li>
+      <li class="nav__section is-active">
+        <span class="nav__label">Lab</span>
+<ul class="nav__list nav__list--l2">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../">Lab</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link is-current"
+           href="./" aria-current="page">Protocols</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../notebook/">Notebook</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../data/">Data</a>
+      </li>
+</ul>
+
+      </li>
+      <li class="nav__section">
+        <span class="nav__label">Team</span>
+<ul class="nav__list nav__list--l2">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../team/">Team</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../team/members/">Members</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../team/attributions/">Attributions</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../team/sponsors/">Sponsors</a>
+      </li>
+</ul>
+
+      </li>
+      <li class="nav__section">
+        <span class="nav__label">Safety</span>
+<ul class="nav__list nav__list--l2">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../safety/">Safety</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../safety/biosafety/">Biosafety</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../safety/human-practices/">Human practices</a>
+      </li>
+</ul>
+
+      </li>
+</ul>
+
+      </nav>
+    </div>
+  </aside>
+  <div class="drawer-scrim" data-drawer-close hidden></div>
+
+  <main class="doc" id="content" tabindex="-1">
+    
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <ol class="breadcrumb__list">
+    <li class="breadcrumb__item"><a href="../..">Home</a></li>
+    <li class="breadcrumb__item"><span>Lab</span>
+    </li>
+    <li class="breadcrumb__item breadcrumb__item--current" aria-current="page">Protocols</li>
+  </ol>
+</nav>
+
+    <article class="prose">
+      <h1 id="protocols">Protocols<a class="headerlink" href="#protocols" title="Link to this section">#</a></h1>
+<p>Where a published protocol was modified, the modification and its reason are
+given. Several of these were painful to arrive at.</p>
+<h2 id="transformation-and-recovery">Transformation and recovery<a class="headerlink" href="#transformation-and-recovery" title="Link to this section">#</a></h2>
+<p>Chemically competent cells prepared by the calcium chloride method: overnight
+culture diluted into 50 mL, grown to OD₆₀₀ 0.5–0.6, chilled on ice 30 min,
+pelleted at 4000 × g, washed twice in ice-cold 100 mM CaCl₂ with a 30 min
+incubation between washes, resuspended in 5 mL CaCl₂ with 80 % glycerol,
+aliquoted and flash-frozen.</p>
+<div class="admonition tip">
+<p class="admonition-title">Things that cost us time</p>
+<ul>
+<li><strong>Everything stays cold.</strong> Including on the way to the centrifuge.</li>
+<li><strong>Use ~20–30 µL of cells per transformation</strong>, not a whole aliquot. One
+  aliquot covers about five transformations; using more does not help.</li>
+<li><strong>The MutaT7 strain transforms poorly.</strong> Make 200 µL aliquots for it, not
+  100 µL.</li>
+<li><strong>For low-efficiency assemblies</strong>, spin the recovery culture down and
+  resuspend in ~50 µL before plating, rather than plating 400 µL.</li>
+</ul>
+</div>
+<p>Transformation: thaw 10 min on ice, add 2–5 µL DNA, 30 min on ice, heat shock
+42 °C for 30 s, 5 min on ice, recover in 400 µL SOC at 37 °C for 1 h, plate.</p>
+<h2 id="cloning">Cloning<a class="headerlink" href="#cloning" title="Link to this section">#</a></h2>
+<p><strong>Gibson assembly.</strong> 10–20 µL reactions, 0.05 pmol per fragment, insert:backbone
+molar ratios 1:1 to 3:1, 50 °C for 15–60 min.</p>
+<p><strong>Golden Gate.</strong> PaqCI or BsaI-HFv2 with NEBridge Ligase Master Mix, 15–30 µL. A
+one-hour isothermal incubation at 37 °C worked better for us than short cycled
+programmes.</p>
+<p><strong>Linearisation.</strong> pSC101 with EcoRI and BamHI; the MutaT7 backbone with PacI and
+SacI. Run digests 2–3 hours — these enzymes have little star activity, so the
+extra time is free insurance against incomplete cutting.</p>
+<div class="admonition caution">
+<p class="admonition-title">Reading a linearisation gel</p>
+<p>Supercoiled circular plasmid migrates <em>faster</em> than the same plasmid
+linearised. A strong high band and a faint low band does not automatically
+mean the low band is your cut product. We cut the wrong band at least once on
+this reasoning.</p>
+</div>
+<p>PCR-linearised backbones are DpnI-digested for 1 h at 37 °C to remove template.</p>
+<h2 id="expression">Expression<a class="headerlink" href="#expression" title="Link to this section">#</a></h2>
+<p>Primary culture 5 mL overnight, 37 °C, 200 rpm. Secondary culture 250 mL 2×YT
+with antibiotic and <strong>1 % glucose</strong>, inoculated to OD₆₀₀ 0.05.</p>
+<div class="admonition protocol">
+<p class="admonition-title">Induction — the current conditions</p>
+<p>Induce at OD₆₀₀ 0.4–0.6 with <strong>0.1 mM IPTG</strong>, then move to <strong>18 °C, 120 rpm,
+18 h</strong>.</p>
+<p>Earlier runs used 1 mM IPTG. Published protocols for this shell use 0.1 mM,
+and over-strong induction is a standard route to inclusion bodies. The
+glucose suppresses leaky expression before induction; note that IPTG only
+takes effect once the glucose is consumed.</p>
+</div>
+<p>Aliquots are taken immediately before and after induction, normalised to OD, for
+later SDS-PAGE — this is what lets a loss be located later instead of guessed at.</p>
+<h2 id="purification">Purification<a class="headerlink" href="#purification" title="Link to this section">#</a></h2>
+<ol>
+<li><strong>Lysis.</strong> Resuspend in 20 mM Tris-HCl pH 8.0, 150–500 mM NaCl. Chemical lysis
+   with lysozyme and 1 mM PMSF, then sonication on ice.</li>
+<li><strong>Clarify.</strong> 10 000 × g, 15 min, 4 °C. <em>Keep the pellet</em> — most of the protein
+   turned out to be in it.</li>
+<li><strong>Pre-enrichment</strong>, one of two routes run on split aliquots:</li>
+<li><strong>PEG-8000/NaCl</strong>: to 10 % PEG and 0.5 M NaCl, 40 min on ice, 8000 × g 10 min.</li>
+<li><strong>Heat precipitation</strong>, exploiting the shell's thermostability; keep the
+     supernatant.</li>
+<li><strong>Ni-NTA.</strong> Gravity column, 1.5 mL Ni-NTA Sepharose, 20 mM imidazole wash,
+   250 mM imidazole elution.</li>
+<li><strong>Buffer exchange.</strong> Amicon 100 kDa cut-off, 4000 RCF, 4 °C. Pre-wash the
+   filter three times with water and equilibrate in elution buffer first.</li>
+<li><strong>SEC.</strong> Superose 6 10/300 GL at <strong>0.3 mL/min</strong> — reduced from the standard
+   rate to keep system pressure below 1.5 MPa — in 20 mM Tris, 200 mM NaCl,
+   pH 8.0 with 0.02 % sodium azide, filtered and degassed 30 min. 0.35 mL
+   fractions into 96-well plates.</li>
+</ol>
+<div class="admonition caution">
+<p class="admonition-title">Two SEC gotchas</p>
+<p>The fraction collector follows a <strong>snake pattern</strong> across the plate — count
+up or down depending on the row letter, or you will pool the wrong wells.</p>
+<p>Add sodium azide to the SEC buffer. We lost buffer to fungal contamination
+without it.</p>
+</div>
+<h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Link to this section">#</a></h2>
+<p><strong>SDS-PAGE.</strong> Precast gels, 165 V, 25–40 min. 10–20 µg total protein per lane for
+crude samples. Sample mixed with 4× loading buffer to 1×, 95 °C for 5 min.</p>
+<p><strong>Clear-native PAGE.</strong> No detergent in the sample buffer — this is what resolves
+assembled shells. The gels are fragile; handle with water on the tray.</p>
+<p><strong>Anti-His immunoblot.</strong> Semi-dry transfer; use the <strong>high molecular weight</strong>
+setting when transferring from native gels.</p>
+<p><strong>DLS.</strong> Prometheus Panta and cuvette formats. Sample below 1 mg/mL.</p>
+<h2 id="continuous-culture">Continuous culture<a class="headerlink" href="#continuous-culture" title="Link to this section">#</a></h2>
+<p>Turbidostat (Pioreactor). See <a href="../../engineering/cycles/">Evolution cycles</a> for the
+passaging and stringency schedule. Not yet run.</p>
+<h2 id="co-encapsulation-assays">Co-encapsulation assays<a class="headerlink" href="#co-encapsulation-assays" title="Link to this section">#</a></h2>
+<p>Designed, being finalised. Because the selection can be satisfied by capturing
+either the guide or the nuclease, these assays exist to tell the two apart:</p>
+<ul>
+<li><strong>Native PAGE, dual-stained</strong> — nucleic acid and protein in the same lane.</li>
+<li><strong>RNase challenge</strong> — encapsulated RNA is protected, free RNA is degraded. This
+  is the assay Tetter and co-workers escalated to drive their packaging
+  selection, and the one that tests protection rather than mere binding.</li>
+<li><strong>SEC co-elution</strong> with a fluorescent cargo.</li>
+<li><strong>Stop-codon reversal assay</strong> for functional sequestration.</li>
+</ul>
+    </article>
+
+    
+<nav class="pager" aria-label="Page navigation">
+  <a class="pager__link pager__link--prev" href="../">
+    <span class="pager__dir">Previous</span>
+    <span class="pager__title">Lab</span>
+  </a>
+  <a class="pager__link pager__link--next" href="../notebook/">
+    <span class="pager__dir">Next</span>
+    <span class="pager__title">Notebook</span>
+  </a>
+</nav>
+  </main>
+
+  <div class="rail">
+    <div class="rail__inner">
+      
+<nav class="toc" aria-labelledby="toc-heading">
+  <h2 class="toc__heading" id="toc-heading">On this page</h2>
+  <ul class="toc__list">
+    <li class="toc__item">
+      <a class="toc__link" href="#transformation-and-recovery">Transformation and recovery</a>
+    </li>
+    <li class="toc__item">
+      <a class="toc__link" href="#cloning">Cloning</a>
+    </li>
+    <li class="toc__item">
+      <a class="toc__link" href="#expression">Expression</a>
+    </li>
+    <li class="toc__item">
+      <a class="toc__link" href="#purification">Purification</a>
+    </li>
+    <li class="toc__item">
+      <a class="toc__link" href="#analysis">Analysis</a>
+    </li>
+    <li class="toc__item">
+      <a class="toc__link" href="#continuous-culture">Continuous culture</a>
+    </li>
+    <li class="toc__item">
+      <a class="toc__link" href="#co-encapsulation-assays">Co-encapsulation assays</a>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </div>
+
+</div>
+
+
+  <footer class="colophon">
+  <div class="colophon__inner">
+
+    <div class="colophon__brand">
+      <span class="colophon__name">Evolution Suisse 2026</span><span class="colophon__tagline">Directed evolution of a protein nanocompartment</span>
+    </div>
+
+    <nav class="colophon__nav" aria-label="Footer">
+      <div class="colophon__group">
+        <h2 class="colophon__grouphead">Project</h2>
+        <ul>
+          <li><a href="../../project/background/">Background</a></li>
+          <li><a href="../../project/design/">Design</a></li>
+          <li><a href="../../project/mechanism/">Mechanism</a></li>
+          <li><a href="../../project/results/">Results</a></li>
+          <li><a href="../../project/future/">Future work</a></li>
+        </ul>
+      </div>
+      <div class="colophon__group">
+        <h2 class="colophon__grouphead">Engineering</h2>
+        <ul>
+          <li><a href="../../engineering/plasmids/">Plasmids</a></li>
+          <li><a href="../../engineering/constructs/">Constructs</a></li>
+          <li><a href="../../engineering/cycles/">Evolution cycles</a></li>
+        </ul>
+      </div>
+      <div class="colophon__group">
+        <h2 class="colophon__grouphead">Lab</h2>
+        <ul>
+          <li><a href="./">Protocols</a></li>
+          <li><a href="../notebook/">Notebook</a></li>
+          <li><a href="../data/">Data</a></li>
+        </ul>
+      </div>
+      <div class="colophon__group">
+        <h2 class="colophon__grouphead">Team</h2>
+        <ul>
+          <li><a href="../../team/members/">Members</a></li>
+          <li><a href="../../team/attributions/">Attributions</a></li>
+          <li><a href="../../team/sponsors/">Sponsors</a></li>
+        </ul>
+      </div>
+      <div class="colophon__group">
+        <h2 class="colophon__grouphead">Safety</h2>
+        <ul>
+          <li><a href="../../safety/biosafety/">Biosafety</a></li>
+          <li><a href="../../safety/human-practices/">Human practices</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="colophon__meta">
+      <a class="colophon__edit" href="https://github.com/idec-teams/2026_Evolution_Suisse_2026/blob/main/docs/lab/protocols.md" rel="external">Edit this page</a>
+      <p class="colophon__legal">Copyright &copy; 2026 iDEC. CC-BY-4.0 &middot; The International Directed Evolution Competition (iDEC) is a Scottish Charitable Incorporated Organisation (SCIO), registered in Scotland, charity number SC050826.</p>
+      <p class="colophon__built">
+        Built 2026-09-16 with
+        <a href="https://www.mkdocs.org/" rel="external">MkDocs</a>.
+      </p>
+    </div>
+
+  </div>
+</footer>
+  <div class="searchmodal" id="searchmodal" hidden data-search-modal>
+  <div class="searchmodal__scrim" data-search-close></div>
+  <div class="searchmodal__panel" role="dialog" aria-modal="true" aria-labelledby="searchmodal-label">
+    <h2 class="u-visually-hidden" id="searchmodal-label">Search this wiki</h2>
+
+    <div class="searchmodal__field">
+      <svg class="searchmodal__icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="6"/><path d="M13.5 13.5 18 18"/></svg>
+      <input type="search" id="mkdocs-search-query" placeholder="Search pages…" autocomplete="off" spellcheck="false">
+      <button class="searchmodal__close" type="button" data-search-close aria-label="Close search">Esc</button>
+    </div>
+
+    <div class="searchmodal__results" id="mkdocs-search-results" data-no-results-text="No pages matched that query."></div>
+  </div>
+</div>
+
+  <script type="module" src="../../js/app.js"></script><script src="../../../../search/main.js"></script>
+
+  
+</body>
+</html>

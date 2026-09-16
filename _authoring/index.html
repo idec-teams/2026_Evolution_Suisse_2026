@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Authoring guide · Evolution Suisse 2026</title>
+
+  <meta name="description" content="Continuous directed evolution of QtEncapsulin nanocompartments for programmable mRNA and protein cargo loading. iDEC 2026, Evolution Suisse.">
+  <meta name="author" content="Evolution Suisse 2026">
+  <link rel="canonical" href="https://idec-teams.github.io/2026_Evolution_Suisse_2026/_authoring/"><script>document.documentElement.classList.replace('no-js','js');</script>
+
+  <link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/fonts.css">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/nav.css">
+  <link rel="stylesheet" href="../css/content.css">
+  <link rel="stylesheet" href="../css/syntax.css">
+  <link rel="stylesheet" href="../css/home.css">
+  <link rel="stylesheet" href="../css/search.css"><link rel="preload" as="font" type="font/woff2" crossorigin href="../fonts/literata-var.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../fonts/newsreader-var.woff2"><script>var base_url = "..";</script>
+
+  
+  
+</head>
+
+<body class="page--doc"
+      data-page="_authoring/">
+
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="masthead" data-masthead>
+  <div class="masthead__inner">
+
+    <a class="brand" href="..">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="26" height="26" focusable="false">
+  <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round">
+    <path d="M16 2.6 27.6 9.3v13.4L16 29.4 4.4 22.7V9.3z"/>
+    <path d="M16 10.2 22.2 13.8v7.2L16 24.6 9.8 21V13.8z" opacity=".55"/>
+    <path d="M16 2.6v7.6M27.6 9.3 22.2 13.8M27.6 22.7 22.2 21M16 29.4v-4.8M4.4 22.7 9.8 21M4.4 9.3l5.4 4.5" opacity=".35"/>
+  </g>
+</svg>
+      </span>
+      <span class="brand__text">
+        <span class="brand__name">Evolution Suisse</span>
+        <span class="brand__year">2026</span>
+      </span>
+    </a>
+
+    <nav class="topnav" aria-label="Sections">
+      <ul class="topnav__list">
+        <li class="topnav__item"><a class="topnav__link" href="../project/">Project</a></li>
+        <li class="topnav__item"><a class="topnav__link" href="../engineering/">Engineering</a></li>
+        <li class="topnav__item"><a class="topnav__link" href="../lab/">Lab</a></li>
+        <li class="topnav__item"><a class="topnav__link" href="../team/">Team</a></li>
+        <li class="topnav__item"><a class="topnav__link" href="../safety/">Safety</a></li>
+      </ul>
+    </nav>
+
+    <div class="masthead__actions">
+      <button class="iconbtn" type="button" data-search-open aria-label="Search" title="Search">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="6"/><path d="M13.5 13.5 18 18"/></svg>
+      </button>
+      <a class="iconbtn" href="https://github.com/idec-teams/2026_Evolution_Suisse_2026" rel="external" aria-label="Source repository" title="Source repository">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M7.5 16.5c-3.5 1-3.5-2-5-2.5m10 4.5v-2.9c0-.8.1-1.2-.4-1.6 2.3-.3 4.4-1.1 4.4-5a3.9 3.9 0 0 0-1-2.7 3.6 3.6 0 0 0-.1-2.7s-.9-.3-2.9 1.1a9.9 9.9 0 0 0-5 0C5.4 3.3 4.5 3.6 4.5 3.6a3.6 3.6 0 0 0-.1 2.7 3.9 3.9 0 0 0-1 2.7c0 3.9 2.1 4.7 4.4 5-.3.3-.4.7-.4 1.2v3.1"/></svg>
+      </a>
+      <button class="iconbtn iconbtn--menu" type="button" data-drawer-toggle aria-expanded="false" aria-controls="sidebar" aria-label="Open navigation">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M3 6h14M3 10h14M3 14h14"/></svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+  
+<div class="shell">
+
+  <aside class="sidebar" id="sidebar" data-drawer>
+    <div class="sidebar__inner">
+      <nav class="nav" aria-label="Site navigation">
+        
+<ul class="nav__list nav__list--l1">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="..">Home</a>
+      </li>
+      <li class="nav__section">
+        <span class="nav__label">Project</span>
+<ul class="nav__list nav__list--l2">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../project/">Project</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../project/background/">Background</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../project/design/">Design</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../project/mechanism/">Mechanism</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../project/results/">Results</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../project/future/">Future work</a>
+      </li>
+</ul>
+
+      </li>
+      <li class="nav__section">
+        <span class="nav__label">Engineering</span>
+<ul class="nav__list nav__list--l2">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../engineering/">Engineering</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../engineering/plasmids/">Plasmids</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../engineering/constructs/">Constructs</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../engineering/cycles/">Evolution cycles</a>
+      </li>
+</ul>
+
+      </li>
+      <li class="nav__section">
+        <span class="nav__label">Lab</span>
+<ul class="nav__list nav__list--l2">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../lab/">Lab</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../lab/protocols/">Protocols</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../lab/notebook/">Notebook</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../lab/data/">Data</a>
+      </li>
+</ul>
+
+      </li>
+      <li class="nav__section">
+        <span class="nav__label">Team</span>
+<ul class="nav__list nav__list--l2">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../team/">Team</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../team/members/">Members</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../team/attributions/">Attributions</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../team/sponsors/">Sponsors</a>
+      </li>
+</ul>
+
+      </li>
+      <li class="nav__section">
+        <span class="nav__label">Safety</span>
+<ul class="nav__list nav__list--l2">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../safety/">Safety</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../safety/biosafety/">Biosafety</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../safety/human-practices/">Human practices</a>
+      </li>
+</ul>
+
+      </li>
+</ul>
+
+      </nav>
+    </div>
+  </aside>
+  <div class="drawer-scrim" data-drawer-close hidden></div>
+
+  <main class="doc" id="content" tabindex="-1">
+    
+
+    <article class="prose">
+      <h1 id="authoring-guide">Authoring guide<a class="headerlink" href="#authoring-guide" title="Link to this section">#</a></h1>
+<p>Everything on this page is copy-paste. This page is deliberately kept out of the
+navigation (<code>not_in_nav</code> in <code>mkdocs.yml</code>) — it is for the team, not for judges.</p>
+<h2 id="running-the-site-locally">Running the site locally<a class="headerlink" href="#running-the-site-locally" title="Link to this section">#</a></h2>
+<pre class="highlight"><code class="language-bash">pip install -r requirements.txt
+mkdocs serve          # http://127.0.0.1:8000, live-reloads on save
+mkdocs build --strict # what CI runs — fails on broken links</code></pre>
+<p><code>mkdocs serve</code> watches <code>theme/</code> as well as <code>docs/</code>, so editing CSS or JS
+reloads the page just like editing Markdown.</p>
+<h2 id="where-things-live">Where things live<a class="headerlink" href="#where-things-live" title="Link to this section">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>You want to change</th>
+<th>Edit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Page text</td>
+<td><code>docs/**/*.md</code></td>
+</tr>
+<tr>
+<td>Which pages exist, and their order</td>
+<td>the <code>nav:</code> block in <code>mkdocs.yml</code></td>
+</tr>
+<tr>
+<td>Colours, fonts, spacing</td>
+<td><code>theme/css/tokens.css</code> — and nothing else</td>
+</tr>
+<tr>
+<td>A figure's behaviour</td>
+<td><code>theme/js/figures/&lt;name&gt;.js</code></td>
+</tr>
+<tr>
+<td>Page layout</td>
+<td><code>theme/main.html</code>, <code>landing.html</code>, <code>home.html</code></td>
+</tr>
+</tbody>
+</table>
+<p>Use <code>--edge</code> (not <code>--rule-strong</code>) for the border of anything clickable:
+<code>--rule-strong</code> is a decorative hairline at 1.9:1, below the 3:1 that WCAG
+requires for a control's boundary.</p>
+<p><strong>Never put a raw colour value anywhere but <code>tokens.css</code>.</strong> Figures read the
+palette from those custom properties at runtime, so changing a token updates
+the diagrams too. Hard-coding a hex breaks that link silently.</p>
+<h2 id="front-matter">Front matter<a class="headerlink" href="#front-matter" title="Link to this section">#</a></h2>
+<p>Every page may declare:</p>
+<pre class="highlight"><code class="language-yaml">---
+title: Plasmids              # overrides the nav title
+summary: One line.           # shown on the parent section's cards
+description: For &lt;meta&gt;.     # falls back to the site description
+template: landing.html       # only for section index pages
+---</code></pre>
+<h2 id="figures">Figures<a class="headerlink" href="#figures" title="Link to this section">#</a></h2>
+<p>Drop a figure into any page like this:</p>
+<pre class="highlight"><code class="language-markdown">&lt;figure class="scrollyfig wide" data-figure="cell-scene" markdown&gt;
+
+**Fig 1.** Caption text, with **markdown**, [links](../index.md) and footnotes.
+
+&lt;/figure&gt;</code></pre>
+<p>Three rules, and they are the only ways this goes wrong:</p>
+<ol>
+<li><strong>Blank line after the opening tag and before the closing tag.</strong> Without
+   them, the caption is treated as raw HTML and stops rendering as Markdown.</li>
+<li><strong>Do not indent the block.</strong></li>
+<li><code>data-figure</code> must match a registered id (see below). A typo fails soft —
+   you get the caption with no drawing, and nothing else on the page breaks.</li>
+</ol>
+<p>Add <code>wide</code> for a figure that overflows the text column, or <code>full</code> for
+edge-to-edge. Omit both to keep it inside the measure. The drawing area is 4:3
+by default — override it with <code>data-ratio="16/9"</code>.</p>
+<p>Registered figures: <code>hero-capsid</code>, <code>cell-scene</code>.</p>
+<p><code>cell-scene</code> is the homepage's cell, and it takes an extra attribute:
+<code>data-act-index="0"</code>, <code>"1"</code> or <code>"2"</code> pins it to one act — silencing,
+hypermutation or assembly — so a page can reuse the same drawing focused on the
+part it is discussing. Without the attribute it plays the whole story.</p>
+<h3 id="writing-a-new-figure">Writing a new figure<a class="headerlink" href="#writing-a-new-figure" title="Link to this section">#</a></h3>
+<p>Create <code>theme/js/figures/my-figure.js</code>:</p>
+<pre class="highlight"><code class="language-javascript">import { norm, easeOut, el } from '../util.js';
+
+export default {
+  id: 'my-figure',
+  needs: 'svg',                  // 'svg', 'canvas', or 'svg canvas'
+  viewBox: '0 0 100 100',
+
+  mount(ctx)  { /* build nodes once; ctx.svg / ctx.c2d are ready */ },
+  render(t, ctx) { /* t is 0..1 — set attributes from it */ },
+  resize(ctx) { /* optional */ },
+  destroy()   { /* optional */ },
+};</code></pre>
+<p><code>ctx</code> gives you:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ctx.root</code></td>
+<td>the element you annotated — read your own <code>data-*</code> attributes here</td>
+</tr>
+<tr>
+<td><code>ctx.frame</code></td>
+<td>the sized drawing surface</td>
+</tr>
+<tr>
+<td><code>ctx.svg</code></td>
+<td>an <code>&lt;svg&gt;</code> in the frame, if <code>needs</code> includes <code>'svg'</code></td>
+</tr>
+<tr>
+<td><code>ctx.canvas</code>, <code>ctx.c2d</code></td>
+<td>a DPR-corrected 2D context, if <code>needs</code> includes <code>'canvas'</code></td>
+</tr>
+<tr>
+<td><code>ctx.rect</code></td>
+<td>the frame's current size</td>
+</tr>
+<tr>
+<td><code>ctx.palette</code></td>
+<td>the <code>--enc-*</code> colours, read from <code>tokens.css</code></td>
+</tr>
+</tbody>
+</table>
+<p>For canvas figures, call <code>viewTransform(ctx.c2d, ctx.rect)</code> first and then draw
+in a 0–100 coordinate box; it handles device pixel ratio and centring. One unit
+is roughly 7 px on a desktop stage, so keep stroke widths under ~1.5.</p>
+<p>Then add it to <code>theme/js/figures/index.js</code>. That is the whole registration step.</p>
+<p><code>render(t)</code> <strong>must be pure</strong>: calling <code>render(0.4)</code> must always look the same,
+whether you arrived from 0.1 or from 0.9. Never call <code>Math.random()</code> — use the
+seeded <code>rng()</code> from <code>util.js</code>. This is what makes reverse-scrolling, resizing
+and the reduced-motion static render work without any extra code.</p>
+<h2 id="components">Components<a class="headerlink" href="#components" title="Link to this section">#</a></h2>
+<pre class="highlight"><code class="language-markdown">!!! note "Optional title"
+    Admonition. Types: note, tip, protocol, warning, caution, result, example.
+
+??? caution "Collapsed by default"
+    Same types, but foldable.
+
+=== "Tab one"
+    Content.
+=== "Tab two"
+    Content.
+
+&lt;span class="chip"&gt;pES-Mut&lt;/span&gt;   plasmid / construct token
+
+&lt;ul class="metrics wide"&gt;
+  &lt;li&gt;&lt;b&gt;60&lt;/b&gt;&lt;span&gt;subunits per shell&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+<p>Tables are wrapped in a scroll container and made sortable automatically — just
+write normal Markdown tables.</p>
+<p>Maths uses <code>$inline$</code> and <code>\[display\]</code>. MathJax is self-hosted and only loads
+on pages that actually contain maths.</p>
+<h2 id="things-not-to-do">Things not to do<a class="headerlink" href="#things-not-to-do" title="Link to this section">#</a></h2>
+<ul>
+<li>Don't add a CDN <code>&lt;script&gt;</code> or <code>&lt;link&gt;</code>. The site currently has <strong>zero</strong>
+  external runtime dependencies, which means it renders offline and cannot be
+  broken mid-judging by someone else's outage. Vendor the file into
+  <code>theme/js/vendor/</code> instead.</li>
+<li>Don't remove the <code>{% for script in extra_javascript %}</code> loop from
+  <code>base.html</code> — MkDocs' search plugin injects itself through it.</li>
+<li>Don't add a <code>plugins:</code> entry without keeping <code>- search</code> in the list;
+  declaring the key replaces the default and search disappears silently.</li>
+</ul>
+    </article>
+
+    
+  </main>
+
+  <div class="rail">
+    <div class="rail__inner">
+      
+<nav class="toc" aria-labelledby="toc-heading">
+  <h2 class="toc__heading" id="toc-heading">On this page</h2>
+  <ul class="toc__list">
+    <li class="toc__item">
+      <a class="toc__link" href="#running-the-site-locally">Running the site locally</a>
+    </li>
+    <li class="toc__item">
+      <a class="toc__link" href="#where-things-live">Where things live</a>
+    </li>
+    <li class="toc__item">
+      <a class="toc__link" href="#front-matter">Front matter</a>
+    </li>
+    <li class="toc__item">
+      <a class="toc__link" href="#figures">Figures</a>
+      <ul class="toc__list toc__list--sub">
+        <li class="toc__item"><a class="toc__link" href="#writing-a-new-figure">Writing a new figure</a></li>
+      </ul>
+    </li>
+    <li class="toc__item">
+      <a class="toc__link" href="#components">Components</a>
+    </li>
+    <li class="toc__item">
+      <a class="toc__link" href="#things-not-to-do">Things not to do</a>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </div>
+
+</div>
+
+
+  <footer class="colophon">
+  <div class="colophon__inner">
+
+    <div class="colophon__brand">
+      <span class="colophon__name">Evolution Suisse 2026</span><span class="colophon__tagline">Directed evolution of a protein nanocompartment</span>
+    </div>
+
+    <nav class="colophon__nav" aria-label="Footer">
+      <div class="colophon__group">
+        <h2 class="colophon__grouphead">Project</h2>
+        <ul>
+          <li><a href="../project/background/">Background</a></li>
+          <li><a href="../project/design/">Design</a></li>
+          <li><a href="../project/mechanism/">Mechanism</a></li>
+          <li><a href="../project/results/">Results</a></li>
+          <li><a href="../project/future/">Future work</a></li>
+        </ul>
+      </div>
+      <div class="colophon__group">
+        <h2 class="colophon__grouphead">Engineering</h2>
+        <ul>
+          <li><a href="../engineering/plasmids/">Plasmids</a></li>
+          <li><a href="../engineering/constructs/">Constructs</a></li>
+          <li><a href="../engineering/cycles/">Evolution cycles</a></li>
+        </ul>
+      </div>
+      <div class="colophon__group">
+        <h2 class="colophon__grouphead">Lab</h2>
+        <ul>
+          <li><a href="../lab/protocols/">Protocols</a></li>
+          <li><a href="../lab/notebook/">Notebook</a></li>
+          <li><a href="../lab/data/">Data</a></li>
+        </ul>
+      </div>
+      <div class="colophon__group">
+        <h2 class="colophon__grouphead">Team</h2>
+        <ul>
+          <li><a href="../team/members/">Members</a></li>
+          <li><a href="../team/attributions/">Attributions</a></li>
+          <li><a href="../team/sponsors/">Sponsors</a></li>
+        </ul>
+      </div>
+      <div class="colophon__group">
+        <h2 class="colophon__grouphead">Safety</h2>
+        <ul>
+          <li><a href="../safety/biosafety/">Biosafety</a></li>
+          <li><a href="../safety/human-practices/">Human practices</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="colophon__meta">
+      <a class="colophon__edit" href="https://github.com/idec-teams/2026_Evolution_Suisse_2026/blob/main/docs/_authoring.md" rel="external">Edit this page</a>
+      <p class="colophon__legal">Copyright &copy; 2026 iDEC. CC-BY-4.0 &middot; The International Directed Evolution Competition (iDEC) is a Scottish Charitable Incorporated Organisation (SCIO), registered in Scotland, charity number SC050826.</p>
+      <p class="colophon__built">
+        Built 2026-09-16 with
+        <a href="https://www.mkdocs.org/" rel="external">MkDocs</a>.
+      </p>
+    </div>
+
+  </div>
+</footer>
+  <div class="searchmodal" id="searchmodal" hidden data-search-modal>
+  <div class="searchmodal__scrim" data-search-close></div>
+  <div class="searchmodal__panel" role="dialog" aria-modal="true" aria-labelledby="searchmodal-label">
+    <h2 class="u-visually-hidden" id="searchmodal-label">Search this wiki</h2>
+
+    <div class="searchmodal__field">
+      <svg class="searchmodal__icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="6"/><path d="M13.5 13.5 18 18"/></svg>
+      <input type="search" id="mkdocs-search-query" placeholder="Search pages…" autocomplete="off" spellcheck="false">
+      <button class="searchmodal__close" type="button" data-search-close aria-label="Close search">Esc</button>
+    </div>
+
+    <div class="searchmodal__results" id="mkdocs-search-results" data-no-results-text="No pages matched that query."></div>
+  </div>
+</div>
+
+  <script type="module" src="../js/app.js"></script><script src="../../search/main.js"></script>
+
+  
+</body>
+</html>

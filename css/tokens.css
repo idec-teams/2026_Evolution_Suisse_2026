@@ -1,0 +1,105 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   tokens.css — the single source of truth for colour, type and space.
+
+   No literal hex value belongs in any other stylesheet or figure module.
+   Figures read these via getComputedStyle so SVG and canvas stay in step with
+   the palette automatically.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Surfaces: cool stone ───────────────────────────────────────────────
+     Overcast-daylight neutrals — a muted blue-grey rather than a warm paper
+     tone. Deliberately not white, not beige.
+     ─────────────────────────────────────────────────────────────────────── */
+  --paper:        #EDEEF0;   /* page ground, cool stone */
+  --paper-sunk:   #E2E4E8;   /* figure wells, code blocks, table zebra */
+  --paper-raised: #F6F7F8;   /* cards, sticky header */
+  --rule:         #D3D6DC;   /* decorative hairlines */
+  --rule-strong:  #AEB3BC;   /* heavier decorative rules — NOT for UI edges */
+  --edge:         #767C88;   /* outlined controls — 3.1:1, meets WCAG 1.4.11 */
+
+  /* ── Ink ────────────────────────────────────────────────────────────── */
+  --ink:          #1B1E24;   /* body text       — 15.8:1 on paper */
+  --ink-muted:    #565C68;   /* captions, meta  —  6.0:1 on paper, 5.4:1 on sunk */
+  --ink-faint:    #767C8A;   /* non-text only   —  3.3:1, never for prose */
+
+  /* ── Accent: ink-blue ────────────────────────────────────────────────────
+     --accent is set as text on three different grounds (paper, paper-sunk and
+     accent-wash), so it is tuned to clear 4.5:1 against the *worst* of them
+     rather than against paper alone — an accent that only passes on paper
+     fails silently the moment it lands on a card or an active nav item.
+     ─────────────────────────────────────────────────────────────────────── */
+  --accent:       #2B3A67;   /* links, rules, primary figure hue — 8.5:1 worst */
+  --accent-deep:  #1C2748;   /* hover, active — 12.4:1 worst */
+  --accent-wash:  #E4E7EE;   /* selected nav, callout grounds */
+
+  /* ── Figure encoding ────────────────────────────────────────────────────
+     These seven hues are the project's visual vocabulary. They mean the same
+     thing in every figure on every page. Hue carries identity; saturation and
+     opacity carry state. Do not invent a new hue without adding it here.
+     ─────────────────────────────────────────────────────────────────────── */
+  --enc-shell:    #A84D1C;   /* encapsulin capsid */
+  --enc-cargo:    #2F6F5E;   /* cargo protein / mRNA */
+  --enc-cas:      #4B4E9C;   /* dCas9 */
+  --enc-sgrna:    #A8823C;   /* sgRNA */
+  --enc-resist:   #2F6F5E;   /* resistance expressed = alive */
+  --enc-dead:     #9A9A97;   /* silenced / dead cell */
+  --enc-mutate:   #C2334D;   /* MutaT7 hypermutation events */
+
+  /* ── Semantic callouts ──────────────────────────────────────────────── */
+  --sig-note:    #4B4E9C;
+  --sig-protocol:#2F6F5E;
+  --sig-caution: #A84D1C;
+  --sig-result:  #6A4C93;
+
+  /* ── Type families ──────────────────────────────────────────────────── */
+  --font-display: "Literata", "Iowan Old Style", "Palatino Linotype", Palatino,
+                  Georgia, "Times New Roman", serif;
+  --font-body:    "Newsreader", "Iowan Old Style", "Palatino Linotype", Palatino,
+                  Georgia, "Times New Roman", serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono",
+                  Menlo, Consolas, "Liberation Mono", monospace;
+
+  /* ── Fluid type scale (major third, 16→18px body) ───────────────────── */
+  --step--2: clamp(0.694rem, 0.67rem + 0.12vw, 0.750rem);
+  --step--1: clamp(0.833rem, 0.80rem + 0.16vw, 0.889rem);
+  --step-0:  clamp(1.000rem, 0.96rem + 0.20vw, 1.125rem);
+  --step-1:  clamp(1.250rem, 1.17rem + 0.40vw, 1.500rem);
+  --step-2:  clamp(1.563rem, 1.42rem + 0.71vw, 2.000rem);
+  --step-3:  clamp(1.953rem, 1.71rem + 1.21vw, 2.667rem);
+  --step-4:  clamp(2.441rem, 2.03rem + 2.06vw, 3.556rem);
+  --step-5:  clamp(3.052rem, 2.38rem + 3.36vw, 4.741rem);
+
+  /* ── Space scale (4px base) ─────────────────────────────────────────── */
+  --s-1:  0.25rem;  --s-2:  0.5rem;   --s-3:  0.75rem;  --s-4:  1rem;
+  --s-5:  1.5rem;   --s-6:  2rem;     --s-7:  2.5rem;   --s-8:  3rem;
+  --s-9:  4rem;     --s-10: 6rem;     --s-11: 8rem;     --s-12: 12rem;
+
+  /* ── Measure & layout ───────────────────────────────────────────────── */
+  --measure:      68ch;
+  --sidebar-w:    16rem;
+  --rail-w:       14rem;
+  --masthead-h:   3.75rem;
+  --gutter:       clamp(1.25rem, 4vw, 2.5rem);
+
+  /* ── Depth & motion ─────────────────────────────────────────────────── */
+  --shadow-1: 0 1px 3px rgb(27 30 36 / 0.06);
+  --shadow-2: 0 2px 6px rgb(27 30 36 / 0.05), 0 12px 32px rgb(27 30 36 / 0.08);
+  --shadow-3: 0 6px 12px rgb(27 30 36 / 0.06), 0 28px 64px rgb(27 30 36 / 0.12);
+  --radius:   6px;
+  --radius-l: 14px;
+  --ease:     cubic-bezier(0.32, 0.72, 0, 1);
+  --dur:      240ms;
+}
+
+/* Honour the OS setting globally. Individual figures also check this in JS and
+   render a meaningful static end-state rather than nothing. */
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur: 1ms; }
+  *, *::before, *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+  }
+}

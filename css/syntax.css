@@ -1,0 +1,68 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   syntax.css — Pygments token colours, hand-tuned to the editorial palette.
+
+   pymdownx.highlight emits Pygments span classes but NOTHING generates a
+   stylesheet — MkDocs ships none and there is no default. Regenerate a starting
+   point with:  pygmentize -S tango -f html -a .highlight
+   ...but keep the hues below: they are drawn from the --enc-* figure vocabulary
+   so code and diagrams read as one system.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.highlight { --syn-comment: #6E7480; --syn-keyword: #8A3D14; --syn-string: #2F6F5E;
+             --syn-number: #6A4C93; --syn-name: #1B1E24;   --syn-func: #4B4E9C;
+             --syn-class: #A8823C;  --syn-op: #565C68;     --syn-err: #C2334D; }
+
+.highlight pre { color: var(--ink); }
+
+/* Comments */
+.highlight .c, .highlight .ch, .highlight .cm, .highlight .c1, .highlight .cs,
+.highlight .cp, .highlight .cpf { color: var(--syn-comment); font-style: italic; }
+
+/* Keywords */
+.highlight .k, .highlight .kc, .highlight .kd, .highlight .kn, .highlight .kp,
+.highlight .kr, .highlight .kt { color: var(--syn-keyword); font-weight: 600; }
+.highlight .ow, .highlight .o  { color: var(--syn-op); }
+
+/* Strings */
+.highlight .s, .highlight .sa, .highlight .sb, .highlight .sc, .highlight .dl,
+.highlight .sd, .highlight .s2, .highlight .se, .highlight .sh, .highlight .si,
+.highlight .sx, .highlight .s1, .highlight .ss, .highlight .sr { color: var(--syn-string); }
+
+/* Numbers */
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi,
+.highlight .mo, .highlight .il { color: var(--syn-number); }
+
+/* Names */
+.highlight .n, .highlight .nx, .highlight .py, .highlight .nv, .highlight .vc,
+.highlight .vg, .highlight .vi, .highlight .vm { color: var(--syn-name); }
+.highlight .nf, .highlight .fm { color: var(--syn-func); }
+.highlight .nc, .highlight .nn, .highlight .ne { color: var(--syn-class); font-weight: 600; }
+.highlight .nb, .highlight .bp { color: var(--syn-func); }
+.highlight .na, .highlight .nl { color: var(--syn-class); }
+.highlight .nd { color: var(--syn-number); font-style: italic; }
+.highlight .nt { color: var(--syn-keyword); }
+.highlight .no { color: var(--syn-number); }
+.highlight .p  { color: var(--syn-op); }
+
+/* Diagnostics */
+.highlight .err { color: var(--syn-err); border-bottom: 1px dotted var(--syn-err); }
+.highlight .w   { color: transparent; }
+.highlight .hll { background: var(--accent-wash); display: block; margin-inline: calc(-1 * var(--s-5)); padding-inline: var(--s-5); }
+
+/* Diff */
+.highlight .gd { color: var(--syn-err); background: color-mix(in srgb, var(--syn-err) 8%, transparent); }
+.highlight .gi { color: var(--syn-string); background: color-mix(in srgb, var(--syn-string) 8%, transparent); }
+.highlight .gh, .highlight .gu { color: var(--ink-faint); font-weight: 600; }
+.highlight .ge { font-style: italic; }
+.highlight .gs { font-weight: 700; }
+.highlight .gp { color: var(--ink-faint); user-select: none; }
+
+/* Line numbers (anchor_linenums: true) */
+.highlight .linenos, .highlight span.linenos,
+.highlight .normal, .highlight .special {
+  color: var(--ink-faint);
+  background: none;
+  user-select: none;
+}
+.highlight .linenos a { color: inherit; text-decoration: none; }
+.highlight .linenos a:hover { color: var(--accent); }

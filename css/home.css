@@ -1,0 +1,359 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   home.css — hero, pinned scroll story, system map, landing pages.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.home { display: block; }
+.home:focus { outline: none; }
+
+/* ── Hero ───────────────────────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  max-width: 90rem;
+  margin-inline: auto;
+  padding: clamp(var(--s-8), 9vh, var(--s-11)) var(--gutter) var(--s-10);
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: var(--s-9);
+  align-items: center;
+  min-height: min(84vh, 46rem);
+}
+
+.hero__headline {
+  font-size: var(--step-5);
+  font-variation-settings: "opsz" 144, "SOFT" 0;
+  letter-spacing: -0.03em;
+  line-height: 0.98;
+}
+.hero__standfirst {
+  margin-top: var(--s-5);
+  font-size: var(--step-1);
+  line-height: 1.5;
+  color: var(--ink-muted);
+  max-width: 46ch;
+  text-wrap: pretty;
+}
+
+.hero__facts {
+  margin-top: var(--s-7);
+  padding-top: var(--s-5);
+  border-top: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: var(--s-5);
+}
+.fact dt {
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.fact dd {
+  margin: var(--s-2) 0 0;
+  font-size: var(--step--1);
+  line-height: 1.4;
+  color: var(--ink);
+}
+.fact code { font-size: 0.95em; color: var(--accent-deep); }
+
+.hero__figure {
+  aspect-ratio: 1;
+  width: 100%;
+  max-width: 32rem;
+  justify-self: center;
+}
+
+.hero__scrollcue {
+  position: absolute;
+  left: 50%;
+  bottom: var(--s-5);
+  transform: translateX(-50%);
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.hero__scrollcue span { animation: bob 2.6s var(--ease) infinite; display: inline-block; }
+@keyframes bob { 0%, 100% { transform: translateY(0); opacity: .55 } 50% { transform: translateY(4px); opacity: 1 } }
+
+/* ── The pinned scroll story ────────────────────────────────────────────────
+   Stage is sticky and full-height; panels scroll past it. scrolly.js computes
+   one progress value across the whole section and renders figures from it.
+   ─────────────────────────────────────────────────────────────────────────── */
+.scrolly {
+  /* Where the story "reads from", as a fraction of the viewport height.
+     scrolly.js reads this value, so the reading position moves with the
+     layout: beside the stage on desktop, below it on mobile. */
+  --scrolly-focus: 0.58;
+
+  position: relative;
+  border-top: 1px solid var(--rule);
+  background:
+    linear-gradient(var(--paper-sunk), var(--paper-sunk)) padding-box;
+  max-width: 90rem;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 26rem);
+  gap: var(--s-9);
+  align-items: start;
+}
+
+.scrolly__stage {
+  position: sticky;
+  top: var(--masthead-h);
+  height: calc(100vh - var(--masthead-h));
+  display: grid;
+  place-items: center;
+  /* Stage is decorative scenery; the panels carry the reading order. */
+  pointer-events: none;
+}
+.scrolly__viewport {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  max-height: 78%;
+  max-width: 42rem;
+}
+.scrolly__canvas,
+.scrolly__svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.scrolly__svg > svg { width: 100%; height: 100%; display: block; }
+
+.scrolly__actlabel {
+  position: absolute;
+  left: 0; bottom: -2.2rem;
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  transition: opacity var(--dur) var(--ease);
+}
+
+.scrolly__panels { padding-block: 18vh 22vh; display: grid; gap: 46vh; }
+
+.act {
+  scroll-margin-top: var(--masthead-h);
+  transition: opacity 400ms var(--ease);
+}
+/* Non-active acts recede — but never below readable contrast, and never at all
+   without JS, which is why the dimming lives on a data attribute the engine sets. */
+.js .scrolly[data-scrolly-ready] .act { opacity: 0.34; }
+.js .scrolly[data-scrolly-ready] .act.is-active { opacity: 1; }
+
+.act__num {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  margin-bottom: var(--s-2);
+}
+.act__title {
+  font-size: var(--step-3);
+  letter-spacing: -0.02em;
+}
+.act__lede {
+  margin-top: var(--s-3);
+  font-size: var(--step-1);
+  line-height: 1.45;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+.act p + p { margin-top: var(--s-4); }
+.act > p:not(.act__num):not(.act__lede) { color: var(--ink-muted); }
+.act__caption {
+  margin-top: var(--s-5);
+  padding-top: var(--s-3);
+  border-top: 1px solid var(--rule);
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  letter-spacing: 0.02em;
+  color: var(--ink-faint);
+}
+
+/* ── Intro ──────────────────────────────────────────────────────────────
+   The bridge between the hero and the scroll story: enough context that the
+   three acts land as "this cell, this cycle" rather than an unexplained
+   diagram. Deliberately short — this is scaffolding for the story, not a
+   second standfirst. */
+.intro {
+  max-width: 90rem;
+  margin-inline: auto;
+  padding: var(--s-8) var(--gutter) var(--s-9);
+  border-top: 1px solid var(--rule);
+}
+.intro__lede {
+  max-width: 62ch;
+  font-size: var(--step-1);
+  line-height: 1.55;
+  color: var(--ink-muted);
+  text-wrap: pretty;
+}
+
+/* ── Scene hotspots ─────────────────────────────────────────────────────────
+   The scroll story's own drawing is the site's navigation into its
+   subsystems — click a plasmid, the enzyme or the shell. Each region is a
+   real <a>, built in cell-scene.js, exactly like system-map's old pattern:
+   focusable, announced, right- and middle-clickable with no click handlers.
+
+   Unlike system-map there is no opaque circle underneath — that would paint
+   over the pencil drawing — so the hit circle needs `pointer-events: all` to
+   stay clickable while visually transparent; a shape with no fill or stroke
+   is not a hit target otherwise. `.scrolly__stage` is pointer-events: none so
+   the sticky scenery never intercepts scrolling, but pointer-events set
+   directly on a descendant overrides that inherited value for itself. */
+.hotspot { cursor: pointer; }
+.hotspot .hotspot__hit {
+  fill: transparent;
+  stroke: transparent;
+  stroke-width: 1.5;
+  pointer-events: all;
+  transition: stroke var(--dur) var(--ease), fill var(--dur) var(--ease);
+}
+.hotspot:hover .hotspot__hit,
+.hotspot:focus-visible .hotspot__hit {
+  fill: color-mix(in srgb, var(--accent) 8%, transparent);
+  stroke: var(--accent);
+}
+.hotspot:focus-visible { outline: none; }
+
+/* ── Explore the rest of the site ─────────────────────────────────────────
+   Reuses the .cardgrid/.card component from the section landing pages
+   (theme/landing.html) rather than inventing a second card style. */
+.home__explore {
+  max-width: 90rem;
+  margin-inline: auto;
+  padding: var(--s-9) var(--gutter) var(--s-10);
+  border-top: 1px solid var(--rule);
+}
+.home__explore .cardgrid { padding: var(--s-7) 0 0; }
+
+/* ── Landing pages ──────────────────────────────────────────────────────── */
+.landing { display: block; }
+.landing:focus { outline: none; }
+
+.landing__hero {
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper-sunk);
+}
+.landing__heroinner {
+  max-width: 90rem;
+  margin-inline: auto;
+  padding: var(--s-10) var(--gutter) var(--s-9);
+}
+.landing__headline { font-size: var(--step-4); max-width: 18ch; }
+.landing__heroinner .standfirst { margin-top: var(--s-5); font-size: var(--step-1); }
+
+.cardgrid {
+  max-width: 90rem;
+  margin-inline: auto;
+  padding: var(--s-8) var(--gutter);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: var(--s-4);
+}
+.card {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: var(--s-2);
+  padding: var(--s-5);
+  min-height: 9rem;
+  border-radius: var(--radius-l);
+  background: var(--paper-raised);
+  box-shadow: var(--shadow-1);
+  text-decoration: none;
+  transition: transform var(--dur) var(--ease),
+              box-shadow var(--dur) var(--ease);
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-2);
+}
+.card__index {
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  letter-spacing: 0.1em;
+  color: var(--accent);
+}
+.card__title {
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.15;
+}
+.card__summary { font-size: var(--step--1); color: var(--ink-muted); line-height: 1.45; }
+.card__go {
+  position: absolute;
+  right: var(--s-5); bottom: var(--s-4);
+  color: var(--rule-strong);
+  transition: color var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.card:hover .card__go { color: var(--accent); transform: translateX(3px); }
+
+.prose--landing {
+  max-width: 90rem;
+  margin-inline: auto;
+  padding: 0 var(--gutter) var(--s-10);
+  /* Left-align the text column with the hero and the cards. The centred
+     measure used on doc pages would leave the landing prose floating in the
+     middle of the page, out of line with everything above it. */
+  grid-template-columns:
+    [full-start wide-start text-start] min(var(--measure), 100%) [text-end]
+    minmax(0, 1fr) [wide-end full-end];
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────────── */
+@media (max-width: 1000px) {
+  .hero { grid-template-columns: minmax(0, 1fr); gap: var(--s-7); min-height: 0; }
+  .hero__figure { max-width: 22rem; order: -1; }
+
+  /* Stage pins to the top and the prose scrolls beneath it. Two things are
+     mandatory here: the stage needs an OPAQUE, full-bleed background (it is
+     transparent on desktop, where it sits in its own column, and text would
+     otherwise scroll visibly through it), and the reading position has to move
+     below the stage or the active act never matches the visible paragraph. */
+  .scrolly {
+    --scrolly-focus: 0.74;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+  .scrolly__stage {
+    height: 46vh;
+    top: var(--masthead-h);
+    z-index: 2;
+    background: var(--paper-sunk);
+    /* Break out of the section's inline padding so the backdrop is edge to edge. */
+    margin-inline: calc(-1 * var(--gutter));
+    padding-inline: var(--gutter);
+    box-shadow: 0 1px 0 var(--rule);
+  }
+  .scrolly__viewport { max-height: 100%; }
+  .scrolly__panels { padding-block: var(--s-6) 14vh; gap: 30vh; }
+  .scrolly__actlabel { bottom: auto; top: 0; left: 0; }
+}
+
+@media (max-width: 560px) {
+  .scrolly { --scrolly-focus: 0.78; }
+  .scrolly__stage { height: 40vh; }
+  .scrolly__panels { gap: 24vh; }
+}
+
+/* With reduced motion the stage stops being sticky: each act's figure is
+   rendered at its end-state and the page reads as a plain illustrated article. */
+@media (prefers-reduced-motion: reduce) {
+  .scrolly__stage { position: static; height: auto; }
+  .scrolly__viewport { max-height: none; }
+  .hero__scrollcue { display: none; }
+  .js .scrolly[data-scrolly-ready] .act { opacity: 1; }
+}
