@@ -7,28 +7,31 @@
    ═══════════════════════════════════════════════════════════════════════════ */
 
 :root {
-  /* ── Surfaces ───────────────────────────────────────────────────────── */
-  --paper:        #FAF8F4;   /* page ground, warm off-white */
-  --paper-sunk:   #F2EFE8;   /* figure wells, code blocks, table zebra */
-  --paper-raised: #FFFFFF;   /* cards, sticky header */
-  --rule:         #DFD9CE;   /* decorative hairlines */
-  --rule-strong:  #BFB6A6;   /* heavier decorative rules — NOT for UI edges */
-  --edge:         #8C8579;   /* outlined controls — 3.1:1, meets WCAG 1.4.11 */
+  /* ── Surfaces: cool stone ───────────────────────────────────────────────
+     Overcast-daylight neutrals — a muted blue-grey rather than a warm paper
+     tone. Deliberately not white, not beige.
+     ─────────────────────────────────────────────────────────────────────── */
+  --paper:        #EDEEF0;   /* page ground, cool stone */
+  --paper-sunk:   #E2E4E8;   /* figure wells, code blocks, table zebra */
+  --paper-raised: #F6F7F8;   /* cards, sticky header */
+  --rule:         #D3D6DC;   /* decorative hairlines */
+  --rule-strong:  #AEB3BC;   /* heavier decorative rules — NOT for UI edges */
+  --edge:         #767C88;   /* outlined controls — 3.1:1, meets WCAG 1.4.11 */
 
   /* ── Ink ────────────────────────────────────────────────────────────── */
-  --ink:          #14171C;   /* body text       — 16.9:1 on paper */
-  --ink-muted:    #5B6068;   /* captions, meta  —  6.0:1 on paper, 5.5:1 on sunk */
-  --ink-faint:    #8C9099;   /* non-text only   —  3.0:1, never for prose */
+  --ink:          #1B1E24;   /* body text       — 15.8:1 on paper */
+  --ink-muted:    #565C68;   /* captions, meta  —  6.0:1 on paper, 5.4:1 on sunk */
+  --ink-faint:    #767C8A;   /* non-text only   —  3.3:1, never for prose */
 
-  /* ── Accent: oxidised copper ──────────────────────────────────────────────
+  /* ── Accent: ink-blue ────────────────────────────────────────────────────
      --accent is set as text on three different grounds (paper, paper-sunk and
      accent-wash), so it is tuned to clear 4.5:1 against the *worst* of them
      rather than against paper alone — an accent that only passes on paper
      fails silently the moment it lands on a card or an active nav item.
      ─────────────────────────────────────────────────────────────────────── */
-  --accent:       #A84D1C;   /* links, rules, primary figure hue — 4.7:1 worst */
-  --accent-deep:  #8A3D14;   /* hover, active — 6.6:1 worst */
-  --accent-wash:  #F8EDE6;   /* selected nav, callout grounds */
+  --accent:       #2B3A67;   /* links, rules, primary figure hue — 8.5:1 worst */
+  --accent-deep:  #1C2748;   /* hover, active — 12.4:1 worst */
+  --accent-wash:  #E4E7EE;   /* selected nav, callout grounds */
 
   /* ── Figure encoding ────────────────────────────────────────────────────
      These seven hues are the project's visual vocabulary. They mean the same
@@ -50,10 +53,10 @@
   --sig-result:  #6A4C93;
 
   /* ── Type families ──────────────────────────────────────────────────── */
-  --font-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino,
+  --font-display: "Literata", "Iowan Old Style", "Palatino Linotype", Palatino,
                   Georgia, "Times New Roman", serif;
-  --font-body:    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
-                  Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-body:    "Newsreader", "Iowan Old Style", "Palatino Linotype", Palatino,
+                  Georgia, "Times New Roman", serif;
   --font-mono:    "JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono",
                   Menlo, Consolas, "Liberation Mono", monospace;
 
@@ -80,11 +83,11 @@
   --gutter:       clamp(1.25rem, 4vw, 2.5rem);
 
   /* ── Depth & motion ─────────────────────────────────────────────────── */
-  --shadow-1: 0 1px 2px rgb(20 23 28 / 0.05);
-  --shadow-2: 0 2px 4px rgb(20 23 28 / 0.05), 0 8px 24px rgb(20 23 28 / 0.06);
-  --shadow-3: 0 4px 8px rgb(20 23 28 / 0.06), 0 24px 56px rgb(20 23 28 / 0.10);
-  --radius:   4px;
-  --radius-l: 8px;
+  --shadow-1: 0 1px 3px rgb(27 30 36 / 0.06);
+  --shadow-2: 0 2px 6px rgb(27 30 36 / 0.05), 0 12px 32px rgb(27 30 36 / 0.08);
+  --shadow-3: 0 6px 12px rgb(27 30 36 / 0.06), 0 28px 64px rgb(27 30 36 / 0.12);
+  --radius:   6px;
+  --radius-l: 14px;
   --ease:     cubic-bezier(0.32, 0.72, 0, 1);
   --dur:      240ms;
 }

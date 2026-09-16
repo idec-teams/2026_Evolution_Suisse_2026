@@ -268,16 +268,14 @@
   gap: var(--s-2);
   padding: var(--s-5);
   min-height: 9rem;
-  border: 1px solid var(--rule);
   border-radius: var(--radius-l);
   background: var(--paper-raised);
+  box-shadow: var(--shadow-1);
   text-decoration: none;
-  transition: border-color var(--dur) var(--ease),
-              transform var(--dur) var(--ease),
+  transition: transform var(--dur) var(--ease),
               box-shadow var(--dur) var(--ease);
 }
 .card:hover {
-  border-color: var(--accent);
   transform: translateY(-2px);
   box-shadow: var(--shadow-2);
 }

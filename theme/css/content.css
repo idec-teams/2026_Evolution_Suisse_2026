@@ -58,9 +58,8 @@ h4:hover .headerlink, h5:hover .headerlink, h6:hover .headerlink,
 /* ── Inline code, kbd, abbr ─────────────── ext: inlinehilite, abbr ─────── */
 .prose :not(pre) > code {
   padding: 0.14em 0.36em;
-  border-radius: 3px;
+  border-radius: 4px;
   background: var(--paper-sunk);
-  border: 1px solid var(--rule);
   color: var(--accent-deep);
   white-space: nowrap;
 }
@@ -93,9 +92,9 @@ h4:hover .headerlink, h5:hover .headerlink, h6:hover .headerlink,
 
 /* ── Code blocks ──────────────────────── ext: highlight, superfences ───── */
 .prose .highlight, .prose pre {
-  border: 1px solid var(--rule);
   border-radius: var(--radius-l);
   background: var(--paper-sunk);
+  box-shadow: var(--shadow-1);
   overflow: hidden;
 }
 .prose .highlight pre { border: 0; border-radius: 0; margin: 0; }
@@ -112,10 +111,9 @@ h4:hover .headerlink, h5:hover .headerlink, h6:hover .headerlink,
 
 /* ── Admonitions ─────────────── ext: admonition, pymdownx.details ──────── */
 .admonition, details.admonition, .prose details {
-  border: 1px solid var(--rule);
   border-left: 3px solid var(--sig-note);
   border-radius: var(--radius-l);
-  background: var(--paper-raised);
+  background: color-mix(in srgb, var(--sig-note) 6%, var(--paper-raised));
   padding: var(--s-4) var(--s-5);
   font-size: var(--step--1);
 }
@@ -133,24 +131,32 @@ h4:hover .headerlink, h5:hover .headerlink, h6:hover .headerlink,
 .prose summary { cursor: pointer; list-style-position: outside; }
 .prose details[open] > summary { margin-bottom: var(--s-3); }
 
-.admonition.tip,      .prose details.tip,      .admonition.protocol, .prose details.protocol { border-left-color: var(--sig-protocol); }
+.admonition.tip,      .prose details.tip,      .admonition.protocol, .prose details.protocol {
+  border-left-color: var(--sig-protocol);
+  background: color-mix(in srgb, var(--sig-protocol) 6%, var(--paper-raised));
+}
 .admonition.tip .admonition-title,      .prose details.tip > summary,
 .admonition.protocol .admonition-title, .prose details.protocol > summary { color: var(--sig-protocol); }
 
 .admonition.warning, .prose details.warning, .admonition.caution, .prose details.caution,
-.admonition.danger,  .prose details.danger { border-left-color: var(--sig-caution); }
+.admonition.danger,  .prose details.danger {
+  border-left-color: var(--sig-caution);
+  background: color-mix(in srgb, var(--sig-caution) 6%, var(--paper-raised));
+}
 .admonition.warning .admonition-title, .prose details.warning > summary,
 .admonition.caution .admonition-title, .prose details.caution > summary,
 .admonition.danger .admonition-title,  .prose details.danger > summary { color: var(--sig-caution); }
 
-.admonition.result, .prose details.result, .admonition.example, .prose details.example { border-left-color: var(--sig-result); }
+.admonition.result, .prose details.result, .admonition.example, .prose details.example {
+  border-left-color: var(--sig-result);
+  background: color-mix(in srgb, var(--sig-result) 6%, var(--paper-raised));
+}
 .admonition.result .admonition-title,  .prose details.result > summary,
 .admonition.example .admonition-title, .prose details.example > summary { color: var(--sig-result); }
 
 /* ── Tables ──────────────────────────────────────────────── ext: tables ── */
 .table-scroll {
   overflow-x: auto;
-  border: 1px solid var(--rule);
   border-radius: var(--radius-l);
   scrollbar-width: thin;
 }
@@ -164,7 +170,6 @@ h4:hover .headerlink, h5:hover .headerlink, h6:hover .headerlink,
 .prose th, .prose td {
   padding: var(--s-3) var(--s-4);
   text-align: left;
-  border-bottom: 1px solid var(--rule);
 }
 .prose thead th {
   background: var(--paper-sunk);
@@ -176,9 +181,9 @@ h4:hover .headerlink, h5:hover .headerlink, h6:hover .headerlink,
   white-space: nowrap;
   position: sticky;
   top: 0;
+  box-shadow: 0 1px 0 var(--rule);
 }
-.prose tbody tr:last-child td { border-bottom: 0; }
-.prose tbody tr:nth-child(even) { background: color-mix(in srgb, var(--paper-sunk) 55%, transparent); }
+.prose tbody tr:nth-child(even) { background: color-mix(in srgb, var(--paper-sunk) 65%, transparent); }
 
 /* Sortable columns — theme/js/tables.js */
 .prose th[data-sort] { cursor: pointer; user-select: none; }
@@ -198,9 +203,9 @@ h4:hover .headerlink, h5:hover .headerlink, h6:hover .headerlink,
 }
 .prose figure > svg,
 .prose figure > img {
-  border: 1px solid var(--rule);
   border-radius: var(--radius-l);
   background: var(--paper-sunk);
+  box-shadow: var(--shadow-1);
   overflow: hidden;
   width: 100%;
 }
@@ -213,9 +218,9 @@ h4:hover .headerlink, h5:hover .headerlink, h6:hover .headerlink,
   position: relative;
   width: 100%;
   aspect-ratio: 4 / 3;
-  border: 1px solid var(--rule);
   border-radius: var(--radius-l);
   background: var(--paper-sunk);
+  box-shadow: var(--shadow-1);
   overflow: hidden;
 }
 .figure__frame > canvas,
@@ -273,8 +278,8 @@ mjx-container:focus-visible { outline: 2px solid var(--accent); outline-offset: 
 .tabbed-set {
   display: flex;
   flex-wrap: wrap;
-  border: 1px solid var(--rule);
   border-radius: var(--radius-l);
+  box-shadow: var(--shadow-1);
   overflow: hidden;
 }
 .tabbed-set > input { position: absolute; opacity: 0; width: 0; height: 0; }
@@ -283,7 +288,6 @@ mjx-container:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   width: 100%;
   overflow-x: auto;
   background: var(--paper-sunk);
-  border-bottom: 1px solid var(--rule);
   scrollbar-width: none;
 }
 .tabbed-labels > label {
@@ -331,9 +335,9 @@ mjx-container:focus-visible { outline: 2px solid var(--accent); outline-offset: 
 .metrics li {
   margin: 0;
   padding: var(--s-4) var(--s-5);
-  border: 1px solid var(--rule);
   border-radius: var(--radius-l);
   background: var(--paper-raised);
+  box-shadow: var(--shadow-1);
 }
 .metrics b {
   display: block;

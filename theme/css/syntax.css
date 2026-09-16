@@ -8,9 +8,9 @@
    so code and diagrams read as one system.
    ═══════════════════════════════════════════════════════════════════════════ */
 
-.highlight { --syn-comment: #7A7266; --syn-keyword: #8A3D14; --syn-string: #2F6F5E;
-             --syn-number: #6A4C93; --syn-name: #14171C;   --syn-func: #4B4E9C;
-             --syn-class: #A8823C;  --syn-op: #5B6068;     --syn-err: #C2334D; }
+.highlight { --syn-comment: #6E7480; --syn-keyword: #8A3D14; --syn-string: #2F6F5E;
+             --syn-number: #6A4C93; --syn-name: #1B1E24;   --syn-func: #4B4E9C;
+             --syn-class: #A8823C;  --syn-op: #565C68;     --syn-err: #C2334D; }
 
 .highlight pre { color: var(--ink); }
 

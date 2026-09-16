@@ -134,28 +134,29 @@ button { font: inherit; color: inherit; }
   align-items: center;
   gap: var(--s-2);
   padding: 0.6em 1.15em;
-  border: 1px solid var(--edge);
+  border: 0;
   border-radius: var(--radius);
   background: var(--paper-raised);
+  box-shadow: var(--shadow-1), inset 0 0 0 1px var(--rule);
   color: var(--ink);
   font-size: var(--step--1);
   font-weight: 550;
   text-decoration: none;
-  transition: border-color var(--dur) var(--ease),
+  transition: box-shadow var(--dur) var(--ease),
               background var(--dur) var(--ease),
               transform var(--dur) var(--ease);
 }
 .btn:hover {
   color: var(--ink);
-  border-color: var(--accent);
+  box-shadow: var(--shadow-2), inset 0 0 0 1px var(--accent);
   transform: translateY(-1px);
 }
 .btn--primary {
   background: var(--accent);
-  border-color: var(--accent);
+  box-shadow: var(--shadow-1);
   color: var(--paper);
 }
-.btn--primary:hover { background: var(--accent-deep); border-color: var(--accent-deep); color: var(--paper); }
+.btn--primary:hover { background: var(--accent-deep); box-shadow: var(--shadow-2); color: var(--paper); }
 
 .iconbtn {
   display: grid;
