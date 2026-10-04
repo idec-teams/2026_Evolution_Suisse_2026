@@ -12,6 +12,7 @@ We are trying to change that by evolution rather than by design — and the hard
 part is not the shell, it is building a selection that cannot be satisfied by
 anything except the behaviour we want.
 
-These four pages follow that argument in order: what encapsulins already do and
-where they fall short, which shell we chose and how we gave it an RNA handle, how
-survival was wired to encapsulation, and what the experiments have shown so far.
+These pages follow that argument in order: what encapsulins already do and where
+they fall short, which shell we chose and how we gave it an RNA handle, how
+survival was wired to encapsulation, what the first experiments showed, and what
+comes next. The sources are on the references page.

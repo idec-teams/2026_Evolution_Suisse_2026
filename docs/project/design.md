@@ -50,21 +50,45 @@ half, chosen so that the two do not interfere.
 
 === "Protein handle — CLP"
 
-    dCas9 is fused to the native cargo-loading peptide, which docks into the
-    binding groove present once on the lumenal face of each of the 240 protomers.
-    This reuses QtEnc's own chemistry rather than importing a second foreign
-    module, and it inherits whatever affinity and geometry evolution has already
-    tuned in the native system.
+    dCas9 is fused at its C-terminus to the cargo-loading peptide (IMEF in the
+    construct names), using the established C-terminal fusion site. The CLP
+    docks into the binding groove on the lumenal face of each of the 240
+    protomers. This reuses QtEnc's own chemistry rather than importing a second
+    foreign module, and the five-residue core is unlikely to disturb dCas9
+    folding.
 
 === "RNA handle — λN·boxB"
 
-    The sgRNA scaffold carries a **boxB** stem-loop, caught by the arginine-rich
-    **λN⁺** peptide grafted onto the interior surface of the shell. The precedent
-    is direct: Hilvert and co-workers built an artificial nucleocapsid by
-    circularly permuting a bacterial enzyme and appending λN⁺, and found the
-    peptides lining the lumenal edge of the shell openings. A lysine-to-arginine
-    substitution in λN⁺ is known to raise boxB affinity roughly threefold, which
-    gives a ready-made tuning knob if capture proves too weak.
+    The sgRNA carries **boxB** hairpins, caught by the arginine-rich **λN⁺**
+    peptide grafted onto the interior surface of the shell. In the scaffold, boxB
+    replaces the validated MS2 stem-loop insertion sites, in both the stem-loop
+    and the tetraloop ([Fig S2](../lab/supplementary.md#fig-s2)). The precedent is
+    direct: Hilvert and co-workers gave a non-viral cage mRNA recognition by
+    appending cationic peptides including λN⁺, and found them lining the lumenal
+    edge of the shell openings. A lysine-to-arginine substitution in λN⁺ is known
+    to raise boxB affinity roughly threefold, which gives a ready-made tuning
+    knob if capture proves too weak.
+
+<figure class="report wide" markdown>
+
+[![AlphaFold 3 model and sequence map of the engineered QtEnc subunit](../img/report/fig1-structure.webp)](../img/report/fig1-structure.webp)
+
+**Fig 1.** QtEnc (6NJ8) and the engineered subunit: λN⁺ on the lumenal face,
+HisTag and targeting peptide (TP) on the outer face, each joined by a GS linker.
+Full caption under [Results](results.md#31-engineering-qtencapsulin-for-proteinrna-co-encapsulation).
+
+</figure>
+
+### Outer-surface modifications
+
+The first designs also carried a His-tag and a targeting peptide on the outside
+of the shell, for purification and delivery. The His-tag-bearing shell
+partitioned into the insoluble fraction ([Results](results.md#34-purification-and-validation-of-qtencapsulin-cages)),
+and as it was not resolved whether the tag, the peptide or the combination was
+responsible, the designs used for evolution carry no external modification.
+Variants with the targeting peptide but no His-tag are built in parallel. This
+makes tolerance of outer-surface fusions an evolvable target of its own: a shell
+that displays a delivery peptide without losing solubility is a useful output.
 
 The two handles are deliberately orthogonal, and the selection treats them as an
 **OR gate**: capturing the guide, or capturing the nuclease, is individually
@@ -98,5 +122,7 @@ independent of dCas9 concentration only once the target is saturated, which
 argues for high expression — but dCas9 overexpression is separately reported to
 be toxic in *E. coli*. The working range sits above saturation and below toxicity.
 
-**The shell has to actually assemble.** This is the constraint currently
-binding: see [Results](results.md).
+**The shell has to assemble.** Selection can only act on capture once cages form
+in the cell, so cage assembly is the first thing to confirm independently — by
+electron microscopy as well as by chromatography. See the
+[outlook](results.md#outlook).

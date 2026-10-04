@@ -5,6 +5,34 @@ summary: Encapsulins, what they already do, and the gap this project addresses.
 
 # Background
 
+## Why a delivery vehicle for protein–RNA complexes
+
+Biomacromolecules — nucleic acids and protein biologics — reach targets that
+small molecules cannot: about 80 % of the human proteome is considered
+undruggable by small molecules for lack of a defined binding pocket.[^drug] They
+are also easy to retarget, since the sequence is the design. Delivery is the
+bottleneck: the molecules are large, highly charged and cleared quickly.
+Lipid nanoparticles, synthetic polymers and viral vectors are limited by cargo
+capacity, cytotoxicity or immunogenicity, and most are optimised for one cargo
+class. Cationic lipid particles tuned for nucleic acids can hinder protein
+loading, while protein-based vectors usually lack nucleic-acid binding.
+
+Therapies that need a protein and a nucleic acid together — CRISPR–Cas9 above all
+— gain from a single vehicle, which avoids mismatched biodistribution and uptake.
+Protein nanocages (viral capsids, virus-like particles, ferritins, encapsulins)
+offer biocompatibility and programmable lumenal and outer surfaces. The encapsulin
+of *Quasibacillus thermotolerans* (QtEnc) is a T=4 shell of about 42 nm and 240
+subunits with a large interior, and it loads cargo bearing a C-terminal
+cargo-loading peptide natively. It has no nucleic-acid affinity, and a rational
+graft is hard to get right: loading depends on shell dynamics, cargo geometry and
+assembly fidelity in ways structure alone does not predict, and in a
+homomultimeric cage each substitution is repeated 240-fold, so rational changes
+often act as dominant negatives.
+
+[^drug]: Dang *et al.*, *Nat. Rev. Cancer* **17**, 502 (2017); Nagaraj *et al.*,
+    *RSC Pharmaceutics* **2**, 850 (2025). The complete list is on the
+    [references page](references.md).
+
 ## Protein nanocompartments
 
 Encapsulins are prokaryotic protein nanocompartments: shell proteins that
@@ -86,7 +114,9 @@ variant's performance to its own survival.
 transforms the library in, which limits both the depth of mutagenesis and the
 number of campaigns that can be run in parallel. Continuous systems that
 hypermutate a designated locus *in vivo* — PACE, OrthoRep, T7-ORACLE, MutaT7 —
-remove that ceiling, but they still need a selection worth applying.
+remove that ceiling, but they still need a selection worth applying. MutaT7 fuses a T7 RNA polymerase to a cytidine deaminase, so mutations land only on DNA between a T7 promoter and terminator.[^mut]
+
+[^mut]: Moore, Papa & Shoulders, *J. Am. Chem. Soc.* **140**, 11560 (2018).
 
 We address the third by adopting MutaT7, and the second by building a circuit in
 which encapsulation is the only cheap route to survival. The first is the point

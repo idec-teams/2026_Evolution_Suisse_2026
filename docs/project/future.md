@@ -5,20 +5,33 @@ summary: What we would do next with more time and more selective agents.
 
 # Future work
 
-## Getting assembly on its feet
+## First campaign
 
-Everything else is downstream of this. The immediate queue, in order of how
-cheaply it discriminates:
+Three steps lead into the first evolution cycle, in the order they can be tested.
+The reasoning is under [Results](results.md#outlook).
 
-1. **Direct C-terminal His tag, no linker.** The fastest test of the
-   tag-occlusion hypothesis, and the construct that published work reports as
-   assembling.
-2. **Negative-stain electron microscopy on crude lysate.** Bypasses the
-   purification entirely. If cages are present in the cell and being lost during
-   handling, this sees them; SEC and DLS on purified material cannot distinguish
-   "never assembled" from "assembled and lost".
-3. **Untagged shell with a tagged cargo.** Pull on the cargo rather than the
-   shell, so that assembly is not selected against by the affinity step.
+**Confirm cage assembly.** Remove the His-tag and keep the targeting peptide.
+Run DLS on wild-type cages as the reference for 42 nm, and confirm assembly by
+negative-stain TEM or cryo-EM, which does not depend on elution volume or native
+gel migration. Expressing monomers with and without the external moiety
+separately and mixing them in defined ratios gives mosaic cages, a route to
+tolerating external fusions.
+
+**Complete the selection plasmids.** Leaky dCas9 and sgRNA expression is the
+likely burden during assembly. Candidate fixes: chemical repression of the
+promoters, a non-targeting guide as a proof of concept, and a tri-plasmid system
+that separates the selection, mutagenesis and repressor components so that the
+regulators are in place before the selection components. Removing the GATA/GAAA
+overhang clash between junctions J4 and J5 would also help
+([Table S2](../lab/supplementary.md#table-s2)).
+
+**Quieten MutaT7.** Reversion in the stop-codon assay was similar with and
+without induction. An inducible sgRNA directed at the T7 promoter region would
+suppress mutagenesis outside the evolution windows.
+
+Then the co-encapsulation assays can separate single-handle capture from true
+co-encapsulation: dual-stained native PAGE, RNase challenge, and SEC co-elution
+of a fluorescent cargo ([protocols](../lab/protocols.md#co-encapsulation-assays)).
 
 ## Broadening the cargo range
 
@@ -65,5 +78,5 @@ The end state is a shell that packages a ribonucleoprotein and delivers it to th
 cytosol of a mammalian cell. The delivery half of that problem has been solved
 separately for this scaffold, using a pH-sensitive intein to detach cargo in the
 endosome and a fusogenic peptide to escape it. Nothing in that architecture
-conflicts with what we are evolving — but it assumes a shell that assembles,
-which returns to the top of this page.
+conflicts with what we are evolving — but it assumes a shell that assembles
+and loads, which the first campaign is designed to select for.

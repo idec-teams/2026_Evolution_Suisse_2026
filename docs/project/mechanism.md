@@ -81,6 +81,29 @@ this selection operates in.
 The selection therefore reads encapsulation efficiency rather than expression
 noise. Without that, a quieter promoter would be the cheapest way to win.
 
+## Regulation of the circuit
+
+dCas9 and the sgRNA are placed under two orthogonal small-molecule-inducible
+regulators, VanR<sup>AM</sup> and PhlF<sup>AM</sup>, which had the largest dynamic
+range and best orthogonality of a dozen tested.[^meyer] Guide complementarity and
+inducer concentration are then independent axes: the first sets the passage
+probability, the second the amount of repressor, and both can be changed while a
+culture is running.
+
+## An alternative readout: creT
+
+The same logic can be run on a toxin instead of an antibiotic marker. In the
+archaeal creTA system, the creA RNA represses creT, a small RNA toxin that
+sequesters rare codons. Placing the sgRNA's protospacer in the 5′ UTR of the
+repressor that controls creT gives a positive selection in which encapsulating
+dCas9 or the sgRNA relieves toxin repression and is rewarded with growth
+([Fig S1](../lab/supplementary.md#fig-s1)). Chen *et al.* used a creT-based
+selection to evolve Cas12a.[^chen] It is held as an alternative to the
+*kanR* circuit.
+
+[^meyer]: Meyer *et al.*, *Nat. Chem. Biol.* **15**, 196 (2019).
+[^chen]: Chen *et al.*, *Adv. Sci.* **12**, e17105 (2025).
+
 ## Sequestration restores expression
 
 <figure class="scrollyfig wide" data-figure="cell-scene" data-act-index="2" markdown>
@@ -94,6 +117,16 @@ gene. Transcription resumes and the cell survives.
 — roughly twice the span of the complex it has to hold. Either half can be
 caught: a cargo-loading peptide on dCas9, or a boxB hairpin on the sgRNA. See
 [Design](design.md) for why the OR gate was chosen over demanding both.
+
+<figure class="report wide" markdown>
+
+[![KanR selection strategy](../img/report/fig2-kanr.webp)](../img/report/fig2-kanr.webp)
+
+**Fig 3.** Weak encapsulation leaves free dCas9·sgRNA to repress KanR (**a**);
+encapsulation removes it and KanR is expressed (**b**). Full caption under
+[Results](results.md#32-an-encapsulation-coupled-selection).
+
+</figure>
 
 ## The two stringency knobs
 
