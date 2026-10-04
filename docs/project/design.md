@@ -111,7 +111,7 @@ sufficient to break the complex and rescue the cell.
 **The shell must remain the only thing evolving.** Anything else in the circuit
 that can mutate to restore resistance will, and faster. This constraint is what
 produces the two-plasmid split described in
-[Plasmids](../engineering/plasmids.md).
+[Constructs](../lab/constructs.md).
 
 **Repression must be graded, not absolute.** A binary live/die circuit gives
 selection no gradient. See [Mechanism](mechanism.md) for how guide truncation

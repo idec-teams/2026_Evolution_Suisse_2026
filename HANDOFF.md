@@ -153,10 +153,10 @@ five `<a>` elements in an SVG layered over the canvas (`needs: 'canvas svg'`,
 
 | Region | Destination | Tracks |
 |---|---|---|
-| `MUT` ring | `engineering/plasmids/` | static |
-| `SEL` ring | `engineering/plasmids/` | static |
+| `MUT` ring | `lab/constructs/` | static |
+| `SEL` ring | `lab/constructs/` | static |
 | `HUB`, radius `SHELL_R * ANGSTROM + 24` | `project/design/` | static |
-| `this.hsMutaT7` | `engineering/cycles/` | the enzyme, `(px, py)`, every `paint()` |
+| `this.hsMutaT7` | `project/future/#planned-campaign` | the enzyme, `(px, py)`, every `paint()` |
 | `this.hsSelection` | `project/mechanism/` | the repressor, `(rx, ry)`, every `paint()` |
 
 The tracked two are built **last**, so they sit on top of the static regions in
@@ -303,7 +303,7 @@ Roughly in the order I would do it.
 
 ### 5.1 An enrichment figure
 
-`docs/engineering/cycles.md` used to carry a population-distribution plot
+`docs/lab/` has no enrichment figure; `cycles.md` (now folded into `project/future.md`) used to carry a population-distribution plot
 (round-over-round enrichment). Its module was deleted with the old act set and
 the figure block was removed; **the prose is unchanged and now runs without an
 illustration**. Rebuild it in graphite if the team wants it — it is a chart, not
@@ -318,7 +318,7 @@ obvious candidates, in order of how much a drawing would help:
 | Page | Words | What a figure would show |
 |---|---|---|
 | `docs/project/design.md` | 717 | the OR gate — two grips on one complex, either sufficient |
-| `docs/engineering/constructs.md` | 439 | cassette architecture, T7 promoter → ORF → terminator |
+| `docs/lab/constructs.md` | — | cassette architecture, T7 promoter → ORF → terminator |
 | `docs/project/results.md` | 708 | whatever the data supports; check with the team first |
 | `docs/project/background.md` | 711 | encapsulin size series (T=1/T=3/T=4) at true relative scale |
 

@@ -9,7 +9,7 @@ summary: Who did what, and what we did not do ourselves.
 
 !!! note "To be completed"
 
-    Per-person contribution statements, collected on the [members](members.md)
+    Per-person contribution statements, collected on the [team](index.md)
     page. The lab journal records who ran which experiment day by day; this
     section should summarise that by contribution area rather than reproduce it.
     Authors of the project report: Luca Vogt, Klara Tkacz, Max Schäbinger, Oliver
@@ -84,4 +84,4 @@ MkDocs on a bespoke theme with no external runtime dependencies.
 - **Dr. Mikail Levasseur**, for assistance and insight during cage purification.
 - **Microsynth AG**, for sequencing and oligonucleotides, and for financial
   support together with Universität Zürich, ETH Zürich and a Swiss foundation —
-  see [Sponsors](sponsors.md).
+  see [Team and sponsors](index.md#sponsors-and-partners).

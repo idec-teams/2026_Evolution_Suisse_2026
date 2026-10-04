@@ -148,13 +148,13 @@ export default {
     // this.hsSelection are re-centred every paint().
     if (ctx.svg) {
       hotspot(ctx.svg, { cx: MUT.x, cy: MUT.y, r: MUT.r + 24,
-                         href: 'engineering/plasmids/', label: 'Plasmid architecture' });
+                         href: 'lab/constructs/', label: 'Plasmids and constructs' });
       hotspot(ctx.svg, { cx: SEL.x, cy: SEL.y, r: SEL.r + 24,
-                         href: 'engineering/plasmids/', label: 'Plasmid architecture' });
+                         href: 'lab/constructs/', label: 'Plasmids and constructs' });
       hotspot(ctx.svg, { cx: HUB[0], cy: HUB[1], r: SHELL_R * ANGSTROM + 24,
                          href: 'project/design/', label: 'Encapsulin shell design' });
       this.hsMutaT7 = hotspot(ctx.svg, { cx: MUT.x, cy: MUT.y, r: 42,
-                         href: 'engineering/cycles/', label: 'MutaT7 evolution platform' });
+                         href: 'project/future/#planned-campaign', label: 'Planned evolution campaign' });
       this.hsSelection = hotspot(ctx.svg, { cx: SEL.x, cy: SEL.y, r: 46,
                          href: 'project/mechanism/', label: 'Selection circuit' });
     }

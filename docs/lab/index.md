@@ -1,10 +1,10 @@
 ---
 template: landing.html
 title: Lab
-eyebrow: Section 03
+eyebrow: Section 02
 headline: Lab
 standfirst: >-
-  Protocols as run, the daily notebook, and the raw data behind every figure.
+  What was built, the protocols as run, the daily notebook, and the raw data behind every figure.
 ---
 
 The protocols here are the ones actually used, including the modifications made

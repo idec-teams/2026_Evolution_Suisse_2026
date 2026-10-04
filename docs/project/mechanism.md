@@ -148,7 +148,7 @@ of, or alongside, raising the dose.
 The circuit is split across two compatible plasmids — <span class="chip">mutation
 plasmid</span> carrying the MutaT7 machinery and the mutable encapsulin cassette,
 and <span class="chip">selection plasmid</span> carrying dCas9, the sgRNA and the
-resistance gene. See [Plasmids](../engineering/plasmids.md) for maps.
+resistance gene. See [Constructs](../lab/constructs.md) for maps.
 
 === "Mutation plasmid"
 

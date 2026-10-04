@@ -1,12 +1,146 @@
 ---
-template: landing.html
-title: Team
-eyebrow: Section 04
-headline: Team
-standfirst: >-
-  Who built this, who helped, and who paid for the reagents.
+title: Team and sponsors
+summary: The six students behind the project, who supervised it, and who made it possible.
 ---
 
-Directed evolution is a group activity with a lot of pipetting in it. These pages
-record who did what, what we took from other people's work, and who made the
-season possible.
+# Team and sponsors
+
+Evolution Suisse 2026 is a team of six, working in the Lang group at ETH Zürich
+and hosted by the Student BioLab Zürich. Names and affiliations follow the
+project report.
+
+<!--
+  PHOTOS. Save a portrait (4:5, about 800 px wide, WebP or JPG) as
+  docs/img/team/<slug>.webp, then replace the <span> inside that person's
+  .person__photo with:
+      <img src="../img/team/<slug>.webp" alt="<Name>">
+  Slugs are listed in the HTML comment above each card. Roles and contribution
+  lines are placeholders ("to be added") for each person to fill in.
+-->
+
+## The team
+
+<div class="people wide">
+  <!-- luca-vogt -->
+  <article class="person">
+    <div class="person__photo"><span aria-hidden="true">LV</span></div>
+    <p class="person__name">Luca Vogt</p>
+    <p class="person__aff">Department of Biosystems Science and Engineering, ETH Zürich</p>
+    <p class="person__role">Role <em>to be added</em></p>
+    <p class="person__bio"><em>Contribution to be added</em></p>
+  </article>
+  <!-- klara-tkacz -->
+  <article class="person">
+    <div class="person__photo"><span aria-hidden="true">KT</span></div>
+    <p class="person__name">Klara Tkacz</p>
+    <p class="person__aff">Department of Biosystems Science and Engineering, ETH Zürich</p>
+    <p class="person__role">Role <em>to be added</em></p>
+    <p class="person__bio"><em>Contribution to be added</em></p>
+  </article>
+  <!-- max-schaebinger -->
+  <article class="person">
+    <div class="person__photo"><span aria-hidden="true">MS</span></div>
+    <p class="person__name">Max Schäbinger</p>
+    <p class="person__aff">Faculty of Science, Universität Zürich</p>
+    <p class="person__role">Role <em>to be added</em></p>
+    <p class="person__bio"><em>Contribution to be added</em></p>
+  </article>
+  <!-- oliver-nagl -->
+  <article class="person">
+    <div class="person__photo"><span aria-hidden="true">ON</span></div>
+    <p class="person__name">Oliver Nagl</p>
+    <p class="person__aff">Department of Biosystems Science and Engineering, ETH Zürich</p>
+    <p class="person__role">Role <em>to be added</em></p>
+    <p class="person__bio"><em>Contribution to be added</em></p>
+  </article>
+  <!-- nathania-calista-putri -->
+  <article class="person">
+    <div class="person__photo"><span aria-hidden="true">NP</span></div>
+    <p class="person__name">Nathania Calista Putri</p>
+    <p class="person__aff">Department of Biology, ETH Zürich</p>
+    <p class="person__role">Role <em>to be added</em></p>
+    <p class="person__bio"><em>Contribution to be added</em></p>
+  </article>
+  <!-- noel-lippold -->
+  <article class="person">
+    <div class="person__photo"><span aria-hidden="true">NL</span></div>
+    <p class="person__name">Noel Lippold</p>
+    <p class="person__aff">Department of Chemistry and Applied Biosciences, ETH Zürich</p>
+    <p class="person__role">Role <em>to be added</em></p>
+    <p class="person__bio"><em>Contribution to be added</em></p>
+  </article>
+</div>
+
+## Supervision
+
+<div class="people people--sup wide">
+  <!-- daria-belous -->
+  <article class="person person--sup">
+    <div class="person__photo"><span aria-hidden="true">DB</span></div>
+    <p class="person__name">Daria Belous</p>
+    <p class="person__aff">Supervisor</p>
+  </article>
+  <!-- annabelle-winzer -->
+  <article class="person person--sup">
+    <div class="person__photo"><span aria-hidden="true">AW</span></div>
+    <p class="person__name">Annabelle Winzer</p>
+    <p class="person__aff">Supervisor</p>
+  </article>
+  <!-- kathrin-lang -->
+  <article class="person person--sup">
+    <div class="person__photo"><span aria-hidden="true">KL</span></div>
+    <p class="person__name">Prof. Dr. Kathrin Lang</p>
+    <p class="person__aff">Principal investigator, ETH Zürich</p>
+  </article>
+</div>
+
+### Advisors and collaborators
+
+<ul class="crew-chips">
+  <li><strong>Dr. Maximilian Fottner</strong></li>
+  <li><strong>Dr. Vera Wanka</strong></li>
+  <li><strong>Paul Schnacke</strong></li>
+  <li><strong>Kian Bigović Villi</strong></li>
+  <li><strong>Philip Nitsch</strong></li>
+  <li><strong>Dr. Mikail Levasseur</strong> <span>cage purification</span></li>
+  <li><strong>Hilvert Lab</strong> <span>initial project idea</span></li>
+</ul>
+
+Titles and affiliations of the advisors are to be confirmed. Thanks to all of them
+for answering questions throughout the project; the full acknowledgments are on the
+[attributions](attributions.md) page.
+
+## Sponsors and partners
+
+The project was supported financially by Microsynth AG, the University of Zürich,
+ETH Zürich and a Swiss foundation. The Lang group at ETH Zürich provided
+laboratory space, equipment and resources, and the Student BioLab Zürich hosted
+the team.
+
+<div class="sponsors wide">
+  <div class="sponsor">
+    <div class="sponsor__logo"><img src="../img/report/logo-eth.webp" alt="ETH Zürich"></div>
+    <p class="sponsor__name">ETH Zürich</p>
+    <p class="sponsor__what">Host institution · laboratory, equipment and resources · funding</p>
+  </div>
+  <div class="sponsor">
+    <div class="sponsor__logo"><img src="../img/report/logo-uzh.webp" alt="Universität Zürich"></div>
+    <p class="sponsor__name">Universität Zürich</p>
+    <p class="sponsor__what">Funding</p>
+  </div>
+  <div class="sponsor">
+    <div class="sponsor__logo"><img src="../img/report/logo-sbl.webp" alt="Student BioLab Zürich"></div>
+    <p class="sponsor__name">Student BioLab Zürich</p>
+    <p class="sponsor__what">Hosted the Evolution Suisse team</p>
+  </div>
+  <div class="sponsor sponsor--todo">
+    <div class="sponsor__logo"><span>Logo to be added</span></div>
+    <p class="sponsor__name">Microsynth AG</p>
+    <p class="sponsor__what">Funding · sequencing and oligonucleotides <em>(terms to be added)</em></p>
+  </div>
+  <div class="sponsor sponsor--todo">
+    <div class="sponsor__logo"><span>Logo to be added</span></div>
+    <p class="sponsor__name">Swiss foundation</p>
+    <p class="sponsor__what">Funding <em>(name and terms to be added)</em></p>
+  </div>
+</div>

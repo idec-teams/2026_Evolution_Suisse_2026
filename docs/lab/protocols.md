@@ -156,7 +156,7 @@ chloramphenicol, and count colonies after 48 h at 37 °C
 
 ## Continuous culture
 
-Turbidostat (Pioreactor). See [Evolution cycles](../engineering/cycles.md) for the
+Turbidostat (Pioreactor). See the [planned campaign](../project/future.md#planned-campaign) for the
 passaging and stringency schedule. Planned.
 
 ## Co-encapsulation assays

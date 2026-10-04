@@ -1,7 +1,7 @@
 ---
 template: landing.html
 title: Safety
-eyebrow: Section 05
+eyebrow: Section 04
 headline: Safety and society
 standfirst: >-
   Biosafety practice, risk assessment, and the conversations that shaped the project.
