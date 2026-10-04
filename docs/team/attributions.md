@@ -1,19 +1,9 @@
 ---
 title: Attributions
-summary: Who did what, and what we did not do ourselves.
+summary: What we reused from others, and who helped.
 ---
 
 # Attributions
-
-## Work by the team
-
-!!! note "To be completed"
-
-    Per-person contribution statements, collected on the [team](index.md)
-    page. The lab journal records who ran which experiment day by day; this
-    section should summarise that by contribution area rather than reproduce it.
-    Authors of the project report: Luca Vogt, Klara Tkacz, Max Schäbinger, Oliver
-    Nagl, Nathania Calista Putri and Noel Lippold.
 
 ## Reused material
 
@@ -83,5 +73,5 @@ MkDocs on a bespoke theme with no external runtime dependencies.
 - **The Hilvert Lab**, for guidance during the initial development of the idea.
 - **Dr. Mikail Levasseur**, for assistance and insight during cage purification.
 - **Microsynth AG**, for sequencing and oligonucleotides, and for financial
-  support together with Universität Zürich, ETH Zürich and a Swiss foundation —
+  support together with Universität Zürich and ETH Zürich —
   see [Team and sponsors](index.md#sponsors-and-partners).

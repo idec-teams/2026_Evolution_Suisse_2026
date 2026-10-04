@@ -106,14 +106,13 @@ project report.
   <li><strong>Hilvert Lab</strong> <span>initial project idea</span></li>
 </ul>
 
-Titles and affiliations of the advisors are to be confirmed. Thanks to all of them
-for answering questions throughout the project; the full acknowledgments are on the
-[attributions](attributions.md) page.
+Thanks to all of them for answering questions throughout the project; the full
+acknowledgments are on the [attributions](attributions.md) page.
 
 ## Sponsors and partners
 
-The project was supported financially by Microsynth AG, the University of Zürich,
-ETH Zürich and a Swiss foundation. The Lang group at ETH Zürich provided
+The project was supported financially by Microsynth AG, the University of Zürich
+and ETH Zürich. The Lang group at ETH Zürich provided
 laboratory space, equipment and resources, and the Student BioLab Zürich hosted
 the team.
 
@@ -137,10 +136,5 @@ the team.
     <div class="sponsor__logo"><span>Logo to be added</span></div>
     <p class="sponsor__name">Microsynth AG</p>
     <p class="sponsor__what">Funding · sequencing and oligonucleotides <em>(terms to be added)</em></p>
-  </div>
-  <div class="sponsor sponsor--todo">
-    <div class="sponsor__logo"><span>Logo to be added</span></div>
-    <p class="sponsor__name">Swiss foundation</p>
-    <p class="sponsor__what">Funding <em>(name and terms to be added)</em></p>
   </div>
 </div>
