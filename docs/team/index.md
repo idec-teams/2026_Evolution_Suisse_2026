@@ -23,7 +23,7 @@ project report.
 <div class="people wide">
   <!-- luca-vogt -->
   <article class="person">
-    <div class="person__photo"><span aria-hidden="true">LV</span></div>
+    <div class="person__photo"><img src="../img/team/luca-vogt.webp" alt="Luca Vogt"></div>
     <p class="person__name">Luca Vogt</p>
     <p class="person__aff">Department of Biosystems Science and Engineering, ETH Zürich</p>
     <p class="person__role">Role <em>to be added</em></p>
@@ -31,7 +31,7 @@ project report.
   </article>
   <!-- klara-tkacz -->
   <article class="person">
-    <div class="person__photo"><span aria-hidden="true">KT</span></div>
+    <div class="person__photo"><img src="../img/team/klara-tkacz.webp" alt="Klara Tkacz"></div>
     <p class="person__name">Klara Tkacz</p>
     <p class="person__aff">Department of Biosystems Science and Engineering, ETH Zürich</p>
     <p class="person__role">Role <em>to be added</em></p>
@@ -39,7 +39,7 @@ project report.
   </article>
   <!-- max-schaebinger -->
   <article class="person">
-    <div class="person__photo"><span aria-hidden="true">MS</span></div>
+    <div class="person__photo"><img src="../img/team/max-schaebinger.webp" alt="Max Schäbinger"></div>
     <p class="person__name">Max Schäbinger</p>
     <p class="person__aff">Faculty of Science, Universität Zürich</p>
     <p class="person__role">Role <em>to be added</em></p>
@@ -47,7 +47,7 @@ project report.
   </article>
   <!-- oliver-nagl -->
   <article class="person">
-    <div class="person__photo"><span aria-hidden="true">ON</span></div>
+    <div class="person__photo"><img src="../img/team/oliver-nagl.webp" alt="Oliver Nagl"></div>
     <p class="person__name">Oliver Nagl</p>
     <p class="person__aff">Department of Biosystems Science and Engineering, ETH Zürich</p>
     <p class="person__role">Role <em>to be added</em></p>
@@ -55,7 +55,7 @@ project report.
   </article>
   <!-- nathania-calista-putri -->
   <article class="person">
-    <div class="person__photo"><span aria-hidden="true">NP</span></div>
+    <div class="person__photo"><img src="../img/team/nathania-calista-putri.webp" alt="Nathania Calista Putri"></div>
     <p class="person__name">Nathania Calista Putri</p>
     <p class="person__aff">Department of Biology, ETH Zürich</p>
     <p class="person__role">Role <em>to be added</em></p>
@@ -63,7 +63,7 @@ project report.
   </article>
   <!-- noel-lippold -->
   <article class="person">
-    <div class="person__photo"><span aria-hidden="true">NL</span></div>
+    <div class="person__photo"><img src="../img/team/noel-lippold.webp" alt="Noel Lippold"></div>
     <p class="person__name">Noel Lippold</p>
     <p class="person__aff">Department of Chemistry and Applied Biosciences, ETH Zürich</p>
     <p class="person__role">Role <em>to be added</em></p>
@@ -76,19 +76,19 @@ project report.
 <div class="people people--sup wide">
   <!-- daria-belous -->
   <article class="person person--sup">
-    <div class="person__photo"><span aria-hidden="true">DB</span></div>
+    <div class="person__photo"><img src="../img/team/daria-belous.webp" alt="Daria Belous"></div>
     <p class="person__name">Daria Belous</p>
     <p class="person__aff">Supervisor</p>
   </article>
   <!-- annabelle-winzer -->
   <article class="person person--sup">
-    <div class="person__photo"><span aria-hidden="true">AW</span></div>
+    <div class="person__photo"><img src="../img/team/annabelle-winzer.webp" alt="Annabelle Winzer"></div>
     <p class="person__name">Annabelle Winzer</p>
     <p class="person__aff">Supervisor</p>
   </article>
   <!-- kathrin-lang -->
   <article class="person person--sup">
-    <div class="person__photo"><span aria-hidden="true">KL</span></div>
+    <div class="person__photo"><img src="../img/team/kathrin-lang.webp" alt="Prof. Dr. Kathrin Lang"></div>
     <p class="person__name">Prof. Dr. Kathrin Lang</p>
     <p class="person__aff">Principal investigator, ETH Zürich</p>
   </article>
