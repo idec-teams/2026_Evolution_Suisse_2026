@@ -9,9 +9,11 @@ summary: Who did what, and what we did not do ourselves.
 
 !!! note "To be completed"
 
-    Per-person contribution statements. The lab journal records who ran which
-    experiment day by day; this section should summarise that by contribution
-    area rather than reproduce it.
+    Per-person contribution statements, collected on the [members](members.md)
+    page. The lab journal records who ran which experiment day by day; this
+    section should summarise that by contribution area rather than reproduce it.
+    Authors of the project report: Luca Vogt, Klara Tkacz, Max Schäbinger, Oliver
+    Nagl, Nathania Calista Putri and Noel Lippold.
 
 ## Reused material
 
@@ -28,8 +30,8 @@ Being explicit about what we did not build ourselves.
 
 ### Published work this project is built on
 
-The project is a recombination of four existing results, and it is worth being
-plain that none of the underlying components are ours:
+The project is a recombination of existing results, and none of the underlying
+components are ours:
 
 - **QtEncapsulin's structure and native cargo-loading chemistry** — Giessen
   *et al.*, *eLife* **8**, e46070 (2019).
@@ -46,6 +48,7 @@ plain that none of the underlying components are ours:
   selection depends on** — Vigouroux *et al.*, *Molecular Systems Biology* **14**,
   e7899 (2018),
   [doi:10.15252/msb.20177899](https://doi.org/10.15252/msb.20177899).
+- **MutaT7: a T7 RNA polymerase–deaminase fusion for targeted hypermutation** — Moore, Papa & Shoulders, *J. Am. Chem. Soc.* **140**, 11560 (2018).
 - **Continuous hypermutation for context and comparison** — Diercks *et al.*,
   *Science* **389**, 618–622 (2025),
   [doi:10.1126/science.adp9583](https://doi.org/10.1126/science.adp9583).
@@ -64,13 +67,21 @@ in [Protocols](../lab/protocols.md).
 
 ### Software and infrastructure
 
-Plasmid design and sequence alignment in Benchling. This wiki is built with
+Plasmid design and sequence alignment in Benchling. Synthetic gene fragments from
+Twist Bioscience; primers from Microsynth; whole-plasmid sequencing by Microsynth. This wiki is built with
 MkDocs on a bespoke theme with no external runtime dependencies.
 
 ## Help from others
 
-!!! note "To be completed"
-
-    Acknowledgement of the host laboratory, the advisors who supplied training,
-    bench space, equipment access and troubleshooting advice, and the sequencing
-    facility. The journal records substantial day-to-day help that belongs here.
+- **Daria Belous and Annabelle Winzer**, supervisors, for guidance and expertise
+  throughout; Daria Belous also supplied the MutaT7 plasmid.
+- **Prof. Dr. Kathrin Lang and the Lang group**, for lab space, equipment and
+  resources. Dr. Maximilian Fottner, Dr. Vera Wanka and Paul Schnacke answered
+  questions throughout the project.
+- **Student BioLab Zürich**, for hosting the team.
+- **Kian Bigović Villi and Philip Nitsch**, advisors throughout.
+- **The Hilvert Lab**, for guidance during the initial development of the idea.
+- **Dr. Mikail Levasseur**, for assistance and insight during cage purification.
+- **Microsynth AG**, for sequencing and oligonucleotides, and for financial
+  support together with Universität Zürich, ETH Zürich and a Swiss foundation —
+  see [Sponsors](sponsors.md).
