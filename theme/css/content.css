@@ -241,6 +241,24 @@ h4:hover .headerlink, h5:hover .headerlink, h6:hover .headerlink,
 /* A [data-figure] block whose module never mounted has no frame at all — the
    caption still renders, and nothing else on the page is affected. */
 
+
+/* Raster figures from the report (gels, chromatograms, maps). They ship on a
+   white ground, so they sit on --plate rather than the stone well, and link to
+   the full-size file because axis labels are unreadable at column width. */
+.prose figure.report > p { margin: 0; }
+.prose figure.report img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--plate);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-1);
+}
+.prose figure.report a { cursor: zoom-in; }
+.prose figure.report.narrow img { max-width: 26rem; margin-inline: auto; }
+.prose figure.report.logo img { border: 0; box-shadow: none; max-width: 14rem; }
+
 /* ── Footnotes ─────────────────────────────────────────── ext: footnotes ── */
 .prose .footnote {
   grid-column: text;
@@ -361,3 +379,7 @@ mjx-container:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   .prose dl { grid-template-columns: minmax(0, 1fr); gap: var(--s-1); }
   .prose dd { margin-bottom: var(--s-3); }
 }
+
+/* Row of sponsor logos. */
+.prose .logos { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-6); }
+.prose .logos figure.report { flex: 0 1 12rem; }

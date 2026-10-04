@@ -91,6 +91,7 @@ nav:
       - Mechanism: project/mechanism.md
       - Results: project/results.md
       - Future work: project/future.md
+      - References: project/references.md
   - Engineering:
       - engineering/index.md
       - Plasmids: engineering/plasmids.md
@@ -101,6 +102,7 @@ nav:
       - Protocols: lab/protocols.md
       - Notebook: lab/notebook.md
       - Data: lab/data.md
+      - Supplementary: lab/supplementary.md
   - Team:
       - team/index.md
       - Members: team/members.md

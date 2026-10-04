@@ -14,6 +14,7 @@
   --paper:        #EDEEF0;   /* page ground, cool stone */
   --paper-sunk:   #E2E4E8;   /* figure wells, code blocks, table zebra */
   --paper-raised: #F6F7F8;   /* cards, sticky header */
+  --plate:        #FFFFFF;   /* ground under raster data figures, which ship on white */
   --rule:         #D3D6DC;   /* decorative hairlines */
   --rule-strong:  #AEB3BC;   /* heavier decorative rules — NOT for UI edges */
   --edge:         #767C88;   /* outlined controls — 3.1:1, meets WCAG 1.4.11 */
