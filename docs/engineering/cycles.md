@@ -5,10 +5,11 @@ summary: How each round of continuous evolution is set up and run.
 
 # Evolution cycles
 
-!!! warning "Designed, not yet executed"
+!!! note "Planned campaign"
 
-    No evolution cycle has been run. This page documents the protocol as designed,
-    so that it can be criticised before it is expensive to change.
+    The protocol below is the first campaign as designed. It starts once the
+    shell assembly and the selection plasmids are confirmed
+    ([outlook](../project/results.md#outlook)).
 
 ## MutaT7 induction
 
@@ -16,6 +17,8 @@ Both plasmids are co-transformed into the MutaT7 host strain and maintained unde
 dual selection. Inducing the T7 RNA polymerase–deaminase fusion starts
 hypermutation of the T7-flanked encapsulin cassette, and of nothing else.
 
+MutaT7 activity was confirmed in a stop-codon reversion assay, which also showed
+leaky expression ([Results](../project/results.md#35-stop-codon-reversion-assay)).
 Two practical notes carried over from the build. The MutaT7 strain transforms
 poorly compared with DH10β, so competent-cell aliquots are made at 200 µL rather
 than 100 µL per transformation. And glucose is included in growth medium before
@@ -25,8 +28,8 @@ induction to suppress leaky expression.
 
 One set-point, one ramp.
 
-**Set-point — guide length.** The [truncation series](plasmids.md) spans a range
-of passage probabilities. The working guide is chosen in a plate screen as the
+**Set-point — guide length.** The [truncation series](plasmids.md) — non-targeting, 10, 11, 14, 17 and 20 nt —
+spans a range of passage probabilities. The working guide is chosen in a plate screen as the
 one whose unrescued residual resistance sits just below the survival threshold,
 so a modest gain in capture decides whether a cell grows.
 

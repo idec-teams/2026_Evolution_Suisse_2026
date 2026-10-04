@@ -15,9 +15,18 @@ summary: Raw and processed data behind every figure on this wiki.
 | DLS distributions | Instrument export | Collected |
 | A280 step-by-step purification tables | Spreadsheet | Collected |
 | Sanger and whole-plasmid sequencing | AB1 / FASTA, aligned in Benchling | Collected |
-| Growth curves | — | Not yet — awaits the selection screen |
-| Selection screen dose–response | — | Not yet |
-| Evolution campaign sequencing | — | Not yet |
+| Stop-codon reversion plates | PNG | Collected, +IPTG / +glucose / basal |
+| Golden Gate junction read counts | Whole-plasmid sequencing | Collected, two reactions |
+| Growth curves | — | Planned — follow the selection screen |
+| Selection screen dose–response | — | Planned |
+| Evolution campaign sequencing | — | Planned |
+
+## Where to find the figures
+
+The SEC, DLS, native-PAGE, SDS-PAGE and stop-codon plate images behind
+[Results](../project/results.md) are reproduced in the
+[supplementary figures](supplementary.md) with their captions. The plasmid and
+junction-read tables are there too.
 
 ## Purification step accounting
 

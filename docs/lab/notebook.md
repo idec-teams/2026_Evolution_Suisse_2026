@@ -64,9 +64,9 @@ individual measurements suggested particles near the right size, but pooling all
 measurements did not support it.
 
 **Circuit construction.** dCas9 amplified out of the Addgene plasmid. pSC101
-linearised both by restriction digest and by PCR. Seven selection constructs
-assembled by Gibson — the full guide truncation series plus the non-targeting
-control.
+linearised both by restriction digest and by PCR. Assembly of the selection
+constructs — the full guide truncation series plus the non-targeting control —
+started with Gibson, and moved to Golden Gate with synthetic fragments.
 
 Not everything worked the first time:
 
@@ -75,12 +75,14 @@ Not everything worked the first time:
   heat shock.
 - The first `s002_20nt` clones sequenced back as backbone plus an unrelated
   gBlock.
-- `m004` and `m005` sequenced back as empty backbone.
+- `m004` and `m005` first sequenced back as empty backbone; both were later
+  recovered and verified.
 - MutaT7 competent cells were made and found to transform poorly; aliquot size
   was increased in response.
 
-By the end of the month the shell expression constructs `f008`–`f011` and the
-`s002` guide series were sequence-confirmed.
+By the end of the month the shell expression constructs `f008`–`f011` were
+sequence-confirmed. The `s002` guide series remained in assembly; the
+junction-level sequencing is in [Table S2](supplementary.md#table-s2).
 
 ## September — where it stands
 
@@ -97,3 +99,8 @@ continues.
     Nine constructs verified, a working expression protocol, a complete guide
     truncation series — and no confirmed cage assembly. The selection has not been
     run. See [Results](../project/results.md).
+
+The stop-codon reversion assay confirmed MutaT7 activity, and the purification
+data localised assembled QtEnc-His to the insoluble fraction. Both are written up
+in [Results](../project/results.md), and the raw traces and gels are in the
+[supplementary figures](supplementary.md).

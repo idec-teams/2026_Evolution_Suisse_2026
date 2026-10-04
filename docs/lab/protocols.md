@@ -8,6 +8,16 @@ summary: Protocols as actually run, not as originally planned.
 Where a published protocol was modified, the modification and its reason are
 given. Several of these were painful to arrive at.
 
+## Strains and media
+
+*E. coli* DH10β for all cloning, BL21 (DE3) for expression of the shell variants,
+and the MutaT7 host strain for propagating the mutation plasmid and for the
+planned campaign. Cultures in 2×YT at 37 °C and 200 rpm unless stated.
+Antibiotics at 100 µg/mL ampicillin, 50 µg/mL kanamycin (200 µg/mL for
+high-stringency plates) and 25 µg/mL chloramphenicol. Glucose to 1 % (w/v) in
+expression cultures suppresses leaky T7 expression before induction. LB with 1 %
+agar plates carry the matching antibiotic for cloning and selection.
+
 ## Transformation and recovery
 
 Chemically competent cells prepared by the calcium chloride method: overnight
@@ -34,9 +44,16 @@ Transformation: thaw 10 min on ice, add 2–5 µL DNA, 30 min on ice, heat shock
 **Gibson assembly.** 10–20 µL reactions, 0.05 pmol per fragment, insert:backbone
 molar ratios 1:1 to 3:1, 50 °C for 15–60 min.
 
-**Golden Gate.** PaqCI or BsaI-HFv2 with NEBridge Ligase Master Mix, 15–30 µL. A
-one-hour isothermal incubation at 37 °C worked better for us than short cycled
-programmes.
+**Golden Gate.** PaqCI or BsaI-HFv2 with NEBridge Ligase Master Mix, 15–30 µL, as
+a one-hour isothermal incubation at 37 °C or a cycled digestion–ligation
+programme. For the selection plasmids, whole-plasmid sequencing of the reaction
+mixture showed which junctions formed ([Table S2](supplementary.md#table-s2)).
+
+**PCR and verification.** Inserts and backbones by PCR with Q5 or Phusion,
+20–30 s per kb extension, purified by agarose gel (0.5 % in TAE, 130 V, 25 min)
+and column extraction. Constructs verified by Sanger sequencing of assembly
+junctions and by whole-plasmid sequencing (Microsynth; NightSeq for direct
+colony submission), alignments curated in Benchling.
 
 **Linearisation.** pSC101 with EcoRI and BamHI; the MutaT7 backbone with PacI and
 SacI. Run digests 2–3 hours — these enzymes have little star activity, so the
@@ -72,21 +89,30 @@ later SDS-PAGE — this is what lets a loss be located later instead of guessed 
 ## Purification
 
 1. **Lysis.** Resuspend in 20 mM Tris-HCl pH 8.0, 150–500 mM NaCl. Chemical lysis
-   with lysozyme and 1 mM PMSF, then sonication on ice.
+   with lysozyme and 1 mM PMSF, then sonication on ice (24 % amplitude, 2 s on /
+   4 s off, 5 min total on-time).
 2. **Clarify.** 10 000 × g, 15 min, 4 °C. *Keep the pellet* — most of the protein
    turned out to be in it.
 3. **Pre-enrichment**, one of two routes run on split aliquots:
    - **PEG-8000/NaCl**: to 10 % PEG and 0.5 M NaCl, 40 min on ice, 8000 × g 10 min.
-   - **Heat precipitation**, exploiting the shell's thermostability; keep the
-     supernatant.
-4. **Ni-NTA.** Gravity column, 1.5 mL Ni-NTA Sepharose, 20 mM imidazole wash,
-   250 mM imidazole elution.
+   - **Heat precipitation**, 65 °C for 15 min in a water bath, exploiting the
+     shell's thermostability; keep the supernatant.
+
+   Filter through 0.45 µm and 0.22 µm before further use.
+4. **Ni-NTA** (where used). Gravity column, Ni-Sepharose 6 Fast Flow; 1 mL of a
+   50 % resin slurry per 4 mL of sample, 1 h at 4 °C, two washes of 1 mL at
+   20 mM imidazole pH 8, elution in 1 mL of 250 mM imidazole pH 8. For
+   QtEnc-His this step discards the assembled species along with the insoluble
+   fraction ([Results](../project/results.md#34-purification-and-validation-of-qtencapsulin-cages)),
+   so pellet-derived material was taken forward without it.
 5. **Buffer exchange.** Amicon 100 kDa cut-off, 4000 RCF, 4 °C. Pre-wash the
    filter three times with water and equilibrate in elution buffer first.
-6. **SEC.** Superose 6 10/300 GL at **0.3 mL/min** — reduced from the standard
-   rate to keep system pressure below 1.5 MPa — in 20 mM Tris, 200 mM NaCl,
-   pH 8.0 with 0.02 % sodium azide, filtered and degassed 30 min. 0.35 mL
-   fractions into 96-well plates.
+6. **SEC, two tiers.** A crude cut on HiPrep Sephacryl S-500 HR at 0.5 mL/min
+   (1 mL fractions), then high-resolution SEC on Superose 6 10/300 GL at
+   **0.3 mL/min** — reduced from the standard rate to keep system pressure below
+   1.5 MPa. Buffer: 20 mM Tris, 200 mM NaCl, pH 8.0 with 0.02 % sodium azide,
+   filtered through 0.45 µm and degassed 30 min. Fractions into 96-well plates
+   and pooled by peak.
 
 !!! caution "Two SEC gotchas"
 
@@ -101,27 +127,49 @@ later SDS-PAGE — this is what lets a loss be located later instead of guessed 
 **SDS-PAGE.** Precast gels, 165 V, 25–40 min. 10–20 µg total protein per lane for
 crude samples. Sample mixed with 4× loading buffer to 1×, 95 °C for 5 min.
 
-**Clear-native PAGE.** No detergent in the sample buffer — this is what resolves
-assembled shells. The gels are fragile; handle with water on the tray.
+**Native PAGE.** Blue Native and clear-native precast gels, no detergent in the
+sample buffer — this is what resolves assembled shells. The gels are fragile;
+handle with water on the tray.
 
 **Anti-His immunoblot.** Semi-dry transfer; use the **high molecular weight**
 setting when transferring from native gels.
 
-**DLS.** Prometheus Panta and cuvette formats. Sample below 1 mg/mL.
+**DLS.** Prometheus Panta and cuvette formats, samples below 1 mg/mL in SEC
+buffer. Protein concentration from A<sub>280</sub> with construct-specific
+extinction coefficients.
+
+## Stop-codon reversion assay
+
+Tests MutaT7 mutagenesis with two reporters: `p_m004` (kanamycin-resistance
+reporter) and `p_m008` (chloramphenicol-resistance reporter), each with an early
+stop codon.
+
+Pick random colonies from selective plates and resuspend in 60 µL 2×YT; three
+independent colonies per experiment serve as biological replicates. Inoculate
+15 µL into 5 mL 2×YT with 50 µg/mL ampicillin and one additive: 1 mM IPTG
+(induced), repressing agent (glucose at 0.5 % for the kanamycin reporter, 1 %
+2,4-diacetylphloroglucinol (DAPG) for the chloramphenicol reporter where the
+selection plasmid is present, 1 % glucose where it is not), or none (basal). Grow
+overnight, plate 50 µL on LB agar with 50 or 200 µg/mL kanamycin, or 25 µg/mL
+chloramphenicol, and count colonies after 48 h at 37 °C
+([Fig S13](supplementary.md#fig-s13)).
 
 ## Continuous culture
 
 Turbidostat (Pioreactor). See [Evolution cycles](../engineering/cycles.md) for the
-passaging and stringency schedule. Not yet run.
+passaging and stringency schedule. Planned.
 
 ## Co-encapsulation assays
 
-Designed, being finalised. Because the selection can be satisfied by capturing
-either the guide or the nuclease, these assays exist to tell the two apart:
+Designed, to be run on enriched shell alleles. Because the selection can be
+satisfied by capturing either the guide or the nuclease, these assays exist to
+tell the two apart:
 
 - **Native PAGE, dual-stained** — nucleic acid and protein in the same lane.
 - **RNase challenge** — encapsulated RNA is protected, free RNA is degraded. This
-  is the assay Tetter and co-workers escalated to drive their packaging
-  selection, and the one that tests protection rather than mere binding.
-- **SEC co-elution** with a fluorescent cargo.
-- **Stop-codon reversal assay** for functional sequestration.
+  is the assay Tetter and co-workers used to drive their packaging selection, and
+  it tests protection rather than mere binding.
+- **Native PAGE with a fluorescent cargo, and SEC co-elution** of cargo with the
+  shell peak, for protein loading.
+- **Stop-codon reversal assay** is the MutaT7 functional test above; it does not
+  measure sequestration.

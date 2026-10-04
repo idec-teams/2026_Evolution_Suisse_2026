@@ -9,4 +9,6 @@ standfirst: >-
 
 The protocols here are the ones actually used, including the modifications made
 when the published versions did not survive contact with our equipment. The
-notebook is a condensed version of the running record kept from May onward.
+notebook is a condensed version of the running record kept from May onward. The
+supplementary page carries the plasmid tables and the raw-data figures from the
+report.

@@ -27,30 +27,53 @@ cassette, and stopping at the terminator.
 </figure>
 
 Built on the <span class="chip">pDB004</span> / <span class="chip">pDB006</span>
-backbones by Golden Gate assembly. Source plasmids for the MutaT7 machinery came
-from Addgene as bacterial stabs.
+backbones. The shell variants `p_m005` (no tag), `p_m006` (targeting peptide)
+and `p_m007` (targeting peptide and His-tag) are cloned and sequence-verified,
+as are the stop-codon reporters used to validate MutaT7
+([Table S1](../lab/supplementary.md#table-s1)). Source plasmids for the MutaT7
+machinery came from Addgene as bacterial stabs.
 
 ## The selection plasmid
 
 Carries **dCas9**, the **sgRNA cassette** and the **kanamycin-resistance gene**
-containing the targeted site. Built on a <span class="chip">pSC101</span>
-backbone by Gibson assembly, with dCas9 amplified out of an Addgene source
-plasmid.
+containing the targeted site, with a tetracycline-resistance cassette (TcR) for
+assembly. Built on a <span class="chip">pSC101</span> backbone by Golden Gate
+assembly from five parts, with dCas9 amplified out of an Addgene source plasmid.
+dCas9 and the sgRNA are expressed from promoters controlled by the
+VanR<sup>AM</sup> and PhlF<sup>AM</sup> regulators, so repressor level is a
+second tunable axis.
 
 The guide is supplied as a truncation series so the selection set-point can be
 chosen empirically:
 
 | Construct | Complementarity | Purpose |
 | --- | --- | --- |
-| `s002_NT` | none | Non-targeting control — defines unrepressed output |
-| `s002_10nt` | 10 nt | Weakest repression |
-| `s002_11nt` | 11 nt | |
-| `s002_14nt` | 14 nt | |
-| `s002_17nt` | 17 nt | |
-| `s002_20nt` | 20 nt | Full complementarity, strongest repression |
+| `p_s002_NT_TcR` | none | Non-targeting control — defines unrepressed output |
+| `p_s002_10nt_TcR` | 10 nt | Weakest repression |
+| `p_s002_11nt_TcR` | 11 nt | |
+| `p_s002_14nt_TcR` | 14 nt | |
+| `p_s002_17nt_TcR` | 17 nt | |
+| `p_s002_20nt_TcR` | 20 nt | Full complementarity, strongest repression |
 
-All six are sequence-confirmed. See [Mechanism](../project/mechanism.md) for why
-complementarity, rather than an inducer, is the knob.
+All six are in assembly. Four of the five Golden Gate junctions are formed in two
+independent reactions and the fifth, joining the TcR cassette to the backbone,
+is the open step ([Table S2](../lab/supplementary.md#table-s2)): the backbone
+ligated to `s001` through an overhang pair that differs at one position
+(GATA/GAAA). Leaky expression of dCas9 and the guide, unrepressed without the
+regulators, is the more likely reason no transformants were recovered, and the
+tri-plasmid layout in the [outlook](../project/results.md#outlook) addresses it.
+See [Mechanism](../project/mechanism.md) for why complementarity, rather than an
+inducer, is the knob.
+
+<figure class="report narrow" markdown>
+
+[![Plasmid maps](../img/report/s3-plasmid-maps.webp)](../img/report/s3-plasmid-maps.webp)
+
+**Fig 2.** Maps of the control shell plasmid `p_f008` (**a**), the engineered
+shell plasmid `p_f011` (**b**), the mutation plasmid `p_m005` (**c**) and the
+selection plasmid `s_002_TcR_creT_v2` (**d**).
+
+</figure>
 
 ## Compatibility and copy number
 
@@ -72,6 +95,7 @@ signal. Maintenance of the mutagenesis plasmid is enforced separately.
 ## Provenance
 
 Source plasmids obtained from Addgene: `pdCas9-bacteria` (dCas9), and
-`pSC101-T7-T3RNAP` and the pDB series (MutaT7 machinery). Expression constructs
+`pSC101-T7-T3RNAP` and the pDB series (MutaT7 machinery). Synthetic fragments
+were ordered from Twist Bioscience. Expression constructs
 are built on `pET-Duet-1`. Full maps and sequences are maintained in Benchling;
 see [Attributions](../team/attributions.md) for what came from where.
