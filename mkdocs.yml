@@ -102,7 +102,3 @@ nav:
   - Team:
       - team/index.md
       - Attributions: team/attributions.md
-  - Safety:
-      - safety/index.md
-      - Biosafety: safety/biosafety.md
-      - Human practices: safety/human-practices.md

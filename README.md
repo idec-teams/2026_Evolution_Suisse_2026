@@ -14,7 +14,6 @@ Wiki repository of **Evolution Suisse 2026**, a team of students from ETH Züric
 | Project | `docs/project/` | Background, design, mechanism, results, future work, references |
 | Lab | `docs/lab/` | Constructs, protocols, notebook, data, supplementary |
 | Team | `docs/team/` | Team, supervision, sponsors, attributions (photos in `docs/img/team/`) |
-| Safety | `docs/safety/` | Biosafety and human practices |
 
 ## Repository layout
 
