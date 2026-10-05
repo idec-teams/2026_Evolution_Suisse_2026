@@ -8,7 +8,7 @@
    ── Why the text is set, not "handwritten" ───────────────────────────────
    A synthetic handwriting font on top of procedurally drawn pencil reads as
    two different fakes arguing. Real technical drawings pair a drawn figure
-   with SET type, so the labels use the site's own mono face at low contrast —
+   with SET type, so the labels use the site's shared sans-serif face at low contrast —
    drawn twice with a sub-pixel offset, which is what softens them enough to
    sit on the paper rather than float above it.
 
@@ -19,7 +19,7 @@
 
 import { stroke } from './pencil.js';
 
-const FACE = '"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace';
+const face = () => getComputedStyle(document.documentElement).getPropertyValue('--font-label').trim();
 
 /** Canvas takes no letter-spacing, so wide-tracked labels are set per glyph. */
 function tracked(g, text, x, y, track) {
@@ -51,7 +51,7 @@ export function label(g, text, x, y, opt = {}) {
   const s = caps ? text.toUpperCase() : text;
 
   g.save();
-  g.font = `${weight} ${size}px ${FACE}`;
+  g.font = `${weight} ${size}px ${face()}`;
   g.textBaseline = 'middle';
   const w = trackedWidth(g, s, track);
   const x0 = align === 'right' ? x - w : align === 'centre' ? x - w / 2 : x;

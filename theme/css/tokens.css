@@ -54,12 +54,11 @@
   --sig-result:  #6A4C93;
 
   /* ── Type families ──────────────────────────────────────────────────── */
-  --font-display: "Literata", "Iowan Old Style", "Palatino Linotype", Palatino,
-                  Georgia, "Times New Roman", serif;
-  --font-body:    "Newsreader", "Iowan Old Style", "Palatino Linotype", Palatino,
-                  Georgia, "Times New Roman", serif;
-  --font-mono:    "JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono",
-                  Menlo, Consolas, "Liberation Mono", monospace;
+  --font-display: "IBM Plex Sans", Arial, sans-serif;
+  --font-body:    "IBM Plex Sans", Arial, sans-serif;
+  --font-label:   "IBM Plex Sans", Arial, sans-serif;
+  --font-mono:    ui-monospace, SFMono-Regular, Menlo, Consolas,
+                  "Liberation Mono", monospace;
 
   /* ── Fluid type scale (major third, 16→18px body) ───────────────────── */
   --step--2: clamp(0.694rem, 0.67rem + 0.12vw, 0.750rem);

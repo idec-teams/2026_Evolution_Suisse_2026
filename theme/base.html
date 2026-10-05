@@ -36,9 +36,8 @@
   <link rel="stylesheet" href="{{ ('css/' ~ sheet ~ '.css')|url }}">
   {%- endfor %}
 
-  {#- Preload the two faces used above the fold. -#}
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="{{ 'fonts/literata-var.woff2'|url }}">
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="{{ 'fonts/newsreader-var.woff2'|url }}">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="{{ 'fonts/plex/regular.woff2'|url }}">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="{{ 'fonts/plex/semibold.woff2'|url }}">
 
   {#- base_url must be a global and must be defined BEFORE search/main.js runs:
       it constructs its Worker from joinUrl(base_url, "search/worker.js"). -#}
@@ -64,7 +63,7 @@
 
   {#- This loop is not optional: the search plugin appends search/main.js to
       extra_javascript at config time, so removing it removes search. -#}
-  {% for script in extra_javascript %}{{ script|script_tag }}{% endfor %}
+  {% for script in config.extra_javascript %}{{ script|script_tag }}{% endfor %}
 
   {#- MathJax, self-hosted and loaded only on pages that actually contain math.
       arithmatex(generic) wraps every expression in .arithmatex, so the page

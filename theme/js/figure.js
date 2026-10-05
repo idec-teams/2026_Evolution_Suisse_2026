@@ -90,7 +90,8 @@ function prepareFigure(root) {
  * or null if the id is unknown (the fail-soft path).
  */
 export function instantiate(id, root, opts = {}) {
-  const fig = registry.get(id);
+  const definition = registry.get(id);
+  const fig = definition ? Object.create(definition) : null;
   if (!fig) {
     if (opts.warn !== false) {
       console.warn(`[figure] no module registered for "${id}" — caption only.`);
@@ -146,7 +147,7 @@ export function instantiate(id, root, opts = {}) {
  * drive it from its own visibility: 0 when it enters, 1 when centred.
  */
 export function mountStandalone(scope = document) {
-  const nodes = scope.querySelectorAll('[data-figure]:not([data-scrolly] [data-figure])');
+  const nodes = scope.querySelectorAll('[data-figure]:not([data-scrolly] [data-figure]), [data-scrolly] .mechanism-still[data-figure]');
   if (!nodes.length) return [];
 
   const instances = [];
@@ -156,29 +157,32 @@ export function mountStandalone(scope = document) {
   }
   if (!instances.length) return instances;
 
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduce) {
-    // Static, meaningful end-state rather than a blank frame.
-    instances.forEach(i => i.render(1));
-    return instances;
-  }
-
-  // A figure's own progress: 0 as it enters from below, 1 once it is centred.
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
   let ticking = false;
   const update = () => {
     ticking = false;
     const vh = window.innerHeight;
     for (const inst of instances) {
+      if (reduce.matches || inst.ctx.root.classList.contains('mechanism-still')) {
+        // A panel-specific walkthrough view always shows its completed act.
+        inst.render(1);
+        continue;
+      }
       const r = inst.ctx.root.getBoundingClientRect();
       if (r.bottom < -vh || r.top > vh * 2) continue;
       const centre = r.top + r.height / 2;
       inst.render(Math.min(1, Math.max(0, 1 - (centre - vh * 0.42) / (vh * 0.72))));
     }
   };
-  const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
+  const onScroll = () => {
+    if (!reduce.matches && !ticking) { ticking = true; requestAnimationFrame(update); }
+  };
+  const onResize = () => { instances.forEach(i => i.resize()); update(); };
 
   addEventListener('scroll', onScroll, { passive: true });
-  addEventListener('resize', () => { instances.forEach(i => i.resize()); update(); }, { passive: true });
+  addEventListener('resize', onResize, { passive: true });
+  // CSS changes the static panel frames' dimensions when this preference changes.
+  reduce.addEventListener('change', onResize);
   update();
 
   return instances;

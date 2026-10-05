@@ -9,17 +9,31 @@ export function initDrawer() {
   if (!toggle || !drawer) return;
 
   const setOpen = open => {
+    const wasOpen = drawer.classList.contains('is-open');
     drawer.classList.toggle('is-open', open);
     toggle.setAttribute('aria-expanded', String(open));
     toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
     if (scrim) scrim.hidden = !open;
     document.body.style.overflow = open ? 'hidden' : '';
     if (open) drawer.querySelector('a')?.focus();
+    else if (wasOpen) toggle.focus();
   };
 
   toggle.addEventListener('click', () => setOpen(!drawer.classList.contains('is-open')));
   scrim?.addEventListener('click', () => setOpen(false));
-  addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
+  addEventListener('keydown', e => {
+    if (!drawer.classList.contains('is-open')) return;
+    if (e.key === 'Escape') { e.preventDefault(); setOpen(false); }
+    if (e.key === 'Tab') {
+      const items = [...drawer.querySelectorAll('a[href], button')];
+      const first = items[0], last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last?.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first?.focus(); }
+    }
+  });
+  matchMedia('(max-width: 900px)').addEventListener('change', e => {
+    if (!e.matches) setOpen(false);
+  });
   // Following a link inside the drawer should close it.
   drawer.addEventListener('click', e => { if (e.target.closest('a')) setOpen(false); });
 }

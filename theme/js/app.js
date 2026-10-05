@@ -9,7 +9,7 @@ import { mountStandalone } from './figure.js';
 import { initScrolly } from './scrolly.js';
 import './figures/index.js';           // side effect: registers every figure
 
-function boot() {
+async function boot() {
   initMasthead();
   initDrawer();
   initSearch();
@@ -17,6 +17,8 @@ function boot() {
 
   wrapTables();
   sortableTables();
+
+  await document.fonts.ready;
 
   // The pinned homepage story, if this page has one.
   initScrolly(document.querySelector('[data-scrolly]'));

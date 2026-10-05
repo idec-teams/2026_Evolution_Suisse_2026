@@ -85,7 +85,7 @@ h4:hover .headerlink, h5:hover .headerlink, h6:hover .headerlink,
   border-radius: 100px;
   background: var(--accent-wash);
   color: var(--accent-deep);
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.86em;
   white-space: nowrap;
 }
