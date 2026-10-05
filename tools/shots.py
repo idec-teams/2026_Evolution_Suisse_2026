@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Screenshot the figures at chosen story positions, for looking at your work.
+"""Screenshot the overview and the Mechanism walkthrough at chosen positions.
 
     .venv/bin/python tools/shots.py hero
     .venv/bin/python tools/shots.py story 0.15 0.45 0.85
@@ -82,19 +82,15 @@ async def run(mode, args):
 
         elif mode == 'hero':
             await page.goto(BASE, wait_until='load')
-            # Closed, mid-open, fully open. See HOLD_CLOSED / OPEN_OVER in
-            # theme/js/figures/hero-capsid.js for where these numbers come from.
-            for name, wait in [('hero-closed', 1500), ('hero-opening', 4800),
-                               ('hero-open', 4000)]:
-                await page.wait_for_timeout(wait)
-                await page.screenshot(path=f'{OUT}/{name}.png',
-                                      clip={'x': 0, 'y': 0, 'width': VIEW['width'],
-                                            'height': 830})
-                print(f'  {name}.png')
+            await page.wait_for_timeout(1200)
+            await page.screenshot(path=f'{OUT}/home-opening.png',
+                                  clip={'x': 0, 'y': 0, 'width': VIEW['width'],
+                                        'height': VIEW['height']})
+            print('  home-opening.png')
 
         elif mode == 'story':
             fractions = [float(a) for a in args] or [0.12, 0.30, 0.48, 0.66, 0.84]
-            await page.goto(BASE, wait_until='load')
+            await page.goto(BASE + 'project/mechanism/', wait_until='load')
             await page.wait_for_timeout(1500)
             geom = await page.evaluate(
                 "() => { const r = document.querySelector('.scrolly')"

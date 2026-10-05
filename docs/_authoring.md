@@ -73,9 +73,9 @@ Add `wide` for a figure that overflows the text column, or `full` for
 edge-to-edge. Omit both to keep it inside the measure. The drawing area is 4:3
 by default — override it with `data-ratio="16/9"`.
 
-Registered figures: `hero-capsid`, `cell-scene`.
+Registered figures: `hero-capsid`, `cell-scene`, `overview-shell`. The overview shell requires the homepage SVG overlay; use the overview macro rather than a bare figure block.
 
-`cell-scene` is the homepage's cell, and it takes an extra attribute:
+`cell-scene` is the Mechanism walkthrough's cell, and it takes an extra attribute:
 `data-act-index="0"`, `"1"` or `"2"` pins it to one act — silencing,
 hypermutation or assembly — so a page can reuse the same drawing focused on the
 part it is discussing. Without the attribute it plays the whole story.
@@ -158,3 +158,16 @@ on pages that actually contain maths.
   `base.html` — MkDocs' search plugin injects itself through it.
 - Don't add a `plugins:` entry without keeping `- search` in the list;
   declaring the key replaces the default and search disappears silently.
+
+## Homepage overview
+
+The homepage is an open illustrated delivery-to-evolution narrative. Text is in
+`theme/home.html`; reusable native SVG cargo diagrams are in
+`theme/partials/overview-figures.html`. The same protein and RNA paths recur across
+the story. `overview-shell` adds the deposited QtEnc shell behind the SVG cargo;
+the schematic shell remains if JavaScript is disabled or structure loading fails.
+
+The detailed walkthrough is included by `theme/mechanism.html` at the
+`<!-- selection-story -->` marker in `project/mechanism.md`. Preserve that marker
+when editing the introduction. Its reduced-motion views use separate figure
+instances, one per act. Figure labels use the shared sans-serif font token.

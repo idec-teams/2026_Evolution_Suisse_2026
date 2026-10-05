@@ -1,12 +1,19 @@
 # Handoff — graphite figures
 
-Everything on this branch is on `graphite-figures`, seven commits ahead of `main`,
-nothing pushed. Read this before touching `theme/js/`.
+Read this before touching `theme/js/`. The structural rendering architecture
+below remains current; references to the old homepage layout describe the
+original figure work.
 
-The site's figures were rebuilt from stylised drawings into pencil renderings of
-real deposited structures. The homepage and two subsystem pages are done. The
-rest of the site is not. This file tells you how the machinery works, how to
-make the tweaks that are most likely to be asked for, and what is left.
+The homepage now introduces delivery, co-delivery, the encapsulin proposal and
+planned evolution using native SVG overview illustrations. The detailed
+three-act `cell-scene` walkthrough moved to Mechanism, via
+`theme/partials/selection-story.html` and an explicit marker in its Markdown.
+`overview-shell` draws a structural cutaway with a native SVG fallback. Fonts
+are locally hosted IBM Plex Sans. `figure.js` creates a separate object per
+mount, so repeated cell scenes do not share mutable state.
+
+For current screenshot checks, capture the homepage and `project/mechanism/`.
+`shots.py hero` captures the new opening; `story` captures the Mechanism walkthrough.
 
 ---
 
