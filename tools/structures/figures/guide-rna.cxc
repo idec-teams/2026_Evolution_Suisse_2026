@@ -1,0 +1,25 @@
+# Guide RNA from PDB 5F9R, author chain A (label chain B), in its bound conformation.
+# Download 5F9R.cif into ../cache; ChimeraX resolves paths relative to this script.
+# Site color tokens take precedence over the paper skill's palette.
+open ../cache/5F9R.cif
+delete #1 & ~(/A & nucleic)
+show cartoons
+color all #E0E0E0
+graphics silhouettes color #3d3d3d width 1.5
+hide atoms
+graphics silhouettes true
+lighting gentle
+transparency 50
+cartoon style xsection rectangle modeHelix default
+show #1/A atoms
+nucleotides #1/A tube/slab shape ellipsoid dimensions small radius 0.35
+color #1/A #C9AB76
+transparency #1 0
+set bgColor white
+lighting depthCue false
+graphics silhouettes width 0.7
+view #1 orient
+turn z 65
+turn y -18
+view #1 pad 0.08
+zoom 0.8

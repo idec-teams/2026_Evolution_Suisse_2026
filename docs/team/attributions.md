@@ -54,7 +54,10 @@ Modifications are documented in [Protocols](../lab/protocols.md).
 
 Plasmid design and sequence alignment were done in Benchling. Synthetic gene
 fragments were obtained from Twist Bioscience, and primers and whole-plasmid
-sequencing from Microsynth. This wiki is built with MkDocs.
+sequencing from Microsynth. This wiki is built with MkDocs. The homepage Cas9 protein and guide RNA
+illustrations were rendered with UCSF ChimeraX from
+[PDB 5F9R](https://www.rcsb.org/structure/5F9R), with the two components shown
+separately in their deposited conformations.
 
 ## Acknowledgments
 
