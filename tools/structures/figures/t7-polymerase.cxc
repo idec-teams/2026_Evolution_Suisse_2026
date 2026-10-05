@@ -1,0 +1,29 @@
+# T7 RNA polymerase and nascent RNA from PDB 1MSW, author chains D/R.
+# Download 1MSW.cif into ../cache; ChimeraX resolves paths relative to this script.
+# Site color tokens take precedence over the paper skill's palette.
+open ../cache/1MSW.cif
+delete #1 & ~((/D & protein) | (/R & nucleic))
+show cartoons
+color all #E0E0E0
+graphics silhouettes color #3d3d3d width 1.5
+hide atoms
+graphics silhouettes true
+lighting gentle
+transparency 50
+cartoon style xsection rectangle modeHelix default
+color #1/D #999BCC target c
+transparency #1 0 target c
+show #1/R atoms
+nucleotides #1/R tube/slab shape ellipsoid dimensions small radius 0.35
+color #1/R #C9AB76
+transparency #1 0
+set bgColor white
+lighting depthCue false
+graphics silhouettes width 0.7
+view #1 orient
+turn y -22
+turn x 12
+view #1 pad 0.08
+
+label delete
+hide pseudobonds
