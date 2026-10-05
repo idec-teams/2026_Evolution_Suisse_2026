@@ -1,12 +1,12 @@
 ---
 title: Protocols
-summary: Protocols as actually run, not as originally planned.
+summary: Protocols as performed, with modifications to published versions.
 ---
 
 # Protocols
 
 Where a published protocol was modified, the modification and its reason are
-given. Several of these were painful to arrive at.
+given.
 
 ## Strains and media
 
@@ -26,15 +26,16 @@ pelleted at 4000 × g, washed twice in ice-cold 100 mM CaCl₂ with a 30 min
 incubation between washes, resuspended in 5 mL CaCl₂ with 80 % glycerol,
 aliquoted and flash-frozen.
 
-!!! tip "Things that cost us time"
+!!! tip "Practical notes"
 
-    - **Everything stays cold.** Including on the way to the centrifuge.
-    - **Use ~20–30 µL of cells per transformation**, not a whole aliquot. One
-      aliquot covers about five transformations; using more does not help.
-    - **The MutaT7 strain transforms poorly.** Make 200 µL aliquots for it, not
-      100 µL.
-    - **For low-efficiency assemblies**, spin the recovery culture down and
-      resuspend in ~50 µL before plating, rather than plating 400 µL.
+    - Cells are kept cold at all times, including during transport to the
+      centrifuge.
+    - About 20–30 µL of cells are used per transformation. One aliquot covers
+      about five transformations; larger volumes do not improve efficiency.
+    - The MutaT7 strain transforms poorly, so aliquots of 200 µL are prepared
+      instead of 100 µL.
+    - For low-efficiency assemblies, the recovery culture is pelleted and
+      resuspended in ~50 µL before plating, instead of plating 400 µL.
 
 Transformation: thaw 10 min on ice, add 2–5 µL DNA, 30 min on ice, heat shock
 42 °C for 30 s, 5 min on ice, recover in 400 µL SOC at 37 °C for 1 h, plate.
@@ -56,15 +57,15 @@ junctions and by whole-plasmid sequencing (Microsynth; NightSeq for direct
 colony submission), alignments curated in Benchling.
 
 **Linearisation.** pSC101 with EcoRI and BamHI; the MutaT7 backbone with PacI and
-SacI. Run digests 2–3 hours — these enzymes have little star activity, so the
-extra time is free insurance against incomplete cutting.
+SacI. Digests were run for 2–3 hours; these enzymes have little star activity, so the
+longer incubation reduces incomplete cutting without a cost.
 
 !!! caution "Reading a linearisation gel"
 
-    Supercoiled circular plasmid migrates *faster* than the same plasmid
-    linearised. A strong high band and a faint low band does not automatically
-    mean the low band is your cut product. We cut the wrong band at least once on
-    this reasoning.
+    Supercoiled circular plasmid migrates faster than the same plasmid
+    linearised. A strong upper band and a faint lower band therefore do not
+    necessarily mean that the lower band is the cut product. The wrong band was
+    excised once for this reason.
 
 PCR-linearised backbones are DpnI-digested for 1 h at 37 °C to remove template.
 
@@ -73,26 +74,26 @@ PCR-linearised backbones are DpnI-digested for 1 h at 37 °C to remove template.
 Primary culture 5 mL overnight, 37 °C, 200 rpm. Secondary culture 250 mL 2×YT
 with antibiotic and **1 % glucose**, inoculated to OD₆₀₀ 0.05.
 
-!!! protocol "Induction — the current conditions"
+!!! protocol "Induction conditions"
 
     Induce at OD₆₀₀ 0.4–0.6 with **0.1 mM IPTG**, then move to **18 °C, 120 rpm,
     18 h**.
 
     Earlier runs used 1 mM IPTG. Published protocols for this shell use 0.1 mM,
-    and over-strong induction is a standard route to inclusion bodies. The
-    glucose suppresses leaky expression before induction; note that IPTG only
-    takes effect once the glucose is consumed.
+    and strong induction commonly leads to inclusion bodies. Glucose suppresses
+    leaky expression before induction; IPTG takes effect once the glucose is
+    consumed.
 
 Aliquots are taken immediately before and after induction, normalised to OD, for
-later SDS-PAGE — this is what lets a loss be located later instead of guessed at.
+later SDS-PAGE, so that protein loss can be located to a step.
 
 ## Purification
 
 1. **Lysis.** Resuspend in 20 mM Tris-HCl pH 8.0, 150–500 mM NaCl. Chemical lysis
    with lysozyme and 1 mM PMSF, then sonication on ice (24 % amplitude, 2 s on /
    4 s off, 5 min total on-time).
-2. **Clarify.** 10 000 × g, 15 min, 4 °C. *Keep the pellet* — most of the protein
-   turned out to be in it.
+2. **Clarify.** 10 000 × g, 15 min, 4 °C. The pellet is kept, as most of the protein
+   was found in it.
 3. **Pre-enrichment**, one of two routes run on split aliquots:
    - **PEG-8000/NaCl**: to 10 % PEG and 0.5 M NaCl, 40 min on ice, 8000 × g 10 min.
    - **Heat precipitation**, 65 °C for 15 min in a water bath, exploiting the
@@ -109,18 +110,18 @@ later SDS-PAGE — this is what lets a loss be located later instead of guessed 
    filter three times with water and equilibrate in elution buffer first.
 6. **SEC, two tiers.** A crude cut on HiPrep Sephacryl S-500 HR at 0.5 mL/min
    (1 mL fractions), then high-resolution SEC on Superose 6 10/300 GL at
-   **0.3 mL/min** — reduced from the standard rate to keep system pressure below
+   **0.3 mL/min**, reduced from the standard rate to keep system pressure below
    1.5 MPa. Buffer: 20 mM Tris, 200 mM NaCl, pH 8.0 with 0.02 % sodium azide,
    filtered through 0.45 µm and degassed 30 min. Fractions into 96-well plates
    and pooled by peak.
 
-!!! caution "Two SEC gotchas"
+!!! caution "SEC notes"
 
-    The fraction collector follows a **snake pattern** across the plate — count
-    up or down depending on the row letter, or you will pool the wrong wells.
+    The fraction collector follows a snake pattern across the plate, so wells are
+    counted up or down depending on the row letter.
 
-    Add sodium azide to the SEC buffer. We lost buffer to fungal contamination
-    without it.
+    Sodium azide is added to the SEC buffer, as buffer without it became
+    contaminated with fungi.
 
 ## Analysis
 
@@ -128,11 +129,11 @@ later SDS-PAGE — this is what lets a loss be located later instead of guessed 
 crude samples. Sample mixed with 4× loading buffer to 1×, 95 °C for 5 min.
 
 **Native PAGE.** Blue Native and clear-native precast gels, no detergent in the
-sample buffer — this is what resolves assembled shells. The gels are fragile;
-handle with water on the tray.
+sample buffer, which preserves assembled shells. The gels are fragile and are
+handled with water on the tray.
 
-**Anti-His immunoblot.** Semi-dry transfer; use the **high molecular weight**
-setting when transferring from native gels.
+**Anti-His immunoblot.** Semi-dry transfer; with the **high molecular weight**
+setting for native gels.
 
 **DLS.** Prometheus Panta and cuvette formats, samples below 1 mg/mL in SEC
 buffer. Protein concentration from A<sub>280</sub> with construct-specific
@@ -156,20 +157,19 @@ chloramphenicol, and count colonies after 48 h at 37 °C
 
 ## Continuous culture
 
-Turbidostat (Pioreactor). See the [planned campaign](../project/future.md#planned-campaign) for the
-passaging and stringency schedule. Planned.
+Planned in a turbidostat (Pioreactor). The passaging and stringency schedule is
+given under [planned campaign](../project/future.md#planned-campaign).
 
 ## Co-encapsulation assays
 
-Designed, to be run on enriched shell alleles. Because the selection can be
-satisfied by capturing either the guide or the nuclease, these assays exist to
-tell the two apart:
+Planned for enriched shell alleles. Because the selection is satisfied by capture
+of either the guide or the nuclease, these assays distinguish the two:
 
-- **Native PAGE, dual-stained** — nucleic acid and protein in the same lane.
-- **RNase challenge** — encapsulated RNA is protected, free RNA is degraded. This
-  is the assay Tetter and co-workers used to drive their packaging selection, and
-  it tests protection rather than mere binding.
+- **Native PAGE, dual-stained:** nucleic acid and protein in the same lane.
+- **RNase challenge:** encapsulated RNA is protected and free RNA is degraded.
+  Tetter and co-workers used this assay in their packaging selection. It tests
+  protection and not only binding.
 - **Native PAGE with a fluorescent cargo, and SEC co-elution** of cargo with the
   shell peak, for protein loading.
-- **Stop-codon reversal assay** is the MutaT7 functional test above; it does not
-  measure sequestration.
+- The stop-codon reversion assay above tests MutaT7 function and does not measure
+  sequestration.

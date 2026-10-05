@@ -4,11 +4,9 @@ title: Lab
 eyebrow: Section 02
 headline: Lab
 standfirst: >-
-  What was built, the protocols as run, the daily notebook, and the raw data behind every figure.
+  Constructs, protocols, notebook, data and supplementary material.
 ---
 
-The protocols here are the ones actually used, including the modifications made
-when the published versions did not survive contact with our equipment. The
-notebook is a condensed version of the running record kept from May onward. The
-supplementary page carries the plasmid tables and the raw-data figures from the
-report.
+This section lists the constructs, the protocols as performed, a condensed lab
+notebook kept from May 2026, an overview of the data and the supplementary
+tables and figures of the report.

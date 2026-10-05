@@ -4,9 +4,10 @@ title: Safety
 eyebrow: Section 04
 headline: Safety and society
 standfirst: >-
-  Biosafety practice, risk assessment, and the conversations that shaped the project.
+  Biosafety, risk assessment and human practices.
 ---
 
-A project that deliberately raises a mutation rate and deliberately manipulates
-antibiotic resistance should be able to say clearly why neither of those is
-dangerous here. These pages set out the reasoning.
+The project increases the mutation rate of one gene and uses a kanamycin-resistance
+gene as selection readout. The [biosafety](biosafety.md) page describes the
+organisms, the safety aspects of these two features and the containment practice.
+[Human practices](human-practices.md) lists consultations outside the team.

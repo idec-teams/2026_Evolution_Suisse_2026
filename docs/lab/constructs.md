@@ -1,14 +1,13 @@
 ---
 title: Constructs
-summary: Every plasmid and construct, with maps, guide series and controls — a reference sheet.
+summary: Plasmids and constructs, with maps, guide series and controls.
 ---
 
 # Constructs
 
-A reference for what was built and in what state. The reasoning behind the
-design is in [Design](../project/design.md) and [Mechanism](../project/mechanism.md);
-the full inventory with backbones and markers is
-[Table S1](supplementary.md#table-s1).
+Constructs and their status. The design is described under
+[Design](../project/design.md) and [Mechanism](../project/mechanism.md); the full
+inventory with backbones and markers is [Table S1](supplementary.md#table-s1).
 
 ## Shell expression plasmids
 
@@ -23,8 +22,8 @@ linker) as RNA handle; TP is the outer-surface targeting peptide.
 | `p_f011` | QtEnc (boxBr + λN + TP) | mScarlet (FLAG + boxBr) | Verified |
 | `p_f012`–`p_f017` | six combinations of boxBr, λN and TP | dCas9 (FLAG + IMEF + boxBr) | In assembly |
 
-mScarlet (26.7 kDa) is a fluorescent cargo reporter, so co-elution with the shell
-peak can be followed by eye. Masses used for gel interpretation:
+mScarlet (26.7 kDa) is a fluorescent cargo reporter used to follow co-elution
+with the shell peak. Masses used for gel interpretation:
 
 | Species | Mass |
 | --- | --- |
@@ -94,15 +93,16 @@ affinity roughly threefold if capture proves too weak.
 
 ## Controls
 
-- **Non-targeting guide** (`s002_NT`) — defines unrepressed output. Survival at a
-  kanamycin dose it cannot tolerate means something else is happening.
-- **Shell-free** — dCas9 and guide, no encapsulin. The floor: maximal repression,
-  no rescue.
-- **Handle-free shell** — no λN graft, no CLP on dCas9. Separates handle-mediated
+- **Non-targeting guide** (`s002_NT`): defines the unrepressed output. Survival at
+  a kanamycin dose it cannot tolerate indicates a resistance mechanism
+  independent of the selection.
+- **Shell-free:** dCas9 and guide without encapsulin. Defines maximal repression
+  without rescue.
+- **Handle-free shell:** no λN graft and no CLP on dCas9. Separates handle-mediated
   capture from non-specific sequestration.
-- **Single-handle constructs** — λN without the CLP, and the converse
+- **Single-handle constructs:** λN without the CLP, and the converse
   (`p_f014`–`p_f017`). They show which arm of the
-  [OR gate](../project/design.md) any rescue runs through.
+  [OR gate](../project/design.md) is responsible for any rescue.
 
 ## Provenance
 

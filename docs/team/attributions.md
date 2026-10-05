@@ -1,13 +1,11 @@
 ---
 title: Attributions
-summary: What we reused from others, and who helped.
+summary: Reused material, published work and acknowledgments.
 ---
 
 # Attributions
 
 ## Reused material
-
-Being explicit about what we did not build ourselves.
 
 ### Plasmids
 
@@ -18,12 +16,10 @@ Being explicit about what we did not build ourselves.
 | pDB series (Addgene) | Bacterial stab | Mutagenesis plasmid backbone |
 | `pET-Duet-1` | Laboratory stock | Expression backbone for shell constructs |
 
-### Published work this project is built on
+### Published work
 
-The project is a recombination of existing results, and none of the underlying
-components are ours:
-
-- **QtEncapsulin's structure and native cargo-loading chemistry** — Giessen
+The project builds on the following published work:
+- **QtEncapsulin's structure and native cargo-loading chemistry** Giessen
   *et al.*, *eLife* **8**, e46070 (2019).
 - **Shell permeability and single-step cargo loading** — Kwon, Andreas, Jones &
   Giessen, bioRxiv (2026),
@@ -43,35 +39,34 @@ components are ours:
   *Science* **389**, 618–622 (2025),
   [doi:10.1126/science.adp9583](https://doi.org/10.1126/science.adp9583).
 
-Our contribution is the combination: wiring encapsulation to survival through a
-titratable CRISPRi circuit, and giving one shell two orthogonal handles on a
+The project combines these components in a CRISPRi circuit that couples
+encapsulation to survival and gives one shell two orthogonal handles on a
 ribonucleoprotein.
 
 ### Protocols
 
-Published protocols were used and modified where our equipment differed — most
-substantially the Ni-NTA procedure, which was rebuilt as a hybrid of a
-manufacturer protocol written for pre-packed columns, a published methods
-section, and local practice for hand-packed columns. Modifications are documented
-in [Protocols](../lab/protocols.md).
+Published protocols were used and modified where the equipment differed. The
+Ni-NTA procedure was adapted from a manufacturer protocol for pre-packed columns,
+a published methods section and local practice for hand-packed columns.
+Modifications are documented in [Protocols](../lab/protocols.md).
 
 ### Software and infrastructure
 
-Plasmid design and sequence alignment in Benchling. Synthetic gene fragments from
-Twist Bioscience; primers from Microsynth; whole-plasmid sequencing by Microsynth. This wiki is built with
-MkDocs on a bespoke theme with no external runtime dependencies.
+Plasmid design and sequence alignment were done in Benchling. Synthetic gene
+fragments were obtained from Twist Bioscience, and primers and whole-plasmid
+sequencing from Microsynth. This wiki is built with MkDocs.
 
-## Help from others
+## Acknowledgments
 
-- **Daria Belous and Annabelle Winzer**, supervisors, for guidance and expertise
-  throughout; Daria Belous also supplied the MutaT7 plasmid.
-- **Prof. Dr. Kathrin Lang and the Lang group**, for lab space, equipment and
-  resources. Dr. Maximilian Fottner, Dr. Vera Wanka and Paul Schnacke answered
-  questions throughout the project.
+- **Daria Belous and Annabelle Winzer**, supervisors, for guidance and expertise;
+  Daria Belous also provided the MutaT7 plasmid.
+- **Prof. Dr. Kathrin Lang and the Lang group**, for laboratory space, equipment
+  and resources. Dr. Maximilian Fottner, Dr. Vera Wanka and Paul Schnacke
+  answered questions throughout the project.
 - **Student BioLab Zürich**, for hosting the team.
 - **Kian Bigović Villi and Philip Nitsch**, advisors throughout.
 - **The Hilvert Lab**, for guidance during the initial development of the idea.
 - **Dr. Mikail Levasseur**, for assistance and insight during cage purification.
-- **Microsynth AG**, for sequencing and oligonucleotides, and for financial
-  support together with Universität Zürich and ETH Zürich —
-  see [Team and sponsors](index.md#sponsors-and-partners).
+- **Microsynth AG, Universität Zürich and ETH Zürich**, for financial support;
+  Microsynth AG also provided sequencing and oligonucleotides
+  (see [Team and sponsors](index.md#sponsors)).

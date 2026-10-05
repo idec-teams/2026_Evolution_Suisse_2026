@@ -5,19 +5,18 @@ summary: The engineered shell, the selection circuit, what the first assays show
 
 # Results
 
-The continuous evolution campaign has not yet been run. What follows covers the
-shell and circuit as designed, the assays that were completed, and the
-[outlook](#outlook) for the first campaign.
+The continuous evolution campaign has not been run. This page describes the
+designed shell and circuit, the completed assays and the [outlook](#outlook).
 
 | Subsystem | State |
 | --- | --- |
 | Shell variants (inside engineering) | Cloned and sequence-verified (`p_f008`–`p_f011`) |
 | Shell expression in *E. coli* BL21 (DE3) | Confirmed by SDS-PAGE and anti-His immunoblot |
-| MutaT7 mutagenesis | Functional — stop-codon reversion assay |
+| MutaT7 mutagenesis | Functional (stop-codon reversion assay) |
 | Mutation plasmids (`p_m005`–`p_m007`) | Cloned and sequence-verified |
 | Guide truncation series | Designed: non-targeting, 10, 11, 14, 17, 20 nt |
-| Selection plasmids (`p_s002` series) | Assembly in progress — see [3.6](#36-cloning-of-the-mutation-and-selection-plasmids) |
-| Cage assembly and co-encapsulation | To be demonstrated — see [3.4](#34-purification-and-validation-of-qtencapsulin-cages) |
+| Selection plasmids (`p_s002` series) | Assembly in progress, see [3.6](#36-cloning-of-the-mutation-and-selection-plasmids) |
+| Cage assembly and co-encapsulation | Not yet demonstrated, see [3.4](#34-purification-and-validation-of-qtencapsulin-cages) |
 | Continuous evolution | Planned |
 
 ## 3.1 Engineering QtEncapsulin for protein–RNA co-encapsulation
@@ -68,10 +67,10 @@ QtEnc by a GS linker, with the sequence map below.
 
 ## 3.2 An encapsulation-coupled selection
 
-Engineering inside and outside the shell creates several properties that
-evolution can improve: assembly (efficiency, monodispersity, T-number),
+Engineering inside and outside the shell introduces several properties that
+can be improved by evolution: assembly (efficiency, monodispersity, T-number),
 stability, and function (protein and RNA loading, tolerance of surface display).
-The selection is built to reward the last two through the first.
+The selection rewards the last two, through the first.
 
 A dCas9–sgRNA complex represses a kanamycin-resistance gene (*kanR*) on the
 selection plasmid. If the complex is sequestered inside QtEnc, repression is
@@ -212,8 +211,7 @@ needs the A→G deamination activity of MutaT7. Colonies grew on 25 µg/mL
 chloramphenicol ([Fig S13](../lab/supplementary.md#fig-s13)), so the system is
 operable.
 
-The stop codon reverted under all three conditions — +IPTG, +glucose and basal —
-with similar colony counts for the undiluted cultures. That points to leaky
+The stop codon reverted under all three conditions (+IPTG, +glucose and basal) with similar colony counts for the undiluted cultures. That points to leaky
 MutaT7 expression, which the outlook addresses.
 
 ## 3.6 Cloning of the mutation and selection plasmids
@@ -228,10 +226,10 @@ step. The plasmid inventory is in [Table S1](../lab/supplementary.md#table-s1).
 
 ## Outlook
 
-The campaign depends on three things, in the order they can be tested.
+The campaign depends on three steps, listed in the order in which they can be tested.
 
-**1. Cage assembly with and without the external tag.** The data point to the
-His-tag as the driver of aggregation. The next constructs drop it and keep the
+**1. Cage assembly with and without the external tag.** The data indicate that the
+His-tag causes aggregation. The next constructs drop it and keep the
 targeting peptide, and a DLS baseline on wild-type cages gives the reference for
 42 nm. Negative-stain TEM or cryo-EM would confirm assembly independently of
 elution volume and native-gel migration. Mixing monomers with and without an

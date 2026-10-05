@@ -4,15 +4,17 @@ title: Project
 eyebrow: Section 01
 headline: The project
 standfirst: >-
-  What we are evolving, why the selection is built this way, and what came out of it.
+  Co-encapsulation of dCas9 and sgRNA in QtEncapsulin, selected by continuous directed evolution.
 ---
 
-Protein nanocompartments are good at carrying protein and bad at carrying RNA.
-We are trying to change that by evolution rather than by design — and the hard
-part is not the shell, it is building a selection that cannot be satisfied by
-anything except the behaviour we want.
+Wild-type QtEncapsulin (QtEnc) loads protein cargo through a C-terminal
+cargo-loading peptide and has no affinity for nucleic acids. We engineered the
+shell with a lumenal RNA-binding peptide (λN⁺) and coupled encapsulation of a
+dCas9–sgRNA complex to survival of *E. coli* through a kanamycin-resistance
+selection. Variants of the shell are diversified in continuous culture with
+MutaT7.
 
-These pages follow that argument in order: what encapsulins already do and where
-they fall short, which shell we chose and how we gave it an RNA handle, how
-survival was wired to encapsulation, what the first experiments showed, and what
-comes next. The sources are on the references page.
+The pages cover the [background](background.md), the [design](design.md) of the
+shell and handles, the [mechanism](mechanism.md) of the selection, the
+[results](results.md) obtained so far and [future work](future.md). Sources are
+listed on the [references](references.md) page.
