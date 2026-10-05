@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% import "partials/overview-figures.html" as art %}
+{% import "partials/overview-figures.html" as art with context %}
 {% import "partials/nav.html" as navmacro with context %}
 {% block bodyclass %}page--home{% endblock %}
 {% block body %}
@@ -11,14 +11,17 @@
   <section class="overview-hero" aria-labelledby="delivery-heading">
     <div class="overview-hero__copy">
       <p class="overview-kicker">Evolution Suisse · iDEC {{ config.theme.year }}</p>
-      <h1 id="delivery-heading">Powerful molecules.<br><span>A delivery challenge.</span></h1>
+      <h1 id="delivery-heading">{{ page.meta.headline }}<br><span>{{ page.meta.headline_accent }}</span></h1>
       <p class="overview-lede">{{ page.meta.standfirst }}</p>
       <p class="overview-hero__aim">We are engineering protein cages toward carrying RNA and protein together.</p>
       <a class="overview-link" href="#together">Explore the idea <span aria-hidden="true">↓</span></a>
     </div>
     <figure class="overview-hero__figure" data-overview-motion>
       {{ art.delivery() }}
-      <figcaption class="u-visually-hidden">Conceptual delivery challenges. Successful delivery has not been demonstrated by this project.</figcaption>
+      <figcaption class="delivery-caption">
+        <p>Protect the cargo. Reach the cell. Release it inside.</p>
+        <span>Cas9 and guide RNA from <a href="https://www.rcsb.org/structure/5F9R" rel="external">PDB 5F9R</a>, shown separately. Schematic barrier; molecules are not to scale.</span>
+      </figcaption>
     </figure>
   </section>
 

@@ -21,31 +21,21 @@
 {%- endmacro %}
 {% macro delivery() -%}
 <svg class="overview__art delivery-art" viewBox="0 0 600 510" role="img" aria-labelledby="delivery-title delivery-desc">
-  <title id="delivery-title">Delivery is the bridge between biological function and the cell</title>
-  <desc id="delivery-desc">A protein and RNA outside a cell face the challenges of protection, cellular uptake and intracellular release. The dashed route is a conceptual goal, not demonstrated delivery.</desc>
-  <g class="cell-boundary">
-    <path d="M432 40 C365 89 356 156 388 224 S417 368 349 444"/>
-    <path d="M443 47 C379 95 370 155 400 220 S432 373 363 452"/>
-    {% for x,y,r in [(475,118,26),(516,231,18),(468,342,34),(531,418,15)] %}
-    <circle cx="{{ x }}" cy="{{ y }}" r="{{ r }}" class="cell-detail"/>
-    {% endfor %}
-    {% for y in range(88, 427, 26) %}<path d="M{{ 395 if y < 200 else 406 }} {{ y }}l10 4" class="cell-detail"/>{% endfor %}
+  <title id="delivery-title">Protein and RNA face a cellular delivery barrier</title>
+  <desc id="delivery-desc">ChimeraX renderings of Cas9 protein and guide RNA from deposited structure 5F9R. Their paths converge toward a schematic cell membrane. The illustration highlights the delivery challenge without depicting successful uptake.</desc>
+  <g class="delivery-cell">
+    <path d="M442 55C400 132 411 208 429 259S444 396 413 454"/>
+    <path d="M454 60C414 133 424 204 441 255S458 396 427 459"/>
   </g>
-  {{ protein(126, 164, 1.25) }}
-  {{ rna(122, 299, 1.12) }}
-  <g class="diagram-route" data-overview-draw>
-    <path d="M204 169 C284 153 304 207 345 248 M204 300 C278 315 308 275 345 248 M348 248H482"/>
-    <path d="m471 239 12 9-12 9"/>
+  <image class="delivery-molecule" href="{{ 'img/molecules/cas9-protein.png'|url }}" x="36" y="50" width="248" height="204" preserveAspectRatio="xMidYMid meet"/>
+  <image class="delivery-molecule" href="{{ 'img/molecules/guide-rna.png'|url }}" x="49" y="296" width="222" height="147" preserveAspectRatio="xMidYMid meet"/>
+  <text x="160" y="274" text-anchor="middle" class="delivery-label">Cas9 protein</text>
+  <text x="160" y="472" text-anchor="middle" class="delivery-label">Guide RNA</text>
+  <g class="delivery-paths" data-overview-draw>
+    <path d="M291 159C326 159 328 260 362 260 M284 363C325 363 328 260 362 260 M363 260H399"/>
+    <path d="m390 252 10 8-10 8"/>
   </g>
-  <text x="82" y="92" class="art-label">RNA + protein</text>
-  <text x="451" y="66" class="art-label">Cell</text>
-  <text x="35" y="409" class="art-label">Protect the cargo</text>
-  <path class="annotation" d="M116 390V364"/>
-  <text x="270" y="120" class="art-label">Enable uptake</text>
-  <path class="annotation" d="M351 134 373 165"/>
-  <text x="429" y="300" class="art-label">Release inside</text>
-  <path class="annotation" d="M465 280V259"/>
-  <text x="37" y="470" class="art-note">A delivery challenge, from outside to inside.</text>
+  <text x="470" y="227" class="delivery-label"><tspan x="470">Inside</tspan><tspan x="470" dy="23">the cell</tspan></text>
 </svg>
 {%- endmacro %}
 {% macro together() -%}

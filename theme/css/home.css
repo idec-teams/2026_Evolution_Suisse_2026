@@ -435,8 +435,6 @@
   .overview-kicker { margin-bottom: 1rem; }
   .overview-hero__figure { margin-inline: -.5rem; }
   .delivery-art { aspect-ratio: 600 / 510; }
-  .delivery-art .art-label { font-size: 22px; }
-  .delivery-art .art-note { font-size: 18px; }
   .cargo-comparison .art-label { font-size: 19px; }
   .overview-shell .annotation, .overview-shell .art-label, .overview-shell .art-note { display: none; }
   .shell-mobile-key { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: .75rem; }
@@ -463,4 +461,18 @@
   .mechanism-story .scrolly__panels { gap: 3rem; }
   .mechanism-still { display: block; margin-bottom: 1.5rem; }
   .has-drawing-motion [data-overview-draw] path { stroke-dashoffset: 0; }
+}
+
+/* The opening uses real molecular renders and one uncluttered delivery barrier. */
+.delivery-cell { fill: none; stroke: var(--ink-muted); stroke-width: 1.15; }
+.delivery-paths { fill: none; stroke: var(--ink-muted); stroke-width: 1; }
+.delivery-label { font-family: var(--font-label); font-size: 19px; font-weight: 500; fill: var(--ink); }
+.delivery-caption { margin: .5rem auto 0; max-width: 48ch; }
+.delivery-caption p { font-size: .95rem; color: var(--ink); }
+.delivery-caption > span { display: block; font-size: .75rem; line-height: 1.5; color: var(--ink-muted); margin-top: .6rem; }
+@media (max-width: 560px) {
+  .page--home .masthead__inner { gap: .5rem; }
+  .page--home .masthead__actions { margin-inline-start: auto; }
+  .delivery-label { font-size: 23px; }
+  .delivery-caption { padding-inline: .5rem; }
 }

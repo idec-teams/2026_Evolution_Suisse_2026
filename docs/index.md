@@ -1,7 +1,8 @@
 ---
 template: home.html
 title: Home
-headline: Powerful molecules. A delivery challenge.
+headline: Powerful molecules
+headline_accent: need better delivery.
 standfirst: >-
   RNA and proteins can perform precise biological tasks. Their usefulness depends
   on delivery: reaching the right cells and becoming available where they act.

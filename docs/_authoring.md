@@ -163,8 +163,11 @@ on pages that actually contain maths.
 
 The homepage is an open illustrated delivery-to-evolution narrative. Text is in
 `theme/home.html`; reusable native SVG cargo diagrams are in
-`theme/partials/overview-figures.html`. The same protein and RNA paths recur across
-the story. `overview-shell` adds the deposited QtEnc shell behind the SVG cargo;
+`theme/partials/overview-figures.html`. Schematic protein and RNA paths recur across the later sections; the opening
+uses transparent ChimeraX renders from PDB 5F9R. Regenerate these using
+`tools/structures/render_delivery.py`; the editable scripts and molecular
+provenance are under `tools/structures/figures/`. Opening headline text is set
+by `headline` and `headline_accent` in `docs/index.md`. `overview-shell` adds the deposited QtEnc shell behind the SVG cargo;
 the schematic shell remains if JavaScript is disabled or structure loading fails.
 
 The detailed walkthrough is included by `theme/mechanism.html` at the
