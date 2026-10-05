@@ -1,10 +1,11 @@
 ---
 template: home.html
-headline: Encapsulins
+title: Home
+headline: Powerful molecules. A delivery challenge.
 standfirst: >-
-  Continuous directed evolution of a protein nanocompartment, with survival
-  coupled to how well the cell packages dCas9 and its guide RNA.
+  RNA and proteins can perform precise biological tasks. Their usefulness depends
+  on delivery: reaching the right cells and becoming available where they act.
 description: >-
-  Evolution Suisse 2026 — continuous directed evolution of QtEncapsulin
-  nanocompartments for programmable mRNA and protein encapsulation.
+  Evolution Suisse 2026 — engineering encapsulin protein cages and planning
+  continuous directed evolution toward RNA and protein co-delivery.
 ---

@@ -9,7 +9,8 @@ import { register } from '../figure.js';
 
 import heroCapsid from './hero-capsid.js';
 import cellScene  from './cell-scene.js';
+import overviewShell from './overview-shell.js';
 
-for (const fig of [heroCapsid, cellScene]) register(fig);
+for (const fig of [heroCapsid, cellScene, overviewShell]) register(fig);
 
 export { heroCapsid, cellScene };

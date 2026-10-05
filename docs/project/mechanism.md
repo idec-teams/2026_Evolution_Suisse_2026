@@ -1,12 +1,17 @@
 ---
 title: Mechanism
+template: mechanism.html
 summary: How survival is coupled to encapsulation.
 ---
 
 # Mechanism
 
-The survival of a cell depends on how much repressor it packages into its
-encapsulin shells.
+In the proposed selection, cell growth depends on how much active repressor
+is removed by encapsulin capture. The continuous evolution campaign has not yet
+been run. Capturing either dCas9 or its sgRNA can restore resistance; this
+selection does not by itself demonstrate co-encapsulation.
+
+<!-- selection-story -->
 
 ## The circuit
 
@@ -14,14 +19,6 @@ A catalytically dead Cas9 (<abbr title="nuclease-deficient Cas9">dCas9</abbr>) i
 directed by an sgRNA to the **kanamycin-resistance gene** on the selection
 plasmid. It blocks transcription without cleaving DNA, so the cell cannot produce
 enough resistance protein for the kanamycin in the medium.
-
-<figure class="scrollyfig wide" data-figure="cell-scene" data-act-index="0" markdown>
-
-**Fig 1.** dCas9·sgRNA binding the resistance gene on the selection plasmid.
-Drawn from 6NJ8 and 5F9R; the cell and plasmids are schematic, the molecules are
-to scale relative to each other.
-
-</figure>
 
 ## Position of the guide
 
@@ -100,13 +97,6 @@ an alternative to the *kanR* circuit.
 
 ## Sequestration restores expression
 
-<figure class="scrollyfig wide" data-figure="cell-scene" data-act-index="2" markdown>
-
-**Fig 2.** 240 subunits closing around the repressor and carrying it off the
-gene. Transcription resumes and the cell survives.
-
-</figure>
-
 The 240 encapsulin subunits assemble into a T=4 icosahedral compartment of 42 nm,
 about twice the span of the complex. Either component can be captured: dCas9
 through a cargo-loading peptide, or the sgRNA through a boxB hairpin (see
@@ -116,7 +106,7 @@ through a cargo-loading peptide, or the sgRNA through a boxB hairpin (see
 
 [![KanR selection strategy](../img/report/fig2-kanr.webp)](../img/report/fig2-kanr.webp)
 
-**Fig 3.** Weak encapsulation leaves free dCas9·sgRNA to repress KanR (**a**);
+**Fig 4.** Weak encapsulation leaves free dCas9·sgRNA to repress KanR (**a**);
 encapsulation removes it and KanR is expressed (**b**). Full caption under
 [Results](results.md#32-an-encapsulation-coupled-selection).
 

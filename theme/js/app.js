@@ -7,6 +7,7 @@ import { initSearch } from './search.js';
 import { wrapTables, sortableTables } from './tables.js';
 import { mountStandalone } from './figure.js';
 import { initScrolly } from './scrolly.js';
+import { initOverview } from './overview.js';
 import './figures/index.js';           // side effect: registers every figure
 
 async function boot() {
@@ -20,11 +21,12 @@ async function boot() {
 
   await document.fonts.ready;
 
-  // The pinned homepage story, if this page has one.
+  // The detailed selection walkthrough, if this page has one.
   initScrolly(document.querySelector('[data-scrolly]'));
 
   // Every other [data-figure] block, driven by its own visibility.
   mountStandalone();
+  initOverview();
 }
 
 if (document.readyState === 'loading') {

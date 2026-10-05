@@ -1,0 +1,8 @@
+{% extends "main.html" %}
+{% block content %}
+  {# The explicit marker keeps the walkthrough's position independent of heading text. #}
+  {% set parts = page.content.split('<!-- selection-story -->', 1) %}
+  {{ parts[0] }}
+  {% include "partials/selection-story.html" %}
+  {% if parts|length > 1 %}{{ parts[1] }}{% endif %}
+{% endblock %}

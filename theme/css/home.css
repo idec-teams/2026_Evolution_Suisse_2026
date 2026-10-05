@@ -5,79 +5,6 @@
 .home { display: block; }
 .home:focus { outline: none; }
 
-/* ── Hero ───────────────────────────────────────────────────────────────── */
-.hero {
-  position: relative;
-  max-width: 90rem;
-  margin-inline: auto;
-  padding: clamp(var(--s-8), 9vh, var(--s-11)) var(--gutter) var(--s-10);
-  display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-  gap: var(--s-9);
-  align-items: center;
-  min-height: min(84vh, 46rem);
-}
-
-.hero__headline {
-  font-size: var(--step-5);
-  font-variation-settings: "opsz" 144, "SOFT" 0;
-  letter-spacing: -0.03em;
-  line-height: 0.98;
-}
-.hero__standfirst {
-  margin-top: var(--s-5);
-  font-size: var(--step-1);
-  line-height: 1.5;
-  color: var(--ink-muted);
-  max-width: 46ch;
-  text-wrap: pretty;
-}
-
-.hero__facts {
-  margin-top: var(--s-7);
-  padding-top: var(--s-5);
-  border-top: 1px solid var(--rule);
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
-  gap: var(--s-5);
-}
-.fact dt {
-  font-family: var(--font-mono);
-  font-size: var(--step--2);
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  color: var(--ink-faint);
-}
-.fact dd {
-  margin: var(--s-2) 0 0;
-  font-size: var(--step--1);
-  line-height: 1.4;
-  color: var(--ink);
-}
-.fact code { font-size: 0.95em; color: var(--accent-deep); }
-
-.hero__figure {
-  aspect-ratio: 1;
-  width: 100%;
-  max-width: 32rem;
-  justify-self: center;
-}
-
-.hero__scrollcue {
-  position: absolute;
-  left: 50%;
-  bottom: var(--s-5);
-  transform: translateX(-50%);
-  margin: 0;
-  font-family: var(--font-mono);
-  font-size: var(--step--2);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink-faint);
-}
-.hero__scrollcue span { animation: bob 2.6s var(--ease) infinite; display: inline-block; }
-@keyframes bob { 0%, 100% { transform: translateY(0); opacity: .55 } 50% { transform: translateY(4px); opacity: 1 } }
-
 /* ── The pinned scroll story ────────────────────────────────────────────────
    Stage is sticky and full-height; panels scroll past it. scrolly.js computes
    one progress value across the whole section and renders figures from it.
@@ -130,7 +57,7 @@
   position: absolute;
   left: 0; bottom: -2.2rem;
   margin: 0;
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: var(--step--2);
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -150,7 +77,7 @@
 .js .scrolly[data-scrolly-ready] .act.is-active { opacity: 1; }
 
 .act__num {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: var(--step--1);
   font-weight: 500;
   letter-spacing: 0.12em;
@@ -174,29 +101,10 @@
   margin-top: var(--s-5);
   padding-top: var(--s-3);
   border-top: 1px solid var(--rule);
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: var(--step--2);
   letter-spacing: 0.02em;
   color: var(--ink-faint);
-}
-
-/* ── Intro ──────────────────────────────────────────────────────────────
-   The bridge between the hero and the scroll story: enough context that the
-   three acts land as "this cell, this cycle" rather than an unexplained
-   diagram. Deliberately short — this is scaffolding for the story, not a
-   second standfirst. */
-.intro {
-  max-width: 90rem;
-  margin-inline: auto;
-  padding: var(--s-8) var(--gutter) var(--s-9);
-  border-top: 1px solid var(--rule);
-}
-.intro__lede {
-  max-width: 62ch;
-  font-size: var(--step-1);
-  line-height: 1.55;
-  color: var(--ink-muted);
-  text-wrap: pretty;
 }
 
 /* ── Scene hotspots ─────────────────────────────────────────────────────────
@@ -225,17 +133,6 @@
   stroke: var(--accent);
 }
 .hotspot:focus-visible { outline: none; }
-
-/* ── Explore the rest of the site ─────────────────────────────────────────
-   Reuses the .cardgrid/.card component from the section landing pages
-   (theme/landing.html) rather than inventing a second card style. */
-.home__explore {
-  max-width: 90rem;
-  margin-inline: auto;
-  padding: var(--s-9) var(--gutter) var(--s-10);
-  border-top: 1px solid var(--rule);
-}
-.home__explore .cardgrid { padding: var(--s-7) 0 0; }
 
 /* ── Landing pages ──────────────────────────────────────────────────────── */
 .landing { display: block; }
@@ -280,7 +177,7 @@
   box-shadow: var(--shadow-2);
 }
 .card__index {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: var(--step--2);
   letter-spacing: 0.1em;
   color: var(--accent);
@@ -315,9 +212,6 @@
 
 /* ── Responsive ─────────────────────────────────────────────────────────── */
 @media (max-width: 1000px) {
-  .hero { grid-template-columns: minmax(0, 1fr); gap: var(--s-7); min-height: 0; }
-  .hero__figure { max-width: 22rem; order: -1; }
-
   /* Stage pins to the top and the prose scrolls beneath it. Two things are
      mandatory here: the stage needs an OPAQUE, full-bleed background (it is
      transparent on desktop, where it sits in its own column, and text would
@@ -354,6 +248,219 @@
 @media (prefers-reduced-motion: reduce) {
   .scrolly__stage { position: static; height: auto; }
   .scrolly__viewport { max-height: none; }
-  .hero__scrollcue { display: none; }
   .js .scrolly[data-scrolly-ready] .act { opacity: 1; }
+}
+
+/* Delivery-to-evolution overview. An open page, with drawings on the paper. */
+.overview {
+  max-width: 76rem;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  --overview-gap: clamp(4rem, 9vw, 8rem);
+}
+.overview:focus { outline: none; }
+.overview p { text-wrap: pretty; }
+.overview-kicker {
+  color: var(--accent);
+  font-size: .8rem;
+  font-weight: 500;
+  letter-spacing: .08em;
+  margin-bottom: 1.5rem;
+}
+.overview-hero {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  align-items: center;
+  gap: 1.5rem;
+  padding-block: clamp(3.5rem, 8vw, 7rem) 3rem;
+  min-height: min(780px, 86svh);
+}
+.overview-hero h1 {
+  font-size: clamp(2.8rem, 4.6vw, 4.2rem);
+  line-height: 1.04;
+  letter-spacing: -.045em;
+  font-weight: 500;
+  text-wrap: initial;
+}
+.overview-hero h1 span { color: var(--accent); }
+.overview-lede {
+  font-size: clamp(1.125rem, 1.5vw, 1.3rem);
+  line-height: 1.55;
+  color: var(--ink-muted);
+  margin-top: 2rem;
+  max-width: 43ch;
+}
+.overview-hero__aim {
+  max-width: 42ch;
+  margin-top: 1.25rem;
+  color: var(--ink);
+}
+.overview-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: .6rem;
+  font-size: .95rem;
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .25em;
+}
+.overview-link span { display: inline-block; transition: transform var(--dur) var(--ease); }
+.overview-link:hover span { transform: translate(2px, -2px); }
+.overview-hero .overview-link { margin-top: 2rem; }
+.overview__art { width: 100%; height: auto; overflow: visible; }
+.overview__art path, .overview__art circle {
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.overview__art .molecule { stroke-width: 1.4; fill: none; }
+.molecule--protein { stroke: var(--enc-cas); }
+.molecule--rna { stroke: var(--enc-sgrna); }
+.molecule__body { fill: color-mix(in srgb, var(--enc-cas) 5%, var(--paper)); stroke-width: 1.8; }
+.molecule__strand { stroke-width: 2.2; }
+.molecule__ghost { opacity: .35; transform: translate(1px, 1px); }
+.cell-boundary, .cage { stroke: var(--ink-muted); fill: none; stroke-width: 1.2; }
+.cell-detail { opacity: .25; }
+.diagram-route { fill: none; stroke: var(--ink-muted); stroke-width: 1; stroke-dasharray: 4 7; }
+.diagram-route path + path { stroke-dasharray: none; }
+.carrier-outline { fill: none; stroke: var(--ink); stroke-width: 1.5; }
+.annotation, .shell-cut { fill: none; stroke: var(--ink-muted); stroke-width: 1; }
+.shell-cut { opacity: .4; }
+.art-label { font-family: var(--font-label); font-size: 16px; font-weight: 500; fill: var(--ink); }
+.art-note { font-family: var(--font-label); font-size: 13px; fill: var(--ink-muted); }
+.loading-site { stroke-width: 1.5; }
+.loading-site--protein { stroke: var(--enc-cas); fill: var(--enc-cas); }
+.loading-site--rna { stroke: var(--enc-sgrna); fill: var(--enc-sgrna); }
+.mutation-marks { fill: var(--enc-mutate); stroke: var(--enc-mutate); stroke-width: 1.5; }
+.overview-section { padding-block: var(--overview-gap) 0; scroll-margin-top: 5rem; }
+.overview-section h2 {
+  font-size: clamp(2.25rem, 3.5vw, 3.35rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -.035em;
+}
+.overview-section__intro { max-width: 58ch; }
+.overview-section__intro > p:not(.overview-kicker), .overview-carrier__copy > p:not(.overview-kicker), .overview-progress__copy > p {
+  margin-top: 1.5rem;
+  color: var(--ink-muted);
+  line-height: 1.65;
+}
+.overview-together .overview-section__intro { margin-inline: auto; }
+.cargo-comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-block: 2rem 2.5rem; }
+.cargo-comparison__part figcaption { display: grid; gap: .35rem; text-align: center; padding-inline: 1rem; }
+.cargo-comparison__part figcaption strong { font-weight: 500; font-size: 1.15rem; }
+.cargo-comparison__part figcaption span { font-size: .95rem; color: var(--ink-muted); }
+.overview-bridge { font-size: 1.2rem; max-width: 50ch; margin-inline: auto; color: var(--ink); }
+.overview-together > .overview-link { display: flex; width: fit-content; margin: 1.5rem auto 0; }
+.overview-carrier { display: grid; grid-template-columns: 1.1fr 1fr; gap: 3rem; align-items: center; }
+.overview-carrier__copy { grid-column: 2; grid-row: 1; }
+.overview-carrier__copy .overview-link { margin-top: 1.5rem; }
+.overview-shell { position: relative; grid-column: 1; grid-row: 1; min-width: 0; }
+.overview-shell .figure__frame {
+  position: absolute;
+  inset: 0 0 auto;
+  width: 100%;
+  aspect-ratio: 600 / 460;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+.overview-shell canvas { width: 100%; height: 100%; position: absolute; inset: 0; }
+.overview-shell > svg { position: relative; pointer-events: none; }
+.overview-shell[data-shell-ready] .shell-fallback { display: none; }
+.shell-mobile-key { display: none; }
+.overview-shell figcaption { color: var(--ink-muted); font-size: .8rem; margin-top: .5rem; max-width: 42ch; }
+.overview-evolution .overview-section__intro { max-width: 65ch; }
+.evolution-cycle { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 1rem; align-items: start; margin-top: 2rem; }
+.evolution-step figcaption { display: grid; gap: .5rem; max-width: 25ch; margin-inline: auto; }
+.step-index { color: var(--accent); font-size: .8rem; }
+.evolution-step strong { font-weight: 500; font-size: 1.3rem; }
+.evolution-step figcaption > span:last-child { color: var(--ink-muted); font-size: .95rem; }
+.cycle-arrow { color: var(--ink-muted); font-size: 1.6rem; margin-top: 5rem; }
+.cycle-repeat { text-align: center; margin-top: 2.5rem; font-size: .95rem; color: var(--ink-muted); }
+.cycle-repeat > span { margin-right: .4rem; font-size: 1.3rem; }
+.overview-evolution__foot { display: grid; grid-template-columns: minmax(0, 65ch) auto; gap: 2rem; align-items: start; margin-top: 2.5rem; }
+.overview-evolution__foot p { font-size: .9rem; color: var(--ink-muted); }
+.overview-evolution__foot strong { color: var(--ink); font-weight: 500; }
+.overview-progress { display: grid; grid-template-columns: 1fr 1fr; column-gap: 4rem; padding-bottom: 3rem; }
+.overview-progress__copy > p:first-child { margin-top: 0; }
+.overview-progress__copy .overview-link { margin-top: 1.5rem; }
+.overview-explore { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem 3rem; margin-top: 4rem; }
+.overview-explore a { display: grid; grid-template-columns: 1fr auto; gap: .5rem; text-decoration: none; }
+.overview-explore a > span:first-child { font-size: 1.25rem; font-weight: 500; }
+.overview-explore a > span:nth-child(2) { color: var(--ink-muted); font-size: .9rem; grid-row: 2; }
+.overview-explore a > span:last-child { grid-column: 2; grid-row: 1; }
+.overview-explore a:hover > span:first-child { text-decoration: underline; text-underline-offset: .2em; }
+/* Routes retain a visible outline while a short stroke trace is added. */
+.has-drawing-motion [data-overview-draw] path { stroke-dasharray: var(--path-length); stroke-dashoffset: calc(var(--path-length) * .12); transition: stroke-dashoffset 850ms var(--ease); }
+.has-drawing-motion.is-in-view [data-overview-draw] path { stroke-dashoffset: 0; }
+.has-drawing-motion [data-overview-mutations] { opacity: .65; transition: opacity 850ms var(--ease); }
+.has-drawing-motion.is-in-view [data-overview-mutations] { opacity: 1; }
+/* The homepage header and footer sit directly on the continuous paper. */
+.page--home .masthead, .page--home .masthead.is-stuck { border-bottom: 0; }
+.page--home .topnav__link:hover, .page--home .iconbtn:hover { background: none; }
+.page--home .colophon { border: 0; background: none; margin-top: 2rem; }
+.page--home .colophon__meta { border: 0; }
+.page--home .brand__year, .page--home .colophon__grouphead, .page--home .colophon__legal, .page--home .colophon__built { color: var(--ink-muted); }
+.home-drawer { display: none; }
+/* The technical walkthrough uses the document column rather than a full-width hero. */
+.mechanism-story { grid-template-columns: minmax(0, 1fr); padding-inline: 1.5rem; gap: 0; --scrolly-focus: .76; }
+.mechanism-story .scrolly__stage { height: 40vh; z-index: 2; background: var(--paper-sunk); }
+.mechanism-story .scrolly__viewport { max-height: 100%; aspect-ratio: 1000 / 640; }
+.mechanism-story .scrolly__panels { gap: 24vh; padding-block: 2rem 12vh; }
+.mechanism-story .scrolly__actlabel { top: 0; bottom: auto; }
+.mechanism-story .act__title { font-size: var(--step-2); }
+.mechanism-still { display: none; }
+.mechanism-still > .figure__frame { position: relative; width: 100%; aspect-ratio: 1000 / 640; }
+.mechanism-still canvas, .mechanism-still .figure__frame > svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.no-js .mechanism-story .scrolly__stage { display: none; }
+.no-js .mechanism-story .scrolly__panels { gap: 3rem; }
+@media (max-width: 900px) {
+  .home-drawer { display: block; }
+  .overview-hero { grid-template-columns: 1fr; min-height: 0; padding-block: 3.5rem 1rem; gap: 2rem; }
+  .overview-hero h1 { font-size: clamp(2.8rem, 6vw, 4.2rem); }
+  .overview-hero__copy { max-width: 38rem; }
+  .overview-hero__figure { max-width: 34rem; justify-self: center; }
+  .overview-carrier { grid-template-columns: 1fr; gap: 2rem; }
+  .overview-carrier__copy { grid-column: 1; grid-row: 1; max-width: 60ch; }
+  .overview-shell { grid-column: 1; grid-row: 2; max-width: 36rem; width: 100%; justify-self: center; }
+  .overview-evolution__foot { grid-template-columns: 1fr; gap: 1rem; }
+  .overview-progress { grid-template-columns: 1fr; gap: 2rem; }
+  .overview-explore { grid-template-columns: repeat(2, 1fr); margin-top: 1.5rem; }
+  .overview-together .overview-section__intro { margin-inline: 0; }
+}
+@media (max-width: 560px) {
+  .overview-hero h1 { font-size: clamp(2.4rem, 9vw, 3.2rem); }
+  .overview-kicker { margin-bottom: 1rem; }
+  .overview-hero__figure { margin-inline: -.5rem; }
+  .delivery-art { aspect-ratio: 600 / 510; }
+  .delivery-art .art-label { font-size: 22px; }
+  .delivery-art .art-note { font-size: 18px; }
+  .cargo-comparison .art-label { font-size: 19px; }
+  .overview-shell .annotation, .overview-shell .art-label, .overview-shell .art-note { display: none; }
+  .shell-mobile-key { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: .75rem; }
+  .shell-mobile-key dt { font-size: .9rem; font-weight: 500; }
+  .shell-mobile-key dd { margin: .2rem 0 0; font-size: .8rem; color: var(--ink-muted); }
+  .shell-mobile-key > div:first-child dt { color: var(--enc-cas); }
+  .shell-mobile-key > div:last-child dt { color: var(--ink); }
+  .overview-section h2 { font-size: 2.25rem; }
+  .cargo-comparison { grid-template-columns: 1fr; gap: 2.5rem; margin-top: 1rem; }
+  .cargo-comparison__part { max-width: 29rem; }
+  .overview-carrier { gap: 3rem; }
+  .evolution-cycle { grid-template-columns: 1fr; gap: .25rem; }
+  .evolution-step { display: grid; grid-template-columns: 42% 1fr; align-items: center; gap: 1rem; }
+  .evolution-step figcaption { margin: 0; }
+  .evolution-step strong { font-size: 1.15rem; }
+  .cycle-arrow { margin: 0 0 0 65%; transform: rotate(90deg); width: fit-content; }
+  .cycle-repeat { text-align: left; }
+  .overview-explore { grid-template-columns: 1fr; gap: 1.5rem; }
+  .mechanism-story { padding-inline: 1rem; }
+  .mechanism-story .scrolly__stage { height: 32vh; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mechanism-story .scrolly__stage { display: none; }
+  .mechanism-story .scrolly__panels { gap: 3rem; }
+  .mechanism-still { display: block; margin-bottom: 1.5rem; }
+  .has-drawing-motion [data-overview-draw] path { stroke-dashoffset: 0; }
 }

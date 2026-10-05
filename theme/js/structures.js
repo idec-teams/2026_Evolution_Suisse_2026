@@ -1,9 +1,9 @@
 /* ═══════════════════════════════════════════════════════════════════════════
    structures.js — one fetch per structure, shared by every figure.
 
-   The homepage draws the capsid in the hero and again in the scroll story, and
-   the repressor in both. Each figure fetching its own copy would mean redundant
-   requests and redundant copies of the unpacked geometry, so the promise is
+   The homepage cutaway and the Mechanism walkthrough share the capsid data;
+   repeated walkthrough views also share the repressor and polymerase data.
+   Each figure fetching its own copy would mean redundant requests and redundant copies of the unpacked geometry, so the promise is
    cached and handed to whoever asks.
 
    Paths go through the `base_url` global that base.html defines: MkDocs serves
