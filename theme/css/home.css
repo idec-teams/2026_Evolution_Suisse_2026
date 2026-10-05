@@ -314,11 +314,6 @@
   stroke-linecap: round;
   stroke-linejoin: round;
 }
-.overview__art .molecule { stroke-width: 1.4; fill: none; }
-.molecule--protein { stroke: var(--enc-cas); }
-.molecule--rna { stroke: var(--enc-sgrna); }
-.molecule__body { fill: color-mix(in srgb, var(--enc-cas) 5%, var(--paper)); stroke-width: 1.8; }
-.molecule__strand { stroke-width: 2.2; }
 .molecule__ghost { opacity: .35; transform: translate(1px, 1px); }
 .cell-boundary, .cage { stroke: var(--ink-muted); fill: none; stroke-width: 1.2; }
 .cell-detail { opacity: .25; }
@@ -471,8 +466,6 @@
 .delivery-caption p { font-size: .95rem; color: var(--ink); }
 .delivery-caption > span { display: block; font-size: .75rem; line-height: 1.5; color: var(--ink-muted); margin-top: .6rem; }
 @media (max-width: 560px) {
-  .page--home .masthead__inner { gap: .5rem; }
-  .page--home .masthead__actions { margin-inline-start: auto; }
   .delivery-label { font-size: 23px; }
   .delivery-caption { padding-inline: .5rem; }
 }

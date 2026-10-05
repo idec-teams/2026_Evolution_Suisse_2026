@@ -28,7 +28,8 @@
    ═══════════════════════════════════════════════════════════════════════════ */
 
 import { STYLE, createCapsid, viewMatrix } from '../capsid.js';
-import { createParts, REPRESSOR, POLYMERASE } from '../parts.js';
+import { POLYMERASE } from '../parts.js';
+import { cargoRender, createCargo } from '../cargo-render.js';
 import { capsidData, complexData, mutaT7Data } from '../structures.js';
 import { stroke, grain } from '../pencil.js';
 import { callout, label, key } from '../annotate.js';
@@ -159,10 +160,10 @@ export default {
                          href: 'project/mechanism/', label: 'Selection circuit' });
     }
 
-    Promise.all([capsidData(), complexData(), mutaT7Data()]).then(([cd, xd, md]) => {
+    Promise.all([capsidData(), complexData(), mutaT7Data(), cargoRender(), cargoRender('t7-polymerase')]).then(([cd, xd, md, rendered, polymeraseRender]) => {
       if (cd) this.shell = createCapsid(cd);
-      if (xd) this.repressor = createParts(xd, REPRESSOR);
-      if (md) this.polymerase = createParts(md, POLYMERASE);
+      if (xd) this.repressor = createCargo(xd, rendered);
+      if (md) this.polymerase = createCargo(md, polymeraseRender, POLYMERASE);
       this.paint(this.p);
     });
   },

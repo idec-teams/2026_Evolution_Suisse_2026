@@ -1,17 +1,10 @@
 {# Native SVG gives every overview illustration a complete no-JS first frame.
-   The same cargo paths recur throughout; all colors come from CSS tokens. #}
+   The same transparent ChimeraX cargo renders recur throughout. #}
 {% macro protein(x, y, scale=1) -%}
-<g transform="translate({{ x }} {{ y }}) scale({{ scale }})" class="molecule molecule--protein">
-  <path class="molecule__body" d="M-38-12 C-58-29-34-51-13-42 C-6-61 28-55 31-34 C59-34 65-6 44 7 C57 34 26 51 8 37 C-15 56-45 34-35 15 C-56 13-59-5-38-12Z"/>
-  <path d="M-32-21 C-12-36 0-9 18-25 S42-19 34-5 M-30 12 C-17-4 0 22 17 4 S40 14 28 24 M-13-37 C-24-20 12-5-7 11 S2 34 16 29"/>
-  <path class="molecule__ghost" d="M-40-10 C-54-27-31-48-12-40 C-3-57 25-50 29-32 C57-33 61-5 42 6 C54 32 27 48 8 34 C-15 52-42 32-33 14"/>
-</g>
+<image transform="translate({{ x }} {{ y }}) scale({{ scale }})" href="{{ 'img/molecules/cas9-protein.png'|url }}" x="-58" y="-60" width="116" height="120" preserveAspectRatio="xMidYMid meet"/>
 {%- endmacro %}
 {% macro rna(x, y, scale=1) -%}
-<g transform="translate({{ x }} {{ y }}) scale({{ scale }})" class="molecule molecule--rna">
-  <path class="molecule__strand" d="M-44 23 C-30 30-16 4-28-4 C-48-16-34-42-15-34 C4-26-12-6 0 3 C19 19 33-5 21-18 C7-34 25-54 42-35 C52-22 41-12 46 0 C50 12 62 8 66 20"/>
-  <path d="M-31 14l9 4 M-32-1l9-1 M-27-28l5 7 M-16-28l-5 7 M5 6l-2 9 M17 3l5 7 M26-30l8 2 M29-39l6 6 M43-4l8-2"/>
-</g>
+<image transform="translate({{ x }} {{ y }}) scale({{ scale }})" href="{{ 'img/molecules/guide-rna.png'|url }}" x="-49" y="-28" width="110" height="56" preserveAspectRatio="xMidYMid meet"/>
 {%- endmacro %}
 {% macro cage(x, y, scale=1) -%}
 <g transform="translate({{ x }} {{ y }}) scale({{ scale }})" class="cage">
@@ -68,12 +61,12 @@
   <div class="figure__frame" aria-hidden="true"></div>
   <svg class="overview__art" viewBox="0 0 600 460" role="img" aria-labelledby="shell-title shell-desc">
     <title id="shell-title">Proposed encapsulin with protein and RNA loading routes</title>
-    <desc id="shell-desc">An illustrative cutaway exposes protein and RNA cargo inside QtEncapsulin. Protein loading uses a native cargo-loading peptide; engineered RNA recognition uses lambda N and boxB. Cargo and handles are schematic.</desc>
+    <desc id="shell-desc">An illustrative cutaway exposes protein and RNA cargo inside QtEncapsulin. Protein loading uses a native cargo-loading peptide; engineered RNA recognition uses lambda N and boxB. Cargo uses PDB 5F9R renderings; placement and loading handles are illustrative.</desc>
     <g class="shell-fallback">{{ cage(270, 230, 2.7) }}</g>
     <path class="shell-cut" d="M378 95 270 230 383 362"/>
     {{ protein(280, 206, 0.87) }} {{ rna(279, 270, 0.71) }}
-    <g class="loading-site loading-site--protein"><circle cx="338" cy="176" r="5"/><path d="M325 189 338 176"/></g>
-    <g class="loading-site loading-site--rna"><circle cx="346" cy="292" r="5"/><path d="M324 280 346 292"/></g>
+    <g class="loading-site loading-site--protein"><circle cx="338" cy="176" r="5"/><path d="M314 183 338 176"/></g>
+    <g class="loading-site loading-site--rna"><circle cx="346" cy="292" r="5"/><path d="M317 280 346 292"/></g>
     <path class="annotation" d="M345 176H417 M351 292H417 M155 116 111 72H43"/>
     <text x="422" y="170" class="art-label">Protein loading</text>
     <text x="422" y="192" class="art-note">Native CLP handle</text>
@@ -86,7 +79,7 @@
     <div><dt>Protein loading</dt><dd>Native CLP handle</dd></div>
     <div><dt>RNA recognition</dt><dd>Engineered λN·boxB</dd></div>
   </dl>
-  <figcaption id="shell-caption">Proposed co-loading design. Cargo and handles are schematic.</figcaption>
+  <figcaption id="shell-caption">Proposed co-loading design. Cargo uses PDB 5F9R renderings; placement and loading handles are illustrative.</figcaption>
 </figure>
 {%- endmacro %}
 {% macro evolution() -%}

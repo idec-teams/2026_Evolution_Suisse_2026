@@ -14,14 +14,14 @@
    one, a repressor sitting inside a compartment. The sequence re-arms when the
    hero scrolls back into view, so it can be watched again.
 
-   The complex is drawn with the SAME view matrix as the shell, at the real
+   The complex uses a fixed ChimeraX view within the rotating shell, at the real
    Angstrom scale both structures ship in. An 89 A complex inside a 190 A shell
    is not a composition decision — it is roughly one repressor per compartment,
    which is the point the hero is making.
    ═══════════════════════════════════════════════════════════════════════════ */
 
 import { STYLE, createCapsid, viewMatrix } from '../capsid.js';
-import { createParts, REPRESSOR } from '../parts.js';
+import { cargoRender, createCargo } from '../cargo-render.js';
 import { capsidData, complexData } from '../structures.js';
 import { grain } from '../pencil.js';
 import { key, label } from '../annotate.js';
@@ -55,9 +55,9 @@ export default {
     }, { threshold: 0.55 });
     this.io.observe(ctx.frame);
 
-    Promise.all([capsidData(), complexData()]).then(([cd, xd]) => {
+    Promise.all([capsidData(), complexData(), cargoRender()]).then(([cd, xd, rendered]) => {
       if (cd) this.shell = createCapsid(cd);
-      if (xd) this.complex = createParts(xd, REPRESSOR);
+      if (xd) this.complex = createCargo(xd, rendered);
       // Reduced motion gets the end state, not the start: a still frame of an
       // opened shell says what the figure is for; a still closed sphere does not.
       if (reducedMotion()) this.paint(0.55, 1);
@@ -91,7 +91,7 @@ export default {
 
     const st = this.style;
 
-    // One camera, two structures. The scene scales up as the shell opens — the
+    // Two views, one molecular scale. The scene scales up as the shell opens — the
     // shell and the complex share the scale throughout, so the size
     // relationship between them is never misstated; the frame just moves in.
     const S = Math.min(W, H) * 0.40 * lerp(1, 2.3, smoothstep(clamp(open)));
@@ -140,10 +140,8 @@ export default {
       label(g, 'PDB 5F9R', W - pad, pad + labelSize + 5,
             { size: labelSize, alpha: reveal * 0.62, colour: st.colour, align: 'right' });
 
-      // The two grips are the only colour in the hero. A key rather than
-      // leader lines: the complex is turning, so anything anchored to it would
-      // swing around the frame, and neither grip is in the structure anyway —
-      // what is marked is where each one attaches.
+      // A color key names the two fusion-position dots. Neither engineered
+      // grip is present in the deposited structure.
       key(g, [['CLP fusion site', this.hues.clp], ['boxB site', this.hues.boxb]],
           Math.max(14, W * 0.045), H - Math.max(38, H * 0.09),
           { size: Math.max(11, Math.min(13, W * 0.026)), alpha: reveal * 0.8,

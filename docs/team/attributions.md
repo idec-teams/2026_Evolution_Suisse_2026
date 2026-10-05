@@ -54,10 +54,12 @@ Modifications are documented in [Protocols](../lab/protocols.md).
 
 Plasmid design and sequence alignment were done in Benchling. Synthetic gene
 fragments were obtained from Twist Bioscience, and primers and whole-plasmid
-sequencing from Microsynth. This wiki is built with MkDocs. The homepage Cas9 protein and guide RNA
-illustrations were rendered with UCSF ChimeraX from
-[PDB 5F9R](https://www.rcsb.org/structure/5F9R), with the two components shown
-separately in their deposited conformations.
+sequencing from Microsynth. This wiki is built with MkDocs. Protein and RNA illustrations were rendered with UCSF ChimeraX from
+[PDB 5F9R](https://www.rcsb.org/structure/5F9R) (Cas9–guide RNA) and
+[PDB 1MSW](https://www.rcsb.org/structure/1MSW) (T7 polymerase and nascent RNA).
+The overview shows the Cas9 and guide separately; Mechanism retains the deposited
+complexes. Active Cas9 serves as a structural illustration of dCas9; the engineered
+CLP, boxB and deaminase fusions are not present in these deposited structures.
 
 ## Acknowledgments
 

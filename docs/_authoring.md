@@ -163,8 +163,7 @@ on pages that actually contain maths.
 
 The homepage is an open illustrated delivery-to-evolution narrative. Text is in
 `theme/home.html`; reusable native SVG cargo diagrams are in
-`theme/partials/overview-figures.html`. Schematic protein and RNA paths recur across the later sections; the opening
-uses transparent ChimeraX renders from PDB 5F9R. Regenerate these using
+`theme/partials/overview-figures.html`. All overview protein and RNA cargo use shared transparent ChimeraX renders from PDB 5F9R. The Mechanism walkthrough uses assembled Cas9–guide RNA and T7 polymerase–RNA renders, with projection metadata for molecular scale and aligned DNA traces. Regenerate these using
 `tools/structures/render_delivery.py`; the editable scripts and molecular
 provenance are under `tools/structures/figures/`. Opening headline text is set
 by `headline` and `headline_accent` in `docs/index.md`. `overview-shell` adds the deposited QtEnc shell behind the SVG cargo;
@@ -174,3 +173,5 @@ The detailed walkthrough is included by `theme/mechanism.html` at the
 `<!-- selection-story -->` marker in `project/mechanism.md`. Preserve that marker
 when editing the introduction. Its reduced-motion views use separate figure
 instances, one per act. Figure labels use the shared sans-serif font token.
+
+The molecular sprites keep a fixed orthographic view while the shell rotates. `theme/js/cargo-render.js` caches each image and projection once across all figure instances; the existing backbone renderer provides a fallback if either asset fails. Preserve the deposited coordinates and regenerate PNG/JSON pairs together.

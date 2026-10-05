@@ -250,6 +250,8 @@
 }
 
 @media (max-width: 560px) {
+  .masthead__inner { gap: .5rem; }
+  .masthead__actions { margin-inline-start: auto; }
   .brand__year { display: none; }
   .colophon__nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
