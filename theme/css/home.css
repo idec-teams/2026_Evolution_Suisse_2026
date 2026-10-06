@@ -375,6 +375,11 @@
 .cycle-arrow { color: var(--ink-muted); font-size: 1.6rem; margin-top: 5rem; }
 .cycle-repeat { text-align: center; margin-top: 2.5rem; font-size: .95rem; color: var(--ink-muted); }
 .cycle-repeat > span { margin-right: .4rem; font-size: 1.3rem; }
+.evolution-capture { margin: 3rem 0 0; }
+.evolution-capture .figure__frame { background: none; border: 0; box-shadow: none; border-radius: 0; position: relative; width: 100%; max-width: 62rem; margin-inline: auto; aspect-ratio: 1000 / 640; }
+.evolution-capture canvas, .evolution-capture .figure__frame > svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.evolution-capture figcaption { max-width: 65ch; margin: .75rem auto 0; font-size: .8rem; line-height: 1.5; color: var(--ink-muted); }
+.evolution-capture figcaption strong { color: var(--ink); font-weight: 500; }
 .overview-evolution__foot { display: grid; grid-template-columns: minmax(0, 65ch) auto; gap: 2rem; align-items: start; margin-top: 2.5rem; }
 .overview-evolution__foot p { font-size: .9rem; color: var(--ink-muted); }
 .overview-evolution__foot strong { color: var(--ink); font-weight: 500; }
@@ -401,8 +406,9 @@
 .home-drawer { display: none; }
 /* The technical walkthrough uses the document column rather than a full-width hero. */
 .mechanism-story { grid-template-columns: minmax(0, 1fr); padding-inline: 1.5rem; gap: 0; --scrolly-focus: .76; }
-.mechanism-story .scrolly__stage { height: 40vh; z-index: 2; background: var(--paper-sunk); }
-.mechanism-story .scrolly__viewport { max-height: 100%; aspect-ratio: 1000 / 640; }
+.mechanism-story .scrolly__stage { height: 44vh; z-index: 2; background: var(--paper-sunk); box-shadow: 0 1px 0 var(--rule), 0 14px 14px -6px var(--paper-sunk); }
+/* Size the drawing from the stage height so it can never spill over the text below. */
+.mechanism-story .scrolly__viewport { height: 100%; width: auto; max-width: 100%; max-height: none; aspect-ratio: 1000 / 640; margin-inline: auto; }
 .mechanism-story .scrolly__panels { gap: 24vh; padding-block: 2rem 12vh; }
 .mechanism-story .scrolly__actlabel { top: 0; bottom: auto; }
 .mechanism-story .act__title { font-size: var(--step-2); }
