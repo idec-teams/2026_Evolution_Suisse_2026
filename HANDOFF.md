@@ -95,6 +95,8 @@ and reads the homepage's front matter directly, so text updates stay in sync.
 Only that page adds `page--banner-preview`; its delivery diagram moves below
 the opening banner. On mobile, artwork follows the opening copy to preserve
 readability. The page is excluded from search/navigation and marked noindex.
+`tools/branding/exclude_preview.py` removes its entries from the built-in search
+index after the search plugin writes it.
 Artwork provenance and the exact generation prompt are in
 `tools/branding/README.md`. Both layouts passed strict builds, desktop/390px/320px
 visual checks, mobile navigation, reduced motion and no-JavaScript checks.

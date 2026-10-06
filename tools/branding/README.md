@@ -12,6 +12,8 @@ on both versions. This artwork is not a scientific figure.
 The banner preview shares the homepage template and front matter. It is absent
 from navigation and search, and carries `noindex, nofollow`. The ordinary home
 page retains the opening delivery illustration beside the copy.
+The `exclude_preview.py` build hook removes preview entries after MkDocs' built-in
+search plugin writes its index; that plugin does not support per-page exclusions.
 
 ## Final generation prompt
 

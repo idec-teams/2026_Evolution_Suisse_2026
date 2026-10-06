@@ -45,6 +45,9 @@ plugins:
   # default of ['search'], which would silently remove search from the site.
   - search
 
+hooks:
+  - tools/branding/exclude_preview.py
+
 markdown_extensions:
   - abbr
   - admonition
