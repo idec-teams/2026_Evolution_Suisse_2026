@@ -6,24 +6,29 @@ summary: How survival is coupled to encapsulation.
 
 # Mechanism
 
-In the proposed selection, cell growth depends on how much active repressor
-is removed by encapsulin capture. The continuous evolution campaign has not yet
-been run. Capturing either dCas9 or its sgRNA can restore resistance; this
-selection does not by itself demonstrate co-encapsulation.
+Our CRISPRi-based continuous selection is designed to evolve protein
+nanocompartments. By coupling cargo sequestration to the restoration of
+kanamycin resistance, it uses cell growth to select for improved capture.
+
+The continuous evolution campaign has not yet been run. Capturing either dCas9
+or its sgRNA can restore resistance; this selection does not by itself
+demonstrate co-encapsulation.
 
 <!-- selection-story -->
 
 ## The circuit
 
 A catalytically dead Cas9 (<abbr title="nuclease-deficient Cas9">dCas9</abbr>) is
-directed by an sgRNA to the **kanamycin-resistance gene** on the selection
-plasmid. It blocks transcription without cleaving DNA, so the cell cannot produce
-enough resistance protein for the kanamycin in the medium.
+directed by an sgRNA into the **open reading frame (ORF) of the
+kanamycin-resistance gene** on the selection plasmid. It obstructs transcription
+without cleaving DNA. The guide is chosen to lower resistance just below the
+threshold needed for growth at the selected kanamycin concentration.
 
 ## Position of the guide
 
-CRISPRi knockdowns usually target promoters, which gives stronger repression.
-Here, graded repression is required, and the two positions differ:[^vig]
+Unlike standard promoter-targeting CRISPRi, **our circuit targets the ORF** to
+produce the graded repression needed for continuous selection. The two target
+positions differ:[^vig]
 
 | | Target in the promoter | Target inside the ORF |
 | --- | --- | --- |
@@ -41,14 +46,21 @@ while spontaneous unbinding is negligible. Expression is
 c = c_0\left[1 - P(\text{stop})\,P(\text{bound})\right]
 \]
 
-and once dCas9 saturates the site, $P(\text{bound}) \to 1$ and the residual
-output equals the **passage probability**
+Here, $c$ is the expression level under repression, $c_0$ is the unrepressed
+expression level, $P(\text{bound})$ is the probability that dCas9 occupies the
+target site, and $P(\text{stop})$ is the probability that an occupied site stops
+an approaching RNA polymerase.
+
+Once dCas9 saturates the site, $P(\text{bound}) \to 1$ and relative expression
+$c/c_0$ equals the **passage probability**, $r$:
 
 \[
 r = 1 - P(\text{stop})
 \]
 
-which depends only on the guide–target complementarity. Reported values range
+The passage probability is the fraction of transcription attempts that pass the
+dCas9 roadblock. In this model it is set by guide–target complementarity.
+Reported values range
 from $r = 0.026 \pm 0.003$ at full complementarity to $0.056 \pm 0.001$ with six
 mismatches.
 
@@ -67,11 +79,17 @@ many generations.
 
 ### Noise
 
-Repression at saturation is independent of dCas9 concentration, so cell-to-cell
-variation in dCas9 level does not propagate to the output. The measured noise
-plateau of about 0.3, similar to constitutive genes in wild-type *E. coli*, is
-constant across the knockdown range. In an inducer-titrated circuit the noise
-would be highest in the intermediate range in which this selection operates.
+Titrating dCas9 with an inducer introduces substantial cell-to-cell variation in
+the intermediate expression range where selection operates. Our design instead
+aims to keep the DNA target saturated with dCas9 and tune repression through
+guide complementarity. While the site remains saturated, fluctuations in dCas9
+concentration have little effect on resistance-gene expression.
+
+Vigouroux and colleagues measured approximately constant noise of 0.3 across
+their guide-tuned knockdown range, similar to constitutive genes in wild-type
+*E. coli*.[^vig] Noise here means the standard deviation of single-cell
+expression divided by its mean. This is the basis for our design; noise in our
+selection circuit has not yet been measured.
 
 ## Regulation
 
@@ -106,8 +124,10 @@ through a cargo-loading peptide, or the sgRNA through a boxB hairpin (see
 
 [![KanR selection strategy](../img/report/fig2-kanr.webp)](../img/report/fig2-kanr.webp)
 
-**Fig 4.** Weak encapsulation leaves free dCas9·sgRNA to repress KanR (**a**);
-encapsulation removes it and KanR is expressed (**b**). Full caption under
+**Fig 4.** **(a) Weak or absent encapsulation:** free dCas9·sgRNA represses
+*kanR*; KanR is off and the cell is kanamycin-sensitive. **(b) Improved
+encapsulation:** capture of dCas9 or its sgRNA relieves repression; KanR is on
+and resistance is restored. Full caption under
 [Results](results.md#32-an-encapsulation-coupled-selection).
 
 </figure>
@@ -135,7 +155,7 @@ the resistance gene. Maps are on the [Constructs](../lab/constructs.md) page.
 
 === "Mutation plasmid"
 
-    Carries the MutaT7 T7 RNA polymerase–deaminase fusion and the QtEncapsulin
+    Carries the MutaT7 RNA polymerase–deaminase fusion and the QtEncapsulin
     open reading frame flanked by a T7 promoter and a T7 terminator. This
     cassette is the only hypermutated sequence in the cell.
 

@@ -8,10 +8,26 @@ summary: The shell, the cargo handles and the design constraints of the selectio
 ## QtEncapsulin
 
 The shell is QtEncapsulin (QtEnc), the encapsulin of *Quasibacillus
-thermotolerans*: a T=4 icosahedral compartment of 240 subunits, about 42 nm in
-diameter and 7.7 MDa in mass, with one internal cargo-loading site per
-subunit.[^qt] Its structure is deposited as
-[6NJ8](https://www.rcsb.org/structure/6NJ8). It was chosen for four reasons.
+thermotolerans*. Its native structure is deposited as
+[6NJ8](https://www.rcsb.org/structure/6NJ8).[^qt]
+
+- **Subunits:** 240 per shell.
+- **Symmetry:** T=4 icosahedral compartment.
+- **Diameter:** approximately 42 nm.
+- **Mass:** approximately 7.7 MDa.
+- **Cargo-loading sites:** one on the inner face of each subunit.
+
+<figure class="report wide" markdown>
+
+[![AlphaFold 3 model and sequence map of the engineered QtEnc subunit](../img/report/fig1-structure.webp)](../img/report/fig1-structure.webp)
+
+**Fig 1.** QtEnc (6NJ8) and the engineered subunit: λN⁺ on the lumenal face,
+HisTag and targeting peptide (TP) on the outer face, each joined by a GS linker.
+Full caption under [Results](results.md#31-engineering-qtencapsulin-for-proteinrna-co-encapsulation).
+
+</figure>
+
+We chose QtEnc for four reasons.
 
 - **Size.** A T=4 shell can accommodate a dCas9 ribonucleoprotein, whereas a T=1
   cage of 60 subunits cannot.
@@ -53,16 +69,6 @@ The cargo is the complex of dCas9 and its sgRNA. Each component has its own hand
     lysine-to-arginine substitution in λN⁺ raises boxB affinity about threefold
     and is available if capture is too weak.
 
-<figure class="report wide" markdown>
-
-[![AlphaFold 3 model and sequence map of the engineered QtEnc subunit](../img/report/fig1-structure.webp)](../img/report/fig1-structure.webp)
-
-**Fig 1.** QtEnc (6NJ8) and the engineered subunit: λN⁺ on the lumenal face,
-HisTag and targeting peptide (TP) on the outer face, each joined by a GS linker.
-Full caption under [Results](results.md#31-engineering-qtencapsulin-for-proteinrna-co-encapsulation).
-
-</figure>
-
 ### Outer-surface modifications
 
 The first designs carried a His-tag and a targeting peptide on the outside of the
@@ -96,9 +102,9 @@ capturing either the sgRNA or dCas9 breaks up the complex and rescues the cell.
 restore resistance will do so faster than the shell. This requires the two-plasmid
 split described in [Constructs](../lab/constructs.md).
 
-**Repression is graded.** A binary live/die circuit gives selection no gradient.
-[Mechanism](mechanism.md) describes how guide truncation provides a continuous
-setting.
+**Repression is graded.** Targeting the resistance ORF rather than its promoter
+reduces expression without switching it off completely.
+[Mechanism](mechanism.md) describes how guide truncation tunes this response.
 
 **dCas9 expression.** Repression becomes independent of dCas9 concentration once
 the target is saturated, which favours high expression. dCas9 overexpression is

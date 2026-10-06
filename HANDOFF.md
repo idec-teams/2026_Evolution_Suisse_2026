@@ -3,6 +3,17 @@
 Updated 2026-10-06, after the lab styling and supplementary material move into Data.
 This is the current guide; it replaces the older graphite-only handoff.
 
+The review in `Comments - mechanism page.pdf` has been applied to Mechanism,
+its walkthrough, Design and the corresponding Results text. Mechanism leads
+with the selection's purpose and gives experimental status in a separate
+paragraph. ORF targeting, graded repression, equation variables and noise are
+explained explicitly; the cited noise measurements belong to Vigouroux et al.,
+not this untested selection. Design starts with QtEnc facts (240 subunits) and
+the existing shell/subunit figure. Report captions use smaller text site-wide.
+Automatic `(c)` → © and `(r)` → ® substitutions are disabled in MkDocs to
+preserve scientific panel and variable labels. The legal footer uses an
+explicit copyright entity and remains intact.
+
 Repository: https://github.com/idec-teams/2026_Evolution_Suisse_2026
 
 Live site: https://idec-teams.github.io/2026_Evolution_Suisse_2026/

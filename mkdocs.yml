@@ -70,7 +70,10 @@ markdown_extensions:
       anchor_linenums: true
       pygments_lang_class: true
   - pymdownx.inlinehilite
-  - pymdownx.smartsymbols
+  - pymdownx.smartsymbols:
+      # Preserve scientific panel labels such as (c) and variable labels (r).
+      copyright: false
+      registered: false
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true

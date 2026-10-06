@@ -73,8 +73,9 @@ stability, and function (protein and RNA loading, tolerance of surface display).
 The selection rewards the last two, through the first.
 
 A dCas9–sgRNA complex represses a kanamycin-resistance gene (*kanR*) on the
-selection plasmid. If the complex is sequestered inside QtEnc, repression is
-relieved and the cell grows ([Fig 2](#fig2)). Vigouroux *et al.* showed that
+selection plasmid. The proposed circuit targets the resistance ORF to produce
+graded repression. Capturing dCas9 or its sgRNA inside QtEnc is intended to
+relieve repression and restore growth ([Fig 2](#fig2)). Vigouroux *et al.* showed that
 the level of complementarity between guide and target sets repression in defined
 steps, with less variation than titrating dCas9 itself.[^vig] The guide
 truncation series (10, 11, 14, 17 and 20 nt, plus a non-targeting control) turns
@@ -87,10 +88,12 @@ that into a tunable selection pressure ([Fig 3](#fig3)). The
 
 **Fig 2.** KanR-dependent positive selection. **(a)** *Weak or absent
 encapsulation:* free dCas9 and sgRNA form an active complex that binds the
-protospacer in the KanR 5′-UTR, blocks transcription and leaves the cell
-kanamycin-sensitive. **(b)** *Improved encapsulation:* evolved QtEnc variants
-assemble around the dCas9–sgRNA cargo. With no free complex the protospacer stays
-open, KanR is on, and the cell has a selective advantage.
+protospacer in the resistance-gene body, reduces transcription and leaves
+KanR off in this schematic: the cell is kanamycin-sensitive. **(b)** *Improved
+encapsulation:* evolved QtEnc variants
+capture dCas9 or its sgRNA, reducing the free repressor complex. Repression is
+relieved, KanR is on, and the cell has a selective advantage. Growth rescue alone
+does not demonstrate capture of both components.
 
 </figure>
 

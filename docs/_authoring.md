@@ -69,6 +69,12 @@ Three rules, and they are the only ways this goes wrong:
 3. `data-figure` must match a registered id (see below). A typo fails soft —
    you get the caption with no drawing, and nothing else on the page breaks.
 
+Report images use `<figure class="report wide" markdown>` with the image in
+the first paragraph and the caption in the following paragraph. Captions use
+smaller text across the site. Write panel labels as `**(a)**`, `**(b)**`,
+`**(c)**`; automatic copyright/registered-symbol substitutions are disabled so
+scientific labels remain literal.
+
 Add `wide` for a figure that overflows the text column, or `full` for
 edge-to-edge. Omit both to keep it inside the measure. The drawing area is 4:3
 by default — override it with `data-ratio="16/9"`.
