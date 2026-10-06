@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Data · Evolution Suisse 2026</title>
+
+  <meta name="description" content="Continuous directed evolution of QtEncapsulin nanocompartments for programmable mRNA and protein cargo loading. iDEC 2026, Evolution Suisse.">
+  <meta name="author" content="Evolution Suisse 2026">
+  <link rel="canonical" href="https://idec-teams.github.io/2026_Evolution_Suisse_2026/lab/data/"><script>document.documentElement.classList.replace('no-js','js');</script>
+
+  <link rel="icon" href="../../img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../css/fonts.css">
+  <link rel="stylesheet" href="../../css/tokens.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/layout.css">
+  <link rel="stylesheet" href="../../css/nav.css">
+  <link rel="stylesheet" href="../../css/content.css">
+  <link rel="stylesheet" href="../../css/syntax.css">
+  <link rel="stylesheet" href="../../css/home.css">
+  <link rel="stylesheet" href="../../css/search.css">
+
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../fonts/plex/regular.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../fonts/plex/semibold.woff2"><script>var base_url = "../..";</script>
+
+  
+  
+</head>
+
+<body class="page--doc"
+      data-page="lab/data/">
+
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="masthead" data-masthead>
+  <div class="masthead__inner">
+
+    <a class="brand" href="../..">
+      <span class="brand__logo">
+        <img src="../../img/evolution-suisse.png" alt="Evolution Suisse" width="225" height="225">
+      </span>
+      <span class="brand__text">
+        <span class="brand__year">2026</span>
+      </span>
+    </a>
+
+    <nav class="topnav" aria-label="Sections">
+      <ul class="topnav__list">
+        <li class="topnav__item"><a class="topnav__link" href="../../project/">Project</a></li>
+        <li class="topnav__item"><a class="topnav__link is-active" href="../">Lab</a></li>
+        <li class="topnav__item"><a class="topnav__link" href="../../team/">Team</a></li>
+      </ul>
+    </nav>
+
+    <div class="masthead__actions">
+      <button class="iconbtn" type="button" data-search-open aria-label="Search" title="Search">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="6"/><path d="M13.5 13.5 18 18"/></svg>
+      </button>
+      <a class="iconbtn" href="https://github.com/idec-teams/2026_Evolution_Suisse_2026" rel="external" aria-label="Source repository" title="Source repository">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M7.5 16.5c-3.5 1-3.5-2-5-2.5m10 4.5v-2.9c0-.8.1-1.2-.4-1.6 2.3-.3 4.4-1.1 4.4-5a3.9 3.9 0 0 0-1-2.7 3.6 3.6 0 0 0-.1-2.7s-.9-.3-2.9 1.1a9.9 9.9 0 0 0-5 0C5.4 3.3 4.5 3.6 4.5 3.6a3.6 3.6 0 0 0-.1 2.7 3.9 3.9 0 0 0-1 2.7c0 3.9 2.1 4.7 4.4 5-.3.3-.4.7-.4 1.2v3.1"/></svg>
+      </a>
+      <button class="iconbtn iconbtn--menu" type="button" data-drawer-toggle aria-expanded="false" aria-controls="sidebar" aria-label="Open navigation">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M3 6h14M3 10h14M3 14h14"/></svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+  
+<div class="shell">
+
+  <aside class="sidebar" id="sidebar" data-drawer>
+    <div class="sidebar__inner">
+      <nav class="nav" aria-label="Site navigation">
+        
+<ul class="nav__list nav__list--l1">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../..">Home</a>
+      </li>
+      <li class="nav__section">
+        <span class="nav__label">Project</span>
+<ul class="nav__list nav__list--l2">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../project/">Project</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../project/background/">Background</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../project/design/">Design</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../project/mechanism/">Mechanism</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../project/results/">Results</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../project/future/">Future work</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../project/references/">References</a>
+      </li>
+</ul>
+
+      </li>
+      <li class="nav__section is-active">
+        <span class="nav__label">Lab</span>
+<ul class="nav__list nav__list--l2">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../">Lab</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../constructs/">Constructs</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../protocols/">Protocols</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../notebook/">Notebook</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link is-current"
+           href="./" aria-current="page">Data</a>
+      </li>
+</ul>
+
+      </li>
+      <li class="nav__section">
+        <span class="nav__label">Team</span>
+<ul class="nav__list nav__list--l2">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../team/">Team and sponsors</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../team/attributions/">Attributions</a>
+      </li>
+</ul>
+
+      </li>
+</ul>
+
+      </nav>
+    </div>
+  </aside>
+  <div class="drawer-scrim" data-drawer-close hidden></div>
+
+  <main class="doc" id="content" tabindex="-1">
+    
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <ol class="breadcrumb__list">
+    <li class="breadcrumb__item"><a href="../..">Home</a></li>
+    <li class="breadcrumb__item"><span>Lab</span>
+    </li>
+    <li class="breadcrumb__item breadcrumb__item--current" aria-current="page">Data</li>
+  </ol>
+</nav>
+
+    <article class="prose">
+      <h1 id="data">Data<a class="headerlink" href="#data" title="Link to this section">#</a></h1>
+<h2 id="datasets">Datasets<a class="headerlink" href="#datasets" title="Link to this section">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Dataset</th>
+<th>Format</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SDS-PAGE and clear-native gel images</td>
+<td>TIFF / PNG from gel imager</td>
+<td>Collected May–September</td>
+</tr>
+<tr>
+<td>Anti-His immunoblots</td>
+<td>TIFF / PNG</td>
+<td>Collected</td>
+</tr>
+<tr>
+<td>SEC chromatograms</td>
+<td>UNICORN export</td>
+<td>Collected, multiple runs per construct</td>
+</tr>
+<tr>
+<td>DLS distributions</td>
+<td>Instrument export</td>
+<td>Collected</td>
+</tr>
+<tr>
+<td>A280 tables for each purification step</td>
+<td>Spreadsheet</td>
+<td>Collected</td>
+</tr>
+<tr>
+<td>Sanger and whole-plasmid sequencing</td>
+<td>AB1 / FASTA, aligned in Benchling</td>
+<td>Collected</td>
+</tr>
+<tr>
+<td>Stop-codon reversion plates</td>
+<td>PNG</td>
+<td>Collected (+IPTG, +glucose, basal)</td>
+</tr>
+<tr>
+<td>Golden Gate junction read counts</td>
+<td>Whole-plasmid sequencing</td>
+<td>Collected, two reactions</td>
+</tr>
+<tr>
+<td>Growth curves</td>
+<td>n/a</td>
+<td>Planned</td>
+</tr>
+<tr>
+<td>Selection screen dose–response</td>
+<td>n/a</td>
+<td>Planned</td>
+</tr>
+<tr>
+<td>Evolution campaign sequencing</td>
+<td>n/a</td>
+<td>Planned</td>
+</tr>
+</tbody>
+</table>
+<h2 id="figures">Figures<a class="headerlink" href="#figures" title="Link to this section">#</a></h2>
+<p>The SEC, DLS, native-PAGE, SDS-PAGE and stop-codon plate images behind
+<a href="../../project/results/">Results</a> are reproduced with their captions in the
+<a href="#supplementary-figures">supplementary figures</a> below, together with the
+<a href="#supplementary-tables">plasmid and junction-read tables</a>.</p>
+<h2 id="purification-records">Purification records<a class="headerlink" href="#purification-records" title="Link to this section">#</a></h2>
+<p>An aliquot was kept at every step of each purification, with A280 and a gel lane
+for each. This allows protein loss to be assigned to a specific step, for example
+to the pellet after lysis.</p>
+<h2 id="sequencing">Sequencing<a class="headerlink" href="#sequencing" title="Link to this section">#</a></h2>
+<p>Constructs were verified by Sanger sequencing of the assembly junctions and, where
+required, by whole-plasmid sequencing. Alignments are kept in Benchling. Clones
+with empty backbone or an unrelated insert are recorded as well.</p>
+<h2 id="availability">Availability<a class="headerlink" href="#availability" title="Link to this section">#</a></h2>
+<p>Raw data and the sequences of all constructs will be provided as supplementary
+information with the report. Plasmid maps are kept in Benchling.</p>
+<h2 id="supplementary-information">Supplementary information<a class="headerlink" href="#supplementary-information" title="Link to this section">#</a></h2>
+<p>Tables S1–S2 and Figures S1–S14 of the <a href="../../project/results/">project report</a>,
+with the captions as written there. Click a figure for the full-size image.</p>
+<h3 id="supplementary-tables">Supplementary tables<a class="headerlink" href="#supplementary-tables" title="Link to this section">#</a></h3>
+<h4 id="table-s1">Table S1 — Plasmids and constructs<a class="headerlink" href="#table-s1" title="Link to this section">#</a></h4>
+<p>An em dash in the Backbone column denotes a base vector not derived from another
+entry in this table.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Backbone</th>
+<th>Marker</th>
+<th>Insert / function</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Shell expression series</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>pET-Duet-1</td>
+<td>—</td>
+<td>Amp</td>
+<td>Empty expression vector</td>
+<td>Verified</td>
+</tr>
+<tr>
+<td><code>p_f008</code></td>
+<td>pET-Duet-1</td>
+<td>Amp</td>
+<td>QtEnc without His tag or TP</td>
+<td>Verified</td>
+</tr>
+<tr>
+<td><code>p_f009</code></td>
+<td>pET-Duet-1</td>
+<td>Amp</td>
+<td>QtEnc with TP</td>
+<td>Verified</td>
+</tr>
+<tr>
+<td><code>p_f010</code></td>
+<td>pET-Duet-1</td>
+<td>Amp</td>
+<td>QtEnc (boxBr + λN) and mScarlet (FLAG + boxBr)</td>
+<td>Verified</td>
+</tr>
+<tr>
+<td><code>p_f011</code></td>
+<td>pET-Duet-1</td>
+<td>Amp</td>
+<td>QtEnc (boxBr + λN + TP) and mScarlet (FLAG + boxBr)</td>
+<td>Verified</td>
+</tr>
+<tr>
+<td><code>p_f012</code></td>
+<td>pET-Duet-1</td>
+<td>Amp</td>
+<td>QtEnc (boxBr + λN) and dCas9 (FLAG + IMEF + boxBr)</td>
+<td>In assembly</td>
+</tr>
+<tr>
+<td><code>p_f013</code></td>
+<td>pET-Duet-1</td>
+<td>Amp</td>
+<td>QtEnc (boxBr + λN + TP) and dCas9 (FLAG + IMEF + boxBr)</td>
+<td>In assembly</td>
+</tr>
+<tr>
+<td><code>p_f014</code></td>
+<td>pET-Duet-1</td>
+<td>Amp</td>
+<td>QtEnc (boxBr) and dCas9 (FLAG + IMEF + boxBr)</td>
+<td>In assembly</td>
+</tr>
+<tr>
+<td><code>p_f015</code></td>
+<td>pET-Duet-1</td>
+<td>Amp</td>
+<td>QtEnc (boxBr + TP) and dCas9 (FLAG + IMEF + boxBr)</td>
+<td>In assembly</td>
+</tr>
+<tr>
+<td><code>p_f016</code></td>
+<td>pET-Duet-1</td>
+<td>Amp</td>
+<td>QtEnc (λN) and dCas9 (FLAG + IMEF + boxBr)</td>
+<td>In assembly</td>
+</tr>
+<tr>
+<td><code>p_f017</code></td>
+<td>pET-Duet-1</td>
+<td>Amp</td>
+<td>QtEnc (λN + TP) and dCas9 (FLAG + IMEF + boxBr)</td>
+<td>In assembly</td>
+</tr>
+<tr>
+<td><strong>Mutation plasmid series</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>pDB004</td>
+<td>—</td>
+<td>Amp, Neo/Kan, Tc</td>
+<td>MutaT7 backbone</td>
+<td>Verified</td>
+</tr>
+<tr>
+<td>pDB006</td>
+<td>—</td>
+<td>Amp</td>
+<td>MutaT7 backbone</td>
+<td>Verified</td>
+</tr>
+<tr>
+<td><code>p_m004</code></td>
+<td>pDB004</td>
+<td>Amp</td>
+<td>Stop codon in kanamycin (stop-codon reversion assay for MutaT7 validation)</td>
+<td>Verified</td>
+</tr>
+<tr>
+<td><code>p_m005</code></td>
+<td>pDB006</td>
+<td>Amp</td>
+<td>QtEnc without TP or His tag</td>
+<td>Verified</td>
+</tr>
+<tr>
+<td><code>p_m006</code></td>
+<td>pDB006</td>
+<td>Amp</td>
+<td>QtEnc with TP</td>
+<td>Verified</td>
+</tr>
+<tr>
+<td><code>p_m007</code></td>
+<td>pDB006</td>
+<td>Amp</td>
+<td>QtEnc with TP and His tag</td>
+<td>Verified</td>
+</tr>
+<tr>
+<td><code>p_m008</code></td>
+<td>pDB006</td>
+<td>Amp</td>
+<td>Stop codon in kanamycin</td>
+<td>Verified</td>
+</tr>
+<tr>
+<td><strong>Selection plasmid series</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>pdCas9-bacteria</td>
+<td>—</td>
+<td>Cm</td>
+<td>Addgene dCas9 source</td>
+<td>Verified</td>
+</tr>
+<tr>
+<td>pSC101-T7-T3RNAP</td>
+<td>pSC101</td>
+<td>Kan</td>
+<td>Addgene source plasmid</td>
+<td>Verified</td>
+</tr>
+<tr>
+<td><code>p_s001_TcR</code></td>
+<td>—</td>
+<td>Kan, TcR</td>
+<td>1.8 kb fragment</td>
+<td>In assembly</td>
+</tr>
+<tr>
+<td><code>p_s002_NT_TcR</code></td>
+<td>pSC101</td>
+<td>Kan, TcR</td>
+<td>Non-targeting sgRNA control</td>
+<td>In assembly</td>
+</tr>
+<tr>
+<td><code>p_s002_20nt_TcR</code></td>
+<td>pSC101</td>
+<td>Kan, TcR</td>
+<td>Full-complementarity sgRNA</td>
+<td>In assembly</td>
+</tr>
+<tr>
+<td><code>p_s002_17nt_TcR</code></td>
+<td>pSC101</td>
+<td>Kan, TcR</td>
+<td>17 nt truncated sgRNA</td>
+<td>In assembly</td>
+</tr>
+<tr>
+<td><code>p_s002_14nt_TcR</code></td>
+<td>pSC101</td>
+<td>Kan, TcR</td>
+<td>14 nt truncated sgRNA</td>
+<td>In assembly</td>
+</tr>
+<tr>
+<td><code>p_s002_11nt_TcR</code></td>
+<td>pSC101</td>
+<td>Kan, TcR</td>
+<td>11 nt truncated sgRNA</td>
+<td>In assembly</td>
+</tr>
+<tr>
+<td><code>p_s002_10nt_TcR</code></td>
+<td>pSC101</td>
+<td>Kan, TcR</td>
+<td>10 nt truncated sgRNA</td>
+<td>In assembly</td>
+</tr>
+<tr>
+<td><code>p_s003_TcR</code></td>
+<td>pSC101</td>
+<td>Kan, TcR</td>
+<td>—</td>
+<td>In assembly</td>
+</tr>
+</tbody>
+</table>
+<p>Amp, ampicillin; Kan, kanamycin; Cm, chloramphenicol; Tc, tetracycline; Neo,
+neomycin; TcR, tetracycline-resistance cassette. His, hexahistidine tag; TP/IMEF,
+the IMEF-derived targeting peptide; λN, λ phage N peptide; boxBr, boxB RNA
+hairpin. <em>Verified</em>: sequence-confirmed against the design or obtained from a
+validated source. <em>In assembly</em>: cloning in progress. The report's table also
+defines <em>Assembled</em> (recovered but not yet sequence-verified); no construct
+currently has that status.</p>
+<h4 id="table-s2">Table S2 — Junction read support<a class="headerlink" href="#table-s2" title="Link to this section">#</a></h4>
+<p>Raw-read support for each designed BsaI junction of the intended five-part
+<code>s002_NT</code> assembly, in two independent Golden Gate reactions (R1, R2).</p>
+<table>
+<thead>
+<tr>
+<th>Junction</th>
+<th>Parts joined (5′→3′)</th>
+<th>Overhang</th>
+<th style="text-align: right;">Position</th>
+<th style="text-align: right;">R1 ≥25 bp</th>
+<th style="text-align: right;">R1 ≥200 bp</th>
+<th style="text-align: right;">R2 ≥25 bp</th>
+<th style="text-align: right;">R2 ≥200 bp</th>
+<th>Outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>J1</td>
+<td>pSC101 → s002_NT</td>
+<td><code>TCAG</code></td>
+<td style="text-align: right;">3,501</td>
+<td style="text-align: right;">61</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">111</td>
+<td style="text-align: right;">88</td>
+<td>Formed</td>
+</tr>
+<tr>
+<td>J2</td>
+<td>s002_NT → dCas9</td>
+<td><code>CCGT</code></td>
+<td style="text-align: right;">3,976</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: right;">58</td>
+<td style="text-align: right;">149</td>
+<td style="text-align: right;">115</td>
+<td>Formed</td>
+</tr>
+<tr>
+<td>J3</td>
+<td>dCas9 → s001</td>
+<td><code>ATCT</code></td>
+<td style="text-align: right;">8,080</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">26</td>
+<td>Formed</td>
+</tr>
+<tr>
+<td>J4</td>
+<td>s001 → TcR</td>
+<td><code>GAAA</code></td>
+<td style="text-align: right;">9,823</td>
+<td style="text-align: right;">92</td>
+<td style="text-align: right;">72</td>
+<td style="text-align: right;">142</td>
+<td style="text-align: right;">110</td>
+<td>Formed</td>
+</tr>
+<tr>
+<td><strong>J5</strong></td>
+<td><strong>TcR → pSC101</strong></td>
+<td><strong><code>GATA</code></strong><sup id="fnref:d"><a class="footnote-ref" href="#fn:d">1</a></sup></td>
+<td style="text-align: right;"><strong>11,533</strong></td>
+<td style="text-align: right;"><strong>0</strong></td>
+<td style="text-align: right;"><strong>0</strong></td>
+<td style="text-align: right;"><strong>3</strong></td>
+<td style="text-align: right;"><strong>3</strong></td>
+<td><strong>Not formed</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Counts are individual raw reads in which a single contiguous alignment block spans
+the junction with at least the stated length aligned on both sides and no internal
+indel &gt;20 bp. Reaction 1 (n = 1,613 reads) and Reaction 2 (n = 2,580 reads) were
+assembled and sequenced independently. Each junction was scored on a copy of the
+circular reference rotated so the junction lies at the centre of the linear
+sequence, so counts do not depend on where the circle is opened. Position is the
+coordinate in the intended 11,533 bp circular product, numbered from the first
+base of the pSC101 backbone; J5 is the circularisation point and coincides with
+position 1.</p>
+<p>J1–J4 are supported in both reactions at every stringency tested. At J5, 9 reads
+(R1) and 18 reads (R2) reach the junction from the TcR side, of which 0 and 3
+continue across it; 73–100 % of those reads end at the junction, consistent with
+an unligated free DNA end. All five parts are covered without gaps in both
+reactions (minimum depth 5× and 15×), and uncut BsaI sites account for ≤2.4 % of
+reads at every measurable site, so the missing J5 reflects a failed ligation
+rather than a missing or undigested part.</p>
+<h3 id="supplementary-figures">Supplementary figures<a class="headerlink" href="#supplementary-figures" title="Link to this section">#</a></h3>
+<figure class="report wide" id="fig-s1">
+<p><a href="../../img/report/s1-cret.webp"><img alt="Fig S1" src="../../img/report/s1-cret.webp" /></a></p>
+<p><strong>Fig S1.</strong> Schematic overview of the creT-based positive selection strategy in a repressed (<strong>a</strong>) and an activated (<strong>b</strong>) state.</p>
+</figure>
+<figure class="report wide" id="fig-s2">
+<p><a href="../../img/report/s2-sgrna-light.png"><img alt="Fig S2" src="../../img/report/s2-sgrna-light.png" /></a></p>
+<p><strong>Fig S2.</strong> KanR-based sgRNA sequence including the spacer and the boxB insertion sites.</p>
+</figure>
+<figure class="report narrow" id="fig-s3">
+<p><a href="../../img/report/s3-plasmid-maps-light.png"><img alt="Fig S3" src="../../img/report/s3-plasmid-maps-light.png" /></a></p>
+<p><strong>Fig S3.</strong> <strong>Plasmid maps.</strong> Annotated maps of the control plasmid (QtEncapsulin only, <code>p_f008</code>, <strong>a</strong>), the engineered plasmid with all elements (<code>p_f011</code>, <strong>b</strong>), the mutation plasmid (<code>p_m005</code>, <strong>c</strong>) and the selection plasmid (<code>s_002_TcR_creT_v2</code>, <strong>d</strong>).</p>
+</figure>
+<figure class="report wide" id="fig-s4">
+<p><a href="../../img/report/s4-sec-precipitation.webp"><img alt="Fig S4" src="../../img/report/s4-sec-precipitation.webp" /></a></p>
+<p><strong>Fig S4.</strong> Analytical SEC of QtEnc-His across four purification workflows, comparing the starting fraction against the precipitation step on a Superose 6 10/300 GL column. The clarified lysate supernatant (<strong>a</strong>, <strong>c</strong>) and the resuspended lysate pellet (<strong>b</strong>, <strong>d</strong>) were each carried forward by heat precipitation (<strong>a</strong>, <strong>b</strong>) or PEG precipitation (<strong>c</strong>, <strong>d</strong>). Only the pellet-derived, heat-precipitated sample (<strong>b</strong>) shows a distinct peak near the column void volume at 7.2 mL (red box), consistent with an assembled T = 4 cage. The other three workflows elute between 13 and 25 mL, the range expected for monomeric and low-order species, and the two PEG routes recover little material (100 % ≈ 11 and 13 mAU, against 100 mAU in <strong>a</strong>). Together these traces indicate that assembled QtEnc-His partitions with the insoluble fraction and is discarded whenever the workflow proceeds from the clarified supernatant, which points to the His-tag compromising cage solubility. A<sub>280</sub> is normalised to the maximum of each trace after 1 mL (100 % = 100, 57, 11 and 13 mAU for <strong>a</strong>–<strong>d</strong>).</p>
+</figure>
+<figure class="report wide" id="fig-s5">
+<p><a href="../../img/report/s5-dls-f008.webp"><img alt="Fig S5" src="../../img/report/s5-dls-f008.webp" /></a></p>
+<p><strong>Fig S5.</strong> DLS of the crude HiPrep Sephacryl S-500 SEC isolation of wt QtEnc. <strong>a</strong>–<strong>e</strong> are different fractions of the SEC in <a href="#fig-s9">Fig S9</a>. Intensity and volume distributions are overlaid to contrast aggregation.</p>
+</figure>
+<figure class="report wide" id="fig-s6">
+<p><a href="../../img/report/s6-dls-f011.webp"><img alt="Fig S6" src="../../img/report/s6-dls-f011.webp" /></a></p>
+<p><strong>Fig S6.</strong> DLS of the crude HiPrep Sephacryl S-500 SEC isolation of QtEnc-TP-mScarlet. <strong>a</strong>–<strong>e</strong> are different fractions of the corresponding SEC (data not shown). Intensity and volume distributions are overlaid to contrast aggregation.</p>
+</figure>
+<figure class="report narrow" id="fig-s7">
+<p><a href="../../img/report/s7-sec-monomers.webp"><img alt="Fig S7" src="../../img/report/s7-sec-monomers.webp" /></a></p>
+<p><strong>Fig S7.</strong> Analytical SEC of QtEnc-His on a Superose 6 10/300 GL column. No peak appears near the void volume; the red box (16–17 mL) marks QtEnc-His monomers identified by anti-His immunoblot of the SEC fractions. A<sub>280</sub> is normalised to its maximum after 1 mL (100 % = 6.8 mAU).</p>
+</figure>
+<figure class="report wide" id="fig-s8">
+<p><a href="../../img/report/s8-sec-nita.webp"><img alt="Fig S8" src="../../img/report/s8-sec-nita.webp" /></a></p>
+<p><strong>Fig S8.</strong> Analytical SEC of His-tagged QtEnc constructs after Ni-NTA purification. <strong>(a)</strong> QtEnc-His and <strong>(b)</strong> QtEnc-His-mScarlet, both expressed in <em>E. coli</em> BL21 (DE3) with 0.1 mM IPTG and filtered before injection onto a Superose 6 10/300 GL column. Neither trace shows a peak near the void volume (~8 mL); the signal starts at about 13 mL, so no assembled T = 4 cage was recovered by this workflow. A<sub>280</sub> is normalised to the maximum of each trace after 1 mL (100 % = 6.8 mAU in <strong>a</strong>, 8 mAU in <strong>b</strong>).</p>
+</figure>
+<figure class="report wide" id="fig-s9">
+<p><a href="../../img/report/s9-sec-s500.webp"><img alt="Fig S9" src="../../img/report/s9-sec-s500.webp" /></a></p>
+<p><strong>Fig S9.</strong> Crude SEC of three QtEnc variants under the revised purification protocol. Clarified lysate was subjected to heat precipitation followed by PEG precipitation, filtered, and applied directly to a HiPrep 16/60 Sephacryl S-500 HR column without prior Ni-NTA purification. <strong>(a)</strong> QtEnc, <strong>(b)</strong> QtEnc-TP and <strong>(c)</strong> QtEnc-mScarlet. All three traces begin to rise at about 40 mL and resolve into an early peak at 54–62 mL and a later peak at about 111 mL. The early peak elutes well ahead of the bulk of the soluble proteome and is the species assigned to assembled QtEnc. A<sub>280</sub> is normalised to the maximum of each trace after 1 mL (100 % = 180, 98 and 180 mAU for <strong>a</strong>–<strong>c</strong>).</p>
+</figure>
+<figure class="report wide" id="fig-s10">
+<p><a href="../../img/report/s10-bn-antihis.webp"><img alt="Fig S10" src="../../img/report/s10-bn-antihis.webp" /></a></p>
+<p><strong>Fig S10.</strong> Blue Native PAGE and the corresponding anti-His immunoblot across the QtEnc-His purification. <strong>(a)</strong> Coomassie-stained BN-PAGE and <strong>(b)</strong> anti-His immunoblot of the same steps. L, NativeMark unstained standard; 1, pellet after lysis centrifugation; 2, supernatant after lysis centrifugation; 3, pellet after heat precipitation; 4, supernatant after heat precipitation; 5, supernatant after filtration; 6, Amicon buffer-exchanged flow-through; 7, buffer-exchanged sample after concentration. Asterisks mark the fraction carried forward at each step (lanes 1, 4, 5, 7): the pellet recovered after lysis is the insoluble fraction taken onward, the route followed in <strong>a</strong>, while the paired heat-precipitation pellet (3) and the Amicon flow-through (6) were discarded; the lysis supernatant (2) was processed in a parallel branch not shown here. The dotted line marks the QtEnc-His species, which migrates above the 1236 kDa standard. In <strong>b</strong> the anti-His signal is confined to the same region at the top of the gel, with none detected in the resolved range.</p>
+</figure>
+<figure class="report wide" id="fig-s11">
+<p><a href="../../img/report/s11-sds-workflow.webp"><img alt="Fig S11" src="../../img/report/s11-sds-workflow.webp" /></a></p>
+<p><strong>Fig S11.</strong> <strong>SDS-PAGE across the QtEnc-His heat-precipitation workflow.</strong> Coomassie Brilliant Blue stained. L, prestained protein standard; − and +, whole cells before and after IPTG induction; 1, pellet after lysis centrifugation; 2, supernatant after lysis centrifugation; 3, pellet after heat precipitation; 4, supernatant after heat precipitation; 5, supernatant after filtration; 6, Amicon buffer-exchanged flow-through; 7, buffer-exchanged sample after concentration. Lanes 8–12 are the corresponding fractions of the parallel branch started from the lysis supernatant: 8, pellet after heat precipitation; 9, supernatant after heat precipitation; 10, supernatant after filtration; 11, Amicon flow-through; 12, sample after concentration. Asterisks mark the fraction carried forward at each step (lanes 1, 2, 4, 5, 7, 9, 10, 12): lysis splits into the pellet (1) and the supernatant (2), which were processed as parallel branches, while the paired heat-precipitation pellets (3, 8) and the Amicon flow-throughs (6, 11) were discarded. The dotted line marks the QtEnc-His monomer, which migrates just above the 35 kDa standard. Lane numbering matches that of the Blue Native PAGE. The image is a single contiguous crop of one scan; processing was limited to levelling, cropping, inversion and one linear intensity window applied to the whole image.</p>
+</figure>
+<figure class="report wide" id="fig-s12">
+<p><a href="../../img/report/s12-sds-fractions.webp"><img alt="Fig S12" src="../../img/report/s12-sds-fractions.webp" /></a></p>
+<p><strong>Fig S12.</strong> SDS-PAGE of Superose 6 fractions from the SEC run shown in <a href="../../project/results/#fig4">Fig 4a</a>. <strong>a</strong> covers fractions from 6.5 mL to 14.6 mL, <strong>b</strong> fractions from 15 mL to 19.5 mL. QtEnc-His monomers are present around 16–17 mL.</p>
+</figure>
+<figure class="report wide" id="fig-s13">
+<p><a href="../../img/report/s13-stop-codon.webp"><img alt="Fig S13" src="../../img/report/s13-stop-codon.webp" /></a></p>
+<p><strong>Fig S13.</strong> Stop-codon reversion assay plates showing induced (+IPTG), repressed (+glucose) and no-additive (basal) conditions. 50 µL of undiluted liquid culture was plated on 25 µg/mL chloramphenicol. Each condition shows growth. Triplicates are not shown.</p>
+</figure>
+<figure class="report wide" id="fig-s14">
+<p><a href="../../img/report/s14-sds-superose.webp"><img alt="Fig S14" src="../../img/report/s14-sds-superose.webp" /></a></p>
+<p><strong>Fig S14.</strong> SDS-PAGE of QtEnc-His Superose 6 fractions from the SEC run shown in <a href="../../project/results/#fig4">Fig 4a</a>. No QtEnc-His monomers can be identified around the elution-volume peak at ~8 mL.</p>
+</figure>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:d">
+<p><code>GAAA</code> (J4) and <code>GATA</code> (J5) differ at a single position and are the only
+non-orthogonal overhang pair in the design.&#160;<a class="footnote-backref" href="#fnref:d" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+    </article>
+
+    
+<nav class="pager" aria-label="Page navigation">
+  <a class="pager__link pager__link--prev" href="../notebook/">
+    <span class="pager__dir">Previous</span>
+    <span class="pager__title">Notebook</span>
+  </a>
+  <a class="pager__link pager__link--next" href="../../team/">
+    <span class="pager__dir">Next</span>
+    <span class="pager__title">Team and sponsors</span>
+  </a>
+</nav>
+  </main>
+
+  <div class="rail">
+    <div class="rail__inner">
+      
+<nav class="toc" aria-labelledby="toc-heading">
+  <h2 class="toc__heading" id="toc-heading">On this page</h2>
+  <ul class="toc__list">
+    <li class="toc__item">
+      <a class="toc__link" href="#datasets">Datasets</a>
+    </li>
+    <li class="toc__item">
+      <a class="toc__link" href="#figures">Figures</a>
+    </li>
+    <li class="toc__item">
+      <a class="toc__link" href="#purification-records">Purification records</a>
+    </li>
+    <li class="toc__item">
+      <a class="toc__link" href="#sequencing">Sequencing</a>
+    </li>
+    <li class="toc__item">
+      <a class="toc__link" href="#availability">Availability</a>
+    </li>
+    <li class="toc__item">
+      <a class="toc__link" href="#supplementary-information">Supplementary information</a>
+      <ul class="toc__list toc__list--sub">
+        <li class="toc__item"><a class="toc__link" href="#supplementary-tables">Supplementary tables</a></li>
+        <li class="toc__item"><a class="toc__link" href="#supplementary-figures">Supplementary figures</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </div>
+
+</div>
+
+
+  <footer class="colophon">
+  <div class="colophon__inner">
+
+    <div class="colophon__brand">
+      <span class="colophon__name">Evolution Suisse 2026</span><span class="colophon__tagline">Directed evolution of a protein nanocompartment</span>
+    </div>
+
+    <nav class="colophon__nav" aria-label="Footer">
+      <div class="colophon__group">
+        <h2 class="colophon__grouphead">Project</h2>
+        <ul>
+          <li><a href="../../project/background/">Background</a></li>
+          <li><a href="../../project/design/">Design</a></li>
+          <li><a href="../../project/mechanism/">Mechanism</a></li>
+          <li><a href="../../project/results/">Results</a></li>
+          <li><a href="../../project/future/">Future work</a></li>
+          <li><a href="../../project/references/">References</a></li>
+        </ul>
+      </div>
+      <div class="colophon__group">
+        <h2 class="colophon__grouphead">Lab</h2>
+        <ul>
+          <li><a href="../constructs/">Constructs</a></li>
+          <li><a href="../protocols/">Protocols</a></li>
+          <li><a href="../notebook/">Notebook</a></li>
+          <li><a href="./">Data</a></li>
+        </ul>
+      </div>
+      <div class="colophon__group">
+        <h2 class="colophon__grouphead">Team</h2>
+        <ul>
+          <li><a href="../../team/attributions/">Attributions</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="colophon__meta">
+      <a class="colophon__edit" href="https://github.com/idec-teams/2026_Evolution_Suisse_2026/blob/main/docs/lab/data.md" rel="external">Edit this page</a>
+      <p class="colophon__legal">Copyright &copy; 2026 iDEC. CC-BY-4.0 &middot; The International Directed Evolution Competition (iDEC) is a Scottish Charitable Incorporated Organisation (SCIO), registered in Scotland, charity number SC050826.</p>
+      <p class="colophon__built">
+        Built 2026-10-06 with
+        <a href="https://www.mkdocs.org/" rel="external">MkDocs</a>.
+      </p>
+    </div>
+
+  </div>
+</footer>
+  <div class="searchmodal" id="searchmodal" hidden data-search-modal>
+  <div class="searchmodal__scrim" data-search-close></div>
+  <div class="searchmodal__panel" role="dialog" aria-modal="true" aria-labelledby="searchmodal-label">
+    <h2 class="u-visually-hidden" id="searchmodal-label">Search this wiki</h2>
+
+    <div class="searchmodal__field">
+      <svg class="searchmodal__icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="6"/><path d="M13.5 13.5 18 18"/></svg>
+      <input type="search" id="mkdocs-search-query" placeholder="Search pages…" autocomplete="off" spellcheck="false">
+      <button class="searchmodal__close" type="button" data-search-close aria-label="Close search">Esc</button>
+    </div>
+
+    <div class="searchmodal__results" id="mkdocs-search-results" data-no-results-text="No pages matched that query."></div>
+  </div>
+</div>
+
+  <script type="module" src="../../js/app.js"></script><script src="../../search/main.js"></script>
+
+  
+</body>
+</html>

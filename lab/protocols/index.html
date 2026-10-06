@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Protocols · Evolution Suisse 2026</title>
+
+  <meta name="description" content="Continuous directed evolution of QtEncapsulin nanocompartments for programmable mRNA and protein cargo loading. iDEC 2026, Evolution Suisse.">
+  <meta name="author" content="Evolution Suisse 2026">
+  <link rel="canonical" href="https://idec-teams.github.io/2026_Evolution_Suisse_2026/lab/protocols/"><script>document.documentElement.classList.replace('no-js','js');</script>
+
+  <link rel="icon" href="../../img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../css/fonts.css">
+  <link rel="stylesheet" href="../../css/tokens.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/layout.css">
+  <link rel="stylesheet" href="../../css/nav.css">
+  <link rel="stylesheet" href="../../css/content.css">
+  <link rel="stylesheet" href="../../css/syntax.css">
+  <link rel="stylesheet" href="../../css/home.css">
+  <link rel="stylesheet" href="../../css/search.css">
+
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../fonts/plex/regular.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../fonts/plex/semibold.woff2"><script>var base_url = "../..";</script>
+
+  
+  
+</head>
+
+<body class="page--doc"
+      data-page="lab/protocols/">
+
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="masthead" data-masthead>
+  <div class="masthead__inner">
+
+    <a class="brand" href="../..">
+      <span class="brand__logo">
+        <img src="../../img/evolution-suisse.png" alt="Evolution Suisse" width="225" height="225">
+      </span>
+      <span class="brand__text">
+        <span class="brand__year">2026</span>
+      </span>
+    </a>
+
+    <nav class="topnav" aria-label="Sections">
+      <ul class="topnav__list">
+        <li class="topnav__item"><a class="topnav__link" href="../../project/">Project</a></li>
+        <li class="topnav__item"><a class="topnav__link is-active" href="../">Lab</a></li>
+        <li class="topnav__item"><a class="topnav__link" href="../../team/">Team</a></li>
+      </ul>
+    </nav>
+
+    <div class="masthead__actions">
+      <button class="iconbtn" type="button" data-search-open aria-label="Search" title="Search">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="6"/><path d="M13.5 13.5 18 18"/></svg>
+      </button>
+      <a class="iconbtn" href="https://github.com/idec-teams/2026_Evolution_Suisse_2026" rel="external" aria-label="Source repository" title="Source repository">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M7.5 16.5c-3.5 1-3.5-2-5-2.5m10 4.5v-2.9c0-.8.1-1.2-.4-1.6 2.3-.3 4.4-1.1 4.4-5a3.9 3.9 0 0 0-1-2.7 3.6 3.6 0 0 0-.1-2.7s-.9-.3-2.9 1.1a9.9 9.9 0 0 0-5 0C5.4 3.3 4.5 3.6 4.5 3.6a3.6 3.6 0 0 0-.1 2.7 3.9 3.9 0 0 0-1 2.7c0 3.9 2.1 4.7 4.4 5-.3.3-.4.7-.4 1.2v3.1"/></svg>
+      </a>
+      <button class="iconbtn iconbtn--menu" type="button" data-drawer-toggle aria-expanded="false" aria-controls="sidebar" aria-label="Open navigation">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M3 6h14M3 10h14M3 14h14"/></svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+  
+<div class="shell">
+
+  <aside class="sidebar" id="sidebar" data-drawer>
+    <div class="sidebar__inner">
+      <nav class="nav" aria-label="Site navigation">
+        
+<ul class="nav__list nav__list--l1">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../..">Home</a>
+      </li>
+      <li class="nav__section">
+        <span class="nav__label">Project</span>
+<ul class="nav__list nav__list--l2">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../project/">Project</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../project/background/">Background</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../project/design/">Design</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../project/mechanism/">Mechanism</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../project/results/">Results</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../project/future/">Future work</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../project/references/">References</a>
+      </li>
+</ul>
+
+      </li>
+      <li class="nav__section is-active">
+        <span class="nav__label">Lab</span>
+<ul class="nav__list nav__list--l2">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../">Lab</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../constructs/">Constructs</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link is-current"
+           href="./" aria-current="page">Protocols</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../notebook/">Notebook</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../data/">Data</a>
+      </li>
+</ul>
+
+      </li>
+      <li class="nav__section">
+        <span class="nav__label">Team</span>
+<ul class="nav__list nav__list--l2">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../team/">Team and sponsors</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../team/attributions/">Attributions</a>
+      </li>
+</ul>
+
+      </li>
+</ul>
+
+      </nav>
+    </div>
+  </aside>
+  <div class="drawer-scrim" data-drawer-close hidden></div>
+
+  <main class="doc" id="content" tabindex="-1">
+    
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <ol class="breadcrumb__list">
+    <li class="breadcrumb__item"><a href="../..">Home</a></li>
+    <li class="breadcrumb__item"><span>Lab</span>
+    </li>
+    <li class="breadcrumb__item breadcrumb__item--current" aria-current="page">Protocols</li>
+  </ol>
+</nav>
+
+    <article class="prose">
+      <h1 id="protocols">Protocols<a class="headerlink" href="#protocols" title="Link to this section">#</a></h1>
+<p>Where a published protocol was modified, the modification and its reason are
+given.</p>
+<h2 id="strains-and-media">Strains and media<a class="headerlink" href="#strains-and-media" title="Link to this section">#</a></h2>
+<p><em>E. coli</em> DH10β for all cloning, BL21 (DE3) for expression of the shell variants,
+and the MutaT7 host strain for propagating the mutation plasmid and for the
+planned campaign. Cultures in 2×YT at 37 °C and 200 rpm unless stated.
+Antibiotics at 100 µg/mL ampicillin, 50 µg/mL kanamycin (200 µg/mL for
+high-stringency plates) and 25 µg/mL chloramphenicol. Glucose to 1 % (w/v) in
+expression cultures suppresses leaky T7 expression before induction. LB with 1 %
+agar plates carry the matching antibiotic for cloning and selection.</p>
+<h2 id="transformation-and-recovery">Transformation and recovery<a class="headerlink" href="#transformation-and-recovery" title="Link to this section">#</a></h2>
+<p>Chemically competent cells prepared by the calcium chloride method: overnight
+culture diluted into 50 mL, grown to OD₆₀₀ 0.5–0.6, chilled on ice 30 min,
+pelleted at 4000 × g, washed twice in ice-cold 100 mM CaCl₂ with a 30 min
+incubation between washes, resuspended in 5 mL CaCl₂ with 80 % glycerol,
+aliquoted and flash-frozen.</p>
+<div class="admonition tip">
+<p class="admonition-title">Practical notes</p>
+<ul>
+<li>Cells are kept cold at all times, including during transport to the
+  centrifuge.</li>
+<li>About 20–30 µL of cells are used per transformation. One aliquot covers
+  about five transformations; larger volumes do not improve efficiency.</li>
+<li>The MutaT7 strain transforms poorly, so aliquots of 200 µL are prepared
+  instead of 100 µL.</li>
+<li>For low-efficiency assemblies, the recovery culture is pelleted and
+  resuspended in ~50 µL before plating, instead of plating 400 µL.</li>
+</ul>
+</div>
+<p>Transformation: thaw 10 min on ice, add 2–5 µL DNA, 30 min on ice, heat shock
+42 °C for 30 s, 5 min on ice, recover in 400 µL SOC at 37 °C for 1 h, plate.</p>
+<h2 id="cloning">Cloning<a class="headerlink" href="#cloning" title="Link to this section">#</a></h2>
+<p><strong>Gibson assembly.</strong> 10–20 µL reactions, 0.05 pmol per fragment, insert:backbone
+molar ratios 1:1 to 3:1, 50 °C for 15–60 min.</p>
+<p><strong>Golden Gate.</strong> PaqCI or BsaI-HFv2 with NEBridge Ligase Master Mix, 15–30 µL, as
+a one-hour isothermal incubation at 37 °C or a cycled digestion–ligation
+programme. For the selection plasmids, whole-plasmid sequencing of the reaction
+mixture showed which junctions formed (<a href="../data/#table-s2">Table S2</a>).</p>
+<p><strong>PCR and verification.</strong> Inserts and backbones by PCR with Q5 or Phusion,
+20–30 s per kb extension, purified by agarose gel (0.5 % in TAE, 130 V, 25 min)
+and column extraction. Constructs verified by Sanger sequencing of assembly
+junctions and by whole-plasmid sequencing (Microsynth; NightSeq for direct
+colony submission), alignments curated in Benchling.</p>
+<p><strong>Linearisation.</strong> pSC101 with EcoRI and BamHI; the MutaT7 backbone with PacI and
+SacI. Digests were run for 2–3 hours; these enzymes have little star activity, so the
+longer incubation reduces incomplete cutting without a cost.</p>
+<div class="admonition caution">
+<p class="admonition-title">Reading a linearisation gel</p>
+<p>Supercoiled circular plasmid migrates faster than the same plasmid
+linearised. A strong upper band and a faint lower band therefore do not
+necessarily mean that the lower band is the cut product. The wrong band was
+excised once for this reason.</p>
+</div>
+<p>PCR-linearised backbones are DpnI-digested for 1 h at 37 °C to remove template.</p>
+<h2 id="expression">Expression<a class="headerlink" href="#expression" title="Link to this section">#</a></h2>
+<p>Primary culture 5 mL overnight, 37 °C, 200 rpm. Secondary culture 250 mL 2×YT
+with antibiotic and <strong>1 % glucose</strong>, inoculated to OD₆₀₀ 0.05.</p>
+<div class="admonition protocol">
+<p class="admonition-title">Induction conditions</p>
+<p>Induce at OD₆₀₀ 0.4–0.6 with <strong>0.1 mM IPTG</strong>, then move to <strong>18 °C, 120 rpm,
+18 h</strong>.</p>
+<p>Earlier runs used 1 mM IPTG. Published protocols for this shell use 0.1 mM,
+and strong induction commonly leads to inclusion bodies. Glucose suppresses
+leaky expression before induction; IPTG takes effect once the glucose is
+consumed.</p>
+</div>
+<p>Aliquots are taken immediately before and after induction, normalised to OD, for
+later SDS-PAGE, so that protein loss can be located to a step.</p>
+<h2 id="purification">Purification<a class="headerlink" href="#purification" title="Link to this section">#</a></h2>
+<ol>
+<li><strong>Lysis.</strong> Resuspend in 20 mM Tris-HCl pH 8.0, 150–500 mM NaCl. Chemical lysis
+   with lysozyme and 1 mM PMSF, then sonication on ice (24 % amplitude, 2 s on /
+   4 s off, 5 min total on-time).</li>
+<li><strong>Clarify.</strong> 10 000 × g, 15 min, 4 °C. The pellet is kept, as most of the protein
+   was found in it.</li>
+<li><strong>Pre-enrichment</strong>, one of two routes run on split aliquots:</li>
+<li><strong>PEG-8000/NaCl</strong>: to 10 % PEG and 0.5 M NaCl, 40 min on ice, 8000 × g 10 min.</li>
+<li><strong>Heat precipitation</strong>, 65 °C for 15 min in a water bath, exploiting the
+     shell's thermostability; keep the supernatant.</li>
+</ol>
+<p>Filter through 0.45 µm and 0.22 µm before further use.
+4. <strong>Ni-NTA</strong> (where used). Gravity column, Ni-Sepharose 6 Fast Flow; 1 mL of a
+   50 % resin slurry per 4 mL of sample, 1 h at 4 °C, two washes of 1 mL at
+   20 mM imidazole pH 8, elution in 1 mL of 250 mM imidazole pH 8. For
+   QtEnc-His this step discards the assembled species along with the insoluble
+   fraction (<a href="../../project/results/#34-purification-and-validation-of-qtencapsulin-cages">Results</a>),
+   so pellet-derived material was taken forward without it.
+5. <strong>Buffer exchange.</strong> Amicon 100 kDa cut-off, 4000 RCF, 4 °C. Pre-wash the
+   filter three times with water and equilibrate in elution buffer first.
+6. <strong>SEC, two tiers.</strong> A crude cut on HiPrep Sephacryl S-500 HR at 0.5 mL/min
+   (1 mL fractions), then high-resolution SEC on Superose 6 10/300 GL at
+   <strong>0.3 mL/min</strong>, reduced from the standard rate to keep system pressure below
+   1.5 MPa. Buffer: 20 mM Tris, 200 mM NaCl, pH 8.0 with 0.02 % sodium azide,
+   filtered through 0.45 µm and degassed 30 min. Fractions into 96-well plates
+   and pooled by peak.</p>
+<div class="admonition caution">
+<p class="admonition-title">SEC notes</p>
+<p>The fraction collector follows a snake pattern across the plate, so wells are
+counted up or down depending on the row letter.</p>
+<p>Sodium azide is added to the SEC buffer, as buffer without it became
+contaminated with fungi.</p>
+</div>
+<h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Link to this section">#</a></h2>
+<p><strong>SDS-PAGE.</strong> Precast gels, 165 V, 25–40 min. 10–20 µg total protein per lane for
+crude samples. Sample mixed with 4× loading buffer to 1×, 95 °C for 5 min.</p>
+<p><strong>Native PAGE.</strong> Blue Native and clear-native precast gels, no detergent in the
+sample buffer, which preserves assembled shells. The gels are fragile and are
+handled with water on the tray.</p>
+<p><strong>Anti-His immunoblot.</strong> Semi-dry transfer; with the <strong>high molecular weight</strong>
+setting for native gels.</p>
+<p><strong>DLS.</strong> Prometheus Panta and cuvette formats, samples below 1 mg/mL in SEC
+buffer. Protein concentration from A<sub>280</sub> with construct-specific
+extinction coefficients.</p>
+<h2 id="stop-codon-reversion-assay">Stop-codon reversion assay<a class="headerlink" href="#stop-codon-reversion-assay" title="Link to this section">#</a></h2>
+<p>Tests MutaT7 mutagenesis with two reporters: <code>p_m004</code> (kanamycin-resistance
+reporter) and <code>p_m008</code> (chloramphenicol-resistance reporter), each with an early
+stop codon.</p>
+<p>Pick random colonies from selective plates and resuspend in 60 µL 2×YT; three
+independent colonies per experiment serve as biological replicates. Inoculate
+15 µL into 5 mL 2×YT with 50 µg/mL ampicillin and one additive: 1 mM IPTG
+(induced), repressing agent (glucose at 0.5 % for the kanamycin reporter, 1 %
+2,4-diacetylphloroglucinol (DAPG) for the chloramphenicol reporter where the
+selection plasmid is present, 1 % glucose where it is not), or none (basal). Grow
+overnight, plate 50 µL on LB agar with 50 or 200 µg/mL kanamycin, or 25 µg/mL
+chloramphenicol, and count colonies after 48 h at 37 °C
+(<a href="../data/#fig-s13">Fig S13</a>).</p>
+<h2 id="continuous-culture">Continuous culture<a class="headerlink" href="#continuous-culture" title="Link to this section">#</a></h2>
+<p>Planned in a turbidostat (Pioreactor). The passaging and stringency schedule is
+given under <a href="../../project/future/#planned-campaign">planned campaign</a>.</p>
+<h2 id="co-encapsulation-assays">Co-encapsulation assays<a class="headerlink" href="#co-encapsulation-assays" title="Link to this section">#</a></h2>
+<p>Planned for enriched shell alleles. Because the selection is satisfied by capture
+of either the guide or the nuclease, these assays distinguish the two:</p>
+<ul>
+<li><strong>Native PAGE, dual-stained:</strong> nucleic acid and protein in the same lane.</li>
+<li><strong>RNase challenge:</strong> encapsulated RNA is protected and free RNA is degraded.
+  Tetter and co-workers used this assay in their packaging selection. It tests
+  protection and not only binding.</li>
+<li><strong>Native PAGE with a fluorescent cargo, and SEC co-elution</strong> of cargo with the
+  shell peak, for protein loading.</li>
+<li>The stop-codon reversion assay above tests MutaT7 function and does not measure
+  sequestration.</li>
+</ul>
+    </article>
+
+    
+<nav class="pager" aria-label="Page navigation">
+  <a class="pager__link pager__link--prev" href="../constructs/">
+    <span class="pager__dir">Previous</span>
+    <span class="pager__title">Constructs</span>
+  </a>
+  <a class="pager__link pager__link--next" href="../notebook/">
+    <span class="pager__dir">Next</span>
+    <span class="pager__title">Notebook</span>
+  </a>
+</nav>
+  </main>
+
+  <div class="rail">
+    <div class="rail__inner">
+      
+<nav class="toc" aria-labelledby="toc-heading">
+  <h2 class="toc__heading" id="toc-heading">On this page</h2>
+  <ul class="toc__list">
+    <li class="toc__item">
+      <a class="toc__link" href="#strains-and-media">Strains and media</a>
+    </li>
+    <li class="toc__item">
+      <a class="toc__link" href="#transformation-and-recovery">Transformation and recovery</a>
+    </li>
+    <li class="toc__item">
+      <a class="toc__link" href="#cloning">Cloning</a>
+    </li>
+    <li class="toc__item">
+      <a class="toc__link" href="#expression">Expression</a>
+    </li>
+    <li class="toc__item">
+      <a class="toc__link" href="#purification">Purification</a>
+    </li>
+    <li class="toc__item">
+      <a class="toc__link" href="#analysis">Analysis</a>
+    </li>
+    <li class="toc__item">
+      <a class="toc__link" href="#stop-codon-reversion-assay">Stop-codon reversion assay</a>
+    </li>
+    <li class="toc__item">
+      <a class="toc__link" href="#continuous-culture">Continuous culture</a>
+    </li>
+    <li class="toc__item">
+      <a class="toc__link" href="#co-encapsulation-assays">Co-encapsulation assays</a>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </div>
+
+</div>
+
+
+  <footer class="colophon">
+  <div class="colophon__inner">
+
+    <div class="colophon__brand">
+      <span class="colophon__name">Evolution Suisse 2026</span><span class="colophon__tagline">Directed evolution of a protein nanocompartment</span>
+    </div>
+
+    <nav class="colophon__nav" aria-label="Footer">
+      <div class="colophon__group">
+        <h2 class="colophon__grouphead">Project</h2>
+        <ul>
+          <li><a href="../../project/background/">Background</a></li>
+          <li><a href="../../project/design/">Design</a></li>
+          <li><a href="../../project/mechanism/">Mechanism</a></li>
+          <li><a href="../../project/results/">Results</a></li>
+          <li><a href="../../project/future/">Future work</a></li>
+          <li><a href="../../project/references/">References</a></li>
+        </ul>
+      </div>
+      <div class="colophon__group">
+        <h2 class="colophon__grouphead">Lab</h2>
+        <ul>
+          <li><a href="../constructs/">Constructs</a></li>
+          <li><a href="./">Protocols</a></li>
+          <li><a href="../notebook/">Notebook</a></li>
+          <li><a href="../data/">Data</a></li>
+        </ul>
+      </div>
+      <div class="colophon__group">
+        <h2 class="colophon__grouphead">Team</h2>
+        <ul>
+          <li><a href="../../team/attributions/">Attributions</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="colophon__meta">
+      <a class="colophon__edit" href="https://github.com/idec-teams/2026_Evolution_Suisse_2026/blob/main/docs/lab/protocols.md" rel="external">Edit this page</a>
+      <p class="colophon__legal">Copyright &copy; 2026 iDEC. CC-BY-4.0 &middot; The International Directed Evolution Competition (iDEC) is a Scottish Charitable Incorporated Organisation (SCIO), registered in Scotland, charity number SC050826.</p>
+      <p class="colophon__built">
+        Built 2026-10-06 with
+        <a href="https://www.mkdocs.org/" rel="external">MkDocs</a>.
+      </p>
+    </div>
+
+  </div>
+</footer>
+  <div class="searchmodal" id="searchmodal" hidden data-search-modal>
+  <div class="searchmodal__scrim" data-search-close></div>
+  <div class="searchmodal__panel" role="dialog" aria-modal="true" aria-labelledby="searchmodal-label">
+    <h2 class="u-visually-hidden" id="searchmodal-label">Search this wiki</h2>
+
+    <div class="searchmodal__field">
+      <svg class="searchmodal__icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="6"/><path d="M13.5 13.5 18 18"/></svg>
+      <input type="search" id="mkdocs-search-query" placeholder="Search pages…" autocomplete="off" spellcheck="false">
+      <button class="searchmodal__close" type="button" data-search-close aria-label="Close search">Esc</button>
+    </div>
+
+    <div class="searchmodal__results" id="mkdocs-search-results" data-no-results-text="No pages matched that query."></div>
+  </div>
+</div>
+
+  <script type="module" src="../../js/app.js"></script><script src="../../search/main.js"></script>
+
+  
+</body>
+</html>

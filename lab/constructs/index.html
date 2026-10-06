@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Constructs · Evolution Suisse 2026</title>
+
+  <meta name="description" content="Continuous directed evolution of QtEncapsulin nanocompartments for programmable mRNA and protein cargo loading. iDEC 2026, Evolution Suisse.">
+  <meta name="author" content="Evolution Suisse 2026">
+  <link rel="canonical" href="https://idec-teams.github.io/2026_Evolution_Suisse_2026/lab/constructs/"><script>document.documentElement.classList.replace('no-js','js');</script>
+
+  <link rel="icon" href="../../img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../css/fonts.css">
+  <link rel="stylesheet" href="../../css/tokens.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/layout.css">
+  <link rel="stylesheet" href="../../css/nav.css">
+  <link rel="stylesheet" href="../../css/content.css">
+  <link rel="stylesheet" href="../../css/syntax.css">
+  <link rel="stylesheet" href="../../css/home.css">
+  <link rel="stylesheet" href="../../css/search.css">
+
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../fonts/plex/regular.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../fonts/plex/semibold.woff2"><script>var base_url = "../..";</script>
+
+  
+  
+</head>
+
+<body class="page--doc"
+      data-page="lab/constructs/">
+
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="masthead" data-masthead>
+  <div class="masthead__inner">
+
+    <a class="brand" href="../..">
+      <span class="brand__logo">
+        <img src="../../img/evolution-suisse.png" alt="Evolution Suisse" width="225" height="225">
+      </span>
+      <span class="brand__text">
+        <span class="brand__year">2026</span>
+      </span>
+    </a>
+
+    <nav class="topnav" aria-label="Sections">
+      <ul class="topnav__list">
+        <li class="topnav__item"><a class="topnav__link" href="../../project/">Project</a></li>
+        <li class="topnav__item"><a class="topnav__link is-active" href="../">Lab</a></li>
+        <li class="topnav__item"><a class="topnav__link" href="../../team/">Team</a></li>
+      </ul>
+    </nav>
+
+    <div class="masthead__actions">
+      <button class="iconbtn" type="button" data-search-open aria-label="Search" title="Search">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="6"/><path d="M13.5 13.5 18 18"/></svg>
+      </button>
+      <a class="iconbtn" href="https://github.com/idec-teams/2026_Evolution_Suisse_2026" rel="external" aria-label="Source repository" title="Source repository">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M7.5 16.5c-3.5 1-3.5-2-5-2.5m10 4.5v-2.9c0-.8.1-1.2-.4-1.6 2.3-.3 4.4-1.1 4.4-5a3.9 3.9 0 0 0-1-2.7 3.6 3.6 0 0 0-.1-2.7s-.9-.3-2.9 1.1a9.9 9.9 0 0 0-5 0C5.4 3.3 4.5 3.6 4.5 3.6a3.6 3.6 0 0 0-.1 2.7 3.9 3.9 0 0 0-1 2.7c0 3.9 2.1 4.7 4.4 5-.3.3-.4.7-.4 1.2v3.1"/></svg>
+      </a>
+      <button class="iconbtn iconbtn--menu" type="button" data-drawer-toggle aria-expanded="false" aria-controls="sidebar" aria-label="Open navigation">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M3 6h14M3 10h14M3 14h14"/></svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+  
+<div class="shell">
+
+  <aside class="sidebar" id="sidebar" data-drawer>
+    <div class="sidebar__inner">
+      <nav class="nav" aria-label="Site navigation">
+        
+<ul class="nav__list nav__list--l1">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../..">Home</a>
+      </li>
+      <li class="nav__section">
+        <span class="nav__label">Project</span>
+<ul class="nav__list nav__list--l2">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../project/">Project</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../project/background/">Background</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../project/design/">Design</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../project/mechanism/">Mechanism</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../project/results/">Results</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../project/future/">Future work</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../project/references/">References</a>
+      </li>
+</ul>
+
+      </li>
+      <li class="nav__section is-active">
+        <span class="nav__label">Lab</span>
+<ul class="nav__list nav__list--l2">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../">Lab</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link is-current"
+           href="./" aria-current="page">Constructs</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../protocols/">Protocols</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../notebook/">Notebook</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../data/">Data</a>
+      </li>
+</ul>
+
+      </li>
+      <li class="nav__section">
+        <span class="nav__label">Team</span>
+<ul class="nav__list nav__list--l2">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../team/">Team and sponsors</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../team/attributions/">Attributions</a>
+      </li>
+</ul>
+
+      </li>
+</ul>
+
+      </nav>
+    </div>
+  </aside>
+  <div class="drawer-scrim" data-drawer-close hidden></div>
+
+  <main class="doc" id="content" tabindex="-1">
+    
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <ol class="breadcrumb__list">
+    <li class="breadcrumb__item"><a href="../..">Home</a></li>
+    <li class="breadcrumb__item"><span>Lab</span>
+    </li>
+    <li class="breadcrumb__item breadcrumb__item--current" aria-current="page">Constructs</li>
+  </ol>
+</nav>
+
+    <article class="prose">
+      <h1 id="constructs">Constructs<a class="headerlink" href="#constructs" title="Link to this section">#</a></h1>
+<p>Constructs and their status. The design is described under
+<a href="../../project/design/">Design</a> and <a href="../../project/mechanism/">Mechanism</a>; the full
+inventory with backbones and markers is <a href="../data/#table-s1">Table S1</a>.</p>
+<h2 id="shell-expression-plasmids">Shell expression plasmids<a class="headerlink" href="#shell-expression-plasmids" title="Link to this section">#</a></h2>
+<p>All in pET-Duet-1 (ampicillin). The shell carries a lumenal λN⁺ peptide (GS
+linker) as RNA handle; TP is the outer-surface targeting peptide.</p>
+<table>
+<thead>
+<tr>
+<th>Construct</th>
+<th>Shell</th>
+<th>Second cassette</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>p_f008</code></td>
+<td>QtEnc, no His-tag or TP</td>
+<td>—</td>
+<td>Verified</td>
+</tr>
+<tr>
+<td><code>p_f009</code></td>
+<td>QtEnc + TP</td>
+<td>—</td>
+<td>Verified</td>
+</tr>
+<tr>
+<td><code>p_f010</code></td>
+<td>QtEnc (boxBr + λN)</td>
+<td>mScarlet (FLAG + boxBr)</td>
+<td>Verified</td>
+</tr>
+<tr>
+<td><code>p_f011</code></td>
+<td>QtEnc (boxBr + λN + TP)</td>
+<td>mScarlet (FLAG + boxBr)</td>
+<td>Verified</td>
+</tr>
+<tr>
+<td><code>p_f012</code>–<code>p_f017</code></td>
+<td>six combinations of boxBr, λN and TP</td>
+<td>dCas9 (FLAG + IMEF + boxBr)</td>
+<td>In assembly</td>
+</tr>
+</tbody>
+</table>
+<p>mScarlet (26.7 kDa) is a fluorescent cargo reporter used to follow co-elution
+with the shell peak. Masses used for gel interpretation:</p>
+<table>
+<thead>
+<tr>
+<th>Species</th>
+<th>Mass</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>QtEncapsulin monomer</td>
+<td>32.2 kDa</td>
+</tr>
+<tr>
+<td>QtEncapsulin + peptide fusion</td>
+<td>34.1 kDa</td>
+</tr>
+<tr>
+<td>mScarlet</td>
+<td>26.7 kDa</td>
+</tr>
+<tr>
+<td>Assembled T=4 shell</td>
+<td>~7.7 MDa</td>
+</tr>
+</tbody>
+</table>
+<h2 id="mutation-plasmids">Mutation plasmids<a class="headerlink" href="#mutation-plasmids" title="Link to this section">#</a></h2>
+<p>Built on the MutaT7 backbones <span class="chip">pDB004</span> and
+<span class="chip">pDB006</span>. The QtEnc open reading frame sits between a T7
+promoter and terminator.</p>
+<table>
+<thead>
+<tr>
+<th>Construct</th>
+<th>Content</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>p_m005</code></td>
+<td>QtEnc, no TP or His-tag</td>
+<td>Verified</td>
+</tr>
+<tr>
+<td><code>p_m006</code></td>
+<td>QtEnc + TP</td>
+<td>Verified</td>
+</tr>
+<tr>
+<td><code>p_m007</code></td>
+<td>QtEnc + TP + His-tag</td>
+<td>Verified</td>
+</tr>
+<tr>
+<td><code>p_m004</code>, <code>p_m008</code></td>
+<td>stop-codon reporters for MutaT7 validation</td>
+<td>Verified</td>
+</tr>
+</tbody>
+</table>
+<h2 id="selection-plasmids">Selection plasmids<a class="headerlink" href="#selection-plasmids" title="Link to this section">#</a></h2>
+<p>pSC101 backbone (kanamycin, plus a tetracycline-resistance cassette for
+assembly), built by Golden Gate from five parts. dCas9 and the sgRNA are under
+VanR<sup>AM</sup> and PhlF<sup>AM</sup> control.</p>
+<table>
+<thead>
+<tr>
+<th>Construct</th>
+<th>Complementarity</th>
+<th>Role</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>p_s002_NT_TcR</code></td>
+<td>none</td>
+<td>Non-targeting control, unrepressed output</td>
+<td>In assembly</td>
+</tr>
+<tr>
+<td><code>p_s002_10nt_TcR</code></td>
+<td>10 nt</td>
+<td>Weakest repression</td>
+<td>In assembly</td>
+</tr>
+<tr>
+<td><code>p_s002_11nt_TcR</code></td>
+<td>11 nt</td>
+<td></td>
+<td>In assembly</td>
+</tr>
+<tr>
+<td><code>p_s002_14nt_TcR</code></td>
+<td>14 nt</td>
+<td></td>
+<td>In assembly</td>
+</tr>
+<tr>
+<td><code>p_s002_17nt_TcR</code></td>
+<td>17 nt</td>
+<td></td>
+<td>In assembly</td>
+</tr>
+<tr>
+<td><code>p_s002_20nt_TcR</code></td>
+<td>20 nt</td>
+<td>Full complementarity, strongest repression</td>
+<td>In assembly</td>
+</tr>
+</tbody>
+</table>
+<p>Four of five junctions form in two independent reactions; the TcR-to-backbone
+junction is the open step (<a href="../data/#table-s2">Table S2</a>,
+<a href="../../project/results/#outlook">outlook</a>).</p>
+<figure class="report narrow">
+<p><a href="../../img/report/s3-plasmid-maps-light.png"><img alt="Plasmid maps" src="../../img/report/s3-plasmid-maps-light.png" /></a></p>
+<p><strong>Fig 1.</strong> Maps of <code>p_f008</code> (<strong>a</strong>), <code>p_f011</code> (<strong>b</strong>), <code>p_m005</code> (<strong>c</strong>) and the
+selection plasmid <code>s_002_TcR_creT_v2</code> (<strong>d</strong>).</p>
+</figure>
+<figure class="report wide">
+<p><a href="../../img/report/s2-sgrna-light.png"><img alt="sgRNA sequence with spacer and boxB insertion sites" src="../../img/report/s2-sgrna-light.png" /></a></p>
+<p><strong>Fig 2.</strong> KanR-targeting sgRNA with the spacer and the boxB insertion sites in
+the scaffold.</p>
+</figure>
+<h2 id="handles">Handles<a class="headerlink" href="#handles" title="Link to this section">#</a></h2>
+<p><strong>Protein.</strong> dCas9 carries the cargo-loading peptide (IMEF) at its C-terminus;
+the core motif is five residues, <code>TVGSL</code>.</p>
+<p><strong>RNA.</strong> boxB hairpins in the sgRNA stem-loop and tetraloop, caught by λN⁺ on the
+shell interior. A known lysine-to-arginine substitution in λN⁺ raises boxB
+affinity roughly threefold if capture proves too weak.</p>
+<h2 id="controls">Controls<a class="headerlink" href="#controls" title="Link to this section">#</a></h2>
+<ul>
+<li><strong>Non-targeting guide</strong> (<code>s002_NT</code>): defines the unrepressed output. Survival at
+  a kanamycin dose it cannot tolerate indicates a resistance mechanism
+  independent of the selection.</li>
+<li><strong>Shell-free:</strong> dCas9 and guide without encapsulin. Defines maximal repression
+  without rescue.</li>
+<li><strong>Handle-free shell:</strong> no λN graft and no CLP on dCas9. Separates handle-mediated
+  capture from non-specific sequestration.</li>
+<li><strong>Single-handle constructs:</strong> λN without the CLP, and the converse
+  (<code>p_f014</code>–<code>p_f017</code>). They show which arm of the
+  <a href="../../project/design/">OR gate</a> is responsible for any rescue.</li>
+</ul>
+<h2 id="provenance">Provenance<a class="headerlink" href="#provenance" title="Link to this section">#</a></h2>
+<p>Addgene: <code>pdCas9-bacteria</code> (dCas9), <code>pSC101-T7-T3RNAP</code> and the pDB series (MutaT7).
+Synthetic fragments from Twist Bioscience. Maps and sequences are kept in
+Benchling; see <a href="../../team/attributions/">Attributions</a>.</p>
+    </article>
+
+    
+<nav class="pager" aria-label="Page navigation">
+  <a class="pager__link pager__link--prev" href="../">
+    <span class="pager__dir">Previous</span>
+    <span class="pager__title">Lab</span>
+  </a>
+  <a class="pager__link pager__link--next" href="../protocols/">
+    <span class="pager__dir">Next</span>
+    <span class="pager__title">Protocols</span>
+  </a>
+</nav>
+  </main>
+
+  <div class="rail">
+    <div class="rail__inner">
+      
+<nav class="toc" aria-labelledby="toc-heading">
+  <h2 class="toc__heading" id="toc-heading">On this page</h2>
+  <ul class="toc__list">
+    <li class="toc__item">
+      <a class="toc__link" href="#shell-expression-plasmids">Shell expression plasmids</a>
+    </li>
+    <li class="toc__item">
+      <a class="toc__link" href="#mutation-plasmids">Mutation plasmids</a>
+    </li>
+    <li class="toc__item">
+      <a class="toc__link" href="#selection-plasmids">Selection plasmids</a>
+    </li>
+    <li class="toc__item">
+      <a class="toc__link" href="#handles">Handles</a>
+    </li>
+    <li class="toc__item">
+      <a class="toc__link" href="#controls">Controls</a>
+    </li>
+    <li class="toc__item">
+      <a class="toc__link" href="#provenance">Provenance</a>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </div>
+
+</div>
+
+
+  <footer class="colophon">
+  <div class="colophon__inner">
+
+    <div class="colophon__brand">
+      <span class="colophon__name">Evolution Suisse 2026</span><span class="colophon__tagline">Directed evolution of a protein nanocompartment</span>
+    </div>
+
+    <nav class="colophon__nav" aria-label="Footer">
+      <div class="colophon__group">
+        <h2 class="colophon__grouphead">Project</h2>
+        <ul>
+          <li><a href="../../project/background/">Background</a></li>
+          <li><a href="../../project/design/">Design</a></li>
+          <li><a href="../../project/mechanism/">Mechanism</a></li>
+          <li><a href="../../project/results/">Results</a></li>
+          <li><a href="../../project/future/">Future work</a></li>
+          <li><a href="../../project/references/">References</a></li>
+        </ul>
+      </div>
+      <div class="colophon__group">
+        <h2 class="colophon__grouphead">Lab</h2>
+        <ul>
+          <li><a href="./">Constructs</a></li>
+          <li><a href="../protocols/">Protocols</a></li>
+          <li><a href="../notebook/">Notebook</a></li>
+          <li><a href="../data/">Data</a></li>
+        </ul>
+      </div>
+      <div class="colophon__group">
+        <h2 class="colophon__grouphead">Team</h2>
+        <ul>
+          <li><a href="../../team/attributions/">Attributions</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="colophon__meta">
+      <a class="colophon__edit" href="https://github.com/idec-teams/2026_Evolution_Suisse_2026/blob/main/docs/lab/constructs.md" rel="external">Edit this page</a>
+      <p class="colophon__legal">Copyright &copy; 2026 iDEC. CC-BY-4.0 &middot; The International Directed Evolution Competition (iDEC) is a Scottish Charitable Incorporated Organisation (SCIO), registered in Scotland, charity number SC050826.</p>
+      <p class="colophon__built">
+        Built 2026-10-06 with
+        <a href="https://www.mkdocs.org/" rel="external">MkDocs</a>.
+      </p>
+    </div>
+
+  </div>
+</footer>
+  <div class="searchmodal" id="searchmodal" hidden data-search-modal>
+  <div class="searchmodal__scrim" data-search-close></div>
+  <div class="searchmodal__panel" role="dialog" aria-modal="true" aria-labelledby="searchmodal-label">
+    <h2 class="u-visually-hidden" id="searchmodal-label">Search this wiki</h2>
+
+    <div class="searchmodal__field">
+      <svg class="searchmodal__icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="6"/><path d="M13.5 13.5 18 18"/></svg>
+      <input type="search" id="mkdocs-search-query" placeholder="Search pages…" autocomplete="off" spellcheck="false">
+      <button class="searchmodal__close" type="button" data-search-close aria-label="Close search">Esc</button>
+    </div>
+
+    <div class="searchmodal__results" id="mkdocs-search-results" data-no-results-text="No pages matched that query."></div>
+  </div>
+</div>
+
+  <script type="module" src="../../js/app.js"></script><script src="../../search/main.js"></script>
+
+  
+</body>
+</html>

@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Mechanism · Evolution Suisse 2026</title>
+
+  <meta name="description" content="Continuous directed evolution of QtEncapsulin nanocompartments for programmable mRNA and protein cargo loading. iDEC 2026, Evolution Suisse.">
+  <meta name="author" content="Evolution Suisse 2026">
+  <link rel="canonical" href="https://idec-teams.github.io/2026_Evolution_Suisse_2026/project/mechanism/"><script>document.documentElement.classList.replace('no-js','js');</script>
+
+  <link rel="icon" href="../../img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../css/fonts.css">
+  <link rel="stylesheet" href="../../css/tokens.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/layout.css">
+  <link rel="stylesheet" href="../../css/nav.css">
+  <link rel="stylesheet" href="../../css/content.css">
+  <link rel="stylesheet" href="../../css/syntax.css">
+  <link rel="stylesheet" href="../../css/home.css">
+  <link rel="stylesheet" href="../../css/search.css">
+
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../fonts/plex/regular.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../fonts/plex/semibold.woff2"><script>var base_url = "../..";</script>
+
+  
+  
+</head>
+
+<body class="page--doc"
+      data-page="project/mechanism/">
+
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="masthead" data-masthead>
+  <div class="masthead__inner">
+
+    <a class="brand" href="../..">
+      <span class="brand__logo">
+        <img src="../../img/evolution-suisse.png" alt="Evolution Suisse" width="225" height="225">
+      </span>
+      <span class="brand__text">
+        <span class="brand__year">2026</span>
+      </span>
+    </a>
+
+    <nav class="topnav" aria-label="Sections">
+      <ul class="topnav__list">
+        <li class="topnav__item"><a class="topnav__link is-active" href="../">Project</a></li>
+        <li class="topnav__item"><a class="topnav__link" href="../../lab/">Lab</a></li>
+        <li class="topnav__item"><a class="topnav__link" href="../../team/">Team</a></li>
+      </ul>
+    </nav>
+
+    <div class="masthead__actions">
+      <button class="iconbtn" type="button" data-search-open aria-label="Search" title="Search">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="6"/><path d="M13.5 13.5 18 18"/></svg>
+      </button>
+      <a class="iconbtn" href="https://github.com/idec-teams/2026_Evolution_Suisse_2026" rel="external" aria-label="Source repository" title="Source repository">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M7.5 16.5c-3.5 1-3.5-2-5-2.5m10 4.5v-2.9c0-.8.1-1.2-.4-1.6 2.3-.3 4.4-1.1 4.4-5a3.9 3.9 0 0 0-1-2.7 3.6 3.6 0 0 0-.1-2.7s-.9-.3-2.9 1.1a9.9 9.9 0 0 0-5 0C5.4 3.3 4.5 3.6 4.5 3.6a3.6 3.6 0 0 0-.1 2.7 3.9 3.9 0 0 0-1 2.7c0 3.9 2.1 4.7 4.4 5-.3.3-.4.7-.4 1.2v3.1"/></svg>
+      </a>
+      <button class="iconbtn iconbtn--menu" type="button" data-drawer-toggle aria-expanded="false" aria-controls="sidebar" aria-label="Open navigation">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M3 6h14M3 10h14M3 14h14"/></svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+  
+<div class="shell">
+
+  <aside class="sidebar" id="sidebar" data-drawer>
+    <div class="sidebar__inner">
+      <nav class="nav" aria-label="Site navigation">
+        
+<ul class="nav__list nav__list--l1">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../..">Home</a>
+      </li>
+      <li class="nav__section is-active">
+        <span class="nav__label">Project</span>
+<ul class="nav__list nav__list--l2">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../">Project</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../background/">Background</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../design/">Design</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link is-current"
+           href="./" aria-current="page">Mechanism</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../results/">Results</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../future/">Future work</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../references/">References</a>
+      </li>
+</ul>
+
+      </li>
+      <li class="nav__section">
+        <span class="nav__label">Lab</span>
+<ul class="nav__list nav__list--l2">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../lab/">Lab</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../lab/constructs/">Constructs</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../lab/protocols/">Protocols</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../lab/notebook/">Notebook</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../lab/data/">Data</a>
+      </li>
+</ul>
+
+      </li>
+      <li class="nav__section">
+        <span class="nav__label">Team</span>
+<ul class="nav__list nav__list--l2">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../team/">Team and sponsors</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="../../team/attributions/">Attributions</a>
+      </li>
+</ul>
+
+      </li>
+</ul>
+
+      </nav>
+    </div>
+  </aside>
+  <div class="drawer-scrim" data-drawer-close hidden></div>
+
+  <main class="doc" id="content" tabindex="-1">
+    
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <ol class="breadcrumb__list">
+    <li class="breadcrumb__item"><a href="../..">Home</a></li>
+    <li class="breadcrumb__item"><span>Project</span>
+    </li>
+    <li class="breadcrumb__item breadcrumb__item--current" aria-current="page">Mechanism</li>
+  </ol>
+</nav>
+
+    <article class="prose">
+      
+  
+  
+  <h1 id="mechanism">Mechanism<a class="headerlink" href="#mechanism" title="Link to this section">#</a></h1>
+<p>Our CRISPRi-based continuous selection is designed to evolve protein
+nanocompartments. By coupling cargo sequestration to the restoration of
+kanamycin resistance, it uses cell growth to select for improved capture.</p>
+<p>The continuous evolution campaign has not yet been run. Capturing either dCas9
+or its sgRNA can restore resistance; this selection does not by itself
+demonstrate co-encapsulation.</p>
+
+    <section class="scrolly mechanism-story wide" data-scrolly data-scrolly-scene="cell-scene"
+           aria-labelledby="selection-walkthrough">
+    <h2 class="u-visually-hidden" id="selection-walkthrough">How the selection works</h2>
+
+    <div class="scrolly__stage" data-scrolly-stage>
+      <div class="scrolly__viewport">
+        <canvas class="scrolly__canvas" data-scrolly-canvas aria-hidden="true"></canvas>
+        <div class="scrolly__svg" data-scrolly-svg aria-hidden="true"></div>
+        <p class="scrolly__actlabel" data-scrolly-label aria-hidden="true"></p>
+      </div>
+    </div>
+
+    <div class="scrolly__panels">
+
+      <section class="act" data-act="silence">
+        <div class="mechanism-still" data-figure="cell-scene" data-act-index="0" role="img" aria-label="dCas9 and guide RNA repress the resistance gene."></div>
+        <p class="act__num">01</p>
+        <h3 class="act__title">Silence</h3>
+        <p class="act__lede">dCas9 binds inside the resistance gene and throttles it.</p>
+        <p>A catalytically dead Cas9, guided into the kanamycin-resistance ORF,
+        obstructs rather than cuts. Elongating RNA polymerase collides with the
+        R-loop, is delayed, and eventually displaces it.</p>
+        <p>By targeting the gene's ORF rather than its promoter, dCas9 reduces
+        resistance instead of switching it off completely. This creates a graded
+        response. We choose the guide to bring resistance just below the threshold
+        needed to grow in kanamycin.</p>
+        <p class="act__caption">Fig 1. dCas9·sgRNA bound in the resistance ORF.</p>
+      </section>
+
+      <section class="act" data-act="diversify">
+        <div class="mechanism-still" data-figure="cell-scene" data-act-index="1" role="img" aria-label="MutaT7 targets mutation to the encapsulin cassette."></div>
+        <p class="act__num">02</p>
+        <h3 class="act__title">Diversify</h3>
+        <p class="act__lede">MutaT7 targets mutation to the shell cassette.</p>
+        <p>A cytidine deaminase fused to T7 RNA polymerase mutates processively from
+        a T7 promoter to its terminator. The encapsulin ORF is the only sequence
+        inside that window.</p>
+        <p>The host genome lies outside the targeted mutation window; background
+        replication errors remain possible.
+        Diversity accumulates in growing culture — no transformation rounds, no step
+        performed in a tube.</p>
+        <p class="act__caption">Fig 2. T7 polymerase tracking the encapsulin cassette, leaving deamination events behind it.</p>
+      </section>
+
+      <section class="act" data-act="encapsulate">
+        <div class="mechanism-still" data-figure="cell-scene" data-act-index="2" role="img" aria-label="Capturing either cargo component can restore resistance."></div>
+        <p class="act__num">03</p>
+        <h3 class="act__title">Encapsulate</h3>
+        <p class="act__lede">A shell that captures the repressor restores resistance.</p>
+        <p>240 subunits assemble into a T=4 compartment 42 nm across. dCas9 carries
+        the encapsulin's native cargo-loading peptide; the sgRNA carries a boxB
+        hairpin, caught by a &lambda;N peptide grafted onto the inner surface.
+        Capturing either half clears the gene.</p>
+        <p>Growth rate is then a readout of encapsulation efficiency, and continuous
+        culture integrates that margin over many generations. Raising the kanamycin
+        concentration between passages raises the fraction that must be captured.</p>
+        <p class="act__caption">Fig 3. Assembly around the repressor complex. Molecular sizes are to scale relative to each other; the cell and plasmids are schematic. ChimeraX molecular views remain fixed as the shell rotates. PDB 5F9R illustrates the Cas9 fold; engineered fusions are not modeled.</p>
+      </section>
+
+    </div>
+  </section>
+  
+
+<h2 id="the-circuit">The circuit<a class="headerlink" href="#the-circuit" title="Link to this section">#</a></h2>
+<p>A catalytically dead Cas9 (<abbr title="nuclease-deficient Cas9">dCas9</abbr>) is
+directed by an sgRNA into the <strong>open reading frame (ORF) of the
+kanamycin-resistance gene</strong> on the selection plasmid. It obstructs transcription
+without cleaving DNA. The guide is chosen to lower resistance just below the
+threshold needed for growth at the selected kanamycin concentration.</p>
+<h2 id="position-of-the-guide">Position of the guide<a class="headerlink" href="#position-of-the-guide" title="Link to this section">#</a></h2>
+<p>Unlike standard promoter-targeting CRISPRi, <strong>our circuit targets the ORF</strong> to
+produce the graded repression needed for continuous selection. The two target
+positions differ:<sup id="fnref:vig"><a class="footnote-ref" href="#fn:vig">1</a></sup></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Target in the promoter</th>
+<th>Target inside the ORF</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mechanism</td>
+<td>RNA polymerase cannot bind an occupied promoter</td>
+<td>RNA polymerase collides with the R-loop and can displace dCas9</td>
+</tr>
+<tr>
+<td>Escape route</td>
+<td>diffusion only</td>
+<td>processive read-through</td>
+</tr>
+<tr>
+<td>Repression</td>
+<td>near-absolute</td>
+<td>partial</td>
+</tr>
+<tr>
+<td>Depends on [dCas9]?</td>
+<td>yes</td>
+<td><strong>no</strong>, once the target is saturated</td>
+</tr>
+<tr>
+<td>Tunable by guide length?</td>
+<td>weakly</td>
+<td><strong>yes, continuously</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Inside a gene body, the complementarity between guide and target sets the
+probability that RNA polymerase displaces dCas9 during a transcription attempt,
+while spontaneous unbinding is negligible. Expression is</p>
+<div class="arithmatex">\[
+c = c_0\left[1 - P(\text{stop})\,P(\text{bound})\right]
+\]</div>
+<p>Here, <span class="arithmatex">\(c\)</span> is the expression level under repression, <span class="arithmatex">\(c_0\)</span> is the unrepressed
+expression level, <span class="arithmatex">\(P(\text{bound})\)</span> is the probability that dCas9 occupies the
+target site, and <span class="arithmatex">\(P(\text{stop})\)</span> is the probability that an occupied site stops
+an approaching RNA polymerase.</p>
+<p>Once dCas9 saturates the site, <span class="arithmatex">\(P(\text{bound}) \to 1\)</span> and relative expression
+<span class="arithmatex">\(c/c_0\)</span> equals the <strong>passage probability</strong>, <span class="arithmatex">\(r\)</span>:</p>
+<div class="arithmatex">\[
+r = 1 - P(\text{stop})
+\]</div>
+<p>The passage probability is the fraction of transcription attempts that pass the
+dCas9 roadblock. In this model it is set by guide–target complementarity.
+Reported values range
+from <span class="arithmatex">\(r = 0.026 \pm 0.003\)</span> at full complementarity to <span class="arithmatex">\(0.056 \pm 0.001\)</span> with six
+mismatches.</p>
+<h3 id="graded-readout">Graded readout<a class="headerlink" href="#graded-readout" title="Link to this section">#</a></h3>
+<p>Absolute repression gives a binary live/die outcome without a gradient for
+selection. With partial repression, small improvements in sequestration give
+small improvements in growth rate, and continuous culture accumulates these over
+many generations.</p>
+<h3 id="noise">Noise<a class="headerlink" href="#noise" title="Link to this section">#</a></h3>
+<p>Titrating dCas9 with an inducer introduces substantial cell-to-cell variation in
+the intermediate expression range where selection operates. Our design instead
+aims to keep the DNA target saturated with dCas9 and tune repression through
+guide complementarity. While the site remains saturated, fluctuations in dCas9
+concentration have little effect on resistance-gene expression.</p>
+<p>Vigouroux and colleagues measured approximately constant noise of 0.3 across
+their guide-tuned knockdown range, similar to constitutive genes in wild-type
+<em>E. coli</em>.<sup id="fnref2:vig"><a class="footnote-ref" href="#fn:vig">1</a></sup> Noise here means the standard deviation of single-cell
+expression divided by its mean. This is the basis for our design; noise in our
+selection circuit has not yet been measured.</p>
+<h2 id="regulation">Regulation<a class="headerlink" href="#regulation" title="Link to this section">#</a></h2>
+<p>dCas9 and the sgRNA are under two orthogonal small-molecule-inducible regulators,
+VanR<sup>AM</sup> and PhlF<sup>AM</sup>, which had the largest dynamic range and
+the best orthogonality of the twelve tested.<sup id="fnref:meyer"><a class="footnote-ref" href="#fn:meyer">2</a></sup> Guide complementarity and
+inducer concentration are independent settings: the first sets the passage
+probability, the second the amount of repressor. Both can be changed during
+culture.</p>
+<h2 id="alternative-readout-cret">Alternative readout: creT<a class="headerlink" href="#alternative-readout-cret" title="Link to this section">#</a></h2>
+<p>The same principle can be applied to a toxin. In the archaeal creTA system, the
+creA RNA represses creT, a small RNA toxin that sequesters rare codons. Placing
+the protospacer of the sgRNA in the 5′ UTR of the repressor that controls creT
+gives a positive selection in which encapsulation of dCas9 or the sgRNA relieves
+toxin repression and permits growth (<a href="../../lab/data/#fig-s1">Fig S1</a>).
+Chen <em>et al.</em> used a creT-based selection to evolve Cas12a.<sup id="fnref:chen"><a class="footnote-ref" href="#fn:chen">3</a></sup> It is kept as
+an alternative to the <em>kanR</em> circuit.</p>
+<h2 id="sequestration-restores-expression">Sequestration restores expression<a class="headerlink" href="#sequestration-restores-expression" title="Link to this section">#</a></h2>
+<p>The 240 encapsulin subunits assemble into a T=4 icosahedral compartment of 42 nm,
+about twice the span of the complex. Either component can be captured: dCas9
+through a cargo-loading peptide, or the sgRNA through a boxB hairpin (see
+<a href="../design/">Design</a> for the OR gate).</p>
+<figure class="report wide">
+<p><a href="../../img/report/fig2-kanr.webp"><img alt="KanR selection strategy" src="../../img/report/fig2-kanr.webp" /></a></p>
+<p><strong>Fig 4.</strong> <strong>(a) Weak or absent encapsulation:</strong> free dCas9·sgRNA represses
+<em>kanR</em>; KanR is off and the cell is kanamycin-sensitive. <strong>(b) Improved
+encapsulation:</strong> capture of dCas9 or its sgRNA relieves repression; KanR is on
+and resistance is restored. Full caption under
+<a href="../results/#32-an-encapsulation-coupled-selection">Results</a>.</p>
+</figure>
+<h2 id="the-two-stringency-knobs">The two stringency knobs<a class="headerlink" href="#the-two-stringency-knobs" title="Link to this section">#</a></h2>
+<p>Selection stringency is set by the guide length and the kanamycin concentration.</p>
+<p><strong>Guide length sets the baseline.</strong> A truncation series (non-targeting, 10, 11,
+14, 17 and 20 nt of complementarity) covers a range of passage probabilities. The
+working guide is the one whose unrescued residual resistance lies just below the
+survival threshold, so that a small improvement in capture determines growth.</p>
+<p><strong>Kanamycin concentration is increased stepwise.</strong> Raising it between passages
+raises the resistance a cell must reach, and therefore the fraction of repressor
+it must sequester. Finer adjustment is possible by replacing the guide with a
+longer one, alone or together with a higher dose.</p>
+<h2 id="constructs">Constructs<a class="headerlink" href="#constructs" title="Link to this section">#</a></h2>
+<p>The circuit is split across two compatible plasmids: the <span class="chip">mutation
+plasmid</span>, carrying the MutaT7 machinery and the mutable encapsulin cassette,
+and the <span class="chip">selection plasmid</span>, carrying dCas9, the sgRNA and
+the resistance gene. Maps are on the <a href="../../lab/constructs/">Constructs</a> page.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Mutation plasmid</label><label for="__tabbed_1_2">Selection plasmid</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Carries the MutaT7 RNA polymerase–deaminase fusion and the QtEncapsulin
+open reading frame flanked by a T7 promoter and a T7 terminator. This
+cassette is the only hypermutated sequence in the cell.</p>
+</div>
+<div class="tabbed-block">
+<p>Carries dCas9, the sgRNA cassette and the kanamycin-resistance gene with its
+target site, on a pSC101 backbone outside the T7 transcription unit.</p>
+</div>
+</div>
+</div>
+<details class="caution">
+<summary>Escape routes</summary>
+<p>Any mutation that reduces dCas9 or sgRNA expression restores resistance
+without improving encapsulation and is enriched equally. Both are therefore
+held on the non-mutable plasmid, outside the T7 transcription unit.<sup id="fnref:escape"><a class="footnote-ref" href="#fn:escape">4</a></sup></p>
+<p>Loss of shell expression is the corresponding failure on the mutation
+plasmid. A population whose resistance has recovered while its encapsulin
+cassette carries a frameshift has escaped selection and has not evolved.</p>
+</details>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:vig">
+<p>Vigouroux, Oldewurtel, Cui, Bikard &amp; van Teeffelen, <em>Molecular Systems
+Biology</em> <strong>14</strong>, e7899 (2018),
+<a href="https://doi.org/10.15252/msb.20177899">doi:10.15252/msb.20177899</a>. The
+displacement model, the mismatch titration and the noise measurements are
+from this work.&#160;<a class="footnote-backref" href="#fnref:vig" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:vig" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:meyer">
+<p>Meyer <em>et al.</em>, <em>Nat. Chem. Biol.</em> <strong>15</strong>, 196 (2019).&#160;<a class="footnote-backref" href="#fnref:meyer" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:chen">
+<p>Chen <em>et al.</em>, <em>Adv. Sci.</em> <strong>12</strong>, e17105 (2025).&#160;<a class="footnote-backref" href="#fnref:chen" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:escape">
+<p>This placement protects against hypermutation but not against errors
+of the host polymerase. The selection plasmid is therefore re-sequenced
+periodically during passaging.&#160;<a class="footnote-backref" href="#fnref:escape" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+    </article>
+
+    
+<nav class="pager" aria-label="Page navigation">
+  <a class="pager__link pager__link--prev" href="../design/">
+    <span class="pager__dir">Previous</span>
+    <span class="pager__title">Design</span>
+  </a>
+  <a class="pager__link pager__link--next" href="../results/">
+    <span class="pager__dir">Next</span>
+    <span class="pager__title">Results</span>
+  </a>
+</nav>
+  </main>
+
+  <div class="rail">
+    <div class="rail__inner">
+      
+<nav class="toc" aria-labelledby="toc-heading">
+  <h2 class="toc__heading" id="toc-heading">On this page</h2>
+  <ul class="toc__list">
+    <li class="toc__item">
+      <a class="toc__link" href="#the-circuit">The circuit</a>
+    </li>
+    <li class="toc__item">
+      <a class="toc__link" href="#position-of-the-guide">Position of the guide</a>
+      <ul class="toc__list toc__list--sub">
+        <li class="toc__item"><a class="toc__link" href="#graded-readout">Graded readout</a></li>
+        <li class="toc__item"><a class="toc__link" href="#noise">Noise</a></li>
+      </ul>
+    </li>
+    <li class="toc__item">
+      <a class="toc__link" href="#regulation">Regulation</a>
+    </li>
+    <li class="toc__item">
+      <a class="toc__link" href="#alternative-readout-cret">Alternative readout: creT</a>
+    </li>
+    <li class="toc__item">
+      <a class="toc__link" href="#sequestration-restores-expression">Sequestration restores expression</a>
+    </li>
+    <li class="toc__item">
+      <a class="toc__link" href="#the-two-stringency-knobs">The two stringency knobs</a>
+    </li>
+    <li class="toc__item">
+      <a class="toc__link" href="#constructs">Constructs</a>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </div>
+
+</div>
+
+
+  <footer class="colophon">
+  <div class="colophon__inner">
+
+    <div class="colophon__brand">
+      <span class="colophon__name">Evolution Suisse 2026</span><span class="colophon__tagline">Directed evolution of a protein nanocompartment</span>
+    </div>
+
+    <nav class="colophon__nav" aria-label="Footer">
+      <div class="colophon__group">
+        <h2 class="colophon__grouphead">Project</h2>
+        <ul>
+          <li><a href="../background/">Background</a></li>
+          <li><a href="../design/">Design</a></li>
+          <li><a href="./">Mechanism</a></li>
+          <li><a href="../results/">Results</a></li>
+          <li><a href="../future/">Future work</a></li>
+          <li><a href="../references/">References</a></li>
+        </ul>
+      </div>
+      <div class="colophon__group">
+        <h2 class="colophon__grouphead">Lab</h2>
+        <ul>
+          <li><a href="../../lab/constructs/">Constructs</a></li>
+          <li><a href="../../lab/protocols/">Protocols</a></li>
+          <li><a href="../../lab/notebook/">Notebook</a></li>
+          <li><a href="../../lab/data/">Data</a></li>
+        </ul>
+      </div>
+      <div class="colophon__group">
+        <h2 class="colophon__grouphead">Team</h2>
+        <ul>
+          <li><a href="../../team/attributions/">Attributions</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="colophon__meta">
+      <a class="colophon__edit" href="https://github.com/idec-teams/2026_Evolution_Suisse_2026/blob/main/docs/project/mechanism.md" rel="external">Edit this page</a>
+      <p class="colophon__legal">Copyright &copy; 2026 iDEC. CC-BY-4.0 &middot; The International Directed Evolution Competition (iDEC) is a Scottish Charitable Incorporated Organisation (SCIO), registered in Scotland, charity number SC050826.</p>
+      <p class="colophon__built">
+        Built 2026-10-06 with
+        <a href="https://www.mkdocs.org/" rel="external">MkDocs</a>.
+      </p>
+    </div>
+
+  </div>
+</footer>
+  <div class="searchmodal" id="searchmodal" hidden data-search-modal>
+  <div class="searchmodal__scrim" data-search-close></div>
+  <div class="searchmodal__panel" role="dialog" aria-modal="true" aria-labelledby="searchmodal-label">
+    <h2 class="u-visually-hidden" id="searchmodal-label">Search this wiki</h2>
+
+    <div class="searchmodal__field">
+      <svg class="searchmodal__icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="6"/><path d="M13.5 13.5 18 18"/></svg>
+      <input type="search" id="mkdocs-search-query" placeholder="Search pages…" autocomplete="off" spellcheck="false">
+      <button class="searchmodal__close" type="button" data-search-close aria-label="Close search">Esc</button>
+    </div>
+
+    <div class="searchmodal__results" id="mkdocs-search-results" data-no-results-text="No pages matched that query."></div>
+  </div>
+</div>
+
+  <script type="module" src="../../js/app.js"></script><script src="../../search/main.js"></script>
+  <script src="../../js/mathjax-config.js"></script>
+  <script id="MathJax-script" async src="../../js/vendor/tex-mml-svg.js"></script>
+
+  
+</body>
+</html>

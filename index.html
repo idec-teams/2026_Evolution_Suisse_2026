@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Evolution Suisse 2026 · Directed evolution of a protein nanocompartment</title>
+
+  <meta name="description" content="Evolution Suisse 2026 — engineering encapsulin protein cages and planning continuous directed evolution toward RNA and protein co-delivery.">
+  <meta name="author" content="Evolution Suisse 2026">
+  <link rel="canonical" href="https://idec-teams.github.io/2026_Evolution_Suisse_2026/"><script>document.documentElement.classList.replace('no-js','js');</script>
+
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/content.css">
+  <link rel="stylesheet" href="css/syntax.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/search.css">
+
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="fonts/plex/regular.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="fonts/plex/semibold.woff2"><script>var base_url = ".";</script>
+
+  
+  
+</head>
+
+<body class="page--home page--banner"
+      data-page="">
+
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="masthead" data-masthead>
+  <div class="masthead__inner">
+
+    <a class="brand" href=".">
+      <span class="brand__logo">
+        <img src="img/evolution-suisse.png" alt="Evolution Suisse" width="225" height="225">
+      </span>
+      <span class="brand__text">
+        <span class="brand__year">2026</span>
+      </span>
+    </a>
+
+    <nav class="topnav" aria-label="Sections">
+      <ul class="topnav__list">
+        <li class="topnav__item"><a class="topnav__link" href="project/">Project</a></li>
+        <li class="topnav__item"><a class="topnav__link" href="lab/">Lab</a></li>
+        <li class="topnav__item"><a class="topnav__link" href="team/">Team</a></li>
+      </ul>
+    </nav>
+
+    <div class="masthead__actions">
+      <button class="iconbtn" type="button" data-search-open aria-label="Search" title="Search">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="6"/><path d="M13.5 13.5 18 18"/></svg>
+      </button>
+      <a class="iconbtn" href="https://github.com/idec-teams/2026_Evolution_Suisse_2026" rel="external" aria-label="Source repository" title="Source repository">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M7.5 16.5c-3.5 1-3.5-2-5-2.5m10 4.5v-2.9c0-.8.1-1.2-.4-1.6 2.3-.3 4.4-1.1 4.4-5a3.9 3.9 0 0 0-1-2.7 3.6 3.6 0 0 0-.1-2.7s-.9-.3-2.9 1.1a9.9 9.9 0 0 0-5 0C5.4 3.3 4.5 3.6 4.5 3.6a3.6 3.6 0 0 0-.1 2.7 3.9 3.9 0 0 0-1 2.7c0 3.9 2.1 4.7 4.4 5-.3.3-.4.7-.4 1.2v3.1"/></svg>
+      </a>
+      <button class="iconbtn iconbtn--menu" type="button" data-drawer-toggle aria-expanded="false" aria-controls="sidebar" aria-label="Open navigation">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M3 6h14M3 10h14M3 14h14"/></svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+  
+
+<aside class="sidebar home-drawer" id="sidebar" data-drawer>
+  <div class="sidebar__inner"><nav class="nav" aria-label="Site navigation">
+<ul class="nav__list nav__list--l1">
+      <li class="nav__item">
+        <a class="nav__link is-current"
+           href="." aria-current="page">Home</a>
+      </li>
+      <li class="nav__section">
+        <span class="nav__label">Project</span>
+<ul class="nav__list nav__list--l2">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="project/">Project</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="project/background/">Background</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="project/design/">Design</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="project/mechanism/">Mechanism</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="project/results/">Results</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="project/future/">Future work</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="project/references/">References</a>
+      </li>
+</ul>
+
+      </li>
+      <li class="nav__section">
+        <span class="nav__label">Lab</span>
+<ul class="nav__list nav__list--l2">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="lab/">Lab</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="lab/constructs/">Constructs</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="lab/protocols/">Protocols</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="lab/notebook/">Notebook</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="lab/data/">Data</a>
+      </li>
+</ul>
+
+      </li>
+      <li class="nav__section">
+        <span class="nav__label">Team</span>
+<ul class="nav__list nav__list--l2">
+      <li class="nav__item">
+        <a class="nav__link"
+           href="team/">Team and sponsors</a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link"
+           href="team/attributions/">Attributions</a>
+      </li>
+</ul>
+
+      </li>
+</ul>
+</nav></div>
+</aside>
+<div class="drawer-scrim" data-drawer-close hidden></div>
+<main class="overview" id="content" tabindex="-1">
+  <section class="overview-hero" aria-labelledby="delivery-heading">
+    <img class="overview-hero__backdrop" src="img/evolution-suisse-banner.png" alt="" aria-hidden="true" fetchpriority="high">
+    <div class="overview-hero__copy">
+      <p class="overview-kicker">Evolution Suisse · iDEC 2026</p>
+      <h1 id="delivery-heading">Powerful molecules<br><span>need better delivery.</span></h1>
+      <p class="overview-lede">RNA and proteins can perform precise biological tasks. Together they are even more powerful, but their usefulness depends on delivery – if they reach the right cells and become available where they act.</p>
+      <p class="overview-hero__aim">We are engineering protein cages toward carrying RNA and protein together.</p>
+      <div class="delivery-promise" aria-label="Our delivery goals">
+  <ol class="delivery-promise__steps">
+    <li>
+      <svg viewBox="0 0 160 104" aria-hidden="true" focusable="false">
+        <g transform="translate(80 51) scale(0.68)" class="cage cage__rear">
+  
+  <path d="M0.00 -53.80L15.20 -14.33 M0.00 -53.80L-39.80 -18.05 M49.19 -24.06L15.20 -14.33 M15.20 -14.33L-39.80 -18.05 M15.20 -14.33L39.80 30.07 M15.20 -14.33L-15.20 33.79 M-39.80 -18.05L-39.80 -30.07 M-39.80 -18.05L-15.20 33.79 M-39.80 -18.05L-49.19 24.06 M39.80 30.07L-15.20 33.79 M-15.20 33.79L-49.19 24.06 M-15.20 33.79L0.00 53.80"/>
+  
+</g>
+        <image transform="translate(73 44) scale(0.36)" href="img/molecules/cas9-protein.png" x="-58" y="-60" width="116" height="120" preserveAspectRatio="xMidYMid meet"/> <image transform="translate(86 66) scale(0.31)" href="img/molecules/guide-rna.png" x="-49" y="-28" width="110" height="56" preserveAspectRatio="xMidYMid meet"/>
+        <g transform="translate(80 51) scale(0.68)" class="cage">
+  
+  <path d="M0.00 -53.80L15.20 -33.79 M0.00 -53.80L49.19 -24.06 M0.00 -53.80L-39.80 -30.07 M15.20 -33.79L49.19 -24.06 M15.20 -33.79L-39.80 -30.07 M15.20 -33.79L39.80 18.05 M15.20 -33.79L-15.20 14.33 M49.19 -24.06L39.80 18.05 M49.19 -24.06L39.80 30.07 M-39.80 -30.07L-49.19 24.06 M-39.80 -30.07L-15.20 14.33 M39.80 18.05L39.80 30.07 M39.80 18.05L-15.20 14.33 M39.80 18.05L0.00 53.80 M39.80 30.07L0.00 53.80 M-49.19 24.06L-15.20 14.33 M-49.19 24.06L0.00 53.80 M-15.20 14.33L0.00 53.80"/>
+  
+</g>
+      </svg>
+      <span class="delivery-promise__index" aria-hidden="true">01</span>
+      <strong>Protect the<br>cargo.</strong>
+    </li>
+    <li>
+      <svg viewBox="0 0 160 104" aria-hidden="true" focusable="false">
+        <g class="delivery-promise__bystanders"><ellipse cx="97" cy="13" rx="15" ry="10"/><circle cx="99" cy="13" r="4"/><ellipse cx="122" cy="93" rx="17" ry="9"/><circle cx="125" cy="93" r="4"/></g>
+        <g class="delivery-promise__target"><ellipse cx="118" cy="52" rx="28" ry="32"/><ellipse cx="118" cy="52" rx="24" ry="28"/><circle cx="127" cy="50" r="9"/></g>
+        <g transform="translate(31 52) scale(0.36)" class="cage cage__rear">
+  
+  <path d="M0.00 -53.80L15.20 -14.33 M0.00 -53.80L-39.80 -18.05 M49.19 -24.06L15.20 -14.33 M15.20 -14.33L-39.80 -18.05 M15.20 -14.33L39.80 30.07 M15.20 -14.33L-15.20 33.79 M-39.80 -18.05L-39.80 -30.07 M-39.80 -18.05L-15.20 33.79 M-39.80 -18.05L-49.19 24.06 M39.80 30.07L-15.20 33.79 M-15.20 33.79L-49.19 24.06 M-15.20 33.79L0.00 53.80"/>
+  
+</g>
+        <image transform="translate(28 46) scale(0.21)" href="img/molecules/cas9-protein.png" x="-58" y="-60" width="116" height="120" preserveAspectRatio="xMidYMid meet"/> <image transform="translate(35 60) scale(0.18)" href="img/molecules/guide-rna.png" x="-49" y="-28" width="110" height="56" preserveAspectRatio="xMidYMid meet"/>
+        <g transform="translate(31 52) scale(0.36)" class="cage">
+  
+  <path d="M0.00 -53.80L15.20 -33.79 M0.00 -53.80L49.19 -24.06 M0.00 -53.80L-39.80 -30.07 M15.20 -33.79L49.19 -24.06 M15.20 -33.79L-39.80 -30.07 M15.20 -33.79L39.80 18.05 M15.20 -33.79L-15.20 14.33 M49.19 -24.06L39.80 18.05 M49.19 -24.06L39.80 30.07 M-39.80 -30.07L-49.19 24.06 M-39.80 -30.07L-15.20 14.33 M39.80 18.05L39.80 30.07 M39.80 18.05L-15.20 14.33 M39.80 18.05L0.00 53.80 M39.80 30.07L0.00 53.80 M-49.19 24.06L-15.20 14.33 M-49.19 24.06L0.00 53.80 M-15.20 14.33L0.00 53.80"/>
+  
+</g>
+        <g class="delivery-promise__route"><path d="M55 52H82 m-6-5 6 5-6 5"/></g>
+      </svg>
+      <span class="delivery-promise__index" aria-hidden="true">02</span>
+      <strong>Reach the<br>right cells.</strong>
+    </li>
+    <li>
+      <svg viewBox="0 0 160 104" aria-hidden="true" focusable="false">
+        <defs>
+          <clipPath id="promise-shell-left"><rect x="20" y="20" width="33" height="64"/></clipPath>
+          <clipPath id="promise-shell-right"><rect x="53" y="20" width="33" height="64"/></clipPath>
+        </defs>
+        <g class="cell-boundary"><ellipse cx="80" cy="52" rx="68" ry="39"/><ellipse cx="80" cy="52" rx="64" ry="35"/><circle cx="128" cy="47" r="10"/></g>
+        <g transform="translate(-6 0)"><g clip-path="url(#promise-shell-left)"><g transform="translate(53 52) scale(0.43)" class="cage">
+  
+  <path d="M0.00 -53.80L15.20 -33.79 M0.00 -53.80L49.19 -24.06 M0.00 -53.80L-39.80 -30.07 M15.20 -33.79L49.19 -24.06 M15.20 -33.79L-39.80 -30.07 M15.20 -33.79L39.80 18.05 M15.20 -33.79L-15.20 14.33 M49.19 -24.06L39.80 18.05 M49.19 -24.06L39.80 30.07 M-39.80 -30.07L-49.19 24.06 M-39.80 -30.07L-15.20 14.33 M39.80 18.05L39.80 30.07 M39.80 18.05L-15.20 14.33 M39.80 18.05L0.00 53.80 M39.80 30.07L0.00 53.80 M-49.19 24.06L-15.20 14.33 M-49.19 24.06L0.00 53.80 M-15.20 14.33L0.00 53.80"/>
+  
+</g></g></g>
+        <g transform="translate(6 0)"><g clip-path="url(#promise-shell-right)"><g transform="translate(53 52) scale(0.43)" class="cage">
+  
+  <path d="M0.00 -53.80L15.20 -33.79 M0.00 -53.80L49.19 -24.06 M0.00 -53.80L-39.80 -30.07 M15.20 -33.79L49.19 -24.06 M15.20 -33.79L-39.80 -30.07 M15.20 -33.79L39.80 18.05 M15.20 -33.79L-15.20 14.33 M49.19 -24.06L39.80 18.05 M49.19 -24.06L39.80 30.07 M-39.80 -30.07L-49.19 24.06 M-39.80 -30.07L-15.20 14.33 M39.80 18.05L39.80 30.07 M39.80 18.05L-15.20 14.33 M39.80 18.05L0.00 53.80 M39.80 30.07L0.00 53.80 M-49.19 24.06L-15.20 14.33 M-49.19 24.06L0.00 53.80 M-15.20 14.33L0.00 53.80"/>
+  
+</g></g></g>
+        <image transform="translate(96 43) scale(0.33)" href="img/molecules/cas9-protein.png" x="-58" y="-60" width="116" height="120" preserveAspectRatio="xMidYMid meet"/> <image transform="translate(98 67) scale(0.29)" href="img/molecules/guide-rna.png" x="-49" y="-28" width="110" height="56" preserveAspectRatio="xMidYMid meet"/>
+      </svg>
+      <span class="delivery-promise__index" aria-hidden="true">03</span>
+      <strong>Release it<br>inside.</strong>
+    </li>
+  </ol>
+  <p class="delivery-promise__source">Cargo structures: <a href="https://www.rcsb.org/structure/5F9R" rel="external">PDB 5F9R</a></p>
+</div>
+      <a class="overview-link" href="#together">Explore the idea <span aria-hidden="true">↓</span></a>
+    </div>
+  </section>
+
+  <section class="overview-section overview-together" id="together" aria-labelledby="together-heading">
+    <header class="overview-section__intro">
+      <p class="overview-kicker">The opportunity</p>
+      <h2 id="together-heading">Some functions need both.</h2>
+      <p>RNA can encode information or guide a molecular interaction. Proteins can perform the corresponding task. For systems that depend on two components, delivery must bring both to the same cell and the compartment where they act.</p>
+      <p>CRISPR-Cas system puts it into practice - a guide RNA specifies a target, while a Cas protein acts on it. Carrying the protein and its guide together offers a way to coordinate their delivery.</p>
+    </header>
+    <div data-overview-motion><div class="cargo-comparison">
+  <figure class="cargo-comparison__part">
+    <svg class="overview__art" viewBox="0 0 460 300" role="img" aria-labelledby="separate-title">
+      <title id="separate-title">Separate cargo paths need to converge in the same cell</title>
+      <image transform="translate(86 90) scale(0.78)" href="img/molecules/cas9-protein.png" x="-58" y="-60" width="116" height="120" preserveAspectRatio="xMidYMid meet"/> <image transform="translate(86 207) scale(0.72)" href="img/molecules/guide-rna.png" x="-49" y="-28" width="110" height="56" preserveAspectRatio="xMidYMid meet"/>
+      <g class="diagram-route" data-overview-draw><path d="M148 89C208 89 206 128 262 128 M148 208C201 208 210 174 262 174"/><path d="m253 120 10 8-10 8 m0 30 10 8-10 8"/></g>
+      <g class="cell-boundary"><path d="M374 55C311 24 281 83 291 132 S273 241 339 252 420 195 408 147 438 86 374 55Z"/><path d="M372 63C315 35 291 85 300 132 S285 232 339 241 409 194 399 147 428 91 372 63Z"/></g>
+      <text x="348" y="153" text-anchor="middle" class="art-label">Same cell</text>
+    </svg>
+    <figcaption><strong>Two cargoes, separate paths</strong><span>Both must arrive where they can work together.</span></figcaption>
+  </figure>
+  <figure class="cargo-comparison__part">
+    <svg class="overview__art" viewBox="0 0 460 300" role="img" aria-labelledby="shared-title">
+      <title id="shared-title">A closed protein cage carries protein and RNA toward the same cell</title>
+      <g transform="translate(133 149) scale(1.72)" class="cage cage__rear">
+  
+  <path d="M0.00 -53.80L15.20 -14.33 M0.00 -53.80L-39.80 -18.05 M49.19 -24.06L15.20 -14.33 M15.20 -14.33L-39.80 -18.05 M15.20 -14.33L39.80 30.07 M15.20 -14.33L-15.20 33.79 M-39.80 -18.05L-39.80 -30.07 M-39.80 -18.05L-15.20 33.79 M-39.80 -18.05L-49.19 24.06 M39.80 30.07L-15.20 33.79 M-15.20 33.79L-49.19 24.06 M-15.20 33.79L0.00 53.80"/>
+  
+</g>
+      <image transform="translate(133 113) scale(0.8)" href="img/molecules/cas9-protein.png" x="-58" y="-60" width="116" height="120" preserveAspectRatio="xMidYMid meet"/> <image transform="translate(133 183) scale(0.65)" href="img/molecules/guide-rna.png" x="-49" y="-28" width="110" height="56" preserveAspectRatio="xMidYMid meet"/>
+      <g transform="translate(133 149) scale(1.72)" class="cage">
+  
+  <path d="M0.00 -53.80L15.20 -33.79 M0.00 -53.80L49.19 -24.06 M0.00 -53.80L-39.80 -30.07 M15.20 -33.79L49.19 -24.06 M15.20 -33.79L-39.80 -30.07 M15.20 -33.79L39.80 18.05 M15.20 -33.79L-15.20 14.33 M49.19 -24.06L39.80 18.05 M49.19 -24.06L39.80 30.07 M-39.80 -30.07L-49.19 24.06 M-39.80 -30.07L-15.20 14.33 M39.80 18.05L39.80 30.07 M39.80 18.05L-15.20 14.33 M39.80 18.05L0.00 53.80 M39.80 30.07L0.00 53.80 M-49.19 24.06L-15.20 14.33 M-49.19 24.06L0.00 53.80 M-15.20 14.33L0.00 53.80"/>
+  
+</g>
+      <g class="diagram-route" data-overview-draw><path d="M235 148H285"/><path d="m275 140 11 8-11 8"/></g>
+      <g class="cell-boundary"><path d="M374 55C311 24 281 83 291 132 S273 241 339 252 420 195 408 147 438 86 374 55Z"/><path d="M372 63C315 35 291 85 300 132 S285 232 339 241 409 194 399 147 428 91 372 63Z"/></g>
+      <text x="348" y="153" text-anchor="middle" class="art-label">Same cell</text>
+    </svg>
+    <figcaption><strong>One carrier, shared destination</strong><span>A strategy for coordinating delivery of both.</span></figcaption>
+  </figure>
+</div></div>
+    <p class="overview-bridge">That motivates a carrier able to load both - a protein and RNA.</p>
+    <a class="overview-link" href="project/background/">Read the delivery background <span aria-hidden="true">↗</span></a>
+  </section>
+
+  <section class="overview-section overview-carrier" aria-labelledby="carrier-heading">
+    <div class="overview-carrier__copy">
+      <p class="overview-kicker">Our proposed carrier</p>
+      <h2 id="carrier-heading">Could one protein cage carry both?</h2>
+      <p>Encapsulins are self-assembling protein nanocompartments. Their interior offers a place to engineer cargo recognition; their shell provides a scaffold whose sequence can be changed and tested.</p>
+      <p>We chose QtEncapsulin, a cage of 240 subunits about 42 nm across. Our design combines its native protein-loading peptide with an engineered RNA-binding element on the inner surface.</p>
+      <p>For our experimental model, dCas9 carries the protein handle and its guide RNA carries boxB hairpins recognized by λN. Whether these engineered shells assemble and co-encapsulate both cargoes remains to be established.</p>
+      <a class="overview-link" href="project/design/">Explore the cage design <span aria-hidden="true">↗</span></a>
+    </div>
+    <figure class="overview-shell" data-figure="overview-shell" aria-labelledby="shell-caption">
+  <div class="figure__frame" aria-hidden="true"></div>
+  <svg class="overview__art" viewBox="0 0 600 460" role="img" aria-labelledby="shell-title shell-desc">
+    <title id="shell-title">Proposed encapsulin with protein and RNA loading routes</title>
+    <desc id="shell-desc">A cutaway shows protein and RNA cargo inside QtEncapsulin. Protein loading uses a native cargo-loading peptide; engineered RNA recognition uses lambda N and boxB. Cargo structures are from PDB 5F9R.</desc>
+    <g class="shell-fallback"><g transform="translate(270 230) scale(2.7)" class="cage">
+  <path d="M0-55 48-27 48 28 0 56-48 28-48-27Z M0-55 0-19 48-27 20 12 48 28 M0-19-20 12-48-27 M-48 28-20 12 0 56 20 12 0-19 M-20 12H20"/>
+  <path class="molecule__ghost" d="M2-53 46-26 47 27 0 54-46 27-46-26Z M-48-27 0 5 48-27 M0 5V56"/>
+</g></g>
+    <path class="shell-cut" d="M378 95 270 230 383 362"/>
+    <image transform="translate(280 206) scale(0.87)" href="img/molecules/cas9-protein.png" x="-58" y="-60" width="116" height="120" preserveAspectRatio="xMidYMid meet"/> <image transform="translate(279 270) scale(0.71)" href="img/molecules/guide-rna.png" x="-49" y="-28" width="110" height="56" preserveAspectRatio="xMidYMid meet"/>
+    <g class="loading-site loading-site--protein"><circle cx="338" cy="176" r="5"/><path d="M314 183 338 176"/></g>
+    <g class="loading-site loading-site--rna"><circle cx="346" cy="292" r="5"/><path d="M317 280 346 292"/></g>
+    <path class="annotation" d="M345 176H417 M351 292H417 M155 116 111 72H43"/>
+    <text x="422" y="170" class="art-label">Protein loading</text>
+    <text x="422" y="192" class="art-note">Native CLP handle</text>
+    <text x="422" y="286" class="art-label">RNA recognition</text>
+    <text x="422" y="308" class="art-note">Engineered λN·boxB</text>
+    <text x="43" y="60" class="art-label">QtEncapsulin</text>
+    <text x="43" y="409" class="art-note shell-source">QtEncapsulin</text>
+  </svg>
+  <dl class="shell-mobile-key">
+    <div><dt>Protein loading</dt><dd>Native CLP handle</dd></div>
+    <div><dt>RNA recognition</dt><dd>Engineered λN·boxB</dd></div>
+  </dl>
+  <figcaption id="shell-caption">Proposed co-loading design · Cargo structures: PDB 5F9R.</figcaption>
+</figure>
+  </section>
+
+  <section class="overview-section overview-evolution" aria-labelledby="evolution-heading">
+    <header class="overview-section__intro">
+      <p class="overview-kicker">The evolution strategy</p>
+      <h2 id="evolution-heading">Build the handles.<br>Evolve the shell.</h2>
+      <p>Adding ways to load cargo is the starting point. Our next question is whether evolution can improve capture. We propose continuous mutation of the shell cassette, coupled to growth selection in <em>E. coli</em>.</p>
+      <p>Here, catalytically inactive dCas9 and its guide repress an antibiotic-resistance gene. Sequestering a component reduces the active repressor and can restore growth, giving capture a selectable consequence.</p>
+    </header>
+    <div class="evolution-stills">
+      <figure class="evolution-still">
+        <div class="mechanism-still" data-figure="cell-scene" data-act-index="0" role="img" aria-label="dCas9 and its sgRNA bound in the resistance gene."></div>
+        <figcaption><span class="step-index">01</span><strong>Silence</strong><span>The dCas9-sgRNA RNP binds inside KanR and transcriptionally represses its expression. Cells grow poorly on kanamycin. </span></figcaption>
+      </figure>
+      <figure class="evolution-still">
+        <div class="mechanism-still" data-figure="cell-scene" data-act-index="1" role="img" aria-label="MutaT7 mutating the encapsulin cassette."></div>
+        <figcaption><span class="step-index">02</span><strong>Diversify</strong><span>MutaT7 mutates only the encapsulin cassette, generating shell variants during growth in culture.</span></figcaption>
+      </figure>
+      <figure class="evolution-still">
+        <div class="mechanism-still" data-figure="cell-scene" data-act-index="2" role="img" aria-label="Shell subunits assemble around dCas9 and its sgRNA."></div>
+        <figcaption><span class="step-index">03</span><strong>Select capture</strong><span>Sequestering dCas9, sgRNA or both allows KanR to be transcribed, giving cells harboring optimized encapsulin variants a fitness advantage.</span></figcaption>
+      </figure>
+    </div>
+    <p class="cycle-repeat"><span aria-hidden="true">↺</span> Repeat mutation and selection across generations</p>
+    <p class="evolution-note">Views from the Mechanism walkthrough · Cas9 structure: PDB 5F9R.</p>
+    <div class="overview-evolution__foot">
+      <p><strong>Planned evolution strategy.</strong> Capturing either component can rescue growth. Independent assays must distinguish single-component capture from true co-encapsulation. Mammalian delivery is a longer-term goal.</p>
+      <a class="overview-link" href="project/mechanism/">See how the selection works <span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+
+  <section class="overview-section overview-progress" aria-labelledby="progress-heading">
+    <div>
+      <p class="overview-kicker">Where we are</p>
+      <h2 id="progress-heading">From design to<br>experimental validation.</h2>
+    </div>
+    <div class="overview-progress__copy">
+      <p>Engineered shell variants have been constructed, shell expression detected, and MutaT7 activity demonstrated. Cage assembly and co-encapsulation remain unconfirmed; the continuous evolution campaign is planned.</p>
+      <p>The next steps are to validate assembly, complete the selection circuit, and test cargo loading independently.</p>
+      <a class="overview-link" href="project/results/">Read the results and open questions <span aria-hidden="true">↗</span></a>
+    </div>
+    <nav class="overview-explore" aria-label="Explore the project">
+      <a href="project/design/"><span>Design</span><span>The shell and its cargo handles</span><span aria-hidden="true">↗</span></a>
+      <a href="project/mechanism/"><span>Mechanism</span><span>Capture coupled to survival</span><span aria-hidden="true">↗</span></a>
+      <a href="project/results/"><span>Results</span><span>Evidence and remaining experiments</span><span aria-hidden="true">↗</span></a>
+      <a href="lab/"><span>Lab</span><span>Constructs, protocols and notebook</span><span aria-hidden="true">↗</span></a>
+      <a href="team/"><span>Team</span><span>The people behind the project</span><span aria-hidden="true">↗</span></a>
+    </nav>
+  </section>
+</main>
+
+
+  <footer class="colophon">
+  <div class="colophon__inner">
+
+    <div class="colophon__brand">
+      <span class="colophon__name">Evolution Suisse 2026</span><span class="colophon__tagline">Directed evolution of a protein nanocompartment</span>
+    </div>
+
+    <nav class="colophon__nav" aria-label="Footer">
+      <div class="colophon__group">
+        <h2 class="colophon__grouphead">Project</h2>
+        <ul>
+          <li><a href="project/background/">Background</a></li>
+          <li><a href="project/design/">Design</a></li>
+          <li><a href="project/mechanism/">Mechanism</a></li>
+          <li><a href="project/results/">Results</a></li>
+          <li><a href="project/future/">Future work</a></li>
+          <li><a href="project/references/">References</a></li>
+        </ul>
+      </div>
+      <div class="colophon__group">
+        <h2 class="colophon__grouphead">Lab</h2>
+        <ul>
+          <li><a href="lab/constructs/">Constructs</a></li>
+          <li><a href="lab/protocols/">Protocols</a></li>
+          <li><a href="lab/notebook/">Notebook</a></li>
+          <li><a href="lab/data/">Data</a></li>
+        </ul>
+      </div>
+      <div class="colophon__group">
+        <h2 class="colophon__grouphead">Team</h2>
+        <ul>
+          <li><a href="team/attributions/">Attributions</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="colophon__meta">
+      <a class="colophon__edit" href="https://github.com/idec-teams/2026_Evolution_Suisse_2026/blob/main/docs/index.md" rel="external">Edit this page</a>
+      <p class="colophon__legal">Copyright &copy; 2026 iDEC. CC-BY-4.0 &middot; The International Directed Evolution Competition (iDEC) is a Scottish Charitable Incorporated Organisation (SCIO), registered in Scotland, charity number SC050826.</p>
+      <p class="colophon__built">
+        Built 2026-10-06 with
+        <a href="https://www.mkdocs.org/" rel="external">MkDocs</a>.
+      </p>
+    </div>
+
+  </div>
+</footer>
+  <div class="searchmodal" id="searchmodal" hidden data-search-modal>
+  <div class="searchmodal__scrim" data-search-close></div>
+  <div class="searchmodal__panel" role="dialog" aria-modal="true" aria-labelledby="searchmodal-label">
+    <h2 class="u-visually-hidden" id="searchmodal-label">Search this wiki</h2>
+
+    <div class="searchmodal__field">
+      <svg class="searchmodal__icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="6"/><path d="M13.5 13.5 18 18"/></svg>
+      <input type="search" id="mkdocs-search-query" placeholder="Search pages…" autocomplete="off" spellcheck="false">
+      <button class="searchmodal__close" type="button" data-search-close aria-label="Close search">Esc</button>
+    </div>
+
+    <div class="searchmodal__results" id="mkdocs-search-results" data-no-results-text="No pages matched that query."></div>
+  </div>
+</div>
+
+  <script type="module" src="js/app.js"></script><script src="search/main.js"></script>
+
+  
+</body>
+</html>
