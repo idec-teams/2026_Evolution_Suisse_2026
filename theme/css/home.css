@@ -120,6 +120,7 @@
    the sticky scenery never intercepts scrolling, but pointer-events set
    directly on a descendant overrides that inherited value for itself. */
 .hotspot { cursor: pointer; }
+
 .hotspot .hotspot__hit {
   fill: transparent;
   stroke: transparent;
@@ -150,59 +151,70 @@
 .landing__headline { font-size: var(--step-4); max-width: 18ch; }
 .landing__heroinner .standfirst { margin-top: var(--s-5); font-size: var(--step-1); }
 
-.cardgrid {
+/* ── Section contents list ───────────────────────────────────────────────
+   A journal's table of contents, not a grid of cards: a number for reading
+   order, the page name, and its one-line summary, separated by hairlines
+   rather than enclosed in boxes. This matches the homepage, which carries no
+   card boxes either.
+
+   The outer container repeats the hero's `90rem / auto / --gutter` so the
+   first column starts on the same vertical as the headline and the prose
+   below. The rows are capped separately: a hairline drawn the full 90rem
+   with text only in its left half reads as an underline that lost its text. */
+.toc {
   max-width: 90rem;
   margin-inline: auto;
   padding: var(--s-8) var(--gutter);
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  gap: var(--s-4);
 }
-.card {
-  position: relative;
+.toc__row {
+  max-width: 62rem;
   display: grid;
-  align-content: start;
-  gap: var(--s-2);
-  padding: var(--s-5);
-  min-height: 9rem;
-  border-radius: var(--radius-l);
-  background: var(--paper-raised);
-  box-shadow: var(--shadow-1);
+  grid-template-columns: 2.75rem minmax(7rem, 13rem) 1fr;
+  gap: var(--s-5);
+  align-items: baseline;
+  padding: var(--s-5) 0;
+  border-bottom: 1px solid var(--rule);
   text-decoration: none;
-  transition: transform var(--dur) var(--ease),
-              box-shadow var(--dur) var(--ease);
 }
-.card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-2);
+.toc__row:first-child { border-top: 1px solid var(--rule); }
+.toc__num {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--ink-faint);
+  font-variant-numeric: tabular-nums;
+  transition: color var(--dur) var(--ease);
 }
-.card__index {
-  font-family: var(--font-body);
-  font-size: var(--step--2);
-  letter-spacing: 0.1em;
-  color: var(--accent);
-}
-.card__title {
+
+.toc__title {
   font-family: var(--font-display);
   font-size: var(--step-1);
   font-weight: 600;
   color: var(--ink);
-  line-height: 1.15;
+  line-height: 1.2;
 }
-.card__summary { font-size: var(--step--1); color: var(--ink-muted); line-height: 1.45; }
-.card__go {
-  position: absolute;
-  right: var(--s-5); bottom: var(--s-4);
-  color: var(--rule-strong);
-  transition: color var(--dur) var(--ease), transform var(--dur) var(--ease);
+.toc__summary {
+  font-size: var(--step--1);
+  color: var(--ink-muted);
+  line-height: 1.5;
 }
-.card:hover .card__go { color: var(--accent); transform: translateX(3px); }
+.toc__row:hover .toc__title,
+.toc__row:focus-visible .toc__title {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.toc__row:hover .toc__num { color: var(--accent); }
+
+/* Narrow: the number keeps its own column, title and summary stack under it. */
+@media (max-width: 46rem) {
+  .toc__row { grid-template-columns: 2.25rem 1fr; gap: var(--s-2) var(--s-3); }
+  .toc__summary { grid-column: 2; }
+}
 
 .prose--landing {
   max-width: 90rem;
   margin-inline: auto;
   padding: 0 var(--gutter) var(--s-10);
-  /* Left-align the text column with the hero and the cards. The centred
+  /* Left-align the text column with the hero and the contents list. The centred
      measure used on doc pages would leave the landing prose floating in the
      middle of the page, out of line with everything above it. */
   grid-template-columns:
@@ -236,7 +248,6 @@
   .scrolly__panels { padding-block: var(--s-6) 14vh; gap: 30vh; }
   .scrolly__actlabel { bottom: auto; top: 0; left: 0; }
 }
-
 @media (max-width: 560px) {
   .scrolly { --scrolly-focus: 0.78; }
   .scrolly__stage { height: 40vh; }
@@ -305,6 +316,7 @@
   text-decoration-thickness: 1px;
   text-underline-offset: .25em;
 }
+
 .overview-link span { display: inline-block; transition: transform var(--dur) var(--ease); }
 .overview-link:hover span { transform: translate(2px, -2px); }
 .overview-hero .overview-link { margin-top: 2rem; }
