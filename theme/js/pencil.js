@@ -1,53 +1,3 @@
-/* ═══════════════════════════════════════════════════════════════════════════
-   pencil.js — the graphite look. Canvas 2D only, no images, no library.
-
-   A pencil line is not a wobbly line. Three things make it read as graphite:
-
-     1. Multiple passes. A drawn edge is 2–3 strokes that nearly coincide.
-        One jittered stroke reads as a shaky vector line; three read as pencil.
-     2. Pressure. Width and darkness vary along the stroke and taper at the
-        ends, because a hand accelerates into a line and lifts out of it.
-     3. Tooth. The paper grain breaks the stroke up. One tiled noise layer
-        over the whole stage does this more cheaply and more convincingly than
-        per-stroke texture.
-
-   ── Why jitter lives in the structure, not on the screen ──────────────────
-   Offsetting points by noise at draw time makes a rotating object "boil":
-   every frame redraws a *different* drawing. Instead, each structural point
-   carries a fixed 3-D jitter vector, assigned once from a seeded stream and
-   projected along with the point it belongs to. The result rotates like a
-   single drawing on a turning page. Deliberate boil is available separately
-   via `boil` (see stepPhase) for a hand-animated feel.
-   ═══════════════════════════════════════════════════════════════════════════ */
-
-import { rng, TAU, clamp, lerp } from './util.js';
-
-/* ── Stroke ──────────────────────────────────────────────────────────────── */
-
-/**
- * One graphite stroke through `pts` ([[x,y],...] in draw units).
- *
- * opt.passes    how many near-coincident strokes (2 = line, 3 = emphasis)
- * opt.width     nominal width; each pass varies around it
- * opt.alpha     nominal darkness; each pass varies around it
- * opt.wobble    per-pass offset, in draw units. This is the pass-to-pass
- *               scatter only — structural jitter belongs to the points.
- * opt.taper     0..1, how much the ends lighten
- * opt.close     close the path (with overshoot, so the join stays visible)
- * opt.seed      stable per-object seed; the same seed redraws identically
- */
-export function stroke(g, pts, opt = {}) {
-  if (pts.length < 2) return;
-  const { passes = 2, width = 0.5, alpha = 0.7, wobble = 0.35,
-          taper = 0.5, close = false, seed = 1, colour = '#3A3733' } = opt;
-
-  for (let p = 0; p < passes; p++) {
-    const rand = rng(seed * 7919 + p * 104729);
-    // Per-pass constant offset plus a slow drift: two strokes of the same
-    // edge diverge gradually rather than staying parallel.
-    const ox = (rand() - 0.5) * wobble * 2, oy = (rand() - 0.5) * wobble * 2;
-    const dx = (rand() - 0.5) * wobble, dy = (rand() - 0.5) * wobble;
-    const w  = width * lerp(0.75, 1.15, rand());
     const a  = alpha * lerp(0.55, 1.0, rand());
 
     g.beginPath();
@@ -212,7 +162,6 @@ export function grain(g, w, h, { alpha = 0.055, scale = 1 } = {}) {
   g.fillRect(0, 0, w / scale, h / scale);
   g.restore();
 }
-
 
 /**
  * Hand-animation boil: quantise a continuous clock to N frames per second so
