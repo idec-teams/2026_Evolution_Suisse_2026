@@ -17,7 +17,7 @@ the Student BioLab Zürich.
     <div class="person__photo"><img src="../img/team/luca-vogt.webp" alt="Luca Vogt"></div>
     <p class="person__name">Luca Vogt</p>
     <p class="person__aff">Department of Biosystems Science and Engineering, ETH Zürich</p>
-    <p class="person__role">Wet lab</p>
+    <p class="person__role">Concept development, Wet lab lead, dry lab</p>
     <p class="person__social"><a href="https://www.linkedin.com/in/luca-vogt-2034a42a3/" rel="external" aria-label="Luca Vogt on LinkedIn">LinkedIn <span aria-hidden="true">↗</span></a></p>
   </article>
   <!-- klara-tkacz -->
@@ -25,7 +25,7 @@ the Student BioLab Zürich.
     <div class="person__photo"><img src="../img/team/klara-tkacz.webp" alt="Klara Tkacz"></div>
     <p class="person__name">Klara Tkacz</p>
     <p class="person__aff">Department of Biosystems Science and Engineering, ETH Zürich</p>
-    <p class="person__role">Wet lab</p>
+    <p class="person__role">Wet lab, funding</p>
     <p class="person__social"><a href="https://www.linkedin.com/in/klara-tkacz-0133a8396/" rel="external" aria-label="Klara Tkacz on LinkedIn">LinkedIn <span aria-hidden="true">↗</span></a></p>
   </article>
   <!-- max-schaebinger -->
@@ -33,7 +33,7 @@ the Student BioLab Zürich.
     <div class="person__photo"><img src="../img/team/max-schaebinger.webp" alt="Max Schäbinger"></div>
     <p class="person__name">Max Schäbinger</p>
     <p class="person__aff">Faculty of Science, Universität Zürich</p>
-    <p class="person__role">Wet lab</p>
+    <p class="person__role">Wet lab, funding</p>
     <p class="person__social"><a href="https://www.linkedin.com/in/max-schaebinger/" rel="external" aria-label="Max Schäbinger on LinkedIn">LinkedIn <span aria-hidden="true">↗</span></a></p>
   </article>
   <!-- oliver-nagl -->

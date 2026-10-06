@@ -159,7 +159,8 @@ desktop, 390px and 320px visual checks, including reduced motion and no JavaScri
 
 All six student profiles now have small role lines and LinkedIn links. Oliver's
 role is “Concept development, dry lab, wiki”; Noel's is “Wet lab, funding &
-finances”; the other four are “Wet lab” pending later elaboration. Oliver and
+finances”; Luca's is “Concept development, Wet lab lead, dry lab”; Klara and
+Max have “Wet lab, funding”; Nathania has “Wet lab” pending later elaboration. Oliver and
 Noel's URLs were supplied by the user, Klara's was confirmed by the user, and
 Luca, Max and Nathania's were found through their public LinkedIn profiles and
 matching academic affiliations. Supervisors retain their existing descriptions.
