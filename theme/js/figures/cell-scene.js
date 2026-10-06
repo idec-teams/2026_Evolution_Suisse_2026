@@ -74,7 +74,7 @@ const MUT_MAX = 0.26;
 /* Type sizes in virtual units. Part names are tracked caps, the way a plate is
    lettered; gene and protein names are set normally so they stay legible as
    the symbols they are (kanR, dCas9) rather than being shouted. */
-const T_PART = 15, T_GENE = 16, TRACK = 1.5;
+const T_PART = 18, T_GENE = 19, TRACK = 1.5;
 
 const at = (c, a, k = 1) => [c.x + Math.cos(a) * c.r * k, c.y + Math.sin(a) * c.r * k];
 
@@ -329,7 +329,7 @@ export default {
 
     // The two plasmids are the fixed landmarks. They never go fully dark, or
     // the reader loses the map between acts.
-    const base = 0.42;
+    const base = 0.62;
     label(g, 'Mutation plasmid', MUT.x, 166,
           { ...part(Math.max(base, lit[1])), align: 'centre' });
     label(g, 'Selection plasmid', SEL.x, 248,
