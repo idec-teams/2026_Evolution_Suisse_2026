@@ -175,7 +175,6 @@
   padding: var(--s-5) 0;
   text-decoration: none;
 }
-.toc__row:first-child { border-top: 1px solid var(--rule); }
 .toc__num {
   font-family: var(--font-mono);
   font-size: var(--step--1);
