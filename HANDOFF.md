@@ -103,8 +103,10 @@ The `{% import ... as art with context %}` in `home.html` is necessary for
 image paths using Jinja's `|url` filter. Keep asset URLs compatible with the
 GitHub Pages project subpath.
 
-The shared-delivery comparison uses the native SVG `cage` macro as a closed,
-faceted shell around both cargoes, without a cutaway. Homepage captions retain
+The shared-delivery comparison uses the native SVG `closed_cage` macro: an
+orthographic regular icosahedron with all 12 vertices, 30 edges and 20 triangular
+faces. Faint dashed rear edges sit behind the cargo; solid front edges sit above
+it. The older `cage` macro remains the carrier cutaway's fallback. Homepage captions retain
 structure credits but omit illustration caveats such as “not to scale” and
 “illustrative cutaway,” as requested. Keep the proposed-system and experimental
 status distinctions in the main copy. This update passed the strict build and

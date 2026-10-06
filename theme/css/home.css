@@ -319,7 +319,7 @@
 .cell-detail { opacity: .25; }
 .diagram-route { fill: none; stroke: var(--ink-muted); stroke-width: 1; stroke-dasharray: 4 7; }
 .diagram-route path + path { stroke-dasharray: none; }
-.carrier-outline { fill: none; stroke: var(--ink); stroke-width: 1.5; }
+.cage__rear { opacity: .3; stroke-dasharray: 3 4; }
 .annotation, .shell-cut { fill: none; stroke: var(--ink-muted); stroke-width: 1; }
 .shell-cut { opacity: .4; }
 .art-label { font-family: var(--font-label); font-size: 16px; font-weight: 500; fill: var(--ink); }

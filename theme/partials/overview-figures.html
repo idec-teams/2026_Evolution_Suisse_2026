@@ -12,6 +12,17 @@
   <path class="molecule__ghost" d="M2-53 46-26 47 27 0 54-46 27-46-26Z M-48-27 0 5 48-27 M0 5V56"/>
 </g>
 {%- endmacro %}
+{# Orthographic regular icosahedron: 12 vertices, 30 edges, 20 triangular faces.
+   Rear edges are drawn before cargo; front edges are drawn over it. #}
+{% macro closed_cage(x, y, scale=1, layer='front') -%}
+<g transform="translate({{ x }} {{ y }}) scale({{ scale }})" class="cage{% if layer == 'rear' %} cage__rear{% endif %}">
+  {% if layer == 'rear' %}
+  <path d="M0.00 -53.80L15.20 -14.33 M0.00 -53.80L-39.80 -18.05 M49.19 -24.06L15.20 -14.33 M15.20 -14.33L-39.80 -18.05 M15.20 -14.33L39.80 30.07 M15.20 -14.33L-15.20 33.79 M-39.80 -18.05L-39.80 -30.07 M-39.80 -18.05L-15.20 33.79 M-39.80 -18.05L-49.19 24.06 M39.80 30.07L-15.20 33.79 M-15.20 33.79L-49.19 24.06 M-15.20 33.79L0.00 53.80"/>
+  {% else %}
+  <path d="M0.00 -53.80L15.20 -33.79 M0.00 -53.80L49.19 -24.06 M0.00 -53.80L-39.80 -30.07 M15.20 -33.79L49.19 -24.06 M15.20 -33.79L-39.80 -30.07 M15.20 -33.79L39.80 18.05 M15.20 -33.79L-15.20 14.33 M49.19 -24.06L39.80 18.05 M49.19 -24.06L39.80 30.07 M-39.80 -30.07L-49.19 24.06 M-39.80 -30.07L-15.20 14.33 M39.80 18.05L39.80 30.07 M39.80 18.05L-15.20 14.33 M39.80 18.05L0.00 53.80 M39.80 30.07L0.00 53.80 M-49.19 24.06L-15.20 14.33 M-49.19 24.06L0.00 53.80 M-15.20 14.33L0.00 53.80"/>
+  {% endif %}
+</g>
+{%- endmacro %}
 {% macro delivery() -%}
 <svg class="overview__art delivery-art" viewBox="0 0 600 510" role="img" aria-labelledby="delivery-title delivery-desc">
   <title id="delivery-title">Protein and RNA face a delivery barrier from organ to cell</title>
@@ -51,8 +62,9 @@
   <figure class="cargo-comparison__part">
     <svg class="overview__art" viewBox="0 0 460 300" role="img" aria-labelledby="shared-title">
       <title id="shared-title">A closed protein cage carries protein and RNA toward the same cell</title>
-      <g class="carrier-outline">{{ cage(133, 149, 1.72) }}</g>
+      {{ closed_cage(133, 149, 1.72, 'rear') }}
       {{ protein(133, 113, 0.8) }} {{ rna(133, 183, 0.65) }}
+      {{ closed_cage(133, 149, 1.72) }}
       <g class="diagram-route" data-overview-draw><path d="M235 148H285"/><path d="m275 140 11 8-11 8"/></g>
       <g class="cell-boundary"><path d="M374 55C311 24 281 83 291 132 S273 241 339 252 420 195 408 147 438 86 374 55Z"/><path d="M372 63C315 35 291 85 300 132 S285 232 339 241 409 194 399 147 428 91 372 63Z"/></g>
       <text x="348" y="153" text-anchor="middle" class="art-label">Same cell</text>
