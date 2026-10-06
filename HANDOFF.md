@@ -1,6 +1,6 @@
 # Website handoff
 
-Updated 2026-10-06, after the alpine banner, blue protocol callouts and light construct figures.
+Updated 2026-10-06, after the lab styling and supplementary material move into Data.
 This is the current guide; it replaces the older graphite-only handoff.
 
 Repository: https://github.com/idec-teams/2026_Evolution_Suisse_2026
@@ -167,6 +167,13 @@ protein/RNA delivery requires separate carriers were corrected. Our planned
 selection is distinguished from demonstrated co-packaging in prior systems.
 
 ## Regenerating molecular renders
+
+The Data page now contains the datasets plus all supplementary tables (S1–S2)
+and figures (S1–S14). It replaces the standalone Supplementary navigation item.
+Internal citations point to `lab/data/` with the existing table/figure anchors.
+`lab/supplementary/` remains an unlisted redirect preserving URL fragments;
+without JavaScript it presents a direct Data link. Redirect and banner-preview
+pages are removed from site search by `tools/branding/exclude_preview.py`.
 
 The Protocols page scopes all callout accents to the existing blue `--accent`
 token via its `data-page="lab/protocols/"` selector in `theme/css/content.css`.

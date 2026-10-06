@@ -47,7 +47,7 @@ The cargo is the complex of dCas9 and its sgRNA. Each component has its own hand
     The sgRNA carries **boxB** hairpins, which bind the arginine-rich **λN⁺**
     peptide grafted onto the interior surface of the shell. In the scaffold, boxB
     replaces the validated MS2 stem-loop insertion sites, in both the stem-loop
-    and the tetraloop ([Fig S2](../lab/supplementary.md#fig-s2)). Hilvert and
+    and the tetraloop ([Fig S2](../lab/data.md#fig-s2)). Hilvert and
     co-workers gave a non-viral cage mRNA recognition by appending cationic
     peptides including λN⁺, which line the lumenal edge of the shell openings. A
     lysine-to-arginine substitution in λN⁺ raises boxB affinity about threefold

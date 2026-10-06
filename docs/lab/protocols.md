@@ -48,7 +48,7 @@ molar ratios 1:1 to 3:1, 50 °C for 15–60 min.
 **Golden Gate.** PaqCI or BsaI-HFv2 with NEBridge Ligase Master Mix, 15–30 µL, as
 a one-hour isothermal incubation at 37 °C or a cycled digestion–ligation
 programme. For the selection plasmids, whole-plasmid sequencing of the reaction
-mixture showed which junctions formed ([Table S2](supplementary.md#table-s2)).
+mixture showed which junctions formed ([Table S2](data.md#table-s2)).
 
 **PCR and verification.** Inserts and backbones by PCR with Q5 or Phusion,
 20–30 s per kb extension, purified by agarose gel (0.5 % in TAE, 130 V, 25 min)
@@ -153,7 +153,7 @@ independent colonies per experiment serve as biological replicates. Inoculate
 selection plasmid is present, 1 % glucose where it is not), or none (basal). Grow
 overnight, plate 50 µL on LB agar with 50 or 200 µg/mL kanamycin, or 25 µg/mL
 chloramphenicol, and count colonies after 48 h at 37 °C
-([Fig S13](supplementary.md#fig-s13)).
+([Fig S13](data.md#fig-s13)).
 
 ## Continuous culture
 

@@ -1,0 +1,11 @@
+{% extends "main.html" %}
+{% block extrahead %}
+<meta name="robots" content="noindex, follow">
+<script>
+  window.location.replace({{ ('lab/data/'|url)|tojson }} + (window.location.hash || '#supplementary-information'));
+</script>
+{% endblock %}
+{% block content %}
+<h1>Supplementary information</h1>
+<p>The supplementary tables and figures are now on the <a href="{{ 'lab/data/#supplementary-information'|url }}">Data page</a>.</p>
+{% endblock %}

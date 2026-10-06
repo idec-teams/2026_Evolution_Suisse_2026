@@ -37,7 +37,7 @@ graft.[^laz] Terasaka *et al.* used cationic peptides including λN⁺ to give a
 non-viral cage mRNA recognition, with the peptides lining the lumenal edge of
 the shell.[^tera] λN⁺ is therefore displayed on the lumenal face of QtEnc. In the
 sgRNA, boxB motifs replace the validated MS2 stem-loop insertion sites in the
-scaffold stem-loop and tetraloop ([Fig S2](../lab/supplementary.md#fig-s2)).
+scaffold stem-loop and tetraloop ([Fig S2](../lab/data.md#fig-s2)).
 
 **External modifications.** The outer shell was first given a His-tag, for
 purification and immunoblotting, and a targeting peptide (TP), for delivery.
@@ -126,7 +126,7 @@ small RNA toxin that sequesters rare codons.[^li] Chen *et al.* built a sensitiv
 positive selection on creT for evolving Cas12a.[^chen] Placing the sgRNA's
 protospacer in the 5′ UTR of the repressor that controls creT gives the same
 logic: encapsulating dCas9 or the sgRNA is rewarded with growth
-([Fig S1](../lab/supplementary.md#fig-s1)).
+([Fig S1](../lab/data.md#fig-s1)).
 
 [^meyer]: Meyer *et al.*, *Nat. Chem. Biol.* **15**, 196 (2019).
 [^li]: Li *et al.*, *Science* **372** (2021), "Toxin–antitoxin RNA pairs
@@ -139,7 +139,7 @@ The circuit is split across two compatible plasmids so that only the shell gene
 is diversified. The mutation plasmid carries the MutaT7 fusion and the QtEnc
 open reading frame between a T7 promoter and terminator; that cassette is the
 only hypermutated locus. The selection plasmid carries dCas9, the sgRNA cassette
-and *kanR* ([Fig S3](../lab/supplementary.md#fig-s3)).
+and *kanR* ([Fig S3](../lab/data.md#fig-s3)).
 
 The split is a containment measure. A mutation that lowers dCas9 or sgRNA
 expression restores resistance without improving encapsulation and would be
@@ -152,19 +152,19 @@ passaging.
 
 His-tagged QtEnc (QtEnc-His) was expressed in *E. coli* BL21 (DE3). Monomer
 expression was confirmed by SDS-PAGE across the purification steps
-([Fig S11](../lab/supplementary.md#fig-s11)), and the monomer elutes at
-16–17 mL on Superose 6 ([Fig S7](../lab/supplementary.md#fig-s7),
-[S12](../lab/supplementary.md#fig-s12)).
+([Fig S11](../lab/data.md#fig-s11)), and the monomer elutes at
+16–17 mL on Superose 6 ([Fig S7](../lab/data.md#fig-s7),
+[S12](../lab/data.md#fig-s12)).
 
 **The His-tag moves QtEnc into the insoluble fraction.** After Ni-NTA purification
 of the soluble fraction, analytical SEC shows no void-volume peak
-([Fig S8](../lab/supplementary.md#fig-s8)). Fractionating the lysate shows that
+([Fig S8](../lab/data.md#fig-s8)). Fractionating the lysate shows that
 most QtEnc-His is in the pellet ([Fig 4e](#fig4)). Continuing from the insoluble
 fraction by heat precipitation, without Ni-NTA, gives a void-volume peak in SEC
 ([Fig 4a](#fig4)) and a high-molecular-weight species on Blue Native PAGE that
-reacts with anti-His ([Fig 4d](#fig4), [Fig S10](../lab/supplementary.md#fig-s10)).
+reacts with anti-His ([Fig 4d](#fig4), [Fig S10](../lab/data.md#fig-s10)).
 Of the four workflows compared, only the pellet-derived, heat-precipitated sample
-shows this peak ([Fig S4](../lab/supplementary.md#fig-s4)).
+shows this peak ([Fig S4](../lab/data.md#fig-s4)).
 
 **Size by DLS.** Fractions across the QtEnc-His void-volume peak read 209–340 nm
 ([Fig 4c](#fig4)), against 42 nm expected for a T = 4 cage, so the species is
@@ -175,8 +175,8 @@ QtEnc in the soluble fraction, with a void-volume peak at 7.6 mL
 ([Fig 4b](#fig4)). DLS of wild-type QtEnc and of QtEnc-TP-mScarlet from the crude
 Sephacryl S-500 step gave no defined peak near 42 nm, and the intensity and
 volume distributions differ in a way that indicates aggregation
-([Fig S5](../lab/supplementary.md#fig-s5),
-[S6](../lab/supplementary.md#fig-s6)).
+([Fig S5](../lab/data.md#fig-s5),
+[S6](../lab/data.md#fig-s6)).
 
 <figure class="report wide" id="fig4" markdown>
 
@@ -208,7 +208,7 @@ Before any evolution campaign, MutaT7 mutagenesis was tested in a simple
 reporter. An early stop codon was placed in a chloramphenicol-resistance gene
 (CmR) by changing a Trp codon to a stop (TGG → TAG), so restoring resistance
 needs the A→G deamination activity of MutaT7. Colonies grew on 25 µg/mL
-chloramphenicol ([Fig S13](../lab/supplementary.md#fig-s13)), so the system is
+chloramphenicol ([Fig S13](../lab/data.md#fig-s13)), so the system is
 operable.
 
 The stop codon reverted under all three conditions (+IPTG, +glucose and basal) with similar colony counts for the undiluted cultures. That points to leaky
@@ -220,9 +220,9 @@ Constructs were assembled by Golden Gate with synthetic gene fragments (Twist
 Bioscience) and PCR products. All mutation plasmids were cloned and
 sequence-verified. For the selection plasmids, whole-plasmid sequencing of the
 Golden Gate reactions shows that four of the five BsaI junctions form and that
-all five parts are covered without gaps ([Table S2](../lab/supplementary.md#table-s2)).
+all five parts are covered without gaps ([Table S2](../lab/data.md#table-s2)).
 No read spans all junctions at once, so assembly of the full plasmid is the open
-step. The plasmid inventory is in [Table S1](../lab/supplementary.md#table-s1).
+step. The plasmid inventory is in [Table S1](../lab/data.md#table-s1).
 
 ## Outlook
 

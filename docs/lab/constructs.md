@@ -7,7 +7,7 @@ summary: Plasmids and constructs, with maps, guide series and controls.
 
 Constructs and their status. The design is described under
 [Design](../project/design.md) and [Mechanism](../project/mechanism.md); the full
-inventory with backbones and markers is [Table S1](supplementary.md#table-s1).
+inventory with backbones and markers is [Table S1](data.md#table-s1).
 
 ## Shell expression plasmids
 
@@ -61,7 +61,7 @@ VanR<sup>AM</sup> and PhlF<sup>AM</sup> control.
 | `p_s002_20nt_TcR` | 20 nt | Full complementarity, strongest repression | In assembly |
 
 Four of five junctions form in two independent reactions; the TcR-to-backbone
-junction is the open step ([Table S2](supplementary.md#table-s2),
+junction is the open step ([Table S2](data.md#table-s2),
 [outlook](../project/results.md#outlook)).
 
 <figure class="report narrow" markdown>

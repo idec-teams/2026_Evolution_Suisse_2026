@@ -88,7 +88,7 @@ The same principle can be applied to a toxin. In the archaeal creTA system, the
 creA RNA represses creT, a small RNA toxin that sequesters rare codons. Placing
 the protospacer of the sgRNA in the 5′ UTR of the repressor that controls creT
 gives a positive selection in which encapsulation of dCas9 or the sgRNA relieves
-toxin repression and permits growth ([Fig S1](../lab/supplementary.md#fig-s1)).
+toxin repression and permits growth ([Fig S1](../lab/data.md#fig-s1)).
 Chen *et al.* used a creT-based selection to evolve Cas12a.[^chen] It is kept as
 an alternative to the *kanR* circuit.
 

@@ -70,7 +70,7 @@ fragments.
 
 By the end of the month the shell expression constructs `f008`–`f011` were
 sequence-confirmed. The `s002` guide series remained in assembly
-([Table S2](supplementary.md#table-s2)).
+([Table S2](data.md#table-s2)).
 
 ## September
 
@@ -89,4 +89,4 @@ run ([Results](../project/results.md)).
 The stop-codon reversion assay confirmed MutaT7 activity, and the purification
 data localised assembled QtEnc-His to the insoluble fraction. Both are described
 in [Results](../project/results.md); raw traces and gels are in the
-[supplementary figures](supplementary.md).
+[supplementary figures](data.md#supplementary-figures).

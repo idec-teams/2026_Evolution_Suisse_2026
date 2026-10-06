@@ -23,7 +23,7 @@ a non-targeting guide as a proof of concept, and a tri-plasmid system that
 separates the selection, mutagenesis and repressor components so that the
 regulators are present before the selection components. Removing the GATA/GAAA
 overhang clash between junctions J4 and J5 is also required
-([Table S2](../lab/supplementary.md#table-s2)).
+([Table S2](../lab/data.md#table-s2)).
 
 **Reduce leaky MutaT7 activity.** Reversion in the stop-codon assay was similar
 with and without induction. An inducible sgRNA directed at the T7 promoter region

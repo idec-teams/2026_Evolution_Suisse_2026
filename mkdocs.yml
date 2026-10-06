@@ -85,6 +85,7 @@ extra_javascript: []
 not_in_nav: |
   _authoring.md
   banner-preview.md
+  lab/supplementary.md
 
 nav:
   - Home: index.md
@@ -102,7 +103,6 @@ nav:
       - Protocols: lab/protocols.md
       - Notebook: lab/notebook.md
       - Data: lab/data.md
-      - Supplementary: lab/supplementary.md
   - Team:
       - team/index.md
       - Attributions: team/attributions.md
