@@ -460,6 +460,7 @@
 
 /* The opening uses real molecular renders and one uncluttered delivery barrier. */
 .delivery-cell { fill: none; stroke: var(--ink-muted); stroke-width: 1.15; }
+.delivery-zoom { fill: none; stroke: var(--ink-muted); stroke-width: 1; stroke-dasharray: 3 5; }
 .delivery-paths { fill: none; stroke: var(--ink-muted); stroke-width: 1; }
 .delivery-label { font-family: var(--font-label); font-size: 19px; font-weight: 500; fill: var(--ink); }
 .delivery-caption { margin: .5rem auto 0; max-width: 48ch; }

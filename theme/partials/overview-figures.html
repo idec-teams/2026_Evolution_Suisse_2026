@@ -18,21 +18,26 @@
 {%- endmacro %}
 {% macro delivery() -%}
 <svg class="overview__art delivery-art" viewBox="0 0 600 510" role="img" aria-labelledby="delivery-title delivery-desc">
-  <title id="delivery-title">Protein and RNA face a cellular delivery barrier</title>
-  <desc id="delivery-desc">ChimeraX renderings of Cas9 protein and guide RNA from deposited structure 5F9R. Their paths converge toward a schematic cell membrane. The illustration highlights the delivery challenge without depicting successful uptake.</desc>
+  <title id="delivery-title">Protein and RNA face a delivery barrier from organ to cell</title>
+  <desc id="delivery-desc">ChimeraX renderings of Cas9 protein and guide RNA from deposited structure 5F9R. Their paths converge on a schematic target cell, shown as a zoom from a target organ. The illustration highlights the delivery challenge, and organ- and cell-specific delivery as a longer-term goal, without depicting successful uptake.</desc>
   <g class="delivery-cell">
-    <path d="M442 55C400 132 411 208 429 259S444 396 413 454"/>
-    <path d="M454 60C414 133 424 204 441 255S458 396 427 459"/>
+    <path d="M470 100C466 72 492 60 520 62C556 64 574 78 566 100C558 118 530 112 512 108C494 106 474 120 470 100Z"/>
+    <path d="M440 262a78 100 0 1 0 156 0a78 100 0 1 0 -156 0Z"/>
+    <path d="M448 262a70 92 0 1 0 140 0a70 92 0 1 0 -140 0Z"/>
+    <circle cx="530" cy="262" r="26"/>
   </g>
+  <path class="delivery-zoom" d="M478 112 449 215 M558 112 587 215"/>
   <image class="delivery-molecule" href="{{ 'img/molecules/cas9-protein.png'|url }}" x="36" y="50" width="248" height="204" preserveAspectRatio="xMidYMid meet"/>
   <image class="delivery-molecule" href="{{ 'img/molecules/guide-rna.png'|url }}" x="49" y="296" width="222" height="147" preserveAspectRatio="xMidYMid meet"/>
   <text x="160" y="274" text-anchor="middle" class="delivery-label">Cas9 protein</text>
   <text x="160" y="472" text-anchor="middle" class="delivery-label">Guide RNA</text>
   <g class="delivery-paths" data-overview-draw>
-    <path d="M291 159C326 159 328 260 362 260 M284 363C325 363 328 260 362 260 M363 260H399"/>
-    <path d="m390 252 10 8-10 8"/>
+    <path d="M291 159C326 159 328 260 362 260 M284 363C325 363 328 260 362 260 M363 260H437"/>
+    <path d="m428 252 10 8-10 8"/>
   </g>
-  <text x="470" y="227" class="delivery-label"><tspan x="470">Inside</tspan><tspan x="470" dy="23">the cell</tspan></text>
+  <text x="518" y="40" text-anchor="middle" class="delivery-label">Target organ</text>
+  <text x="518" y="394" text-anchor="middle" class="delivery-label">Target cell</text>
+  <text x="518" y="418" text-anchor="middle" class="art-note">Cell-type specific</text>
 </svg>
 {%- endmacro %}
 {% macro together() -%}
