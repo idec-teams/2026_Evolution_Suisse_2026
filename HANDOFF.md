@@ -1,6 +1,6 @@
 # Website handoff
 
-Updated 2026-10-05, after the homepage redesign and shared ChimeraX cargo renders.
+Updated 2026-10-06, after the homepage caption cleanup and closed shared-delivery cage.
 This is the current guide; it replaces the older graphite-only handoff.
 
 Repository: https://github.com/idec-teams/2026_Evolution_Suisse_2026
@@ -102,6 +102,13 @@ path drawing transitions, respecting reduced motion.
 The `{% import ... as art with context %}` in `home.html` is necessary for
 image paths using Jinja's `|url` filter. Keep asset URLs compatible with the
 GitHub Pages project subpath.
+
+The shared-delivery comparison uses the native SVG `cage` macro as a closed,
+faceted shell around both cargoes, without a cutaway. Homepage captions retain
+structure credits but omit illustration caveats such as “not to scale” and
+“illustrative cutaway,” as requested. Keep the proposed-system and experimental
+status distinctions in the main copy. This update passed the strict build and
+desktop, 390px and 320px visual checks, including reduced motion and no JavaScript.
 
 ## Regenerating molecular renders
 

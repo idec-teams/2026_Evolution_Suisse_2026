@@ -15,7 +15,7 @@
 {% macro delivery() -%}
 <svg class="overview__art delivery-art" viewBox="0 0 600 510" role="img" aria-labelledby="delivery-title delivery-desc">
   <title id="delivery-title">Protein and RNA face a delivery barrier from organ to cell</title>
-  <desc id="delivery-desc">ChimeraX renderings of Cas9 protein and guide RNA from deposited structure 5F9R. Their paths converge on a schematic target cell, shown as a zoom from a target organ. The illustration highlights the delivery challenge, and organ- and cell-specific delivery as a longer-term goal, without depicting successful uptake.</desc>
+  <desc id="delivery-desc">Cas9 protein and guide RNA from deposited structure 5F9R. Their paths converge on a target cell, shown as a zoom from a target organ.</desc>
   <g class="delivery-cell">
     <path d="M470 100C466 72 492 60 520 62C556 64 574 78 566 100C558 118 530 112 512 108C494 106 474 120 470 100Z"/>
     <path d="M440 262a78 100 0 1 0 156 0a78 100 0 1 0 -156 0Z"/>
@@ -50,9 +50,9 @@
   </figure>
   <figure class="cargo-comparison__part">
     <svg class="overview__art" viewBox="0 0 460 300" role="img" aria-labelledby="shared-title">
-      <title id="shared-title">A shared carrier is a strategy for coordinating protein and RNA delivery</title>
-      <g class="carrier-outline" data-overview-draw><path d="M142 54C61 49 37 90 48 148 S61 241 138 245 225 189 218 136 223 59 142 54Z"/></g>
-      {{ protein(119, 113, 0.8) }} {{ rna(119, 183, 0.65) }}
+      <title id="shared-title">A closed protein cage carries protein and RNA toward the same cell</title>
+      <g class="carrier-outline">{{ cage(133, 149, 1.72) }}</g>
+      {{ protein(133, 113, 0.8) }} {{ rna(133, 183, 0.65) }}
       <g class="diagram-route" data-overview-draw><path d="M235 148H285"/><path d="m275 140 11 8-11 8"/></g>
       <g class="cell-boundary"><path d="M374 55C311 24 281 83 291 132 S273 241 339 252 420 195 408 147 438 86 374 55Z"/><path d="M372 63C315 35 291 85 300 132 S285 232 339 241 409 194 399 147 428 91 372 63Z"/></g>
       <text x="348" y="153" text-anchor="middle" class="art-label">Same cell</text>
@@ -66,7 +66,7 @@
   <div class="figure__frame" aria-hidden="true"></div>
   <svg class="overview__art" viewBox="0 0 600 460" role="img" aria-labelledby="shell-title shell-desc">
     <title id="shell-title">Proposed encapsulin with protein and RNA loading routes</title>
-    <desc id="shell-desc">An illustrative cutaway exposes protein and RNA cargo inside QtEncapsulin. Protein loading uses a native cargo-loading peptide; engineered RNA recognition uses lambda N and boxB. Cargo uses PDB 5F9R renderings; placement and loading handles are illustrative.</desc>
+    <desc id="shell-desc">A cutaway shows protein and RNA cargo inside QtEncapsulin. Protein loading uses a native cargo-loading peptide; engineered RNA recognition uses lambda N and boxB. Cargo structures are from PDB 5F9R.</desc>
     <g class="shell-fallback">{{ cage(270, 230, 2.7) }}</g>
     <path class="shell-cut" d="M378 95 270 230 383 362"/>
     {{ protein(280, 206, 0.87) }} {{ rna(279, 270, 0.71) }}
@@ -78,12 +78,12 @@
     <text x="422" y="286" class="art-label">RNA recognition</text>
     <text x="422" y="308" class="art-note">Engineered λN·boxB</text>
     <text x="43" y="60" class="art-label">QtEncapsulin</text>
-    <text x="43" y="409" class="art-note shell-source">Schematic shell · illustrative cutaway</text>
+    <text x="43" y="409" class="art-note shell-source">QtEncapsulin</text>
   </svg>
   <dl class="shell-mobile-key">
     <div><dt>Protein loading</dt><dd>Native CLP handle</dd></div>
     <div><dt>RNA recognition</dt><dd>Engineered λN·boxB</dd></div>
   </dl>
-  <figcaption id="shell-caption">Proposed co-loading design. Cargo uses PDB 5F9R renderings; placement and loading handles are illustrative.</figcaption>
+  <figcaption id="shell-caption">Proposed co-loading design · Cargo structures: PDB 5F9R.</figcaption>
 </figure>
 {%- endmacro %}

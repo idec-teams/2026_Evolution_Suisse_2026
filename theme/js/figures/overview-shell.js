@@ -14,7 +14,7 @@ export default {
       this.shell = createCapsid(data);
       this.paint();
       ctx.root.dataset.shellReady = '';
-      ctx.root.querySelector('.shell-source').textContent = 'QtEncapsulin · PDB 6NJ8 · illustrative cutaway';
+      ctx.root.querySelector('.shell-source').textContent = 'QtEncapsulin · PDB 6NJ8';
     });
   },
   paint() {
