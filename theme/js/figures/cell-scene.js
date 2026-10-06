@@ -383,12 +383,14 @@ export default {
     // key says only what the current drawing is actually showing.
     const keyOpt = a => ({ size: T_GENE * 0.84, alpha: a * 0.8, colour: ink,
                            gap: 23, dash: 17 });
-    key(g, [['CLP fusion site (dCas9 C-term)', this.hues.clp]], 58, 548,
-        keyOpt(Math.max(lit[0], lit[2])));
-    key(g, [['boxB site (sgRNA 3′)', this.hues.boxb]], 58, 571,
-        keyOpt(Math.max(lit[0], lit[2])));
-    key(g, [['deamination events', this.hues.mut]], 58, 594,
-        keyOpt(Math.max(lit[1], lit[2])));
+
+    const KEY_X = 34, KEY_Y = 556, KEY_DY = 23;
+    key(g, [['CLP fusion site (dCas9 C-term)', this.hues.clp]], KEY_X, KEY_Y,
+       keyOpt(Math.max(lit[0], lit[2])));
+    key(g, [['boxB site (sgRNA 3′)', this.hues.boxb]], KEY_X, KEY_Y + KEY_DY,
+       keyOpt(Math.max(lit[0], lit[2])));
+    key(g, [['deamination events', this.hues.mut]], KEY_X, KEY_Y + KEY_DY * 2,
+       keyOpt(Math.max(lit[1], lit[2])));
   },
 
   /** The rod. Two lines, because one reads as a pill and two read as an envelope. */
