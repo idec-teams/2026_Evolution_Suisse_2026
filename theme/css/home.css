@@ -308,6 +308,37 @@
 .overview-link span { display: inline-block; transition: transform var(--dur) var(--ease); }
 .overview-link:hover span { transform: translate(2px, -2px); }
 .overview-hero .overview-link { margin-top: 2rem; }
+/* Unlisted brand-banner trial; homepage copy stays shared with the main page. */
+.page--banner-preview .overview-hero {
+  position: relative;
+  isolation: isolate;
+  min-height: 44rem;
+}
+.page--banner-preview .overview-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to right, var(--paper) 15%, color-mix(in srgb, var(--paper) 94%, transparent) 42%, transparent 72%);
+}
+.overview-hero__backdrop {
+  position: absolute;
+  z-index: -2;
+  inset: 0 calc(-1 * var(--gutter));
+  width: calc(100% + 2 * var(--gutter));
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center;
+  mix-blend-mode: multiply;
+  mask-image: linear-gradient(to right, transparent, var(--ink) 8%, var(--ink) 92%, transparent), linear-gradient(to bottom, transparent, var(--ink) 8%, var(--ink) 88%, transparent);
+  mask-composite: intersect;
+}
+.page--banner-preview .overview-hero__copy { grid-column: 1; }
+.overview-banner-delivery {
+  max-width: 42rem;
+  margin: 3rem auto 0;
+}
 .overview__art { width: 100%; height: auto; overflow: visible; }
 .overview__art path, .overview__art circle {
   vector-effect: non-scaling-stroke;
@@ -413,6 +444,19 @@
 .no-js .mechanism-story .scrolly__stage { display: none; }
 .no-js .mechanism-story .scrolly__panels { gap: 3rem; }
 @media (max-width: 900px) {
+  .page--banner-preview .overview-hero { min-height: 0; padding-bottom: 0; }
+  .page--banner-preview .overview-hero::before { display: none; }
+  .page--banner-preview .overview-hero__copy { grid-row: 1; }
+  .overview-hero__backdrop {
+    position: relative;
+    inset: auto;
+    grid-row: 2;
+    width: calc(100% + 2 * var(--gutter));
+    margin-inline: calc(-1 * var(--gutter));
+    height: clamp(18rem, 55vw, 30rem);
+    object-position: right bottom;
+    mask-image: linear-gradient(to bottom, transparent, var(--ink) 10%, var(--ink) 90%, transparent);
+  }
   .home-drawer { display: block; }
   .overview-hero { grid-template-columns: 1fr; min-height: 0; padding-block: 3.5rem 1rem; gap: 2rem; }
   .overview-hero h1 { font-size: clamp(2.8rem, 6vw, 4.2rem); }

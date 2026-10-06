@@ -1,6 +1,6 @@
 # Website handoff
 
-Updated 2026-10-06, after the homepage caption cleanup and closed shared-delivery cage.
+Updated 2026-10-06, after the header logo and optional alpine banner preview.
 This is the current guide; it replaces the older graphite-only handoff.
 
 Repository: https://github.com/idec-teams/2026_Evolution_Suisse_2026
@@ -82,6 +82,22 @@ motivation; the proposed selection is bacterial. Capturing either repressor
 component can restore growth, so growth alone does not prove co-encapsulation.
 
 ## Editing the homepage illustrations
+
+The masthead now uses the user-supplied `EvolutionSuisse.png`, copied unchanged
+to `docs/img/evolution-suisse.png`. Its square white margins are clipped in CSS;
+the image blends into the paper without altering the original. Header height
+is controlled by the shared `--masthead-h` token so sticky layouts and mobile
+drawers remain aligned.
+
+An unlisted `/banner-preview/` page tests a redesigned alpine/evolution brand
+background, `docs/img/evolution-suisse-banner.png`. It uses the same `home.html`
+and reads the homepage's front matter directly, so text updates stay in sync.
+Only that page adds `page--banner-preview`; its delivery diagram moves below
+the opening banner. On mobile, artwork follows the opening copy to preserve
+readability. The page is excluded from search/navigation and marked noindex.
+Artwork provenance and the exact generation prompt are in
+`tools/branding/README.md`. Both layouts passed strict builds, desktop/390px/320px
+visual checks, mobile navigation, reduced motion and no-JavaScript checks.
 
 `overview-figures.html` defines `delivery`, `together`, `shell`, and `evolution`,
 plus reusable `protein`, `rna`, and `cage` macros. All ten protein/RNA image

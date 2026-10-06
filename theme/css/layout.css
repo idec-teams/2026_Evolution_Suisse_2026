@@ -36,6 +36,22 @@
   flex: none;
 }
 .brand__mark { color: var(--accent); display: grid; place-items: center; }
+.brand__logo {
+  position: relative;
+  width: 7rem;
+  height: 3.875rem;
+  overflow: hidden;
+  background: var(--paper);
+}
+.brand__logo img {
+  position: absolute;
+  width: 7rem;
+  height: 7rem;
+  max-width: none;
+  top: -1.625rem;
+  left: 0;
+  mix-blend-mode: multiply;
+}
 .brand__text { display: flex; align-items: baseline; gap: var(--s-2); line-height: 1; }
 .brand__name {
   font-family: var(--font-display);

@@ -81,6 +81,7 @@ extra_javascript: []
 # Authoring reference — deliberately not in the nav.
 not_in_nav: |
   _authoring.md
+  banner-preview.md
 
 nav:
   - Home: index.md

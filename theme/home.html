@@ -1,21 +1,30 @@
 {% extends "base.html" %}
 {% import "partials/overview-figures.html" as art with context %}
 {% import "partials/nav.html" as navmacro with context %}
-{% block bodyclass %}page--home{% endblock %}
+{% block bodyclass %}page--home{% if page.meta.banner_preview %} page--banner-preview{% endif %}{% endblock %}
+{% block extrahead %}{% if page.meta.banner_preview %}<meta name="robots" content="noindex, nofollow">{% endif %}{% endblock %}
 {% block body %}
+{% set home_meta = nav.homepage.meta if page.meta.banner_preview else page.meta %}
 <aside class="sidebar home-drawer" id="sidebar" data-drawer>
   <div class="sidebar__inner"><nav class="nav" aria-label="Site navigation">{{ navmacro.navtree(nav) }}</nav></div>
 </aside>
 <div class="drawer-scrim" data-drawer-close hidden></div>
 <main class="overview" id="content" tabindex="-1">
   <section class="overview-hero" aria-labelledby="delivery-heading">
+    {% if page.meta.banner_preview %}
+    <img class="overview-hero__backdrop" src="{{ 'img/evolution-suisse-banner.png'|url }}" alt="" aria-hidden="true" fetchpriority="high">
+    {% endif %}
     <div class="overview-hero__copy">
       <p class="overview-kicker">Evolution Suisse · iDEC {{ config.theme.year }}</p>
-      <h1 id="delivery-heading">{{ page.meta.headline }}<br><span>{{ page.meta.headline_accent }}</span></h1>
-      <p class="overview-lede">{{ page.meta.standfirst }}</p>
+      <h1 id="delivery-heading">{{ home_meta.headline }}<br><span>{{ home_meta.headline_accent }}</span></h1>
+      <p class="overview-lede">{{ home_meta.standfirst }}</p>
       <p class="overview-hero__aim">We are engineering protein cages toward carrying RNA and protein together.</p>
       <a class="overview-link" href="#together">Explore the idea <span aria-hidden="true">↓</span></a>
     </div>
+    {% if page.meta.banner_preview %}
+  </section>
+  <section class="overview-banner-delivery" aria-label="Cargo delivery">
+    {% endif %}
     <figure class="overview-hero__figure" data-overview-motion>
       {{ art.delivery() }}
       <figcaption class="delivery-caption">

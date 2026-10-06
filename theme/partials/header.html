@@ -2,11 +2,10 @@
   <div class="masthead__inner">
 
     <a class="brand" href="{{ nav.homepage.url|url if nav.homepage else base_url }}">
-      <span class="brand__mark" aria-hidden="true">
-        {% include "partials/mark.html" %}
+      <span class="brand__logo">
+        <img src="{{ 'img/evolution-suisse.png'|url }}" alt="Evolution Suisse" width="225" height="225">
       </span>
       <span class="brand__text">
-        <span class="brand__name">{{ config.theme.short_name or config.site_name }}</span>
         <span class="brand__year">{{ config.theme.year }}</span>
       </span>
     </a>
