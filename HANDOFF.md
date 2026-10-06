@@ -1,399 +1,308 @@
-# Handoff — graphite figures
+# Website handoff
 
-Read this before touching `theme/js/`. The structural rendering architecture
-below remains current; references to the old homepage layout describe the
-original figure work.
+Updated 2026-10-05, after the homepage redesign and shared ChimeraX cargo renders.
+This is the current guide; it replaces the older graphite-only handoff.
 
-The homepage now introduces delivery, co-delivery, the encapsulin proposal and
-planned evolution using native SVG overview illustrations. The detailed
-three-act `cell-scene` walkthrough moved to Mechanism, via
-`theme/partials/selection-story.html` and an explicit marker in its Markdown.
-`overview-shell` draws a structural cutaway with a native SVG fallback. Fonts
-are locally hosted IBM Plex Sans. `figure.js` creates a separate object per
-mount, so repeated cell scenes do not share mutable state.
+Repository: https://github.com/idec-teams/2026_Evolution_Suisse_2026
 
-For current screenshot checks, capture the homepage and `project/mechanism/`.
-`shots.py hero` captures the new opening; `story` captures the Mechanism walkthrough.
+Live site: https://idec-teams.github.io/2026_Evolution_Suisse_2026/
 
----
+Working checkout on this machine: `/home/olnagl/rfdproteina_dev/2026_Evolution_Suisse_2026`.
+Development and publication use `main`. The latest implementation commit before
+this handoff is `a654620`; its CI and GitHub Pages deployment both succeeded.
+There was an earlier hosted-runner outage, but the latest deployment worked.
 
-## 1. Run it
+## Start here
+
+Read [the authoring reference](docs/_authoring.md) for Markdown, tables, math,
+figure markup and theme conventions. This is a bespoke MkDocs/Jinja theme,
+with plain CSS and JavaScript ES modules. No npm or bundler is needed.
+
+From the repository root:
 
 ```bash
-cd 2026_Evolution_Suisse_2026
-.venv/bin/mkdocs serve -a 0.0.0.0:8000 --watch theme
+python3 -m venv .venv
+.venv/bin/pip install -r requirements.txt
+.venv/bin/mkdocs serve -a 127.0.0.1:8000 --watch theme
 ```
 
-Open **http://localhost:8000/2026_Evolution_Suisse_2026/** — note the subpath;
-`site_url` in `mkdocs.yml` puts the site under the repo name and a bare
-`localhost:8000` only redirects.
+Open `http://127.0.0.1:8000/2026_Evolution_Suisse_2026/`. Keep the project
+subpath. `--watch theme` makes template, CSS and JavaScript edits reload.
+A fresh clone builds using committed assets; it does not need ChimeraX.
 
-`--watch theme` is not optional for this work. Without it mkdocs watches only
-`docs/` and `mkdocs.yml`, so your figure edits will not reload and you will
-think your change did nothing.
+The previous agent used `/tmp/evolution-wiki-tools/bin/python` and
+`/tmp/evolution-wiki-tools/bin/mkdocs`. That temporary environment may disappear;
+prefer the reproducible setup above. Do not assume a preview server is running.
 
-To look at what you changed:
+## Where to edit
+
+| Change | File or directory |
+| --- | --- |
+| Opening headline, standfirst, metadata | [docs/index.md](docs/index.md), YAML front matter |
+| Homepage section copy, order, links and captions | [theme/home.html](theme/home.html) |
+| Overview diagram geometry, cargo image placement, handles | [theme/partials/overview-figures.html](theme/partials/overview-figures.html) |
+| Homepage spacing, diagram styling, Mechanism scroll layout | [theme/css/home.css](theme/css/home.css) |
+| Shared colors, type and spacing tokens | [theme/css/tokens.css](theme/css/tokens.css) |
+| Header, mobile drawer, shared page layout | [theme/css/layout.css](theme/css/layout.css), [theme/base.html](theme/base.html) |
+| Project, lab and team page text | `docs/project/`, `docs/lab/`, `docs/team/` |
+| Navigation and site configuration | [mkdocs.yml](mkdocs.yml) |
+| Mechanism walkthrough copy and still-view markup | [theme/partials/selection-story.html](theme/partials/selection-story.html) |
+| Walkthrough insertion point | [docs/project/mechanism.md](docs/project/mechanism.md), `<!-- selection-story -->` marker; [theme/mechanism.html](theme/mechanism.html) inserts the partial |
+| Walkthrough drawings, timing, labels and hotspots | [theme/js/figures/cell-scene.js](theme/js/figures/cell-scene.js) |
+| Graphite encapsulin cutaway | [theme/js/figures/overview-shell.js](theme/js/figures/overview-shell.js) |
+| PNG loading, molecular scale, DNA alignment and fusion-position dots | [theme/js/cargo-render.js](theme/js/cargo-render.js) |
+| Molecular appearance and camera orientation | `tools/structures/figures/*.cxc`, then regenerate assets |
+| Molecular provenance | [tools/structures/figures/README.md](tools/structures/figures/README.md), [docs/team/attributions.md](docs/team/attributions.md) |
+| Search, navigation and table behavior | `theme/js/search.js`, `nav.js`, `tables.js` |
+
+The homepage body is rendered by `home.html`, not Markdown paragraphs in
+`docs/index.md`. It uses `headline` and `headline_accent` for the two-line H1:
+“Powerful molecules / need better delivery.” Keep both front-matter keys.
+
+## Current design and scientific boundaries
+
+The homepage is a bird's-eye narrative: delivery barriers → why protein and RNA
+can need each other → proposed encapsulin carrier → planned directed evolution
+→ current experimental status and links. The opening encapsulin reveal and
+long scroll animation were removed from the front page. The three-act animated
+selection story now lives on Mechanism: Silence, Diversify, Encapsulate.
+
+The look uses a cool paper background, open layouts without card boxes or
+section dividers, graphite shell/cell drawings, and locally hosted IBM Plex Sans.
+Protein is soft lavender (`#999BCC` in the render scripts), RNA soft ochre
+(`#C9AB76`), and mutation marks use the site's mutation token. Rendered PNG
+colors are baked in: changing CSS alone will not recolor them.
+
+Keep the scientific distinction between the proposed system and demonstrated
+results. Engineered shell construction, expression and MutaT7 activity have
+been reported; successful assembly, co-encapsulation and the evolution campaign
+are not established by these illustrations. Mammalian delivery is a longer-term
+motivation; the proposed selection is bacterial. Capturing either repressor
+component can restore growth, so growth alone does not prove co-encapsulation.
+
+## Editing the homepage illustrations
+
+`overview-figures.html` defines `delivery`, `together`, `shell`, and `evolution`,
+plus reusable `protein`, `rna`, and `cage` macros. All ten protein/RNA image
+occurrences use the shared transparent Cas9/guide PNGs. Edit a shared macro to
+change its appearance everywhere; adjust its call's `(x, y, scale)` to change
+one placement. The opening figure uses explicit image bounds instead.
+
+SVG coordinates are local to each `viewBox`; changing image dimensions can
+require moving route arrows and loading-site leaders. Preserve titles,
+descriptions, captions and mobile keys. The overview compositions are
+illustrative and are not at a common molecular scale.
+
+The shell diagram layers a canvas behind native SVG. `overview-shell.js` clips
+an illustrative wedge out of the deposited QtEnc shell. The wedge is not a
+physical opening. Native SVG remains visible without JavaScript; the schematic
+shell remains if structure loading fails. `theme/js/overview.js` adds reversible
+path drawing transitions, respecting reduced motion.
+
+The `{% import ... as art with context %}` in `home.html` is necessary for
+image paths using Jinja's `|url` filter. Keep asset URLs compatible with the
+GitHub Pages project subpath.
+
+## Regenerating molecular renders
+
+The shared assets are committed in `docs/img/molecules/`:
+
+| Asset stem | Contents and use |
+| --- | --- |
+| `cas9-protein` | Cas9 ribbons; overview protein macro and opening |
+| `guide-rna` | Guide backbone and ellipsoid bases; overview RNA macro and opening |
+| `cas9-guide-complex` | Deposited protein–guide arrangement; animated repressor and reusable shell reveal |
+| `t7-polymerase` | T7 polymerase and nascent RNA; Mechanism mutation act |
+
+The complex assets have matching `.json` camera projections. These provide
+pixels per Angstrom, the cropped image origin and projection matrix for the
+DNA traces and fusion-position dots. Regenerate each PNG/JSON pair together;
+do not independently crop or resize a complex PNG.
+
+Editable scripts are under `tools/structures/figures/`. They use ribbons,
+gentle lighting, restrained silhouettes and transparent exports. Sources:
+
+- **5F9R:** ChimeraX author chain **B** is Cas9 and author chain **A** is guide
+  RNA. The mmCIF label IDs used by the browser-data builders reverse those IDs.
+  The guide is shown in its deposited, protein-bound conformation. This is
+  active Cas9, used as a structural illustration of dCas9; engineered CLP and
+  boxB additions are absent. The colored dots mark proposed attachment sites.
+- **1MSW:** author chain **D** is T7 polymerase and **R** is nascent RNA.
+  The deaminase fusion is not modeled. DNA is excluded from the PNGs and drawn
+  separately from the browser structure data.
+- **6NJ8:** QtEncapsulin shell, rendered from committed browser geometry.
+
+With Pillow and an offscreen-capable ChimeraX installation:
 
 ```bash
-.venv/bin/python tools/shots.py hero
-.venv/bin/python tools/shots.py story 0.15 0.45 0.85
-.venv/bin/python tools/shots.py page project/mechanism/
+.venv/bin/pip install Pillow
+.venv/bin/python tools/structures/render_delivery.py
+.venv/bin/python tools/structures/render_delivery.py --only cas9-guide-complex
+.venv/bin/python tools/structures/render_delivery.py --only t7-polymerase
 ```
 
-PNGs land in `tools/shots/`. **Actually open them.** Every real mistake in this
-work was invisible in the code and obvious in a screenshot.
+Use `--chimerax /path/to/ChimeraX` when needed. On this machine the working
+wrapper is `/home/olnagl/.local/bin/chimerax-render`; it invokes ChimeraX with
+`--offscreen`. The script uses temporary export commands, downloads missing
+mmCIF files into the gitignored cache and crops the transparent output. The
+editable `.cxc` files themselves contain no save/exit commands.
 
-### Rebuilding the structure data
+The ChimeraX skill used for this work is outside this repository:
+`/home/olnagl/paper/pipelines/.claude/skills/chimerax-figures/SKILL.md`.
+Its guide is `/home/olnagl/paper/pipelines/paper/figure_making/chimerax/README.md`.
+These paths are machine-specific. Representation and palette are already
+established for this website; preserve them unless the user requests a change.
 
-Only needed if you change a `tools/structures/build_*.py`. The build env is
-gitignored; recreate it with:
+## Animation architecture and useful controls
+
+`theme/js/figures/index.js` registers figure definitions. `figure.js` creates
+an independent object per mount using `Object.create(definition)`. Preserve
+that isolation: the walkthrough and its three reduced-motion still views must
+not share mutable instance state.
+
+`structures.js` caches `theme/data/*.json`; `cargo-render.js` caches each
+complex PNG/JSON pair once per page. `capsid.js` and `pencil.js` draw graphite
+shells. `parts.js` supplies aligned DNA traces and the molecular fallback when
+render assets fail. `scrolly.js` drives Mechanism; it is not the homepage story.
+`hero-capsid.js` remains registered for reuse, but is not mounted in the current
+homepage. Its clock-driven behavior is separate from the scroll contract.
+
+For scroll-driven figures, `render(t)` must be deterministic. The same progress
+must produce the same picture when scrolling forward or backward. Use seeded
+`rng()` from `util.js`; do not accumulate frame state or use `Math.random()`.
+
+The cell scene uses virtual coordinates **1000 × 620**. `MUT`, `SEL`, `HUB`,
+and `SEATS` define the two plasmids, capture position and loose capsomers.
+Move labels in `annotate()`; move hotspot geometry in `mount()` and `paint()`.
+Moving-enzyme and moving-repressor hotspots are layered after static hotspots
+so they win overlaps. Check labels and click regions in all three acts.
+
+Act activation comes from CSS `--scrolly-focus` (desktop `0.58`). Animation
+ramps come from `norm(...)` calls in `paint()`: `walk`, `arrive`, `close`,
+`arrival`, `mut`, and `build`. Finish the important capture/assembly actions
+before the final sticky stage leaves the viewport, rather than at progress 1.
+
+Mechanism preserves a shared molecular scale (`ANGSTROM = 0.85` virtual pixels
+per Angstrom); cells and plasmids are schematic. Molecular PNGs have a fixed
+orthographic view while shell geometry rotates. Do not imply the PNGs rotate
+in three dimensions. Override graphite `STYLE` per figure for local changes;
+changing the shared default changes every shell.
+
+To rebuild browser geometry, first download `6NJ8.cif`, `5F9R.cif` and
+`1MSW.cif` from RCSB into `tools/structures/cache/`. The builders expect that
+cache to exist; they do not download it themselves. Then:
 
 ```bash
-python3 -m venv tools/.venv-build && tools/.venv-build/bin/pip install numpy scipy
+python3 -m venv tools/.venv-build
+tools/.venv-build/bin/pip install numpy scipy
 tools/.venv-build/bin/python tools/structures/build_capsid.py
 tools/.venv-build/bin/python tools/structures/build_complex.py
 tools/.venv-build/bin/python tools/structures/build_mutat7.py
 ```
 
-The scripts re-download from RCSB into `tools/structures/cache/` if it is empty.
-The JSON they write into `theme/data/` **is committed** — a clone builds the
-site without any of this.
+Commit the generated `theme/data/*.json`. Preserve the shell's compact chain
+plus symmetry-operator representation and the common coordinate units.
+The capsid builder checks the 12 pentamers and 30 hexamers totaling 240 subunits.
 
----
+## Verification and previews
 
-## 2. How it fits together
-
-```
-tools/structures/*.py     offline, dev-only. PDB -> theme/data/*.json
-        |
-theme/data/*.json         committed. 21 KB gzipped total.
-        |
-theme/js/structures.js    one cached fetch per file, shared by all figures
-        |
-theme/js/pencil.js        the graphite look: strokes, hatching, grain, hulls
-theme/js/capsid.js        draws the shell / capsomers   (uses pencil)
-theme/js/parts.js         draws repressor + polymerase  (uses pencil)
-theme/js/annotate.js      labels, leader lines, colour keys (uses pencil)
-        |
-theme/js/figures/*.js     the actual figures on the page
-        |
-theme/js/figure.js        the mount/render(t)/resize/destroy contract
-theme/js/scrolly.js       drives the homepage scroll story
-```
-
-### The one rule that makes everything work
-
-**`render(t)` must be a pure function of `t`.** Calling `render(0.4)` twice must
-produce the same picture, and reaching 0.4 by scrolling backwards from 0.9 must
-look identical to reaching it forwards. No state between frames, no
-`Math.random()` — use `rng(seed)` from `util.js`.
-
-This is what gives you reverse-scrubbing, resize, and reduced-motion for free.
-If you find yourself wanting to store "what happened last frame", you are about
-to break the figure. Derive it from `t` instead.
-
-### The structure files
-
-| File | Source | Contains |
-|---|---|---|
-| `capsid.json` | 6NJ8 | 4 chain templates, 60 icosahedral operators, penton/hexon label per subunit, icosahedron edges |
-| `complex.json` | 5F9R | Cas9 REC + NUC lobes, sgRNA, target duplex, `clp_site`, `boxb_site` |
-| `mutat7.json` | 1MSW | T7 RNAP, template + non-template DNA, nascent RNA |
-
-The capsid ships templates and operators rather than 240 baked subunits. The
-browser folds the view rotation into each operator once per frame, so every
-structural point after that costs one matrix-vector product. **Do not "simplify"
-this into pre-transformed coordinates** — it would be ~8× larger and slower.
-
-All three are in **Ångström on one shared scale**. That is why the shell is the
-right size around the repressor. If you add a structure, keep it in Ångström and
-centre it the same way.
-
----
-
-## 3. Making the tweaks you are most likely to be asked for
-
-### Label positions in the cell scene
-
-All in `theme/js/figures/cell-scene.js`, in `annotate()` (around line 260-330).
-Coordinates are in a **virtual 1000 × 620 space**, not pixels — the scene is
-fitted into whatever size the stage gives it. Origin top-left.
-
-Current calls, with their anchor points:
-
-| Line | Label | Position |
-|---|---|---|
-| ~275 | `Mutation plasmid` | centred at `(MUT.x, 166)` |
-| ~277 | `Selection plasmid` | centred at `(SEL.x, 248)` |
-| ~281 | `encapsulin cassette` | text at `[432, 196]` |
-| ~284 | `kanR` | text at `[612, 466]` |
-| ~290 | `MutaT7` | text at `[432, 252]`, arrow tracks the moving enzyme |
-| ~297 | `dCas9·sgRNA` | text fixed at `[880, 540]` (outside the cell, bottom-right), arrow tracks `(rx, ry)` |
-| ~304 | `encapsulin pentamer/hexamer` | text at `[238, 470]` |
-| ~312 | `240 subunits, T=4` | text at `[296, 502]` |
-| ~323-327 | colour key, three rows | `(58, 548)`, `(58, 571)`, `(58, 594)` |
-
-`callout(g, text, at, to, opt)` puts the text at `at` and an arrow into `to`. It
-picks which side the leader leaves from automatically: if `to` is left of `at`,
-the text runs rightwards and the line leaves from its left edge. So to flip a
-label to the other side of its subject, move `at` across — you do not set an
-alignment.
-
-Things the layout must stay clear of, which is why these are hand-placed
-literals and not computed:
-
-- the two plasmid circles: `MUT` (x 162–354, y 186–378), `SEL` (x 694–862, y 272–440)
-- the assembled shell in act 03: a disc of radius ~162 centred on `HUB` = `(498, 300)`
-- `SEATS` — the seven capsomer positions, which are also hand-placed for this reason
-- the frame: keep text inside x 40–960, y 90–600
-
-**After moving any label, screenshot all three acts.** Two of them track moving
-subjects, so a position that is clear in act 01 can collide in act 03.
-
-### Scene hotspots (the homepage's site navigation)
-
-The scroll story's drawing is also the homepage's route into the rest of the
-site — this replaced the old `system-map.js` abstract diagram, which is gone.
-Built in `mount()` in `theme/js/figures/cell-scene.js`, just after `this.marks`:
-five `<a>` elements in an SVG layered over the canvas (`needs: 'canvas svg'`,
-`viewBox` matches `VW`×`VH`), each wrapping one `hotspot()` call:
-
-| Region | Destination | Tracks |
-|---|---|---|
-| `MUT` ring | `lab/constructs/` | static |
-| `SEL` ring | `lab/constructs/` | static |
-| `HUB`, radius `SHELL_R * ANGSTROM + 24` | `project/design/` | static |
-| `this.hsMutaT7` | `project/future/#planned-campaign` | the enzyme, `(px, py)`, every `paint()` |
-| `this.hsSelection` | `project/mechanism/` | the repressor, `(rx, ry)`, every `paint()` |
-
-The tracked two are built **last**, so they sit on top of the static regions in
-the DOM and win any overlap — the same reason the enzyme itself overdraws the
-plasmid it is sitting on. If you add a sixth hotspot, keep that ordering: static
-first, tracked last.
-
-The hit circle has no fill or stroke of its own — painting one would sit an
-opaque disc over the pencil drawing — so it only exists to be clicked, and
-`.hotspot__hit` in `home.css` sets `pointer-events: all` to make an invisible
-shape hit-testable at all. `.scrolly__stage` is `pointer-events: none` so the
-sticky scenery never intercepts page scrolling; a hotspot overrides that for
-itself, it does not need the ancestor changed.
-
-Reduced motion and standalone reuse (`data-act-index`) both go through the same
-`paint()`, so the tracked hotspots land in the right place there too with no
-extra code — this is the same "pure function of `t`" discipline as everything
-else in the figure.
-
-### Act timing
-
-Two separate things, and people confuse them.
-
-**When an act starts** is CSS: `--scrolly-focus` in `theme/css/home.css` (line
-~91 desktop, ~330 tablet, ~350 mobile). It is the fraction of viewport height
-the story "reads from". **Larger = acts start earlier**, because a panel's top
-crosses a lower line sooner as it scrolls up. Desktop is currently `0.58`, raised
-from 0.42 because the animation felt behind the text.
-
-**How fast things happen inside an act** is in `cell-scene.js` `paint()`:
-
-| Line | Name | Ramp | What it drives |
-|---|---|---|---|
-| ~168 | `walk` | `norm(t2, 0.02, 0.68)` | MutaT7 along the cassette |
-| ~187 | `arrive` | `norm(t1, 0.02, 0.40)` | repressor onto the gene |
-| ~188 | `close` | `norm(t3, 0.03, 0.42)` | repressor off the gene to the hub |
-| ~201 | `arrival` | `norm(t3, 0.06, 0.55)` | capsomers flying home |
-| ~203 | `mut` | `norm(p, 0.37, 0.67)` | mutations accumulating (× `MUT_MAX`) |
-| ~226 | `build` | `norm(t3, 0.12, 0.58)` | the other 35 capsomers filling in |
-
-**Nothing may finish later than about t = 0.6 of its act.** The sticky stage
-releases before the last panel's span ends, so an animation timed to t = 1 plays
-its climax after the drawing has scrolled off the top of the screen. This
-already caught me once.
-
-### The graphite style
-
-`STYLE` in `theme/js/capsid.js` (~line 52). Figures override individual keys and
-never restate the object, so a change here reaches every drawing.
-
-```js
-passes: 3, width: 1.95, alpha: 1, wobble: 0.75,   // the line
-hatchMax: 0, hatchGap: 2.4,                        // shading (off)
-k: 0.76, far: 0.5, rim: 0,                         // subunit size, far side, contour
-outline: 0.18,   // subunit silhouette — nearly off; the traces carry the drawing
-trace: 1,        // real Ca backbone paths
-pentonInk: 1,    // >1 draws the 12 five-folds harder than the 30 hexamers
-capRing: 0,      // per-capsomer outlines
-icosa: 1,        // construction cage through the pentamer centres
-```
-
-These values were chosen by the team from a style-frame comparison. **Do not
-change `STYLE` to fix one figure** — override the key in that figure's own call
-instead. The most likely legitimate request is *"too crowded in the cell
-scene"*: lower `far` for that scene only (it is `0.5`, meaning a strong ghost of
-the far hemisphere) by passing `far` in the scene's own style object, leaving the
-hero alone.
-
-To rebuild the comparison page after changing `pencil.js` or `capsid.js`:
+For an ordinary change:
 
 ```bash
-tools/.venv-build/bin/python tools/build_study.py tools/sandbox/study.html
+.venv/bin/mkdocs build --strict
+git diff --check
 ```
 
-It inlines the real modules, so what you look at is what the site runs.
+For visual edits, open desktop and mobile screenshots, rather than relying
+only on a successful build. Install the optional screenshot tools:
 
-### Colour
-
-Only three marks in the whole site are not graphite, and each takes the token of
-the molecule it sits on. Set in `cell-scene.js` `mount()` and `hero-capsid.js`
-`mount()`:
-
-```js
-clp:  pal.cas      // --enc-cas    CLP fusion site — it is on dCas9
-boxb: pal.sgrna    // --enc-sgrna  boxB site — it is on the guide
-mut:  pal.mutate   // --enc-mutate deamination events
+```bash
+.venv/bin/pip install playwright
+.venv/bin/playwright install chromium
+.venv/bin/python tools/shots.py hero
+.venv/bin/python tools/shots.py story 0.15 0.45 0.85
+.venv/bin/python tools/shots.py page project/mechanism/
 ```
 
-Red belongs to mutation because `--enc-mutate` is literally that. If you are
-asked to add another colour, take it from `theme/css/tokens.css` and make sure
-no hue ends up meaning two things — the key has to stay unambiguous.
+Run the preview server first. Screenshots go to gitignored `tools/shots/`.
+Set `SITE` to override the helper's default URL. Chromium may need OS libraries;
+the helper also supports the previous machine-local `~/.local/pwlibs` directory.
 
-Neither grip is in 5F9R: the cargo-loading peptide is a fusion to Cas9's
-C-terminus and boxB is appended to the guide's 3′ end. What is coloured is the
-**attachment site**, and the labels say so. Do not relabel them "CLP" and "boxB"
-as if the structure contained them.
+A static build is useful for checking production asset paths without live reload:
 
-### Hero timing
-
-`theme/js/figures/hero-capsid.js`, lines 30-34: `SECONDS_PER_TURN = 44`,
-`HOLD_CLOSED = 4.5`, `OPEN_OVER = 3.2`. The zoom is `lerp(1, 2.3, ...)` at
-line ~97 and the throw is `explode: e * 0.5` at ~107.
-
-The sequence runs on a clock, not on scroll. This was tried the other way and it
-is wrong: the hero is 84vh and unpinned, so a scroll-driven opening finishes off
-the top of the screen. If someone asks for it to be scroll-driven, they are
-asking for a pinned hero, which pushes the scroll story most of a screen further
-down. Say so before building it.
-
----
-
-## 4. Traps
-
-Every one of these cost me time.
-
-- **`element.screenshot()` scrolls the element into view.** In a scroll-driven
-  story it changes the position you are trying to photograph. Use a clip box.
-  `tools/shots.py` already does.
-- **`wait_until='networkidle'` never fires against `mkdocs serve`** — the
-  livereload socket stays open. Use `'load'`.
-- **`mkdocs serve` 404s on `/search/main.js`** from subpages. Pre-existing, path
-  handling in serve only, absent from a real build. Ignore it; verify against
-  `mkdocs build` output if unsure.
-- **Rotation order matters for symmetry.** `order = round(360/angle)` misfiles a
-  144° rotation as 2-fold, which silently corrupts the capsomer lattice.
-  `build_capsid.py` tests the angle directly. The check that it is right: 12
-  pentamers × 5 + 30 hexamers × 6 = 240, asserted in the script.
-- **Jitter belongs to the structure, not the screen.** Each point carries a fixed
-  3-D offset that is projected with it. Offsetting at draw time makes the capsid
-  boil. If you add geometry, follow the same pattern (see `pencil.js` header).
-- **Backbone traces are near-hemisphere only.** An encapsulin protomer's arms
-  reach across its neighbours; 240 overlapping traces plus a far-side ghost is a
-  hairball.
-- **CI blocks external runtime dependencies.** `.github/workflows/ci.yml` fails
-  the build on any `<script src=https://…>`, external stylesheet, or CSS `url()`
-  outside a small allowlist. No CDNs, no webfonts from Google, no analytics.
-  Everything ships with the site.
-
----
-
-## 5. What is left
-
-Roughly in the order I would do it.
-
-### 5.1 An enrichment figure
-
-`docs/lab/` has no enrichment figure; `cycles.md` (now folded into `project/future.md`) used to carry a population-distribution plot
-(round-over-round enrichment). Its module was deleted with the old act set and
-the figure block was removed; **the prose is unchanged and now runs without an
-illustration**. Rebuild it in graphite if the team wants it — it is a chart, not
-a structure, so it wants `pencil.js` strokes over a plain axis rather than
-anything from `theme/data/`. Read `dataviz` guidance before drawing axes.
-
-### 5.2 Figures for pages that have none
-
-Only three pages carry figures. These have no illustration at all and are the
-obvious candidates, in order of how much a drawing would help:
-
-| Page | Words | What a figure would show |
-|---|---|---|
-| `docs/project/design.md` | 717 | the OR gate — two grips on one complex, either sufficient |
-| `docs/lab/constructs.md` | — | cassette architecture, T7 promoter → ORF → terminator |
-| `docs/project/results.md` | 708 | whatever the data supports; check with the team first |
-| `docs/project/background.md` | 711 | encapsulin size series (T=1/T=3/T=4) at true relative scale |
-
-Two cheap wins first: `cell-scene` already supports `data-act-index="0|1|2"`, so
-any page discussing one act can reuse the existing drawing with one line of
-Markdown. And a `design.md` figure could be the repressor from `complex.json`
-with both grips called out — `parts.js` and `annotate.js` already do all of it.
-
-Figure syntax and the three rules that make it work are in `docs/_authoring.md`.
-
-### 5.3 Tone pass on the rest of the site
-
-Done: `docs/index.md`, the three homepage panels in `theme/home.html`,
-`docs/project/mechanism.md` (~1,150 words).
-
-Not done: ~8,300 words. Largest first — `protocols.md` 884, `biosafety.md` 792,
-`design.md` 717, `background.md` 711, `results.md` 708, `notebook.md` 652,
-`future.md` 503, `plasmids.md` 454, `constructs.md` 439, `attributions.md` 413,
-`cycles.md` 382, `data.md` 308, `human-practices.md` 211, plus the short index
-pages.
-
-The brief is *more technical, less sensational, fewer words*. Concretely, cut:
-
-- aphoristic openers — "Directed evolution is only as good as its selection"
-- self-congratulating section titles — "A second, quieter benefit"
-- lines that tell the reader how to feel about a fact — "That is worth more than
-  it sounds", "This is the single most consequential decision"
-- dramatised consequences — "does not merely score poorly; it does not survive"
-- rhetorical closers — "and the survivors are the library"
-
-Keep every number, citation, footnote, table and caveat. The two rewritten pages
-lost about 7% of their words and no content; that is the right ratio. Compare
-`git show 379a9e1` for the register the team approved.
-
----
-
-## 6. Conventions to honour
-
-- **Comments explain why, not what.** The existing headers document decisions
-  that were made against an obvious alternative — why jitter is structural, why
-  the hero is clock-driven, why traces are near-side only. Match that: if you
-  reverse one of those decisions, replace the comment with your reasoning, and if
-  you add a non-obvious one, write it down.
-- **Zero runtime dependencies.** See the CI note above.
-- **Reduced motion is a real path, not a fallback.** Every figure must render a
-  meaningful still frame under `prefers-reduced-motion: reduce` — the end state,
-  not a blank canvas. Test it: `tools/shots.py` does not, but Playwright takes
-  `reduced_motion='reduce'` on the context.
-- **Fail soft.** An unknown `data-figure` id logs a warning and leaves the
-  caption; a missing JSON file leaves an empty frame. Keep it that way — a figure
-  must never be able to break the page it is on.
-- **Molecular sizes are to scale relative to each other; the cell and plasmids
-  are not.** The captions say so. If you add a molecule, put it through the same
-  `ANGSTROM` constant. If you add a schematic element, do not imply it is scaled.
-
-## 7. Commits on this branch
-
-The figure work, oldest first:
-
-```
-1eafe70  Add structure pipeline: real coordinates for every molecule on the site
-247dc52  Add the graphite renderer
-2fa929f  Replace the homepage figures with one continuous pencil drawing
-379a9e1  Tighten the front page and mechanism prose
-3d22921  Annotate the drawings, and start the acts earlier
-c27cfc5  Assemble the shell from the capsomers the reader has been watching
+```bash
+mkdir -p /tmp/evolution-preview
+ln -sfn "$PWD/site" /tmp/evolution-preview/2026_Evolution_Suisse_2026
+python3 -m http.server 8765 --bind 127.0.0.1 --directory /tmp/evolution-preview
 ```
 
-...plus the commit that added this file. Each of the six stands on its own: the
-pipeline verifies without the renderers, the renderers work without the figures,
-and the prose commit touches no code.
+Open `http://127.0.0.1:8765/2026_Evolution_Suisse_2026/` after building.
+
+Check visual changes at desktop, 390px and 320px widths, with JavaScript
+disabled on the homepage and `prefers-reduced-motion: reduce`. For Mechanism,
+check all three acts, reverse scrolling, resizing and still views. Check search
+on a nested page, mobile navigation/focus, local image/JSON responses and console
+errors. Broken molecular assets should leave the existing structure fallback;
+broken shell data should leave the homepage SVG shell.
+
+The last implementation passed strict builds, CI's external dependency check,
+these browser/layout checks, identical reverse-scroll frames, shared asset
+request caching, and forced asset-failure checks. Ad hoc Playwright scripts
+were under `/tmp/check_evolution.py`, `/tmp/check_cargo.py` and
+`/tmp/review_evolution.py`; they are not committed tests and may disappear.
+
+Common pitfalls:
+
+- Use Playwright `wait_until='load'` against `mkdocs serve`; live reload can
+  prevent `networkidle`. Static-server previews can use `networkidle`.
+- `element.screenshot()` scrolls the target into view, changing animation
+  progress. Use a viewport clip; `tools/shots.py` already does this.
+- Search script paths were fixed in `base.html`. Preserve
+  `{{ script|script_tag }}` for `config.extra_javascript` rather than applying
+  a second `|url` transformation. Keep `base_url` defined before search starts.
+  A nested-page search 404 is a regression to investigate, not something to ignore.
+- Keep `site_url`, `theme.name: null`, `theme.static_templates: [404.html]`
+  and the explicit search plugin in `mkdocs.yml`.
+- Fonts, scripts, styles and images must be locally hosted. CI checks external
+  runtime dependencies. Outbound citation links are fine.
+- Published report figures in `docs/img/` are scientific records. The cargo
+  redesign updated overview/animation illustrations, not those report images.
+
+## Commit and deploy
+
+The user requested logical commits and pushes to rebuild. Check authentication
+with `gh auth status`; the working account during this session was OliverNagl.
+Do not record tokens in documentation or commit generated `site/`, caches,
+Python environments or screenshots.
+
+```bash
+git status --short
+git add <explicit changed files>
+git commit -m "Describe the concrete change"
+git push origin main
+gh run list --limit 5
+```
+
+A main push runs `.github/workflows/ci.yml`: strict build and dependency check,
+then `mkdocs gh-deploy --force` publishes generated files to `gh-pages`.
+GitHub subsequently runs **pages build and deployment**. Check both workflows
+and verify the live page/new assets before reporting that the change is live.
+Use `gh run view <id>` or `gh run watch <id> --exit-status` to inspect failures.
+A hosted-runner acquisition error is infrastructure failure; inspect/retry the
+failed run rather than changing site code without evidence.
+
+Recent changes, oldest first:
+
+| Commit | Change |
+| --- | --- |
+| `4c4172e` | Shared Plex typography, navigation and figure instance fixes |
+| `d334247` | Bird's-eye homepage; walkthrough moved to Mechanism |
+| `6bd3c9d` | Overview documentation and screenshot tooling |
+| `665c185` | Isolated soft ChimeraX Cas9 and guide renders |
+| `5b020a7` | Delivery graphic simplification and current headline |
+| `773e707` | Calibrated protein–RNA complex assets and rendering pipeline |
+| `a654620` | Shared renders across all overview/Mechanism figures, provenance and narrow-screen header fix |
+
+All requested visual work was completed and deployed before this handoff.
+Further layout, illustration or copy changes should follow the user's next
+request; older speculative to-do lists are not outstanding commitments.
