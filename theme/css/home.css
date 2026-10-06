@@ -308,13 +308,14 @@
 .overview-link span { display: inline-block; transition: transform var(--dur) var(--ease); }
 .overview-link:hover span { transform: translate(2px, -2px); }
 .overview-hero .overview-link { margin-top: 2rem; }
-/* Unlisted brand-banner trial; homepage copy stays shared with the main page. */
-.page--banner-preview .overview-hero {
+/* Alpine brand banner with the delivery goals beside the landscape. */
+.page--banner .overview-hero {
   position: relative;
   isolation: isolate;
   min-height: 44rem;
+  padding-block: 4rem 3rem;
 }
-.page--banner-preview .overview-hero::before {
+.page--banner .overview-hero::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -334,11 +335,32 @@
   mask-image: linear-gradient(to right, transparent, var(--ink) 8%, var(--ink) 92%, transparent), linear-gradient(to bottom, transparent, var(--ink) 8%, var(--ink) 88%, transparent);
   mask-composite: intersect;
 }
-.page--banner-preview .overview-hero__copy { grid-column: 1; }
-.overview-banner-delivery {
-  max-width: 42rem;
-  margin: 3rem auto 0;
+.page--banner .overview-hero__copy { grid-column: 1; }
+.page--banner .overview-lede { margin-top: 1.5rem; }
+.page--banner .overview-hero .overview-link { margin-top: 1.25rem; }
+.delivery-promise { margin-top: 1.5rem; max-width: 34rem; }
+.delivery-promise__steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
+.delivery-promise__steps li { min-width: 0; text-align: center; }
+.delivery-promise__steps svg { display: block; width: 100%; max-width: 10rem; height: 5.25rem; margin: 0 auto .5rem; }
+.delivery-promise__steps svg path, .delivery-promise__steps svg ellipse, .delivery-promise__steps svg circle {
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.delivery-promise__index { display: block; font-size: .65rem; font-weight: 500; letter-spacing: .12em; color: var(--ink-muted); margin-bottom: .3rem; }
+.delivery-promise__steps strong { display: block; font-size: .95rem; font-weight: 500; line-height: 1.35; }
+.delivery-promise__target { fill: none; stroke: var(--accent); stroke-width: 1.2; }
+.delivery-promise__target > ellipse:first-child { fill: var(--accent-wash); }
+.delivery-promise__bystanders { fill: none; stroke: var(--ink-muted); stroke-width: 1; opacity: .35; }
+.delivery-promise__route { fill: none; stroke: var(--ink-muted); stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; }
+.delivery-promise__source { margin-top: .75rem; font-size: .7rem; color: var(--ink-muted); }
 .overview__art { width: 100%; height: auto; overflow: visible; }
 .overview__art path, .overview__art circle {
   vector-effect: non-scaling-stroke;
@@ -444,9 +466,9 @@
 .no-js .mechanism-story .scrolly__stage { display: none; }
 .no-js .mechanism-story .scrolly__panels { gap: 3rem; }
 @media (max-width: 900px) {
-  .page--banner-preview .overview-hero { min-height: 0; padding-bottom: 0; }
-  .page--banner-preview .overview-hero::before { display: none; }
-  .page--banner-preview .overview-hero__copy { grid-row: 1; }
+  .page--banner .overview-hero { min-height: 0; padding-bottom: 0; }
+  .page--banner .overview-hero::before { display: none; }
+  .page--banner .overview-hero__copy { grid-row: 1; }
   .overview-hero__backdrop {
     position: relative;
     inset: auto;
@@ -471,6 +493,9 @@
   .overview-together .overview-section__intro { margin-inline: 0; }
 }
 @media (max-width: 560px) {
+  .delivery-promise__steps { gap: .65rem; }
+  .delivery-promise__steps strong { font-size: .8rem; }
+  .delivery-promise__steps svg { height: 4.25rem; }
   .overview-hero h1 { font-size: clamp(2.4rem, 9vw, 3.2rem); }
   .overview-kicker { margin-bottom: 1rem; }
   .overview-hero__figure { margin-inline: -.5rem; }

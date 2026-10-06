@@ -1,6 +1,6 @@
 # Website handoff
 
-Updated 2026-10-06, after the header logo and optional alpine banner preview.
+Updated 2026-10-06, after adopting the original alpine banner and refining the delivery steps.
 This is the current guide; it replaces the older graphite-only handoff.
 
 Repository: https://github.com/idec-teams/2026_Evolution_Suisse_2026
@@ -83,29 +83,44 @@ component can restore growth, so growth alone does not prove co-encapsulation.
 
 ## Editing the homepage illustrations
 
-The masthead now uses the user-supplied `EvolutionSuisse.png`, copied unchanged
-to `docs/img/evolution-suisse.png`. Its square white margins are clipped in CSS;
-the image blends into the paper without altering the original. Header height
-is controlled by the shared `--masthead-h` token so sticky layouts and mobile
-drawers remain aligned.
+The homepage now uses the original alpine/evolution banner artwork,
+`docs/img/evolution-suisse-banner.png`, with three compact delivery illustrations
+inside the opening copy: “Protect the cargo.”, “Reach the right cells.” and
+“Release it inside.” The native SVG drawings live in
+`theme/partials/delivery-promise.html`. They share a viewBox, rounded strokes,
+consistent line weights and aligned numbered captions. The second step shows a
+highlighted target cell among nearby cells; the third separates two shell halves
+and shows cargo inside the cell. Cargo renders and the regular icosahedron macro
+are shared with the overview figures. Their PDB credit remains beneath the row.
 
-An unlisted `/banner-preview/` page tests a redesigned alpine/evolution brand
-background, `docs/img/evolution-suisse-banner.png`. It uses the same `home.html`
-and reads the homepage's front matter directly, so text updates stay in sync.
-Only that page adds `page--banner-preview`; its delivery diagram moves below
-the opening banner. On mobile, artwork follows the opening copy to preserve
-readability. The page is excluded from search/navigation and marked noindex.
-`tools/branding/exclude_preview.py` removes its entries from the built-in search
-index after the search plugin writes it.
-Artwork provenance and the exact generation prompt are in
-`tools/branding/README.md`. Both layouts passed strict builds, desktop/390px/320px
-visual checks, mobile navigation, reduced motion and no-JavaScript checks.
+The masthead uses the user-supplied `EvolutionSuisse.png`, copied unchanged to
+`docs/img/evolution-suisse.png`. CSS clips its white margins and blends it into
+paper. The shared `--masthead-h` token keeps sticky layouts and mobile drawers
+aligned. All homepage banner styling uses `page--banner`. On mobile, artwork
+follows the opening copy to preserve readability.
+
+`/banner-preview/` remains an unlisted mirror of the selected homepage design.
+It reads the homepage front matter, is absent from navigation/search and carries
+noindex. `tools/branding/exclude_preview.py` removes its entries after the built-in
+search plugin writes the index. Artwork provenance and the generation prompt
+are in `tools/branding/README.md`.
+
+The user chose the original artwork. The alternative capsomer banner/logo is
+preserved only under the gitignored `tools/branding/local-experiments/capsomer/`
+directory, including source assets and prototype templates. It must not be
+published without a later instruction. It is outside the MkDocs docs directory
+and absent from production output.
+
+This design passed strict builds and desktop/1024px/901px/390px/320px checks,
+including reduced motion, no JavaScript, mobile navigation, nested-page search,
+image loading and exclusion of the unpublished concept from the built site.
 
 `overview-figures.html` defines `delivery`, `together`, `shell`, and `evolution`,
-plus reusable `protein`, `rna`, and `cage` macros. All ten protein/RNA image
+plus reusable `protein`, `rna`, and `cage` macros. Protein/RNA image
 occurrences use the shared transparent Cas9/guide PNGs. Edit a shared macro to
 change its appearance everywhere; adjust its call's `(x, y, scale)` to change
-one placement. The opening figure uses explicit image bounds instead.
+one placement. The original `delivery` diagram remains available as a macro;
+the opening banner now uses the `delivery-promise.html` partial instead.
 
 SVG coordinates are local to each `viewBox`; changing image dimensions can
 require moving route arrows and loading-site leaders. Preserve titles,
