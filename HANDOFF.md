@@ -45,6 +45,7 @@ prefer the reproducible setup above. Do not assume a preview server is running.
 | Shared colors, type and spacing tokens | [theme/css/tokens.css](theme/css/tokens.css) |
 | Header, mobile drawer, shared page layout | [theme/css/layout.css](theme/css/layout.css), [theme/base.html](theme/base.html) |
 | Project, lab and team page text | `docs/project/`, `docs/lab/`, `docs/team/` |
+| Team roles and LinkedIn links | `docs/team/index.md`; `.person__role` and `.person__social` in `theme/css/content.css` |
 | Navigation and site configuration | [mkdocs.yml](mkdocs.yml) |
 | Mechanism walkthrough copy and still-view markup | [theme/partials/selection-story.html](theme/partials/selection-story.html) |
 | Walkthrough insertion point | [docs/project/mechanism.md](docs/project/mechanism.md), `<!-- selection-story -->` marker; [theme/mechanism.html](theme/mechanism.html) inserts the partial |
@@ -111,6 +112,13 @@ structure credits but omit illustration caveats such as “not to scale” and
 “illustrative cutaway,” as requested. Keep the proposed-system and experimental
 status distinctions in the main copy. This update passed the strict build and
 desktop, 390px and 320px visual checks, including reduced motion and no JavaScript.
+
+All six student profiles now have small role lines and LinkedIn links. Oliver's
+role is “Concept development, dry lab, wiki”; Noel's is “Wet lab, funding &
+finances”; the other four are “Wet lab” pending later elaboration. Oliver and
+Noel's URLs were supplied by the user, Klara's was confirmed by the user, and
+Luca, Max and Nathania's were found through their public LinkedIn profiles and
+matching academic affiliations. Supervisors retain their existing descriptions.
 
 ## Regenerating molecular renders
 

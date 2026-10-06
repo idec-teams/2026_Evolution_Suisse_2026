@@ -17,36 +17,48 @@ the Student BioLab Zürich.
     <div class="person__photo"><img src="../img/team/luca-vogt.webp" alt="Luca Vogt"></div>
     <p class="person__name">Luca Vogt</p>
     <p class="person__aff">Department of Biosystems Science and Engineering, ETH Zürich</p>
+    <p class="person__role">Wet lab</p>
+    <p class="person__social"><a href="https://www.linkedin.com/in/luca-vogt-2034a42a3/" rel="external" aria-label="Luca Vogt on LinkedIn">LinkedIn <span aria-hidden="true">↗</span></a></p>
   </article>
   <!-- klara-tkacz -->
   <article class="person">
     <div class="person__photo"><img src="../img/team/klara-tkacz.webp" alt="Klara Tkacz"></div>
     <p class="person__name">Klara Tkacz</p>
     <p class="person__aff">Department of Biosystems Science and Engineering, ETH Zürich</p>
+    <p class="person__role">Wet lab</p>
+    <p class="person__social"><a href="https://www.linkedin.com/in/klara-tkacz-0133a8396/" rel="external" aria-label="Klara Tkacz on LinkedIn">LinkedIn <span aria-hidden="true">↗</span></a></p>
   </article>
   <!-- max-schaebinger -->
   <article class="person">
     <div class="person__photo"><img src="../img/team/max-schaebinger.webp" alt="Max Schäbinger"></div>
     <p class="person__name">Max Schäbinger</p>
     <p class="person__aff">Faculty of Science, Universität Zürich</p>
+    <p class="person__role">Wet lab</p>
+    <p class="person__social"><a href="https://www.linkedin.com/in/max-schaebinger/" rel="external" aria-label="Max Schäbinger on LinkedIn">LinkedIn <span aria-hidden="true">↗</span></a></p>
   </article>
   <!-- oliver-nagl -->
   <article class="person">
     <div class="person__photo"><img src="../img/team/oliver-nagl.webp" alt="Oliver Nagl"></div>
     <p class="person__name">Oliver Nagl</p>
     <p class="person__aff">Department of Biosystems Science and Engineering, ETH Zürich</p>
+    <p class="person__role">Concept development, dry lab, wiki</p>
+    <p class="person__social"><a href="https://www.linkedin.com/in/oliver-nagl-41a40a1b0/" rel="external" aria-label="Oliver Nagl on LinkedIn">LinkedIn <span aria-hidden="true">↗</span></a></p>
   </article>
   <!-- nathania-calista-putri -->
   <article class="person">
     <div class="person__photo"><img src="../img/team/nathania-calista-putri.webp" alt="Nathania Calista Putri"></div>
     <p class="person__name">Nathania Calista Putri</p>
     <p class="person__aff">Department of Biology, ETH Zürich</p>
+    <p class="person__role">Wet lab</p>
+    <p class="person__social"><a href="https://www.linkedin.com/in/nathania-calista-putri/" rel="external" aria-label="Nathania Calista Putri on LinkedIn">LinkedIn <span aria-hidden="true">↗</span></a></p>
   </article>
   <!-- noel-lippold -->
   <article class="person">
     <div class="person__photo"><img src="../img/team/noel-lippold.webp" alt="Noel Lippold"></div>
     <p class="person__name">Noel Lippold</p>
     <p class="person__aff">Department of Chemistry and Applied Biosciences, ETH Zürich</p>
+    <p class="person__role">Wet lab, funding &amp; finances</p>
+    <p class="person__social"><a href="https://www.linkedin.com/in/noel-pascal-l-b7a196190/" rel="external" aria-label="Noel Lippold on LinkedIn">LinkedIn <span aria-hidden="true">↗</span></a></p>
   </article>
 </div>
 

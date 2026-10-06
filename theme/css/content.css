@@ -415,6 +415,8 @@ mjx-container:focus-visible { outline: 2px solid var(--accent); outline-offset: 
 .person__name { font-family: var(--font-display); font-size: var(--step-1); line-height: 1.2; color: var(--ink); }
 .person__aff { font-size: var(--step--1); line-height: 1.4; color: var(--ink-muted); }
 .person__role { margin-top: var(--s-2) !important; font-size: var(--step--1); color: var(--ink); }
+.person__social { font-size: var(--step--1); line-height: 1.4; }
+.person__social a { display: inline-block; padding-block: var(--s-1); }
 .person__bio  { font-size: var(--step--1); color: var(--ink-muted); }
 
 .prose .crew-chips { display: flex; flex-wrap: wrap; gap: var(--s-2); list-style: none; padding: 0; margin: var(--s-4) 0; }
