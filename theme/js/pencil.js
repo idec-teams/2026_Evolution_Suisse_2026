@@ -212,7 +212,7 @@ export function grain(g, w, h, { alpha = 0.055, scale = 1 } = {}) {
   g.fillRect(0, 0, w / scale, h / scale);
   g.restore();
 }
-}
+
 
 /**
  * Hand-animation boil: quantise a continuous clock to N frames per second so
