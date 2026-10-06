@@ -180,7 +180,7 @@ token via its `data-page="lab/protocols/"` selector in `theme/css/content.css`.
 Callout titles and body text retain their wording; other pages keep their own
 semantic colors.
 
-Constructs now uses light-background copies of the two original report figures:
+Constructs and Data's Figures S2/S3 use light-background copies of the two original report figures:
 `docs/img/report/s3-plasmid-maps-light.png` and `s2-sgrna-light.png`. Full-size
 links also use these versions. The source WebP exports are unchanged. The native
 SVG rendering script, `tools/figures/light_report_views.py`, replaces only the

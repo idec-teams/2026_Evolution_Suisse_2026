@@ -145,7 +145,7 @@ rather than a missing or undigested part.
 
 <figure class="report wide" id="fig-s2" markdown>
 
-[![Fig S2](../img/report/s2-sgrna.webp)](../img/report/s2-sgrna.webp)
+[![Fig S2](../img/report/s2-sgrna-light.png)](../img/report/s2-sgrna-light.png)
 
 **Fig S2.** KanR-based sgRNA sequence including the spacer and the boxB insertion sites.
 
@@ -153,7 +153,7 @@ rather than a missing or undigested part.
 
 <figure class="report narrow" id="fig-s3" markdown>
 
-[![Fig S3](../img/report/s3-plasmid-maps.webp)](../img/report/s3-plasmid-maps.webp)
+[![Fig S3](../img/report/s3-plasmid-maps-light.png)](../img/report/s3-plasmid-maps-light.png)
 
 **Fig S3.** **Plasmid maps.** Annotated maps of the control plasmid (QtEncapsulin only, `p_f008`, **a**), the engineered plasmid with all elements (`p_f011`, **b**), the mutation plasmid (`p_m005`, **c**) and the selection plasmid (`s_002_TcR_creT_v2`, **d**).
 

@@ -1,8 +1,8 @@
 # Light-background construct figures
 
-The Constructs page uses `s3-plasmid-maps-light.png` and `s2-sgrna-light.png`.
-The original report WebP exports remain unchanged, including their use on the
-Data page's supplementary section.
+The Constructs page and the Data page's supplementary section use
+`s3-plasmid-maps-light.png` and `s2-sgrna-light.png`, including full-size links.
+The original report WebP exports remain unchanged as source assets.
 
 `light_report_views.py` embeds each original raster in a native SVG presentation
 filter. It replaces the lowest 1/64 of sRGB luminance with white, then renders at
