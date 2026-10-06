@@ -110,6 +110,12 @@ h4:hover .headerlink, h5:hover .headerlink, h6:hover .headerlink,
 .prose .highlighttable td { border: 0; padding: 0; }
 
 /* ── Admonitions ─────────────── ext: admonition, pymdownx.details ──────── */
+body[data-page="lab/protocols/"] {
+  --sig-note: var(--accent);
+  --sig-protocol: var(--accent);
+  --sig-caution: var(--accent);
+  --sig-result: var(--accent);
+}
 .admonition, details.admonition, .prose details {
   border-left: 3px solid var(--sig-note);
   border-radius: var(--radius-l);

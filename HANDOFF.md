@@ -1,6 +1,6 @@
 # Website handoff
 
-Updated 2026-10-06, after adopting the original alpine banner and refining the delivery steps.
+Updated 2026-10-06, after the alpine banner, blue protocol callouts and light construct figures.
 This is the current guide; it replaces the older graphite-only handoff.
 
 Repository: https://github.com/idec-teams/2026_Evolution_Suisse_2026
@@ -167,6 +167,20 @@ protein/RNA delivery requires separate carriers were corrected. Our planned
 selection is distinguished from demonstrated co-packaging in prior systems.
 
 ## Regenerating molecular renders
+
+The Protocols page scopes all callout accents to the existing blue `--accent`
+token via its `data-page="lab/protocols/"` selector in `theme/css/content.css`.
+Callout titles and body text retain their wording; other pages keep their own
+semantic colors.
+
+Constructs now uses light-background copies of the two original report figures:
+`docs/img/report/s3-plasmid-maps-light.png` and `s2-sgrna-light.png`. Full-size
+links also use these versions. The source WebP exports are unchanged. The native
+SVG rendering script, `tools/figures/light_report_views.py`, replaces only the
+near-black background at source resolution before lossless PNG export. See
+`tools/figures/README.md`. Desktop/390px/320px checks passed, and pixel comparisons
+verified no changes to labels, sequence or colored features outside the near-black
+range. Normal builds need only the committed assets.
 
 The shared assets are committed in `docs/img/molecules/`:
 

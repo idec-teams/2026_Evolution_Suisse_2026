@@ -66,7 +66,7 @@ junction is the open step ([Table S2](supplementary.md#table-s2),
 
 <figure class="report narrow" markdown>
 
-[![Plasmid maps](../img/report/s3-plasmid-maps.webp)](../img/report/s3-plasmid-maps.webp)
+[![Plasmid maps](../img/report/s3-plasmid-maps-light.png)](../img/report/s3-plasmid-maps-light.png)
 
 **Fig 1.** Maps of `p_f008` (**a**), `p_f011` (**b**), `p_m005` (**c**) and the
 selection plasmid `s_002_TcR_creT_v2` (**d**).
@@ -75,7 +75,7 @@ selection plasmid `s_002_TcR_creT_v2` (**d**).
 
 <figure class="report wide" markdown>
 
-[![sgRNA sequence with spacer and boxB insertion sites](../img/report/s2-sgrna.webp)](../img/report/s2-sgrna.webp)
+[![sgRNA sequence with spacer and boxB insertion sites](../img/report/s2-sgrna-light.png)](../img/report/s2-sgrna-light.png)
 
 **Fig 2.** KanR-targeting sgRNA with the spacer and the boxB insertion sites in
 the scaffold.
