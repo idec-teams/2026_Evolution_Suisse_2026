@@ -165,6 +165,11 @@ Noel's URLs were supplied by the user, Klara's was confirmed by the user, and
 Luca, Max and Nathania's were found through their public LinkedIn profiles and
 matching academic affiliations. Supervisors retain their existing descriptions.
 
+Luca's portrait uses the supplied `luca.jpg`, copied unchanged to
+`docs/img/team/luca-vogt.jpg`. The existing 4:5 portrait slot crops it using
+`object-fit: cover` and a Luca-specific `object-position: 85% center`, keeping
+his face and shoulders centered without altering the source photo.
+
 The Background page now cites 21 primary sources beside the relevant claims,
 with all sources also present in the main bibliography. It explicitly credits
 Giessen and collaborators for QtEnc discovery, targeting-peptide studies,

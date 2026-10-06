@@ -14,7 +14,7 @@ the Student BioLab Zürich.
 <div class="people wide">
   <!-- luca-vogt -->
   <article class="person">
-    <div class="person__photo"><img src="../img/team/luca-vogt.webp" alt="Luca Vogt"></div>
+    <div class="person__photo person__photo--luca"><img src="../img/team/luca-vogt.jpg" alt="Luca Vogt"></div>
     <p class="person__name">Luca Vogt</p>
     <p class="person__aff">Department of Biosystems Science and Engineering, ETH Zürich</p>
     <p class="person__role">Concept development, Wet lab lead, dry lab</p>
