@@ -211,6 +211,7 @@ export function grain(g, w, h, { alpha = 0.055, scale = 1 } = {}) {
   g.fillStyle = pat;
   g.fillRect(0, 0, w / scale, h / scale);
   g.restore();
+  g.globalCompositeOperation = 'source-atop';
 }
 
 /**
