@@ -56,11 +56,22 @@
       <p>Adding loading routes is the starting point. Our next question is whether evolution can improve capture. We propose continuous mutation of the shell cassette, coupled to growth selection in <em>E. coli</em>.</p>
       <p>Here, catalytically inactive dCas9 and its guide repress an antibiotic-resistance gene. Sequestering a component reduces the active repressor and can restore growth, giving capture a selectable consequence.</p>
     </header>
-    <div data-overview-motion>{{ art.evolution() }}</div>
-    <figure class="evolution-capture">
-      <div data-figure="cell-scene" data-act-index="2" role="img" aria-label="Shell subunits assemble around dCas9 and its sgRNA inside the cell."></div>
-      <figcaption><strong>Step 02 in the cell.</strong> Subunits assemble around the dCas9·sgRNA repressor; capturing either component can restore resistance. Cell and plasmids are schematic; PDB 5F9R illustrates the Cas9 fold, and engineered fusions are not modeled. <a href="{{ 'project/mechanism/'|url }}">Walk through all three acts <span aria-hidden="true">↗</span></a></figcaption>
-    </figure>
+    <div class="evolution-stills">
+      <figure class="evolution-still">
+        <div class="mechanism-still" data-figure="cell-scene" data-act-index="0" role="img" aria-label="dCas9 and its sgRNA bound in the resistance gene."></div>
+        <figcaption><span class="step-index">01</span><strong>Silence</strong><span>dCas9 bound inside the kanamycin-resistance gene throttles its expression, so cells grow poorly on kanamycin.</span></figcaption>
+      </figure>
+      <figure class="evolution-still">
+        <div class="mechanism-still" data-figure="cell-scene" data-act-index="1" role="img" aria-label="MutaT7 mutating the encapsulin cassette."></div>
+        <figcaption><span class="step-index">02</span><strong>Diversify</strong><span>MutaT7 mutates only the encapsulin cassette, generating shell variants during growth in culture.</span></figcaption>
+      </figure>
+      <figure class="evolution-still">
+        <div class="mechanism-still" data-figure="cell-scene" data-act-index="2" role="img" aria-label="Shell subunits assemble around dCas9 and its sgRNA."></div>
+        <figcaption><span class="step-index">03</span><strong>Select capture</strong><span>Sequestering dCas9 or its sgRNA in a shell releases the resistance gene, so cells with better-capturing shells survive better.</span></figcaption>
+      </figure>
+    </div>
+    <p class="cycle-repeat"><span aria-hidden="true">↺</span> Repeat mutation and selection across generations</p>
+    <p class="evolution-note">Views are from the Mechanism walkthrough. Cell and plasmids are schematic; PDB 5F9R illustrates the Cas9 fold, and engineered fusions are not modeled.</p>
     <div class="overview-evolution__foot">
       <p><strong>Planned evolution strategy.</strong> Capturing either component can rescue growth. Independent assays must distinguish single-component capture from true co-encapsulation. Mammalian delivery is a longer-term goal.</p>
       <a class="overview-link" href="{{ 'project/mechanism/'|url }}">See how the selection works <span aria-hidden="true">↗</span></a>

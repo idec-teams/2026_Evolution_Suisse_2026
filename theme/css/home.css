@@ -327,7 +327,6 @@
 .loading-site { stroke-width: 1.5; }
 .loading-site--protein { stroke: var(--enc-cas); fill: var(--enc-cas); }
 .loading-site--rna { stroke: var(--enc-sgrna); fill: var(--enc-sgrna); }
-.mutation-marks { fill: var(--enc-mutate); stroke: var(--enc-mutate); stroke-width: 1.5; }
 .overview-section { padding-block: var(--overview-gap) 0; scroll-margin-top: 5rem; }
 .overview-section h2 {
   font-size: clamp(2.25rem, 3.5vw, 3.35rem);
@@ -367,19 +366,17 @@
 .shell-mobile-key { display: none; }
 .overview-shell figcaption { color: var(--ink-muted); font-size: .8rem; margin-top: .5rem; max-width: 42ch; }
 .overview-evolution .overview-section__intro { max-width: 65ch; }
-.evolution-cycle { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 1rem; align-items: start; margin-top: 2rem; }
-.evolution-step figcaption { display: grid; gap: .5rem; max-width: 25ch; margin-inline: auto; }
+.evolution-stills { display: grid; gap: 3rem; margin-top: 2.5rem; }
+.evolution-still { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: 2.5rem; align-items: center; margin: 0; }
+.evolution-stills .mechanism-still { display: block; }
+.evolution-still .figure__frame { background: none; border: 0; box-shadow: none; border-radius: 0; }
+.evolution-still figcaption { display: grid; gap: .5rem; max-width: 34ch; }
+.evolution-still strong { font-weight: 500; font-size: 1.3rem; }
+.evolution-still figcaption > span:last-child { color: var(--ink-muted); font-size: .95rem; }
+.evolution-note { margin-top: 1rem; font-size: .8rem; color: var(--ink-muted); text-align: center; }
 .step-index { color: var(--accent); font-size: .8rem; }
-.evolution-step strong { font-weight: 500; font-size: 1.3rem; }
-.evolution-step figcaption > span:last-child { color: var(--ink-muted); font-size: .95rem; }
-.cycle-arrow { color: var(--ink-muted); font-size: 1.6rem; margin-top: 5rem; }
 .cycle-repeat { text-align: center; margin-top: 2.5rem; font-size: .95rem; color: var(--ink-muted); }
 .cycle-repeat > span { margin-right: .4rem; font-size: 1.3rem; }
-.evolution-capture { margin: 3rem 0 0; }
-.evolution-capture .figure__frame { background: none; border: 0; box-shadow: none; border-radius: 0; position: relative; width: 100%; max-width: 62rem; margin-inline: auto; aspect-ratio: 1000 / 640; }
-.evolution-capture canvas, .evolution-capture .figure__frame > svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-.evolution-capture figcaption { max-width: 65ch; margin: .75rem auto 0; font-size: .8rem; line-height: 1.5; color: var(--ink-muted); }
-.evolution-capture figcaption strong { color: var(--ink); font-weight: 500; }
 .overview-evolution__foot { display: grid; grid-template-columns: minmax(0, 65ch) auto; gap: 2rem; align-items: start; margin-top: 2.5rem; }
 .overview-evolution__foot p { font-size: .9rem; color: var(--ink-muted); }
 .overview-evolution__foot strong { color: var(--ink); font-weight: 500; }
@@ -395,8 +392,6 @@
 /* Routes retain a visible outline while a short stroke trace is added. */
 .has-drawing-motion [data-overview-draw] path { stroke-dasharray: var(--path-length); stroke-dashoffset: calc(var(--path-length) * .12); transition: stroke-dashoffset 850ms var(--ease); }
 .has-drawing-motion.is-in-view [data-overview-draw] path { stroke-dashoffset: 0; }
-.has-drawing-motion [data-overview-mutations] { opacity: .65; transition: opacity 850ms var(--ease); }
-.has-drawing-motion.is-in-view [data-overview-mutations] { opacity: 1; }
 /* The homepage header and footer sit directly on the continuous paper. */
 .page--home .masthead, .page--home .masthead.is-stuck { border-bottom: 0; }
 .page--home .topnav__link:hover, .page--home .iconbtn:hover { background: none; }
@@ -447,12 +442,8 @@
   .cargo-comparison { grid-template-columns: 1fr; gap: 2.5rem; margin-top: 1rem; }
   .cargo-comparison__part { max-width: 29rem; }
   .overview-carrier { gap: 3rem; }
-  .evolution-cycle { grid-template-columns: 1fr; gap: .25rem; }
-  .evolution-step { display: grid; grid-template-columns: 42% 1fr; align-items: center; gap: 1rem; }
-  .evolution-step figcaption { margin: 0; }
-  .evolution-step strong { font-size: 1.15rem; }
-  .cycle-arrow { margin: 0 0 0 65%; transform: rotate(90deg); width: fit-content; }
-  .cycle-repeat { text-align: left; }
+  .cycle-repeat, .evolution-note { text-align: left; }
+  .evolution-still { grid-template-columns: 1fr; gap: 1rem; }
   .overview-explore { grid-template-columns: 1fr; gap: 1.5rem; }
   .mechanism-story { padding-inline: 1rem; }
   .mechanism-story .scrolly__stage { height: 32vh; }

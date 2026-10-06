@@ -12,10 +12,6 @@
   <path class="molecule__ghost" d="M2-53 46-26 47 27 0 54-46 27-46-26Z M-48-27 0 5 48-27 M0 5V56"/>
 </g>
 {%- endmacro %}
-{# A mutation mark sitting on vertex (vx, vy) of a cage drawn with the same (x, y, scale). #}
-{% macro mark(x, y, scale, vx, vy, r=4) -%}
-<circle class="mutation-marks" cx="{{ (x + vx * scale)|round(1) }}" cy="{{ (y + vy * scale)|round(1) }}" r="{{ r }}"/>
-{%- endmacro %}
 {% macro delivery() -%}
 <svg class="overview__art delivery-art" viewBox="0 0 600 510" role="img" aria-labelledby="delivery-title delivery-desc">
   <title id="delivery-title">Protein and RNA face a delivery barrier from organ to cell</title>
@@ -90,32 +86,4 @@
   </dl>
   <figcaption id="shell-caption">Proposed co-loading design. Cargo uses PDB 5F9R renderings; placement and loading handles are illustrative.</figcaption>
 </figure>
-{%- endmacro %}
-{% macro evolution() -%}
-<div class="evolution-cycle" aria-label="Planned evolution strategy">
-  <figure class="evolution-step">
-    <svg class="overview__art" viewBox="0 0 240 200" role="img" aria-label="Generate shell variants through targeted mutation">
-      {{ cage(68, 72, 0.62) }} {{ cage(163, 76, 0.68) }} {{ cage(118, 140, 0.6) }}
-      <g data-overview-mutations>{{ mark(68, 72, 0.62, -48, -27) }}{{ mark(163, 76, 0.68, 48, 28) }}{{ mark(118, 140, 0.6, 0, -55) }}{{ mark(163, 76, 0.68, 0, -55) }}</g>
-    </svg>
-    <figcaption><span class="step-index">01</span><strong>Vary shells</strong><span>MutaT7 targets the encapsulin cassette.</span></figcaption>
-  </figure>
-  <span class="cycle-arrow" aria-hidden="true">→</span>
-  <figure class="evolution-step">
-    <svg class="overview__art" viewBox="0 0 240 200" role="img" aria-label="Select cargo capture using bacterial growth">
-      <g class="cell-boundary"><path d="M78 48C20 44 20 155 78 154H174C232 154 232 48 174 48Z"/><path d="M78 55C31 52 30 147 78 147H174C221 147 221 55 174 55Z"/></g>
-      {{ cage(122, 102, 0.63) }} {{ protein(118, 96, 0.22) }} {{ rna(119, 116, 0.16) }}
-      <path class="annotation" d="M43 112h25 m103-29h24"/>
-    </svg>
-    <figcaption><span class="step-index">02</span><strong>Select capture</strong><span>Sequestration can restore antibiotic resistance.</span></figcaption>
-  </figure>
-  <span class="cycle-arrow" aria-hidden="true">→</span>
-  <figure class="evolution-step">
-    <svg class="overview__art" viewBox="0 0 240 200" role="img" aria-label="Enrich variants through repeated growth selection">
-      {% for x,y in [(62,68),(151,61),(111,120),(179,132),(49,144)] %}{{ cage(x,y,0.44) }}{{ mark(x, y, 0.44, 48, -27, 3) }}{% endfor %}
-    </svg>
-    <figcaption><span class="step-index">03</span><strong>Enrich variants</strong><span>Growth favors cells that remove more active repressor.</span></figcaption>
-  </figure>
-</div>
-<p class="cycle-repeat"><span aria-hidden="true">↺</span> Repeat mutation and selection across generations</p>
 {%- endmacro %}
