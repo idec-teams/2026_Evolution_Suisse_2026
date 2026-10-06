@@ -120,6 +120,19 @@ Noel's URLs were supplied by the user, Klara's was confirmed by the user, and
 Luca, Max and Nathania's were found through their public LinkedIn profiles and
 matching academic affiliations. Supervisors retain their existing descriptions.
 
+The Background page now cites 21 primary sources beside the relevant claims,
+with all sources also present in the main bibliography. It explicitly credits
+Giessen and collaborators for QtEnc discovery, targeting-peptide studies,
+reversible disassembly, RNA/protein co-packaging, pore engineering and delivery.
+Kwon et al.'s 2024 pore-engineering study is on MxEnc, not QtEnc; its correct DOI
+is `10.1021/acsnano.4c08186`. Kwon & Giessen's 2022 co-packaging paper is published
+in ACS Synthetic Biology (`10.1021/acssynbio.2c00391`), and Kwon et al.'s 2026
+delivery paper has a verified Nature Communications version
+(`10.1038/s41467-026-76849-x`). Siddiquee et al. is cited as the preprint version
+consulted. The former universal claims that encapsulins cannot load RNA and
+protein/RNA delivery requires separate carriers were corrected. Our planned
+selection is distinguished from demonstrated co-packaging in prior systems.
+
 ## Regenerating molecular renders
 
 The shared assets are committed in `docs/img/molecules/`:
