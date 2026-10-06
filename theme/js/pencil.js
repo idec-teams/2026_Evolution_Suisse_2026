@@ -210,7 +210,15 @@ export function grain(g, w, h, { alpha = 0.055, scale = 1 } = {}) {
   g.scale(scale, scale);
   g.fillStyle = pat;
   g.fillRect(0, 0, w / scale, h / scale);
+  const pat = g.createPattern(grainTile, 'repeat');
+  g.save();
+  g.globalAlpha = alpha;
+  g.globalCompositeOperation = 'source-atop';   // ← was 'multiply'
+  g.scale(scale, scale);
+  g.fillStyle = pat;
+  g.fillRect(0, 0, w / scale, h / scale);
   g.restore();
+}
 }
 
 /**
